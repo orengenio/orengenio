@@ -84,7 +84,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.98 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute left-0 top-[100%] w-[800px] rounded-3xl border border-foreground/10 bg-card p-8 shadow-2xl"
+                    className="absolute left-1/2 -translate-x-1/2 top-[100%] w-[90vw] max-w-5xl rounded-[3rem] border border-foreground/10 bg-background/95 backdrop-blur-3xl p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)]"
                   >
                     <div className="grid grid-cols-4 gap-8">
                       {megaMenuData.map((col, i) => (
