@@ -1,156 +1,135 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FloatingOrb } from "@/components/FloatingOrb";
-import { Users, Mic, Laptop, Target, Share2, Workflow } from "lucide-react";
+import { Mic, Laptop, Target, Share2, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  const products = [
+  const productRows = [
     {
       title: "OrenAgents",
-      subtitle: "The Autonomous Workforce",
-      description: "Deploy Buy-Lingual™ conversational AI for inbound/outbound calls, or hire autonomous multi-agent departments to handle sales, support, and operations.",
-      features: ["OrenAgents Voice", "OrenAgents Employees"],
-      icon: <Users className="h-8 w-8 text-burnt-orange" />,
-      colSpan: "md:col-span-2",
-      rowSpan: "md:row-span-2",
-      bgClass: "bg-gradient-to-br from-card to-burnt-orange/5",
-    },
-    {
-      title: "OrenNexus",
-      subtitle: "The Command Center",
-      description: "Stop managing three separate tools. OrenNexus unifies your entire client acquisition, CRM pipeline, and growth stack into one intelligent hub.",
-      features: ["Unified CRM", "Pipeline Automation"],
-      icon: <Target className="h-6 w-6 text-terracotta" />,
-      colSpan: "md:col-span-1",
-      rowSpan: "md:row-span-2",
-      bgClass: "bg-card",
+      tagline: "Autonomous Voice & Employees",
+      description: "Harness the power of Buy-Lingual™ conversational AI for inbound and outbound operations. From virtual receptionists to entire autonomous departments.",
+      icon: <Mic className="h-8 w-8 text-burnt-orange" />,
+      features: ["Real-time Latency (<500ms)", "Enterprise Knowledge Base", "Human-to-AI Handover"],
+      href: "/orenagents-voice"
     },
     {
       title: "OrenWeb",
-      subtitle: "The Digital Presence",
-      description: "Bespoke, high-performance web development and 'Talking Sites' integrated with conversational AI concierges.",
-      features: ["OrenWeb Design", "OrenWeb Talk"],
-      icon: <Laptop className="h-6 w-6 text-burnt-orange" />,
-      colSpan: "md:col-span-2",
-      rowSpan: "md:row-span-1",
-      bgClass: "bg-card",
+      tagline: "High-Performance Talking Sites",
+      description: "Beyond static design. We build 'Talking Sites' that engage visitors using conversational AI, converting traffic into booked appointments automatically.",
+      icon: <Laptop className="h-8 w-8 text-terracotta" />,
+      features: ["Next.js 15 Foundations", "Conversational UX", "Built-in Lead Capture"],
+      href: "/orenweb-talk"
     },
     {
-      title: "OrenSocial",
-      subtitle: "The Amplifier",
-      description: "AI-powered social media management and autonomous content scheduling.",
-      features: ["Content Scheduling", "Community Management"],
-      icon: <Share2 className="h-6 w-6 text-terracotta" />,
-      colSpan: "md:col-span-1",
-      rowSpan: "md:row-span-1",
-      bgClass: "bg-card",
-    },
+      title: "OrenNexus",
+      tagline: "Unified Growth Engine",
+      description: "The ultimate command center. We replace three separate logins with one unified CRM, pipeline manager, and multi-channel automation hub.",
+      icon: <Target className="h-8 w-8 text-burnt-orange" />,
+      features: ["Multi-Tenant CRM", "n8n Orchestration", "Usage-Based Billing"],
+      href: "/orennexus"
+    }
   ];
 
   return (
-    <main className="min-h-screen selection:bg-burnt-orange/30 selection:text-burnt-orange">
+    <main className="min-h-screen bg-background selection:bg-burnt-orange/30 selection:text-burnt-orange">
       <Navbar />
-      
-      {/* The "Claude" Minimalist Hero */}
       <Hero />
       <FloatingOrb />
 
-      {/* The "Google" Ecosystem Grid (Bento Box) */}
-      <section id="ecosystem" className="py-32 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="mb-20 text-center">
-            <h2 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              The Verified Ecosystem
-            </h2>
-            <p className="mx-auto max-w-2xl text-xl text-foreground/60">
-              A specialized suite of AI agents and infrastructure tools designed to bring your most complex ideas to life, autonomously.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:auto-rows-[minmax(250px,_auto)]">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className={`group relative overflow-hidden rounded-[2rem] border border-foreground/5 p-10 transition-all hover:border-burnt-orange/30 hover:shadow-2xl hover:shadow-burnt-orange/10 ${product.colSpan} ${product.rowSpan} ${product.bgClass}`}
-              >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-background/50 backdrop-blur-sm transition-transform group-hover:scale-110">
+      {/* Product Showcase (Google-style Utility Rows) */}
+      <section className="px-6 py-20 bg-background">
+        <div className="container mx-auto max-w-5xl space-y-32">
+          {productRows.map((product, index) => (
+            <div key={index} className="flex flex-col md:flex-row md:items-center gap-12 group">
+              <div className="flex-1 space-y-6">
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-[1.25rem] bg-foreground/5 transition-transform group-hover:scale-105">
                   {product.icon}
                 </div>
-                
-                <h3 className="mb-2 text-2xl font-bold tracking-tight text-foreground">
-                  {product.title}
-                </h3>
-                <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-burnt-orange">
-                  {product.subtitle}
-                </h4>
-                
-                <p className="mb-8 text-lg text-foreground/70 leading-relaxed">
+                <div>
+                  <h2 className="text-3xl font-black tracking-tighter text-foreground mb-1">
+                    {product.title}
+                  </h2>
+                  <p className="text-sm font-bold uppercase tracking-widest text-burnt-orange/60">
+                    {product.tagline}
+                  </p>
+                </div>
+                <p className="text-xl leading-relaxed text-foreground/50 max-w-lg">
                   {product.description}
                 </p>
-
-                <div className="mt-auto flex flex-wrap gap-2">
-                  {product.features.map((feature, fIndex) => (
-                    <span 
-                      key={fIndex} 
-                      className="inline-flex items-center rounded-full border border-foreground/10 bg-background/50 px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm"
-                    >
-                      {feature}
-                    </span>
+                <div className="flex flex-wrap gap-4">
+                  {product.features.map((f, i) => (
+                    <div key={i} className="flex items-center space-x-2 text-sm font-medium text-foreground/40">
+                      <div className="h-1 w-1 rounded-full bg-burnt-orange" />
+                      <span>{f}</span>
+                    </div>
                   ))}
                 </div>
-
-                {/* Subtle Background Icon */}
-                <div className="absolute -right-12 -bottom-12 opacity-5 transition-transform duration-700 group-hover:scale-125 group-hover:opacity-10">
-                  {product.icon}
-                </div>
+                <Link 
+                  href={product.href} 
+                  className="inline-flex items-center space-x-2 font-bold text-foreground group-hover:text-burnt-orange transition-colors pt-4"
+                >
+                  <span>Explore {product.title}</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
-            ))}
-          </div>
+              
+              {/* Abstract Visual Placeholder (Google-style Minimalist UI snippet) */}
+              <div className="flex-1 h-[400px] rounded-[2.5rem] bg-foreground/[0.02] border border-foreground/5 relative overflow-hidden">
+                <div className="absolute inset-x-8 inset-y-12 border border-foreground/10 rounded-2xl bg-card shadow-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-x-12 bottom-0 top-24 border border-foreground/10 rounded-t-2xl bg-background group-hover:translate-y-[-10px] transition-transform duration-700" />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* The "Show, Don't Tell" Demo Section (Vapi Placeholder) */}
-      <section className="border-t border-foreground/5 bg-foreground/[0.02] py-32 px-6">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="mb-12 inline-flex h-20 w-20 items-center justify-center rounded-full bg-burnt-orange/10">
-            <Mic className="h-10 w-10 text-burnt-orange" />
-          </div>
-          <h2 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl">
-            Experience OrenAgents Voice
+      {/* Voice Terminal Section */}
+      <section className="py-40 px-6 bg-foreground/[0.01]">
+        <div className="container mx-auto max-w-3xl text-center space-y-12">
+          <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-6xl">
+            Talk to OrenAgents.
           </h2>
-          <p className="mb-12 text-xl text-foreground/60">
-            Don't just read about Buy-Lingual™ conversational AI. Speak to it right now.
+          <p className="text-xl text-foreground/50">
+            Click the pulse to trigger our autonomous voice demonstration. 
+            Experience zero-latency intelligence.
           </p>
-          
-          {/* VAPI.AI INTEGRATION POINT */}
-          <div className="relative mx-auto flex max-w-md flex-col items-center justify-center rounded-3xl border border-foreground/10 bg-card p-12 shadow-xl">
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-b from-burnt-orange/5 to-transparent blur-xl" />
-            <button className="group flex h-24 w-24 items-center justify-center rounded-full bg-burnt-orange text-white shadow-lg shadow-burnt-orange/25 transition-all hover:scale-105 active:scale-95">
-              <Mic className="h-10 w-10 transition-transform group-hover:scale-110" />
+          <div className="relative mx-auto h-40 w-40 flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-burnt-orange/20 animate-ping" />
+            <button className="relative h-24 w-24 rounded-full bg-burnt-orange shadow-2xl shadow-burnt-orange/50 flex items-center justify-center text-white transition-transform hover:scale-110 active:scale-95">
+              <Mic className="h-10 w-10" />
             </button>
-            <p className="mt-6 font-medium text-foreground/60">Click to Call Agent</p>
-            <p className="mt-2 text-xs text-foreground/40">(Vapi.ai Integration Active)</p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-foreground/5 bg-background py-16 px-6">
-        <div className="container mx-auto max-w-6xl flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
-          <div className="flex items-center space-x-3 opacity-60 hover:opacity-100 transition-opacity">
-            <div className="h-6 w-6 rounded bg-burnt-orange" />
-            <span className="text-xl font-bold tracking-tight text-foreground">Oren<span className="text-burnt-orange">Gen</span></span>
+      {/* Clinical Footer */}
+      <footer className="border-t border-foreground/5 py-20 px-6">
+        <div className="container mx-auto max-w-7xl flex flex-col items-center justify-between gap-12 md:flex-row">
+          <div className="flex items-center space-x-3 grayscale opacity-30">
+            <div className="h-6 w-6 rounded bg-foreground" />
+            <span className="text-xl font-bold tracking-tight text-foreground uppercase tracking-widest">OrenGen</span>
           </div>
           
-          <div className="flex space-x-8 text-sm font-medium text-foreground/60">
-            <a href="/legal-disclaimers" className="hover:text-burnt-orange transition-colors">Legal Disclaimers</a>
-            <a href="/privacy-policy" className="hover:text-burnt-orange transition-colors">Privacy Policy</a>
-            <a href="/termsandconditions" className="hover:text-burnt-orange transition-colors">Terms & Conditions</a>
+          <div className="grid grid-cols-2 gap-12 sm:grid-cols-3">
+            <div className="space-y-4">
+              <h5 className="text-[10px] font-bold uppercase tracking-widest text-foreground/40">Platform</h5>
+              <div className="flex flex-col space-y-2 text-sm text-foreground/60">
+                <Link href="/orennexus" className="hover:text-burnt-orange transition-colors">Console</Link>
+                <Link href="/docs" className="hover:text-burnt-orange transition-colors">Documentation</Link>
+                <Link href="/pricing" className="hover:text-burnt-orange transition-colors">API Keys</Link>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h5 className="text-[10px] font-bold uppercase tracking-widest text-foreground/40">Company</h5>
+              <div className="flex flex-col space-y-2 text-sm text-foreground/60">
+                <Link href="/about" className="hover:text-burnt-orange transition-colors">Ecosystem</Link>
+                <Link href="/security-overview" className="hover:text-burnt-orange transition-colors">Security</Link>
+                <Link href="/legal-disclaimers" className="hover:text-burnt-orange transition-colors">Compliance</Link>
+              </div>
+            </div>
           </div>
-
-          <p className="text-sm text-foreground/40">
-            © 2026 OrenGen Worldwide LLC. All rights reserved.
-          </p>
         </div>
       </footer>
     </main>

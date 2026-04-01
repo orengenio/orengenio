@@ -1,97 +1,83 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, ArrowRight, Sparkles } from "lucide-react";
+import { Search, ArrowRight, Sparkles, Command } from "lucide-react";
 import { useState } from "react";
 
 export function Hero() {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-32">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-burnt-orange/10 via-background to-background" />
-
-      {/* Floating Sparkle Animation */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-        className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-terracotta/20 blur-[120px]"
-      />
-
-      <div className="container relative mx-auto max-w-5xl text-center">
-        {/* Badge */}
+    <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 overflow-hidden bg-background">
+      {/* The Central Command Bar (Google Search Mimicry) */}
+      <div className="container relative mx-auto max-w-3xl text-center">
+        {/* Subtle Brand Tag */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center rounded-full border border-burnt-orange/20 bg-burnt-orange/5 px-4 py-1.5 text-sm font-medium text-burnt-orange"
+          className="mb-8 flex items-center justify-center space-x-2 text-foreground/40"
         >
-          <Sparkles className="mr-2 h-4 w-4" />
-          <span>The Evolution of Intelligence</span>
+          <Command className="h-4 w-4" />
+          <span className="text-xs font-bold uppercase tracking-[0.2em]">OrenGen AI Core v4.0</span>
         </motion.div>
 
-        {/* Hero Title */}
+        {/* Main Title - Minimalist */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-6 text-5xl font-bold tracking-tight text-foreground sm:text-7xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="mb-12 text-4xl font-black tracking-tight text-foreground sm:text-6xl"
         >
-          Build Anything <br />
-          <span className="bg-gradient-to-r from-burnt-orange to-terracotta bg-clip-text text-transparent">
-            Intelligently.
-          </span>
+          Automate Everything.
         </motion.h1>
 
-        {/* Hero Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mx-auto mb-12 max-w-2xl text-lg text-foreground/60 sm:text-xl"
-        >
-          Enterprise AI, Cloud Infrastructure, and Workflow Automation in one unified, 
-          ultra-fast ecosystem. Evolved from the core of modern tech.
-        </motion.p>
-
-        {/* Master AI Search Bar */}
+        {/* The functional input bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="group relative mx-auto max-w-2xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="group relative"
         >
-          <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-burnt-orange/30 to-terracotta/30 blur opacity-75 transition duration-1000 group-hover:opacity-100" />
-          <div className="relative flex items-center rounded-2xl bg-card p-2 shadow-2xl">
-            <Search className="ml-4 h-5 w-5 text-foreground/40" />
+          <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-burnt-orange/20 to-terracotta/20 blur-xl opacity-0 transition-opacity duration-500 group-focus-within:opacity-100" />
+          <div className="relative flex items-center rounded-[2.5rem] border border-foreground/10 bg-card/50 p-2 backdrop-blur-3xl transition-all duration-300 group-focus-within:border-burnt-orange/50 group-focus-within:shadow-2xl group-focus-within:shadow-burnt-orange/5">
+            <Search className="ml-6 h-6 w-6 text-foreground/30 transition-colors group-focus-within:text-burnt-orange" />
             <input
               type="text"
-              placeholder="What are you building today?"
-              className="w-full bg-transparent px-4 py-4 text-lg text-foreground placeholder:text-foreground/30 focus:outline-none"
+              placeholder="What part of your business should we automate today?"
+              className="w-full bg-transparent px-6 py-6 text-xl text-foreground placeholder:text-foreground/20 focus:outline-none"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="flex h-12 w-12 items-center justify-center rounded-xl bg-burnt-orange text-white transition-transform active:scale-95">
-              <ArrowRight className="h-5 w-5" />
+            <button className="mr-2 flex h-14 w-14 items-center justify-center rounded-full bg-foreground text-background transition-all hover:bg-burnt-orange hover:text-white active:scale-95 shadow-xl">
+              <ArrowRight className="h-6 w-6" />
             </button>
           </div>
-          
-          {/* Quick Suggestions */}
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {["Deploy n8n", "Set up Supabase", "AI Chat Widget", "Oren Cloud Status"].map((text) => (
-              <button
-                key={text}
-                onClick={() => setInputValue(text)}
-                className="rounded-full bg-foreground/5 px-3 py-1 text-xs text-foreground/50 transition-colors hover:bg-foreground/10 hover:text-foreground"
-              >
-                {text}
-              </button>
-            ))}
-          </div>
         </motion.div>
+
+        {/* Quick Access "Apps" (Google Style) */}
+        <div className="mt-12 flex flex-wrap justify-center gap-4">
+          {[
+            { label: "Hire Voice Agent", icon: "Mic" },
+            { label: "Build Talking Site", icon: "Laptop" },
+            { label: "Setup CRM", icon: "Target" },
+            { label: "AI Social Manager", icon: "Share2" }
+          ].map((app, i) => (
+            <motion.button
+              key={app.label}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + (i * 0.1) }}
+              onClick={() => setInputValue(`How do I ${app.label.toLowerCase()}?`)}
+              className="flex items-center space-x-2 rounded-full border border-foreground/5 bg-foreground/[0.02] px-5 py-2.5 text-sm font-semibold text-foreground/50 transition-all hover:bg-foreground/5 hover:text-foreground hover:border-foreground/20 active:scale-95"
+            >
+              <span>{app.label}</span>
+            </motion.button>
+          ))}
+        </div>
       </div>
+      
+      {/* Background Utility Polish */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-foreground/5 to-transparent" />
     </section>
   );
 }
