@@ -1,7 +1,8 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FloatingOrb } from "@/components/FloatingOrb";
-import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity, Layers, MessageCircle, Share2, Globe } from "lucide-react";
+import { Footer } from "@/components/Footer";
+import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -97,61 +98,8 @@ export default function Home() {
     }
   ];
 
-  const socials = [
-    { 
-      label: "LinkedIn", 
-      href: "https://www.linkedin.com/company/orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-      )
-    },
-    { 
-      label: "Instagram", 
-      href: "https://www.instagram.com/orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-      )
-    },
-    { 
-      label: "Facebook", 
-      href: "https://www.facebook.com/orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      )
-    },
-    { 
-      label: "GitHub", 
-      href: "https://github.com/orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-      )
-    },
-    { 
-      label: "YouTube", 
-      href: "https://www.youtube.com/@orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 58.38 58.38 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 58.38 58.38 0 0 1-15 0 2 2 0 0 1-2-2z"/><path d="m10 15 5-3-5-3z"/></svg>
-      )
-    },
-    { 
-      label: "X", 
-      href: "https://x.com/orengenio",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-      )
-    }
-  ];
-
-  const trustLinks = [
-    { label: "Trustpilot", href: "https://www.trustpilot.com/review/orengen.io" },
-    { label: "Clutch", href: "https://clutch.co/profile/orengen-worldwide" },
-    { label: "G2", href: "https://www.g2.com/products/orengen/reviews" },
-    { label: "BBB", href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews" },
-    { label: "Product Hunt", href: "https://www.producthunt.com/products/orengen" }
-  ];
-
   return (
-    <main className="min-h-screen bg-background selection:bg-burnt-orange/30 selection:text-burnt-orange">
+    <main className="min-h-screen bg-background selection:bg-burnt-orange/30 selection:text-burnt-orange text-foreground">
       <Navbar />
       <Hero />
       <FloatingOrb />
@@ -222,70 +170,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Clinical Footer */}
-      <footer className="border-t border-foreground/5 py-24 px-6 bg-background">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 pb-16">
-            <div className="md:col-span-1 space-y-8">
-              <div className="flex items-center space-x-3">
-                <div className="h-6 w-6 rounded bg-burnt-orange" />
-                <span className="text-xl font-bold tracking-tight text-foreground uppercase tracking-[0.3em]">OrenGen</span>
-              </div>
-              <p className="text-sm text-foreground/40 leading-relaxed">
-                The evolution of intelligence. Enterprise AI, Cloud Infrastructure, and Autonomous Agents.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {socials.map((social, i) => (
-                  <a key={i} href={social.href} target="_blank" rel="noopener" className="text-foreground/30 hover:text-burnt-orange transition-colors" aria-label={social.label}>
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Platform</h5>
-              <div className="flex flex-col space-y-3 text-sm font-bold text-foreground/50">
-                <Link href="/orenagents-voice" className="hover:text-burnt-orange transition-colors">OrenAgents</Link>
-                <Link href="/orennexus" className="hover:text-burnt-orange transition-colors">OrenNexus</Link>
-                <Link href="/orenweb-talk" className="hover:text-burnt-orange transition-colors">OrenWeb</Link>
-                <Link href="/orensocial" className="hover:text-burnt-orange transition-colors">OrenSocial</Link>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Company</h5>
-              <div className="flex flex-col space-y-3 text-sm font-bold text-foreground/50">
-                <Link href="/about" className="hover:text-burnt-orange transition-colors">Ecosystem</Link>
-                <Link href="/security-overview" className="hover:text-burnt-orange transition-colors">Security</Link>
-                <Link href="/legal-disclaimers" className="hover:text-burnt-orange transition-colors">Compliance</Link>
-                <Link href="/privacy-policy" className="hover:text-burnt-orange transition-colors">Privacy Policy</Link>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Verified On</h5>
-              <div className="grid grid-cols-2 gap-3">
-                {trustLinks.map((link, i) => (
-                  <a key={i} href={link.href} target="_blank" rel="noopener" className="text-[10px] font-bold text-foreground/30 hover:text-burnt-orange transition-colors border border-foreground/5 rounded-lg px-3 py-2 text-center">
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.5em]">
-              © 2026 OrenGen Worldwide LLC.
-            </p>
-            <div className="flex space-x-8 text-[10px] font-bold text-foreground/20 uppercase tracking-widest">
-              <span>Built on Next.js 15</span>
-              <span>Cloud on Coolify</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

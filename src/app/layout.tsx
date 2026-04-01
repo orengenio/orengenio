@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "OrenGen | The Evolution of Intelligence",
-  description: "Enterprise AI, Cloud Infrastructure, and Intelligent Automation.",
+  description: "Autonomous AI Agents, Enterprise Infrastructure, and Intelligent Automation Systems.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +33,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
