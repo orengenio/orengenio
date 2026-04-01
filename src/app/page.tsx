@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FloatingOrb } from "@/components/FloatingOrb";
-import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity, Code2, Layers } from "lucide-react";
+import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity, Code2, Layers, Linkedin, Instagram, Facebook, Github, Youtube, Music2, Twitter } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -112,6 +112,24 @@ export default function Home() {
     }
   ];
 
+  const socials = [
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/orengenio", label: "LinkedIn" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/orengenio", label: "Instagram" },
+    { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/orengenio", label: "Facebook" },
+    { icon: <Github className="h-5 w-5" />, href: "https://github.com/orengenio", label: "GitHub" },
+    { icon: <Youtube className="h-5 w-5" />, href: "https://www.youtube.com/@orengenio", label: "YouTube" },
+    { icon: <Music2 className="h-5 w-5" />, href: "https://tiktok.com/@orengenio", label: "TikTok" },
+    { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/orengenio", label: "X" },
+  ];
+
+  const trustLinks = [
+    { label: "Trustpilot", href: "https://www.trustpilot.com/review/orengen.io" },
+    { label: "Clutch", href: "https://clutch.co/profile/orengen-worldwide" },
+    { label: "G2", href: "https://www.g2.com/products/orengen/reviews" },
+    { label: "BBB", href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews" },
+    { label: "Product Hunt", href: "https://www.producthunt.com/products/orengen" }
+  ];
+
   return (
     <main className="min-h-screen bg-background selection:bg-burnt-orange/30 selection:text-burnt-orange">
       <Navbar />
@@ -155,7 +173,6 @@ export default function Home() {
                 </Link>
               </div>
               
-              {/* Functional Visual Snippets */}
               <div className="flex-1 h-[450px] rounded-[3rem] bg-foreground/[0.02] border border-foreground/5 relative overflow-hidden shadow-inner group-hover:border-burnt-orange/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-br from-background to-transparent opacity-50" />
                 <div className="relative h-full transition-transform duration-1000 group-hover:scale-[1.02]">
@@ -187,35 +204,66 @@ export default function Home() {
 
       {/* Clinical Footer */}
       <footer className="border-t border-foreground/5 py-24 px-6 bg-background">
-        <div className="container mx-auto max-w-6xl flex flex-col items-center justify-between gap-16 md:flex-row">
-          <div className="flex items-center space-x-3 grayscale opacity-30">
-            <div className="h-6 w-6 rounded bg-foreground" />
-            <span className="text-xl font-bold tracking-tight text-foreground uppercase tracking-[0.3em]">OrenGen</span>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-16 sm:grid-cols-3">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 pb-16">
+            <div className="md:col-span-1 space-y-8">
+              <div className="flex items-center space-x-3">
+                <div className="h-6 w-6 rounded bg-burnt-orange" />
+                <span className="text-xl font-bold tracking-tight text-foreground uppercase tracking-[0.3em]">OrenGen</span>
+              </div>
+              <p className="text-sm text-foreground/40 leading-relaxed">
+                The evolution of intelligence. Enterprise AI, Cloud Infrastructure, and Autonomous Agents.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {socials.map((social, i) => (
+                  <a key={i} href={social.href} target="_blank" rel="noopener" className="text-foreground/30 hover:text-burnt-orange transition-colors" aria-label={social.label}>
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
             <div className="space-y-6">
               <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Platform</h5>
               <div className="flex flex-col space-y-3 text-sm font-bold text-foreground/50">
-                <Link href="/orennexus" className="hover:text-burnt-orange transition-colors">Console</Link>
-                <Link href="/docs" className="hover:text-burnt-orange transition-colors">Documentation</Link>
-                <Link href="/pricing" className="hover:text-burnt-orange transition-colors">API Keys</Link>
+                <Link href="/orenagents-voice" className="hover:text-burnt-orange transition-colors">OrenAgents</Link>
+                <Link href="/orennexus" className="hover:text-burnt-orange transition-colors">OrenNexus</Link>
+                <Link href="/orenweb-talk" className="hover:text-burnt-orange transition-colors">OrenWeb</Link>
+                <Link href="/orensocial" className="hover:text-burnt-orange transition-colors">OrenSocial</Link>
               </div>
             </div>
+
             <div className="space-y-6">
               <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Company</h5>
               <div className="flex flex-col space-y-3 text-sm font-bold text-foreground/50">
                 <Link href="/about" className="hover:text-burnt-orange transition-colors">Ecosystem</Link>
                 <Link href="/security-overview" className="hover:text-burnt-orange transition-colors">Security</Link>
                 <Link href="/legal-disclaimers" className="hover:text-burnt-orange transition-colors">Compliance</Link>
+                <Link href="/privacy-policy" className="hover:text-burnt-orange transition-colors">Privacy Policy</Link>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h5 className="text-[10px] font-black uppercase tracking-widest text-foreground/40">Verified On</h5>
+              <div className="grid grid-cols-2 gap-3">
+                {trustLinks.map((link, i) => (
+                  <a key={i} href={link.href} target="_blank" rel="noopener" className="text-[10px] font-bold text-foreground/30 hover:text-burnt-orange transition-colors border border-foreground/5 rounded-lg px-3 py-2 text-center">
+                    {link.label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-20 pt-8 border-t border-foreground/5 text-center">
-          <p className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.5em]">
-            © 2026 OrenGen Worldwide LLC.
-          </p>
+
+          <div className="pt-12 border-t border-foreground/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.5em]">
+              © 2026 OrenGen Worldwide LLC.
+            </p>
+            <div className="flex space-x-8 text-[10px] font-bold text-foreground/20 uppercase tracking-widest">
+              <span>Built on Next.js 15</span>
+              <span>Cloud on Coolify</span>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
