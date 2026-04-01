@@ -16,10 +16,10 @@
 }
 
 [data-theme='dark'] {
-  --background: #0F0F10; /* Deep Onyx instead of pitch black */
-  --foreground: #F5F5F7;
-  --card: #18181B;
-  --card-foreground: #F5F5F7;
+  --background: #1A1A1E; /* Softer Slate-Onyx */
+  --foreground: #F8F8F8;
+  --card: #242427;
+  --card-foreground: #F8F8F8;
 }
 
 @layer base {
