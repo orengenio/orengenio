@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { FloatingOrb } from "@/components/FloatingOrb";
-import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity, Layers, MessageCircle, Share2, Globe, Github, Youtube, Twitter } from "lucide-react";
+import { Mic, Laptop, Target, ArrowUpRight, CheckCircle2, Activity, Layers, MessageCircle, Share2, Globe, Youtube, Twitter } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
