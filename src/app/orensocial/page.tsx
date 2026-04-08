@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "OrenSocial — Social Media Management at Scale | OrenGen Worldwide",
   description: "OrenSocial manages your social media with AI-powered content, scheduling, and community management. Fully managed from $47/mo.",
 }
-};
-
 
 export default function Page() {
   return (

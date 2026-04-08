@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "AI-Communications Opt-In — OrenGen Worldwide",
   description: "Your express consent for automated and AI-powered communications across all channels.",
 }
-};
-
 
 export default function Page() {
   return (

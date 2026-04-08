@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Refund Policy — OrenGen Worldwide",
   description: "OrenGen Worldwide refund and cancellation policy for services and products.",
 }
-};
-
 
 export default function Page() {
   return (

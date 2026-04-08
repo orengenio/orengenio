@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Legal Disclaimers — OrenGen Worldwide",
   description: "Important disclosures regarding affiliate relationships, earnings claims, and financial products.",
 }
-};
-
 
 export default function Page() {
   return (

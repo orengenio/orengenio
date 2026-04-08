@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "OrenCustoms — Custom AI & Automation Solutions | OrenGen Worldwide",
   description: "OrenCustoms builds bespoke AI systems to your exact specifications. Custom AI solutions engineered from scratch for your unique business needs.",
 }
-};
-
 
 export default function Page() {
   return (

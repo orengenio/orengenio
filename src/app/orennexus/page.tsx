@@ -5,8 +5,6 @@ export const metadata: Metadata = {
   description:
     "OrenNexus is a unified CRM and automation hub. Every pipeline, contact, and workflow in one AI-powered command center. Starting at $97/mo.",
   alternates: { canonical: "https://orengen.io/orennexus" }
-};
-
 
 export default function Page() {
   return (
