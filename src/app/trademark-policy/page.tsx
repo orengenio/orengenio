@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Trademark Policy — OrenGen Worldwide",
   description: "OrenGen trademark usage guidelines and intellectual property protection.",
 }
+};
+
 
 export default function Page() {
   return (

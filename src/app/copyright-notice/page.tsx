@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Copyright Notice — OrenGen Worldwide",
   description: "Protecting intellectual property rights and DMCA compliance procedures.",
 }
+};
+
 
 export default function Page() {
   return (

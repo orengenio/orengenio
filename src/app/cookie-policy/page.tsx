@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Cookie Policy — OrenGen Worldwide",
   description: "How we use cookies and similar tracking technologies on our website and services.",
 }
+};
+
 
 export default function Page() {
   return (

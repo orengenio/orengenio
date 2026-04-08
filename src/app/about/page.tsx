@@ -53,6 +53,8 @@ const certs = [
   { label: "Minority Business Enterprise", detail: "Certified MBE" },
   { label: "BBB Rated", detail: "A− Rating" },
 ];
+};
+
 
 export default function AboutPage() {
   return (

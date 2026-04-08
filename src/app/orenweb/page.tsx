@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "OrenWeb — High-Performance Websites That Convert | OrenGen Worldwide",
   description: "OrenWeb builds high-converting websites engineered to rank, convert, and impress. Professional web design and development starting at $247/mo.",
 }
+};
+
 
 export default function Page() {
   return (

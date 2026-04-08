@@ -4,6 +4,8 @@ export const metadata: Metadata = {
   title: "Terms & Conditions — OrenGen Worldwide",
   description: "Terms and conditions governing your use of OrenGen Worldwide services.",
 }
+};
+
 
 export default function Page() {
   return (
