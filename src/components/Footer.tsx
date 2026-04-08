@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
         <div className="og-bottom-bar py-12 flex flex-col md:flex-row items-center justify-between gap-10 border-t border-black/5">
           <div className="text-[11px] font-bold uppercase tracking-wider text-black/50">© <span suppressHydrationWarning>{new Date().getFullYear()}</span> OrenGen Worldwide LLC. All rights reserved.</div>
           <div className="og-payment flex items-center gap-6">
-            <span className="text-[10px] font-black uppercase tracking-widest text-black/40 mr-2">Accepted Payment Methods</span>
+            <span className="text-[10px] mr-2"></span>
             <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="Payment Methods" className="h-6 w-auto grayscale brightness-0" />
           </div>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-widest text-black/50">
