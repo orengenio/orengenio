@@ -120,7 +120,7 @@ export function Navbar() {
         <nav className="oren-nav">
           <Link className="oren-logo" href="/">
             <img
-              src="https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-White-TP-scaled.png"
+              src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"
               alt="OrenGen Worldwide"
             />
           </Link>
