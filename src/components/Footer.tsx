@@ -12,7 +12,7 @@ const trustLinks = [
   { href: "https://www.g2.com/products/orengen/reviews", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Capterra-Reviews.png", label: "Capterra" },
 ];
 
-const footerColumns = [
+const footerColumns: Array<{ title: string; links: Array<{ name: string; href: string; external?: boolean }> }> = [
   {
     title: "Solutions",
     links: [
