@@ -1062,8 +1062,9 @@
 }
 
 .og-footer {
-  background: var(--og-bg-footer);
+  background: var(--og-bg-footer) !important;
   font-family: var(--og-font-body);
+  color: var(--og-text) !important;
 }
 
 .og-brand-section {
@@ -1097,6 +1098,7 @@
   letter-spacing: 4px;
   text-transform: uppercase;
   white-space: nowrap;
+  color: var(--og-text);
 }
 
 .og-social-link {
@@ -1108,6 +1110,7 @@
   border-radius: 8px;
   border: 1px solid var(--og-border);
   transition: all 0.2s ease;
+  background: transparent;
 }
 
 .og-social-link:hover {
