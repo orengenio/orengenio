@@ -13,7 +13,18 @@ const trustLinks = [
   { href: "https://www.g2.com/products/orengen/reviews", icon: "Capterra-Reviews.png", label: "Capterra" },
 ];
 
-const footerColumns = [
+type FooterLink = {
+  name: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Solutions",
     links: [
