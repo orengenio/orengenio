@@ -137,17 +137,6 @@ export function Footer() {
                     <Link 
                       href={link.href} 
                       className="text-[13px] font-bold text-black hover:text-[#CC5500] transition-colors"
-                      target={link.external ? "_blank" : undefined}
-                    >
-                      {link.name}
-                      {link.external && <span className="ml-1 text-[9px] opacity-30">↗</span>}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
 
         {/* Bottom Bar */}
         <div className="og-bottom-bar py-12 flex flex-col md:flex-row items-center justify-between gap-10 border-t border-black/5">
