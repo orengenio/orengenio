@@ -46,11 +46,13 @@ const footerColumns = [
   {
     title: "Productivity",
     links: [
-      { name: "Google Workspace", href: "https://workspace.google.com", external: true },
-      { name: "Eleven Labs", href: "https://elevenlabs.io", external: true },
-      { name: "Mercury Tech Banking", href: "https://mercury.com/r/orengen", external: true },
-      { name: "Nav Business Credit", href: "https://www.nav.com/", external: true },
+      { name: "Google Workspace", href: "https://referworkspace.app.goo.gl/iQuV", external: true },
       { name: "N8N Automation", href: "https://n8n.partnerlinks.io/orengenio", external: true },
+      { name: "Eleven Labs", href: "https://try.elevenlabs.io/orengenio", external: true },
+      { name: "Banking for Techies", href: "https://mercury.com/r/orengenworldwide", external: true },
+      { name: "Nav Business Credit", href: "https://nav.nkwcmr.net/c/6210768/1813107/2410", external: true },
+      { name: "Custom E-Signature", href: "https://www.customesignature.com/?via=orengenio", external: true },
+      { name: "Custom Affiliate Software", href: "https://www.partnero.com?aff=orengenio", external: true },
     ]
   },
   {
