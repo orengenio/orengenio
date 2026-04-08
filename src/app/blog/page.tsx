@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     url: "https://orengen.io/blog",
     title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
     description: "Executive-level analysis on fractional C-suite leadership, AI automation, government contracting, email deliverability, and CRM strategy.",
-    images: [{ url: "https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-Blk-TP.png", width: 1200, height: 630, alt: "OrenGen Insights" }],
+    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "OrenGen Insights" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
     description: "Executive-level analysis on fractional C-suite leadership, AI automation, government contracting, and email deliverability.",
-    images: ["https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-Blk-TP.png"],
+    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
     creator: "@orengenio",
   },
 }
@@ -51,15 +51,14 @@ const CATEGORY_CONFIG: Array<{
   accent: string
   icon: string
 }> = [
-  { name: "Fractional Leadership", accent: "#CC5500", icon: "👔" },
+  { name: "Fractional Leadership", accent: "var(--oren-orange)", icon: "👔" },
   { name: "AI Automation",         accent: "#3b6caa", icon: "🤖" },
-  { name: "CRM & Sales",           accent: "#CC5500", icon: "📈" },
+  { name: "CRM & Sales",           accent: "var(--oren-orange)", icon: "📈" },
   { name: "Email & Deliverability", accent: "#0e7490", icon: "📨" },
   { name: "Web & Design",          accent: "#5b4fcf", icon: "🌐" },
   { name: "Government Contracting", accent: "#374151", icon: "🏛️" },
   { name: "Business Strategy",     accent: "#16a34a", icon: "♟️" },
 ]
-};
 
 export default function BlogPage() {
   // Featured = most recent Fractional Leadership article, or first post overall
@@ -74,7 +73,7 @@ export default function BlogPage() {
     ),
   })).filter((s) => s.articles.length > 0)
 
-  const featuredAccent = "#CC5500"
+  const featuredAccent = "var(--oren-orange)"
 
   return (
     <main style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", background: "#fff" }}>
@@ -82,7 +81,7 @@ export default function BlogPage() {
 
       {/* ── HERO ── */}
       <section style={{
-        background: "linear-gradient(160deg, #050505 0%, #0d0808 60%, #1a0a00 100%)",
+        background: "linear-gradient(160deg, var(--background) 0%, #0d0808 60%, #1a0a00 100%)",
         padding: "clamp(120px,16vw,180px) 24px clamp(60px,8vw,100px)",
         position: "relative",
         overflow: "hidden",
@@ -107,8 +106,8 @@ export default function BlogPage() {
             background: "rgba(204,85,0,0.12)", border: "1px solid rgba(204,85,0,0.3)",
             borderRadius: 9999, padding: "7px 18px", marginBottom: 28,
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} aria-hidden />
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", color: "#CC5500" }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--oren-orange)", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} aria-hidden />
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--oren-orange)" }}>
               OrenGen Insights
             </span>
           </div>
@@ -122,7 +121,7 @@ export default function BlogPage() {
             Executive Intelligence.
             <br />
             <span style={{
-              background: "linear-gradient(135deg, #CC5500 0%, #FF7A00 50%, #FF9A3C 100%)",
+              background: "linear-gradient(135deg, var(--oren-orange) 0%, #FF7A00 50%, #FF9A3C 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>
               Built to Scale.
@@ -162,7 +161,7 @@ export default function BlogPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{
-              background: "#CC5500", color: "#fff",
+              background: "var(--oren-orange)", color: "#fff",
               fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase",
               borderRadius: 9999, padding: "5px 14px",
             }}>
@@ -188,7 +187,7 @@ export default function BlogPage() {
                   display: "inline-block",
                   background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.2)",
                   borderRadius: 9999, padding: "5px 14px", marginBottom: 20,
-                  fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#CC5500",
+                  fontSize: 11, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--oren-orange)",
                 }}>
                   {featured.category}
                 </span>
@@ -206,7 +205,7 @@ export default function BlogPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
                   <span style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
-                    background: "#CC5500", color: "#fff",
+                    background: "var(--oren-orange)", color: "#fff",
                     fontWeight: 700, fontSize: 14, padding: "12px 28px", borderRadius: 9999,
                     boxShadow: "0 4px 20px rgba(204,85,0,0.3)",
                   }}>
@@ -371,7 +370,7 @@ export default function BlogPage() {
       </section>
 
       {/* ── NEWSLETTER SIGNUP ── */}
-      <section style={{ background: "#050505", padding: "80px 24px" }}>
+      <section style={{ background: "var(--background)", padding: "80px 24px" }}>
         <div style={{
           maxWidth: 720, margin: "0 auto",
           background: "linear-gradient(135deg, rgba(204,85,0,0.2) 0%, rgba(5,5,5,0.6) 60%)",
@@ -382,7 +381,7 @@ export default function BlogPage() {
           <span style={{
             display: "inline-block",
             border: "1px solid rgba(204,85,0,0.4)", background: "rgba(204,85,0,0.1)",
-            color: "#CC5500", fontSize: 11, fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase",
+            color: "var(--oren-orange)", fontSize: 11, fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase",
             borderRadius: 9999, padding: "6px 16px", marginBottom: 24,
           }}>
             Stay Sharp
@@ -395,7 +394,7 @@ export default function BlogPage() {
           }}>
             The executive edge,
             <br />
-            <span style={{ color: "#CC5500" }}>delivered weekly.</span>
+            <span style={{ color: "var(--oren-orange)" }}>delivered weekly.</span>
           </h2>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, maxWidth: 480, margin: "0 auto 36px", lineHeight: 1.65 }}>
             Fractional leadership strategy, AI automation frameworks, and government contracting intelligence — from the OrenGen team to your inbox.
@@ -413,7 +412,7 @@ export default function BlogPage() {
               aria-label="Email address"
             />
             <button type="button" style={{
-              background: "#CC5500", color: "#fff",
+              background: "var(--oren-orange)", color: "#fff",
               fontWeight: 700, fontSize: 14, padding: "13px 24px",
               borderRadius: 12, border: "none", cursor: "pointer",
               whiteSpace: "nowrap",

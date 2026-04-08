@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "OrenGen Worldwide LLC is a certified minority-owned AI automation company based in Texas. SAM.gov registered. Serving businesses nationwide.",
-    images: [{ url: "https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-Blk-TP.png", width: 1200, height: 630, alt: "About OrenGen Worldwide" }],
+    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "About OrenGen Worldwide" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "Founded in 2025 in Mansfield, TX. OrenGen Worldwide builds enterprise-grade AI automation infrastructure for organizations ready to eliminate manual operations.",
-    images: ["https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-Blk-TP.png"],
+    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
   },
 };
 
@@ -53,7 +53,6 @@ const certs = [
   { label: "Minority Business Enterprise", detail: "Certified MBE" },
   { label: "BBB Rated", detail: "A− Rating" },
 ];
-};
 
 export default function AboutPage() {
   return (
@@ -64,7 +63,7 @@ export default function AboutPage() {
         <div
           aria-hidden
           className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, #CC5500 0%, transparent 70%)", filter: "blur(90px)" }}
+          style={{ background: "radial-gradient(circle, var(--oren-orange) 0%, transparent 70%)", filter: "blur(90px)" }}
         />
         <div
           aria-hidden
@@ -87,7 +86,7 @@ export default function AboutPage() {
 
       {/* ── COMPANY STORY ── */}
       <section className="py-20 px-6 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#CC5500]/20 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[var(--oren-orange)]/20 to-transparent" />
         <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-3">Our Story</p>
@@ -116,7 +115,7 @@ export default function AboutPage() {
             ].map(({ stat, label }) => (
               <div
                 key={label}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 text-center hover:border-[#CC5500]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 text-center hover:border-[var(--oren-orange)]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
                 <p
                   className="text-4xl font-extrabold text-burnt-orange mb-2"
@@ -134,7 +133,7 @@ export default function AboutPage() {
       {/* ── MISSION & VISION ── */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-[#111] border border-white/10 rounded-2xl p-10 hover:border-[#CC5500]/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <div className="bg-[#111] border border-white/10 rounded-2xl p-10 hover:border-[var(--oren-orange)]/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="w-10 h-10 rounded-lg bg-burnt-orange/15 flex items-center justify-center mb-6">
               <svg className="w-5 h-5 text-burnt-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -174,7 +173,7 @@ export default function AboutPage() {
 
       {/* ── WHY ORENGEN ── */}
       <section className="py-20 px-6 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#CC5500]/15 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[var(--oren-orange)]/15 to-transparent" />
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-14">
             <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-3">Why OrenGen</p>
@@ -189,7 +188,7 @@ export default function AboutPage() {
             {differentiators.map((d, i) => (
               <div
                 key={d.title}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-7 hover:border-[#CC5500]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
+                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-7 hover:border-[var(--oren-orange)]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-8 h-8 rounded-md bg-burnt-orange/15 flex items-center justify-center mb-4">
                   <span className="text-burnt-orange text-sm font-bold">{String(i + 1).padStart(2, "0")}</span>
@@ -226,7 +225,7 @@ export default function AboutPage() {
             {certs.map((c) => (
               <div
                 key={c.label}
-                className="bg-[#111] border border-white/10 rounded-2xl px-6 py-4 hover:border-[#CC5500]/40 hover:-translate-y-0.5 transition-all duration-300 text-center"
+                className="bg-[#111] border border-white/10 rounded-2xl px-6 py-4 hover:border-[var(--oren-orange)]/40 hover:-translate-y-0.5 transition-all duration-300 text-center"
               >
                 <p
                   className="text-white font-semibold text-sm"
@@ -246,7 +245,7 @@ export default function AboutPage() {
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-10"
-          style={{ background: "radial-gradient(ellipse at 50% 100%, #CC5500 0%, transparent 60%)" }}
+          style={{ background: "radial-gradient(ellipse at 50% 100%, var(--oren-orange) 0%, transparent 60%)" }}
         />
         <div className="relative z-10 mx-auto max-w-2xl">
           <h2

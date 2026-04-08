@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: "https://orengen.io/orenagents",
     title: "OrenAgents — Buy-Lingual™ AI Voice Agents | OrenGen",
     description: "AI employees in English + Spanish. Never sleep. Never quit. Starting at $1,497/mo.",
-    images: [{ url: "https://blog.orengen.io/wp-content/uploads/2026/03/OrenGen-Logo-Banner-BO-and-Blk-TP.png", width: 1200, height: 630, alt: "OrenAgents Buy-Lingual AI Voice Agents" }],
+    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "OrenAgents Buy-Lingual AI Voice Agents" }],
   },
 }
 
@@ -143,15 +143,14 @@ const faqs = [
   { q: "What languages are supported?", a: "Every plan includes English + Spanish via Buy-Lingual™. Additional languages (Portuguese, French, Mandarin, and more) are available on the AI Workforce Enterprise plan — contact us to discuss." },
   { q: "Is there a long-term contract?", a: "Monthly plans have no long-term commitment — cancel anytime. Annual plans are monthly × 10 (Save 17%). We're confident you'll stay because the results speak for themselves." },
 ]
-};
 
 export default function OrenAgentsPage() {
   return (
-    <main style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", background: "#050505", color: "#fff" }}>
+    <main style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", background: "var(--background)", color: "#fff" }}>
 
       {/* ═══ HERO ═══ */}
       <section style={{
-        background: "linear-gradient(160deg, #020d1a 0%, #050505 60%)",
+        background: "linear-gradient(160deg, #020d1a 0%, var(--background) 60%)",
         padding: "clamp(100px,14vw,160px) 24px clamp(60px,10vw,100px)",
         position: "relative", overflow: "hidden", textAlign: "center",
       }}>
@@ -179,7 +178,7 @@ export default function OrenAgentsPage() {
               display: "inline-flex", alignItems: "center", gap: 6,
               background: "rgba(204,85,0,0.15)", border: "1px solid rgba(204,85,0,0.4)",
               borderRadius: 9999, padding: "7px 18px",
-              fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#CC5500",
+              fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--oren-orange)",
             }}>
               Buy-Lingual™ Powered
             </span>
@@ -193,7 +192,7 @@ export default function OrenAgentsPage() {
           }}>
             AI Employees That Never Sleep,<br />
             <span style={{
-              background: "linear-gradient(135deg, #4da6ff 0%, #003366 50%, #CC5500 100%)",
+              background: "linear-gradient(135deg, #4da6ff 0%, #003366 50%, var(--oren-orange) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
             }}>
               Never Quit,
@@ -211,7 +210,7 @@ export default function OrenAgentsPage() {
               target="_blank" rel="noopener noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
-                background: "#CC5500", color: "#fff",
+                background: "var(--oren-orange)", color: "#fff",
                 fontWeight: 700, fontSize: 16, padding: "16px 36px", borderRadius: 9999,
                 textDecoration: "none",
                 boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
@@ -293,7 +292,7 @@ export default function OrenAgentsPage() {
 
       {/* ═══ Buy-Lingual™ SECTION ═══ */}
       <section style={{
-        background: "linear-gradient(160deg, #0a0505 0%, #150800 50%, #050505 100%)",
+        background: "linear-gradient(160deg, #0a0505 0%, #150800 50%, var(--background) 100%)",
         padding: "100px 24px",
         position: "relative", overflow: "hidden",
         borderTop: "1px solid rgba(204,85,0,0.15)",
@@ -316,7 +315,7 @@ export default function OrenAgentsPage() {
                 fontFamily: "var(--font-league-spartan), sans-serif",
                 fontSize: "clamp(48px,7vw,110px)", fontWeight: 900,
                 letterSpacing: "-0.03em", lineHeight: 0.88,
-                color: "#CC5500",
+                color: "var(--oren-orange)",
                 marginBottom: 8,
                 wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%",
               }}>
@@ -337,7 +336,7 @@ export default function OrenAgentsPage() {
                 background: "rgba(204,85,0,0.15)", border: "1px solid rgba(204,85,0,0.4)",
                 borderRadius: 9999, padding: "8px 20px",
                 fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase",
-                color: "#CC5500",
+                color: "var(--oren-orange)",
               }}>
                 Proprietary Technology
               </div>
@@ -382,7 +381,7 @@ export default function OrenAgentsPage() {
 
               <div style={{ marginTop: 40, padding: "20px 24px", background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.25)", borderRadius: 14 }}>
                 <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                  <strong style={{ color: "#CC5500" }}>Why it matters:</strong> 42+ million Spanish speakers in the US. Every missed Spanish-language call is revenue walking out the door. Buy-Lingual™ closes that gap — automatically, every time.
+                  <strong style={{ color: "var(--oren-orange)" }}>Why it matters:</strong> 42+ million Spanish speakers in the US. Every missed Spanish-language call is revenue walking out the door. Buy-Lingual™ closes that gap — automatically, every time.
                 </p>
               </div>
             </div>
@@ -399,7 +398,7 @@ export default function OrenAgentsPage() {
           {/* AI Employees */}
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{
-              display: "inline-block", background: "#CC5500", color: "#fff",
+              display: "inline-block", background: "var(--oren-orange)", color: "#fff",
               fontSize: 11, fontWeight: 700, letterSpacing: "0.32em",
               textTransform: "uppercase", borderRadius: 9999, padding: "6px 16px", marginBottom: 20,
             }}>
@@ -453,14 +452,14 @@ export default function OrenAgentsPage() {
                   <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 12, marginTop: 4 }}>
                     Or ${(tier.price * 10).toLocaleString()}/yr (Save 17%)
                   </div>
-                  <div style={{ color: "#CC5500", fontSize: 11, fontWeight: 700, marginTop: 6 }}>
+                  <div style={{ color: "var(--oren-orange)", fontSize: 11, fontWeight: 700, marginTop: 6 }}>
                     + ${tier.setup.toLocaleString()} one-time setup
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10, marginBottom: 28, flex: 1 }}>
                   {tier.features.map(f => (
                     <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, color: "rgba(255,255,255,0.65)" }}>
-                      <span style={{ color: tier.highlight ? "#4da6ff" : "#CC5500", flexShrink: 0, fontWeight: 700, marginTop: 1 }}>✓</span>
+                      <span style={{ color: tier.highlight ? "#4da6ff" : "var(--oren-orange)", flexShrink: 0, fontWeight: 700, marginTop: 1 }}>✓</span>
                       {f}
                     </li>
                   ))}
@@ -487,7 +486,7 @@ export default function OrenAgentsPage() {
           {/* AI Voice */}
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <span style={{
-              display: "inline-block", background: "rgba(204,85,0,0.15)", border: "1px solid rgba(204,85,0,0.4)", color: "#CC5500",
+              display: "inline-block", background: "rgba(204,85,0,0.15)", border: "1px solid rgba(204,85,0,0.4)", color: "var(--oren-orange)",
               fontSize: 11, fontWeight: 700, letterSpacing: "0.32em",
               textTransform: "uppercase", borderRadius: 9999, padding: "6px 16px", marginBottom: 20,
             }}>
@@ -510,7 +509,7 @@ export default function OrenAgentsPage() {
               <div key={tier.name} style={{
                 background: tier.highlight ? "rgba(204,85,0,0.12)" : "rgba(255,255,255,0.03)",
                 border: tier.highlight ? "2px solid rgba(204,85,0,0.5)" : "1px solid rgba(255,255,255,0.08)",
-                borderTop: `4px solid ${tier.highlight ? "#CC5500" : "rgba(255,255,255,0.1)"}`,
+                borderTop: `4px solid ${tier.highlight ? "var(--oren-orange)" : "rgba(255,255,255,0.1)"}`,
                 borderRadius: 20, padding: "36px 30px",
                 display: "flex", flexDirection: "column",
                 boxShadow: tier.highlight ? "0 0 60px rgba(204,85,0,0.2)" : "none",
@@ -519,21 +518,21 @@ export default function OrenAgentsPage() {
                 {tier.highlight && (
                   <div style={{
                     position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)",
-                    background: "#CC5500", color: "#fff",
+                    background: "var(--oren-orange)", color: "#fff",
                     fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase",
                     borderRadius: 9999, padding: "5px 16px", whiteSpace: "nowrap",
                   }}>
                     Most Popular
                   </div>
                 )}
-                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: tier.highlight ? "#CC5500" : "rgba(255,255,255,0.4)", marginBottom: 8 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: tier.highlight ? "var(--oren-orange)" : "rgba(255,255,255,0.4)", marginBottom: 8 }}>
                   {tier.name}
                 </div>
                 <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginBottom: 16 }}>{tier.label}</div>
                 <div style={{ marginBottom: 24 }}>
                   <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 11, textDecoration: "line-through", marginBottom: 4 }}>Was {tier.was}</div>
                   <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
-                    <span style={{ fontFamily: "var(--font-league-spartan), sans-serif", fontSize: 44, fontWeight: 800, color: tier.highlight ? "#CC5500" : "#fff", lineHeight: 1 }}>
+                    <span style={{ fontFamily: "var(--font-league-spartan), sans-serif", fontSize: 44, fontWeight: 800, color: tier.highlight ? "var(--oren-orange)" : "#fff", lineHeight: 1 }}>
                       ${tier.price.toLocaleString()}
                     </span>
                     <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 14, paddingBottom: 7 }}>/mo</span>
@@ -541,14 +540,14 @@ export default function OrenAgentsPage() {
                   <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 12, marginTop: 4 }}>
                     Or ${(tier.price * 10).toLocaleString()}/yr (Save 17%)
                   </div>
-                  <div style={{ color: "#CC5500", fontSize: 11, fontWeight: 700, marginTop: 6 }}>
+                  <div style={{ color: "var(--oren-orange)", fontSize: 11, fontWeight: 700, marginTop: 6 }}>
                     + ${tier.setup.toLocaleString()} one-time setup
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10, marginBottom: 28, flex: 1 }}>
                   {tier.features.map(f => (
                     <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, color: "rgba(255,255,255,0.65)" }}>
-                      <span style={{ color: tier.highlight ? "#CC5500" : "#4da6ff", flexShrink: 0, fontWeight: 700, marginTop: 1 }}>✓</span>
+                      <span style={{ color: tier.highlight ? "var(--oren-orange)" : "#4da6ff", flexShrink: 0, fontWeight: 700, marginTop: 1 }}>✓</span>
                       {f}
                     </li>
                   ))}
@@ -561,8 +560,8 @@ export default function OrenAgentsPage() {
                     padding: "14px 0", borderRadius: 12,
                     fontSize: 14, fontWeight: 700, textDecoration: "none",
                     transition: "all 0.18s",
-                    background: tier.highlight ? "#CC5500" : "transparent",
-                    color: tier.highlight ? "#fff" : "#CC5500",
+                    background: tier.highlight ? "var(--oren-orange)" : "transparent",
+                    color: tier.highlight ? "#fff" : "var(--oren-orange)",
                     border: tier.highlight ? "none" : "1.5px solid rgba(204,85,0,0.4)",
                   }}
                 >
@@ -575,12 +574,12 @@ export default function OrenAgentsPage() {
       </section>
 
       {/* ═══ FAQ ═══ */}
-      <section style={{ background: "#050505", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section style={{ background: "var(--background)", padding: "100px 24px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <span style={{
               display: "inline-block", background: "rgba(204,85,0,0.1)", border: "1px solid rgba(204,85,0,0.3)",
-              color: "#CC5500", fontSize: 11, fontWeight: 700, letterSpacing: "0.32em",
+              color: "var(--oren-orange)", fontSize: 11, fontWeight: 700, letterSpacing: "0.32em",
               textTransform: "uppercase", borderRadius: 9999, padding: "6px 16px", marginBottom: 20,
             }}>
               FAQ
@@ -606,7 +605,7 @@ export default function OrenAgentsPage() {
                   fontWeight: 600, fontSize: 16, color: "#fff",
                 }}>
                   {faq.q}
-                  <span style={{ color: "#CC5500", fontSize: 22, fontWeight: 300, lineHeight: 1, flexShrink: 0 }}>+</span>
+                  <span style={{ color: "var(--oren-orange)", fontSize: 22, fontWeight: 300, lineHeight: 1, flexShrink: 0 }}>+</span>
                 </summary>
                 <p style={{
                   padding: "0 24px 22px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 16,
@@ -621,7 +620,7 @@ export default function OrenAgentsPage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section style={{ background: "#050505", padding: "80px 24px 100px" }}>
+      <section style={{ background: "var(--background)", padding: "80px 24px 100px" }}>
         <div style={{
           maxWidth: 900, margin: "0 auto",
           background: "linear-gradient(135deg, rgba(0,51,102,0.4) 0%, rgba(5,5,5,0.8) 50%, rgba(204,85,0,0.15) 100%)",
@@ -651,7 +650,7 @@ export default function OrenAgentsPage() {
               target="_blank" rel="noopener noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
-                background: "#CC5500", color: "#fff",
+                background: "var(--oren-orange)", color: "#fff",
                 fontWeight: 700, fontSize: 16, padding: "16px 40px", borderRadius: 9999,
                 textDecoration: "none",
                 boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
