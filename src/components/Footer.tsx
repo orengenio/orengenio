@@ -4,12 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 
 const trustLinks = [
-  { href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews", icon: "https://blog.orengen.io/wp-content/uploads/2026/02/Better-Business-Bureau-Reviews.png", label: "BBB" },
+  { href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Better-Business-Bureau-Reviews.png", label: "BBB" },
   { href: "https://g.page/r/CcTOiNDyo03PEBM/review", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980242c66e7ca8c84cce4b8.svg", label: "Google" },
   { href: "https://www.trustpilot.com/review/orengen.io", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980251966e7ca0123cd2a56.svg", label: "Trustpilot" },
   { href: "https://clutch.co/profile/orengen-worldwide", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/69802a6a1fd8278b3c8c75e6.svg", label: "Clutch" },
   { href: "https://www.g2.com/products/orengen/reviews", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/698026301311f6be3e8f43f1.svg", label: "G2" },
-  { href: "https://www.g2.com/products/orengen/reviews", icon: "https://blog.orengen.io/wp-content/uploads/2026/02/Capterra-Reviews.png", label: "Capterra" },
+  { href: "https://www.g2.com/products/orengen/reviews", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Capterra-Reviews.png", label: "Capterra" },
 ];
 
 const footerColumns = [
@@ -96,7 +96,7 @@ export function Footer() {
               src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/U95jP6KTuXOCdXDuQM1UmUfgzMcecV7mpVpQgMxI.png" 
               alt="OrenGen Worldwide" 
               className="og-footer-logo" 
-              width="400" 
+              width="380" 
             />
           </Link>
 
@@ -162,10 +162,13 @@ export function Footer() {
             />
           </div>
 
-          <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-black/50">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-widest text-black/50">
             <Link href="/privacy-policy" className="hover:text-[#CC5500] transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-[#CC5500] transition-colors">Terms</Link>
             <Link href="/cookie-policy" className="hover:text-[#CC5500] transition-colors">Cookies</Link>
+            <Link href="/ai-communications-opt-in" className="hover:text-[#CC5500] transition-colors">AI Opt-In</Link>
+            <Link href="/sitemap.xml" className="hover:text-[#CC5500] transition-colors">Sitemap</Link>
+            <Link href="https://status.orengen.io" className="hover:text-[#CC5500] transition-colors" target="_blank">Site Status</Link>
           </div>
         </div>
       </div>
