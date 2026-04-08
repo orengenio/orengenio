@@ -12,7 +12,23 @@ const trustLinks = [
   { href: "https://www.g2.com/products/orengen/reviews", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Capterra-Reviews.png", label: "Capterra" },
 ];
 
-const footerColumns: Array<{ title: string; links: Array<{ name: string; href: string; external?: boolean }> }> = [
+type InternalLink = { name: string; href: string };
+// ⚠️ AFFILIATE LINKS — external: true is REQUIRED. Never remove it or replace tracking URLs with plain URLs.
+type AffiliateLink = { name: string; href: string; external: true };
+
+// ⚠️ AFFILIATE LINKS — do NOT replace these hrefs with plain domain URLs.
+// These are tracked affiliate/referral URLs that generate revenue. Replacing them breaks tracking.
+const affiliateLinks: AffiliateLink[] = [
+  { name: "Google Workspace",        href: "https://referworkspace.app.goo.gl/iQuV",              external: true },
+  { name: "N8N Automation",          href: "https://n8n.partnerlinks.io/orengenio",                external: true },
+  { name: "Eleven Labs",             href: "https://try.elevenlabs.io/orengenio",                  external: true },
+  { name: "Banking for Techies",     href: "https://mercury.com/r/orengenworldwide",               external: true },
+  { name: "Nav Business Credit",     href: "https://nav.nkwcmr.net/c/6210768/1813107/2410",        external: true },
+  { name: "Custom E-Signature",      href: "https://www.customesignature.com/?via=orengenio",      external: true },
+  { name: "Custom Affiliate Software", href: "https://www.partnero.com?aff=orengenio",             external: true },
+];
+
+const footerColumns: Array<{ title: string; links: Array<InternalLink | AffiliateLink> }> = [
   {
     title: "Solutions",
     links: [
@@ -45,15 +61,7 @@ const footerColumns: Array<{ title: string; links: Array<{ name: string; href: s
   },
   {
     title: "Productivity",
-    links: [
-      { name: "Google Workspace", href: "https://referworkspace.app.goo.gl/iQuV", external: true },
-      { name: "N8N Automation", href: "https://n8n.partnerlinks.io/orengenio", external: true },
-      { name: "Eleven Labs", href: "https://try.elevenlabs.io/orengenio", external: true },
-      { name: "Banking for Techies", href: "https://mercury.com/r/orengenworldwide", external: true },
-      { name: "Nav Business Credit", href: "https://nav.nkwcmr.net/c/6210768/1813107/2410", external: true },
-      { name: "Custom E-Signature", href: "https://www.customesignature.com/?via=orengenio", external: true },
-      { name: "Custom Affiliate Software", href: "https://www.partnero.com?aff=orengenio", external: true },
-    ]
+    links: affiliateLinks,
   },
   {
     title: "Legal",
