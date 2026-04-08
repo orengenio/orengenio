@@ -4,7 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { TechBar } from "@/components/TechBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   title: "OrenGen | The Evolution of Intelligence",
   description: "Autonomous AI Agents, Enterprise Infrastructure, and Intelligent Automation Systems.",
   icons: {
-    icon: "/favicon.png",
+    icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png",
   },
 };
 
@@ -42,7 +41,6 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
-          <TechBar />
           <Footer />
         </ThemeProvider>
       </body>
