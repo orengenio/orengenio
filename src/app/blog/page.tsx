@@ -59,6 +59,7 @@ const CATEGORY_CONFIG: Array<{
   { name: "Government Contracting", accent: "#374151", icon: "🏛️" },
   { name: "Business Strategy",     accent: "#16a34a", icon: "♟️" },
 ]
+};
 
 export default function BlogPage() {
   // Featured = most recent Fractional Leadership article, or first post overall

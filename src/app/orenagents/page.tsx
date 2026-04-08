@@ -143,6 +143,7 @@ const faqs = [
   { q: "What languages are supported?", a: "Every plan includes English + Spanish via Buy-Lingual™. Additional languages (Portuguese, French, Mandarin, and more) are available on the AI Workforce Enterprise plan — contact us to discuss." },
   { q: "Is there a long-term contract?", a: "Monthly plans have no long-term commitment — cancel anytime. Annual plans are monthly × 10 (Save 17%). We're confident you'll stay because the results speak for themselves." },
 ]
+};
 
 export default function OrenAgentsPage() {
   return (

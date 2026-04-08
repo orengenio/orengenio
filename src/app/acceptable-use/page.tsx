@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Acceptable Use Policy — OrenGen Worldwide",
   description: "Guidelines for responsible and lawful use of OrenGen's services and platforms.",
-}
+};
 
 export default function Page() {
   return (

@@ -95,6 +95,7 @@ export const metadata: Metadata = {
   other: {
     "script:ld+json": JSON.stringify(faqSchema),
   },
+};
 
 export default function FaqsPage() {
   return (

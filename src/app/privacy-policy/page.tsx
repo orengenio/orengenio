@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy — OrenGen Worldwide",
   description: "How OrenGen Worldwide collects, uses, and protects your personal information.",
-}
+};
 
 export default function Page() {
   return (

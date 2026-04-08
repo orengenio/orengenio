@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Security Overview — OrenGen Worldwide",
   description: "How OrenGen protects your data with enterprise-grade security standards.",
-}
+};
 
 export default function Page() {
   return (

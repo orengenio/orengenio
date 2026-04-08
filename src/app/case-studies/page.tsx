@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Case Studies | OrenGen Worldwide",
   description: "Case studies coming soon.",
+};
 
 export default function CaseStudiesPage() {
   return (
