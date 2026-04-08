@@ -134,7 +134,7 @@ export function Comparison() {
               <div className="ogS3-mcell !bg-burnt-orange/5 border-x-2 !border-x-burnt-orange/30">
                 <div className="flex flex-col gap-1 text-left w-full">
                   <div className="text-[10px] uppercase tracking-widest text-white/50 font-bold">Recommended</div>
-                  <div className="text-xl font-black text-burnt-orange">OrenGen + Buy-Lingual™</div>
+                  <div className="text-lg md:text-xl font-black text-burnt-orange whitespace-nowrap">OrenGen + Buy-Lingual™</div>
                   <div className="text-xs text-white/50 font-normal">Unified AI operating system.</div>
                 </div>
               </div>
