@@ -178,6 +178,28 @@ export function Hero() {
 
         <div className="og-hero-fade" />
       </section>
+
+      {/* TECH PARTNERS BAR - RESTORED */}
+      <section className="og-partners" aria-label="Technology Partners">
+        <div className="og-partners-label">Powered by World-Class Technology</div>
+        <div className="og-partners-wrapper">
+          <motion.div 
+            animate={{ x: [0, "-50%"] }}
+            transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
+            className="og-partners-track"
+          >
+            {/* Duplicated for seamless loop */}
+            {[...partners, ...partners].map((partner, i) => (
+              <div key={i} className="og-partner-set">
+                <div className="og-partner-item" data-brand={partner.brand}>
+                  <img src={partner.logo} alt={partner.name} width="20" height="20" loading="lazy" />
+                  <span>{partner.name}</span>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 }

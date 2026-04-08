@@ -1155,55 +1155,74 @@
 }
 
 /* ═══════════════════════════════════════
-   FOOTER SECTION (INVERTED - LIGHT THEME)
+   FOOTER SECTION (RESTORED & BRANDED)
    ═══════════════════════════════════════ */
 .og-footer {
-  background: #FFFFFF !important; /* Force white background */
+  background: #FFFFFF !important;
   font-family: var(--og-font-body);
-  color: var(--oren-deep) !important; /* Dark blue text */
-  border-top: 1px solid rgba(11, 29, 58, 0.08);
+  color: #000000 !important; /* Pure black text */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .og-trust-bar {
   background: #F8FAFE !important;
-  border-bottom: 1px solid rgba(11, 29, 58, 0.05);
-  padding: 32px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 40px 40px;
 }
 
 .og-trust-label {
-  color: var(--oren-sub) !important;
+  color: #000000 !important;
+  opacity: 0.6;
 }
 
 .og-brand-section {
-  padding: 56px 0 48px;
-  border-bottom: 1px solid rgba(11, 29, 58, 0.06);
+  padding: 64px 0 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .og-footer-logo {
-  filter: none !important; /* Ensure logo is visible on white */
-  max-width: 320px;
+  max-width: 380px;
   height: auto;
 }
 
-.og-tagline-box {
-  background: #FFFFFF !important;
-  border-color: rgba(11, 29, 58, 0.1) !important;
+/* Restored "Fire" Tagline Styling */
+.og-tagline-box.ignited {
+  position: relative;
+  background: #000000;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(204, 85, 0, 0.3);
+  overflow: hidden;
+}
+.og-tagline-box.ignited::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(204, 85, 0, 0.2), transparent);
+  animation: fuse-burn 2s linear infinite;
+}
+
+@keyframes fuse-burn {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .og-tagline {
-  color: var(--oren-deep) !important;
+  color: #FFFFFF !important;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 4px;
 }
 
 .og-col-title {
-  color: var(--oren-deep) !important;
+  color: #000000 !important;
   border-bottom: 2px solid var(--oren-orange);
 }
 
 .og-col-links a {
-  color: rgba(11, 29, 58, 0.7) !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+  font-weight: 500;
 }
 
 .og-col-links a:hover {
@@ -1211,15 +1230,15 @@
 }
 
 .og-bottom-bar {
-  background: #F8FAFE;
-  padding: 24px 40px;
-  color: rgba(11, 29, 58, 0.5) !important;
+  background: #FFFFFF;
+  padding: 32px 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .og-payment img {
-  filter: none !important;
+  height: 24px;
+  width: auto;
   opacity: 1 !important;
-  height: 32px;
 }
 
 .og-social-link {
