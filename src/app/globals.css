@@ -192,8 +192,19 @@
   border-radius:var(--oren-radius-panel);
   box-shadow:var(--oren-shadow-lg);
   padding:18px;
-  z-index: 1000;
+  z-index:1000;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
 }
+.oren-item:hover .oren-mega{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+.oren-item:hover .oren-caret{transform:rotate(180deg)}
 
 .oren-mega-grid{
   display:grid;
@@ -296,12 +307,22 @@
    MOBILE PANEL
    ═══════════════════════════════════════════════ */
 .oren-mobile-panel{
+  display:none;
   position:fixed;
   top:calc(var(--nav-top) + var(--nav-height) + 10px);
   left:50%;
   transform:translateX(-50%);
   width:min(1240px,calc(100% - 32px));
   z-index:99998;
+}
+.oren-mobile-panel.show{
+  display:block;
+  animation:panelSlideIn .25s ease-out both;
+}
+
+@keyframes panelSlideIn{
+  from{opacity:0;transform:translateX(-50%) translateY(-8px)}
+  to{opacity:1;transform:translateX(-50%) translateY(0)}
 }
 
 .oren-mobile-card{
@@ -362,6 +383,7 @@
   display:inline-block;
   transition:transform 0.3s ease;
 }
+.oren-mobile-trigger-caret.flipped{transform:rotate(180deg)}
 
 /* ─── ACCORDION ─── */
 .oren-accordion-panel{
@@ -1001,6 +1023,284 @@
   .ogS3-bars{grid-template-columns:1fr}
   .ogS3-mrow{grid-template-columns:1.3fr 1fr .8fr .8fr}
   .ogS3-stats{gap:20px;flex-wrap:wrap}
+}
+
+/* ═══════════════════════════════════════
+   AGENTS SHOWCASE
+   ═══════════════════════════════════════ */
+.ogAg{
+  position:relative;
+  padding:100px 24px 110px;
+  background:linear-gradient(170deg,#081628 0%,#0B1D3A 40%,#0F2847 70%,#0D2240 100%);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  isolation:isolate;
+}
+
+.ogAg-grain{
+  position:absolute;inset:0;z-index:0;
+  opacity:0.10;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:128px 128px;
+}
+
+.ogAg-amb{
+  position:absolute;border-radius:50%;
+  filter:blur(140px);pointer-events:none;z-index:0;
+}
+.ogAg-amb-1{
+  width:700px;height:700px;
+  top:-15%;right:-8%;
+  background:radial-gradient(circle,rgba(204,85,0,0.12) 0%,transparent 70%);
+}
+.ogAg-amb-2{
+  width:500px;height:500px;
+  bottom:-12%;left:-6%;
+  background:radial-gradient(circle,rgba(30,77,140,0.18) 0%,transparent 70%);
+}
+
+.ogAg-wrap{
+  position:relative;z-index:2;
+  max-width:1140px;margin:0 auto;
+}
+
+/* ── Header ── */
+.ogAg-head{
+  text-align:center;
+  max-width:780px;
+  margin:0 auto 64px;
+}
+
+.ogAg-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 20px;border-radius:999px;
+  background:rgba(204,85,0,0.08);
+  border:1px solid rgba(204,85,0,0.18);
+  font-size:12px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(210,225,245,0.7);
+  margin-bottom:28px;
+}
+.ogAg-eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#CC5500;
+  box-shadow:0 0 8px rgba(204,85,0,0.6);
+}
+
+.ogAg-title{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:clamp(34px,6vw,64px);
+  line-height:1.06;
+  letter-spacing:-0.03em;
+  color:#F0F4FA;
+  margin-bottom:24px;
+}
+.ogAg-title .accent{
+  color:#CC5500;
+  position:relative;
+}
+
+.ogAg-sub{
+  font-size:clamp(15px,2vw,19px);
+  line-height:1.7;
+  color:rgba(210,225,245,0.5);
+  max-width:620px;
+  margin:0 auto;
+  font-weight:300;
+}
+
+/* ── Card Grid ── */
+.ogAg-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  margin-bottom:56px;
+}
+
+.ogAg-card{
+  position:relative;
+  border-radius:22px;
+  background:rgba(11,29,58,0.6);
+  border:1px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+  transition:transform 0.35s ease,box-shadow 0.35s ease,border-color 0.35s ease;
+}
+.ogAg-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,0.35),0 0 30px rgba(204,85,0,0.08);
+  border-color:rgba(204,85,0,0.25);
+}
+
+.ogAg-card-glow{
+  height:3px;
+  width:100%;
+  opacity:0.8;
+}
+
+.ogAg-card-inner{
+  padding:36px 32px 32px;
+}
+
+/* ── Card Top Row ── */
+.ogAg-card-top{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.ogAg-card-icon{
+  width:48px;height:48px;
+  border-radius:14px;
+  background:rgba(204,85,0,0.1);
+  border:1px solid rgba(204,85,0,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+
+.ogAg-card-badge{
+  display:inline-flex;align-items:center;
+  padding:5px 14px;
+  border-radius:999px;
+  background:rgba(204,85,0,0.12);
+  border:1px solid rgba(204,85,0,0.2);
+  font-size:10px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:#CC5500;
+}
+
+/* ── Card Content ── */
+.ogAg-card-name{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:26px;
+  color:#F0F4FA;
+  line-height:1.2;
+  margin-bottom:6px;
+}
+
+.ogAg-card-tagline{
+  font-size:15px;
+  font-weight:500;
+  color:rgba(210,225,245,0.65);
+  margin-bottom:16px;
+}
+
+.ogAg-card-desc{
+  font-size:14px;
+  line-height:1.65;
+  color:rgba(210,225,245,0.42);
+  margin-bottom:24px;
+  font-weight:300;
+}
+
+/* ── Capabilities List ── */
+.ogAg-card-caps{
+  list-style:none;
+  padding:0;
+  margin:0 0 28px;
+  display:grid;
+  gap:10px;
+}
+.ogAg-card-caps li{
+  display:flex;align-items:center;gap:10px;
+  font-size:13.5px;
+  font-weight:500;
+  color:rgba(240,244,250,0.75);
+  line-height:1.4;
+}
+
+.ogAg-cap-check{
+  width:22px;height:22px;
+  border-radius:6px;
+  background:rgba(204,85,0,0.1);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-size:10px;font-weight:700;
+  color:#CC5500;
+}
+
+/* ── Stat Pill ── */
+.ogAg-card-stat{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:12px 20px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.ogAg-stat-val{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:22px;
+  color:#CC5500;
+  line-height:1;
+}
+
+.ogAg-stat-label{
+  font-size:12px;
+  font-weight:400;
+  color:rgba(210,225,245,0.4);
+  letter-spacing:0.02em;
+}
+
+/* ── CTA Row ── */
+.ogAg-cta-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.ogAg-cta-primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;
+  padding:0 36px;
+  border-radius:999px;
+  background:var(--oren-orange);
+  color:#fff;
+  font-size:14px;font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(204,85,0,0.3);
+  transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s ease;
+}
+.ogAg-cta-primary:hover{
+  transform:translateY(-2px);
+  background:var(--oren-terra);
+  box-shadow:0 12px 36px rgba(204,85,0,0.45);
+}
+
+.ogAg-cta-ghost{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;
+  padding:0 28px;
+  border-radius:999px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.1);
+  color:rgba(240,244,250,0.7);
+  font-size:14px;font-weight:600;
+  text-decoration:none;
+  transition:color 0.2s,border-color 0.2s,background 0.2s;
+}
+.ogAg-cta-ghost:hover{
+  color:#fff;
+  border-color:rgba(204,85,0,0.4);
+  background:rgba(204,85,0,0.06);
+}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .ogAg{padding:72px 20px 80px}
+  .ogAg-grid{grid-template-columns:1fr;gap:20px}
+  .ogAg-head{margin-bottom:48px}
+}
+@media(max-width:640px){
+  .ogAg{padding:56px 16px 64px}
+  .ogAg-card-inner{padding:28px 22px 24px}
+  .ogAg-card-name{font-size:22px}
+  .ogAg-cta-row{flex-direction:column;gap:12px}
+  .ogAg-cta-primary,.ogAg-cta-ghost{width:100%;justify-content:center}
 }
 
 /* ═══════════════════════════════════════
