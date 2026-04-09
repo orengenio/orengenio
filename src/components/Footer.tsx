@@ -173,7 +173,7 @@ export const Footer: React.FC = () => {
             <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }} target="_blank" rel="noopener noreferrer">Site Status</a>
           </div>
           <div className="shrink-0 ml-auto">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-8 w-auto" />
+            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-12 w-auto" />
           </div>
         </div>
 
