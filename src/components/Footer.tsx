@@ -67,19 +67,31 @@ const footerColumns: FooterColumn[] = [
   { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }] }
 ];
 
+const bottomLinks = [
+  { path: '/privacy-policy', label: 'Privacy Policy' },
+  { path: '/terms', label: 'Terms' },
+  { path: '/cookie-policy', label: 'Cookie Policy' },
+  { path: '/ai-communications-opt-in', label: 'AI Communications Opt In' },
+  { path: '/sitemap.xml', label: 'Sitemap' },
+];
+
 export const Footer: React.FC = () => {
   return (
-    <footer className="og-footer bg-white text-black" aria-label="OrenGen Worldwide Footer">
-      {/* ─── TRUST BAR — Brand blue background ─── */}
-      <section className="og-trust-bar py-8 border-b border-white/10 bg-[#0B1D3A]">
-        <div className="max-w-[1280px] mx-auto text-center">
-          <div className="og-trust-label mb-6 text-[11px] font-black tracking-[4px] uppercase text-white/50">
-            <span aria-hidden="true">★★★★★</span> REAL CLIENTS. REAL RESULTS. LEAVE YOUR REVIEW. <span aria-hidden="true">★★★★★</span>
+    <footer className="og-footer bg-white" style={{ fontFamily: "'Roboto', sans-serif" }} aria-label="OrenGen Worldwide Footer">
+
+      {/* ─── TRUST BAR — Brand 4-stop gradient background ─── */}
+      <section
+        className="py-6 border-b border-white/10"
+        style={{ background: 'linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)' }}
+      >
+        <div className="max-w-[1280px] mx-auto text-center px-6">
+          <div className="mb-4 text-[12px] font-bold tracking-[3px] uppercase text-white/40">
+            ★★★★★ REAL CLIENTS. REAL RESULTS. LEAVE YOUR REVIEW. ★★★★★
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-6">
             {trustLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="og-trust-item transition-all hover:scale-110 hover:brightness-125" aria-label={`Review us on ${link.label}`}>
-                <img src={link.icon} alt={link.label} className="h-6 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" />
+              <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="transition-all hover:scale-110" aria-label={`Review us on ${link.label}`}>
+                <img src={link.icon} alt={link.label} className="h-5 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
               </a>
             ))}
           </div>
@@ -87,106 +99,59 @@ export const Footer: React.FC = () => {
       </section>
 
       <div className="max-w-[1280px] mx-auto px-6">
-        {/* ─── BRAND SECTION — Logo + Tagline + Socials ─── */}
-        <div className="og-brand-section flex flex-col items-center py-12">
+
+        {/* ─── BRAND SECTION — Logo + Fire Tagline + Socials ─── */}
+        <div className="flex flex-col items-center pt-8 pb-6">
           <Link href="/">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/U95jP6KTuXOCdXDuQM1UmUfgzMcecV7mpVpQgMxI.png" alt="OrenGen Worldwide" className="og-footer-logo" width="380" />
+            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/U95jP6KTuXOCdXDuQM1UmUfgzMcecV7mpVpQgMxI.png" alt="OrenGen Worldwide" width="380" />
           </Link>
 
-          {/* Fuse ignition tagline — brought closer, fire border active */}
-          <div className="og-fuse-container mt-6 relative">
+          {/* Mission Impossible fire border tagline */}
+          <div className="mt-4 relative">
             <style>{`
-              @property --fire-angle {
-                syntax: '<angle>';
-                initial-value: 0deg;
-                inherits: false;
-              }
-              .og-fuse-fire {
-                position: relative;
-                display: inline-block;
-                padding: 10px 28px;
-                border-radius: 8px;
-                background: white;
-              }
-              .og-fuse-fire::before {
-                content: '';
-                position: absolute;
-                inset: -2px;
-                border-radius: 10px;
-                padding: 2px;
-                background: conic-gradient(
-                  from var(--fire-angle, 0deg),
-                  #FF6A00 0%, #FFD700 10%, #FF4500 20%, #CC5500 30%,
-                  rgba(204, 85, 0, 0.3) 50%, transparent 60%, transparent 80%,
-                  rgba(204, 85, 0, 0.3) 90%, #FF6A00 100%
-                );
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask-composite: exclude;
-                animation: fireSpin 3s linear infinite;
-              }
-              @keyframes fireSpin {
-                0% { --fire-angle: 0deg; }
-                100% { --fire-angle: 360deg; }
-              }
+              @property --fire-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+              .og-fire-ring { position: relative; display: inline-block; padding: 8px 24px; border-radius: 8px; background: #fff; box-shadow: 0 0 12px rgba(255,106,0,0.15), 0 0 24px rgba(204,85,0,0.08); }
+              .og-fire-ring::before { content: ''; position: absolute; inset: -2px; border-radius: 10px; padding: 2px; background: conic-gradient(from var(--fire-angle,0deg), #FF6A00 0%, #FFD700 10%, #FF4500 20%, #CC5500 30%, rgba(204,85,0,0.3) 50%, transparent 60%, transparent 80%, rgba(204,85,0,0.3) 90%, #FF6A00 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: ogFireSpin 3s linear infinite; }
+              @keyframes ogFireSpin { 0% { --fire-angle: 0deg; } 100% { --fire-angle: 360deg; } }
               @supports not (background: conic-gradient(from var(--fire-angle), red, blue)) {
-                .og-fuse-fire::before {
-                  background: linear-gradient(90deg, #FF6A00, #FFD700, #FF4500, #CC5500, #FF6A00);
-                  background-size: 300% 100%;
-                  animation: fireFallback 2s linear infinite;
-                }
-                @keyframes fireFallback {
-                  0% { background-position: 0% 50%; }
-                  100% { background-position: 300% 50%; }
-                }
-              }
-              .og-fuse-fire {
-                box-shadow: 0 0 15px rgba(255, 106, 0, 0.2), 0 0 30px rgba(204, 85, 0, 0.1);
+                .og-fire-ring::before { background: linear-gradient(90deg, #FF6A00, #FFD700, #FF4500, #CC5500, #FF6A00); background-size: 300% 100%; animation: ogFireFB 2s linear infinite; }
+                @keyframes ogFireFB { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
               }
             `}</style>
-            <div className="og-fuse-fire">
-              <div className="text-[11px] font-black tracking-[4px] uppercase whitespace-nowrap">
-                <span className="text-[#CC5500]">ONLINE EVERYWHERE</span>
-                <span className="text-black/30 mx-2">|</span>
-                <span className="text-black">ORENGENIO</span>
+            <div className="og-fire-ring">
+              <div className="text-[12px] font-bold tracking-[3px] uppercase whitespace-nowrap" style={{ fontFamily: "'Roboto', sans-serif" }}>
+                <span style={{ color: '#CC5500' }}>ONLINE EVERYWHERE</span>
+                <span className="mx-2" style={{ color: 'rgba(0,0,0,0.25)' }}>|</span>
+                <span style={{ color: '#000' }}>ORENGENIO</span>
               </div>
             </div>
           </div>
 
-          {/* Social icons — inline SVGs, correct URLs, tightened spacing */}
-          <div className="flex gap-2 mt-6">
+          {/* Social icons — inline SVGs */}
+          <div className="flex gap-1.5 mt-4">
             {socialLinks.map((social) => (
-              <a
-                key={social.id}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-black/10 hover:border-[#CC5500] hover:bg-[#CC5500]/5 transition-all"
-                aria-label={social.label}
-              >
-                <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-black/60 hover:fill-[#CC5500] transition-colors" dangerouslySetInnerHTML={{ __html: social.svg }} />
+              <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 flex items-center justify-center rounded-lg border border-black/8 hover:border-[#CC5500] hover:bg-[#CC5500]/5 transition-all" aria-label={social.label}>
+                <svg viewBox="0 0 24 24" className="w-4 h-4" style={{ fill: 'rgba(0,0,0,0.5)' }} dangerouslySetInnerHTML={{ __html: social.svg }} />
               </a>
             ))}
           </div>
         </div>
 
-        {/* ─── LINK COLUMNS — Tightened by 1/4 inch (gap-3) ─── */}
-        <div className="og-columns-grid py-12 grid grid-cols-2 md:grid-cols-5 gap-3 border-t border-black/5">
+        {/* ─── LINK COLUMNS — Uniform 12px Roboto, tight spacing ─── */}
+        <div className="py-6 grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-6 border-t border-black/5">
           {footerColumns.map((col) => (
-            <div key={col.title} className="og-col">
-              <h4 className="og-col-title text-[11px] font-black uppercase tracking-widest mb-5 inline-block pb-1 border-b-2 border-[#CC5500]">{col.title}</h4>
-              <ul className="flex flex-col gap-3">
+            <div key={col.title}>
+              <h4 className="text-[12px] font-bold uppercase tracking-[2px] mb-3 inline-block pb-0.5 border-b-2 border-[#CC5500]" style={{ fontFamily: "'Roboto', sans-serif", color: '#000' }}>{col.title}</h4>
+              <ul className="flex flex-col gap-1.5">
                 {col.links.map((link) => {
                   const isExternal = 'external' in link && link.external;
-                  const linkClass = "text-[13px] font-medium text-black hover:text-[#CC5500] transition-colors";
+                  const cls = "text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors";
                   return (
                     <li key={link.name}>
                       {isExternal ? (
-                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                          {link.name} <span className="text-[10px] text-black/30">&#8599;</span>
-                        </a>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={cls} style={{ fontFamily: "'Roboto', sans-serif" }}>{link.name} <span className="text-[9px] text-black/25">&#8599;</span></a>
                       ) : (
-                        <Link href={link.href} className={linkClass}>{link.name}</Link>
+                        <Link href={link.href} className={cls} style={{ fontFamily: "'Roboto', sans-serif" }}>{link.name}</Link>
                       )}
                     </li>
                   );
@@ -196,26 +161,22 @@ export const Footer: React.FC = () => {
           ))}
         </div>
 
-        {/* ─── BOTTOM BAR — All black text, correct fonts ─── */}
-        <div className="og-bottom-bar py-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-black/5">
-          <div className="text-[11px] font-medium text-black/70">
+        {/* ─── BOTTOM BAR — All black, same font, payment seal pinned right ─── */}
+        <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-black/5">
+          <div className="text-[12px] font-normal text-black/80 shrink-0" style={{ fontFamily: "'Roboto', sans-serif" }}>
             &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="https://orengen.io" className="hover:text-[#CC5500] transition-colors">OrenGen Worldwide LLC</a>. All rights reserved.
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-            {[
-              { path: '/privacy-policy', label: 'Privacy' },
-              { path: '/terms', label: 'Terms' },
-              { path: '/ai-communications-opt-in', label: 'AI Opt-In' },
-              { path: '/sitemap.xml', label: 'Sitemap' },
-            ].map(({ path, label }) => (
-              <Link key={path} href={path} className="text-[11px] font-medium text-black/70 hover:text-[#CC5500] transition-colors">{label}</Link>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+            {bottomLinks.map(({ path, label }) => (
+              <Link key={path} href={path} className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }}>{label}</Link>
             ))}
-            <a href="https://orengen-status-page.instatus.com" className="text-[11px] font-medium text-black/70 hover:text-[#CC5500] transition-colors" target="_blank" rel="noopener noreferrer">Site Status</a>
+            <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }} target="_blank" rel="noopener noreferrer">Site Status</a>
           </div>
-          </div>
-          <div className="og-payment flex items-center">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-6 w-auto" />
+          <div className="shrink-0 ml-auto">
+            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-8 w-auto" />
           </div>
         </div>
+
       </div>
     </footer>
   );
