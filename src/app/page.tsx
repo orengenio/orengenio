@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Comparison } from "@/components/Comparison";
+import { AgentsShowcase } from "@/components/AgentsShowcase";
 import { Pricing } from "@/components/Pricing";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Hero />
       <Comparison />
+      <AgentsShowcase />
       <Pricing />
     </main>
   );
