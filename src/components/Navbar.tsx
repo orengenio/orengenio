@@ -72,7 +72,8 @@ export function Navbar() {
   return (
     <>
       <style jsx>{`
-        :global(:root){--oren-deep:#0B1D3A;--oren-rich:#0F2847;--oren-edge:#081628;--oren-close:#0D2240;--oren-orange:#CC5500;--oren-terra:#E2725B;--oren-white:#F0F4FA;--oren-sub:rgba(210,225,245,.6);--oren-glass:rgba(11,29,58,.94);--oren-line:rgba(204,85,0,.16);--oren-line-subtle:rgba(255,255,255,.06);--oren-shadow:0 12px 40px rgba(0,0,0,.32);--oren-shadow-lg:0 20px 50px rgba(0,0,0,.4);--oren-radius:999px;--oren-radius-panel:22px;--nav-height:72px;--nav-top:16px}
+        :global(:root){--oren-deep:#0B1D3A;--oren-rich:#0F2847;--oren-edge:#081628;--oren-close:#0D2240;--oren-orange:#CC5500;--oren-terra:#E2725B;--oren-white:#F0F4FA;--oren-sub:rgba(210,225,245,.6);--oren-glass:rgba(11,29,58,.96);--oren-line:rgba(204,85,0,.16);--oren-line-subtle:rgba(255,255,255,.06);--oren-shadow:0 12px 40px rgba(0,0,0,.32);--oren-shadow-lg:0 20px 50px rgba(0,0,0,.4);--oren-radius:999px;--oren-radius-panel:22px;--nav-height:72px;--nav-top:16px}
+
         .oren-nav-shell{position:fixed;top:var(--nav-top);left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));z-index:99999}
         .oren-nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;height:var(--nav-height);padding:0 18px 0 22px;background:var(--oren-glass);backdrop-filter:blur(20px);border:1px solid var(--oren-line);border-radius:var(--oren-radius);box-shadow:var(--oren-shadow)}
         .oren-logo img{display:block;height:42px;width:auto}
@@ -86,6 +87,8 @@ export function Navbar() {
         .oren-cta{text-decoration:none;color:#fff!important;background:var(--oren-orange);min-height:44px;padding:0 24px;border-radius:var(--oren-radius);display:inline-flex;align-items:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;box-shadow:0 6px 18px rgba(204,85,0,.25);transition:transform .2s,box-shadow .2s,background .2s}
         .oren-cta:hover{transform:translateY(-1px);background:var(--oren-terra);box-shadow:0 8px 26px rgba(204,85,0,.35)}
         .oren-item{position:relative}
+
+        /* ─── MEGA MENU (desktop) ─── */
         .oren-mega{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(6px);width:min(1040px,calc(100vw - 40px));background:rgba(8,22,40,.97);border:1px solid var(--oren-line);border-radius:var(--oren-radius-panel);box-shadow:var(--oren-shadow-lg);padding:18px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s}
         .oren-item:hover .oren-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
         .oren-mega-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
@@ -96,24 +99,133 @@ export function Navbar() {
         .oren-badge.core{background:rgba(255,255,255,.06)}.oren-badge.addon{background:rgba(204,85,0,.14);color:var(--oren-orange)}
         .oren-menu-link{display:block;text-decoration:none;padding:10px 12px;border-radius:12px;border:1px solid transparent;transition:background .2s,border-color .2s}.oren-menu-link:hover{background:rgba(255,255,255,.04);border-color:var(--oren-line-subtle)}.oren-menu-link+.oren-menu-link{margin-top:4px}
         .oren-menu-name{display:block;color:#fff;font-size:14px;font-weight:600;line-height:1.3;margin-bottom:3px}.oren-menu-desc{display:block;color:var(--oren-sub);font-size:12px;line-height:1.45}
-        .oren-mobile-btn{display:none;border:none;background:rgba(255,255,255,.06);color:#fff;width:42px;height:42px;border-radius:var(--oren-radius);align-items:center;justify-content:center;cursor:pointer;font-size:18px}
+
+        /* ─── MOBILE HAMBURGER BUTTON ─── */
+        .oren-mobile-btn{display:none;border:none;background:rgba(255,255,255,.12);color:#fff;width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;cursor:pointer;font-size:20px;font-weight:700;transition:background .2s}
+        .oren-mobile-btn:hover{background:rgba(255,255,255,.18)}
+
+        /* ─── MOBILE PANEL ─── */
         .oren-mobile-panel{display:none;position:fixed;top:calc(var(--nav-top) + var(--nav-height) + 10px);left:50%;transform:translateX(-50%);width:min(1240px,calc(100% - 32px));z-index:99998}
         .oren-mobile-panel.show{display:block;animation:panelSlideIn .25s ease-out both}
-        .oren-mobile-card{background:var(--oren-glass);backdrop-filter:blur(24px);border:1px solid var(--oren-line);border-radius:var(--oren-radius-panel);box-shadow:var(--oren-shadow-lg);padding:8px;overflow-y:auto;max-height:calc(100vh - var(--nav-top) - var(--nav-height) - 28px)}
-        .oren-mobile-link,.oren-mobile-trigger{color:var(--oren-white);text-decoration:none;font-size:16px;display:flex;align-items:center;height:50px;padding:0 18px;border-radius:14px}
-        .oren-mobile-link{font-weight:600}.oren-mobile-trigger{border:none;background:transparent;color:var(--oren-orange);font-weight:700;gap:8px;width:100%;cursor:pointer}
+
+        .oren-mobile-card{
+          background:rgba(8,22,40,.98);
+          backdrop-filter:blur(24px);
+          border:1px solid var(--oren-line);
+          border-radius:var(--oren-radius-panel);
+          box-shadow:var(--oren-shadow-lg);
+          padding:8px;
+          overflow-y:auto;
+          max-height:calc(100vh - var(--nav-top) - var(--nav-height) - 28px)
+        }
+
+        /* Mobile links — BRIGHT WHITE, large touch targets */
+        .oren-mobile-link{
+          color:#FFFFFF;
+          text-decoration:none;
+          font-size:17px;
+          font-weight:600;
+          display:flex;
+          align-items:center;
+          height:52px;
+          padding:0 18px;
+          border-radius:14px;
+          transition:background .2s
+        }
+        .oren-mobile-link:hover{background:rgba(255,255,255,.06)}
+
+        .oren-mobile-trigger{
+          border:none;
+          background:transparent;
+          color:var(--oren-orange);
+          font-size:17px;
+          font-weight:700;
+          gap:8px;
+          width:100%;
+          cursor:pointer;
+          display:flex;
+          align-items:center;
+          height:52px;
+          padding:0 18px;
+          border-radius:14px;
+          transition:background .2s
+        }
+        .oren-mobile-trigger:hover{background:rgba(204,85,0,.08)}
+
         .oren-mobile-trigger-caret{font-size:12px;transition:transform .3s ease}.oren-mobile-trigger-caret.flipped{transform:rotate(180deg)}
         .oren-accordion-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}.oren-accordion-panel.open{grid-template-rows:1fr}.oren-accordion-inner{overflow:hidden}
-        .oren-mobile-group{padding:6px 10px 10px}.oren-mobile-group+.oren-mobile-group{border-top:1px solid var(--oren-line-subtle);margin-top:4px;padding-top:10px}
-        .oren-mobile-group-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}.oren-mobile-group-title{color:var(--oren-orange);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-        .oren-mobile-badge{display:inline-flex;align-items:center;min-height:18px;padding:0 8px;border-radius:var(--oren-radius);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-        .oren-mobile-badge.core{background:rgba(255,255,255,.08);color:rgba(240,244,250,.65)}.oren-mobile-badge.addon{background:rgba(204,85,0,.14);color:var(--oren-orange)}
-        .oren-mobile-service{display:block;text-decoration:none;padding:11px 14px;border-radius:12px}.oren-mobile-service-name{display:block;color:#fff;font-size:15px;font-weight:600}.oren-mobile-service-desc{display:block;color:var(--oren-sub);font-size:12px;line-height:1.4}
-        .oren-mobile-divider{height:1px;background:var(--oren-line-subtle);margin:4px 14px}
-        .oren-mobile-actions{display:flex;flex-direction:column;gap:8px;padding:6px 8px 8px}.oren-login-mobile{min-height:50px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--oren-line-subtle);color:var(--oren-white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600}
-        @media (max-width:1100px){.oren-nav{grid-template-columns:auto auto;justify-content:space-between}.oren-center,.oren-right{display:none}.oren-mobile-btn{display:inline-flex}}
+
+        .oren-mobile-group{padding:6px 10px 10px}
+        .oren-mobile-group+.oren-mobile-group{border-top:1px solid rgba(255,255,255,.08);margin-top:4px;padding-top:10px}
+        .oren-mobile-group-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+        .oren-mobile-group-title{color:var(--oren-orange);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+        .oren-mobile-badge{display:inline-flex;align-items:center;min-height:20px;padding:0 10px;border-radius:var(--oren-radius);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+        .oren-mobile-badge.core{background:rgba(255,255,255,.1);color:rgba(240,244,250,.8)}
+        .oren-mobile-badge.addon{background:rgba(204,85,0,.18);color:var(--oren-orange)}
+
+        /* Mobile service items — BRIGHT TEXT */
+        .oren-mobile-service{
+          display:block;
+          text-decoration:none;
+          padding:12px 14px;
+          border-radius:12px;
+          transition:background .2s
+        }
+        .oren-mobile-service:hover{background:rgba(255,255,255,.05)}
+        .oren-mobile-service-name{
+          display:block;
+          color:#FFFFFF;
+          font-size:16px;
+          font-weight:600;
+          margin-bottom:2px
+        }
+        .oren-mobile-service-desc{
+          display:block;
+          color:rgba(210,225,245,.7);
+          font-size:13px;
+          line-height:1.4
+        }
+
+        .oren-mobile-divider{height:1px;background:rgba(255,255,255,.08);margin:4px 14px}
+
+        .oren-mobile-actions{display:flex;flex-direction:column;gap:8px;padding:6px 8px 8px}
+        .oren-login-mobile{
+          min-height:52px;
+          border-radius:14px;
+          background:rgba(255,255,255,.08);
+          border:1px solid rgba(255,255,255,.12);
+          color:#FFFFFF;
+          text-decoration:none;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:15px;
+          font-weight:600;
+          transition:background .2s
+        }
+        .oren-login-mobile:hover{background:rgba(255,255,255,.14)}
+
+        /* Mobile CTA in panel */
+        .oren-mobile-actions .oren-cta{
+          min-height:52px;
+          justify-content:center;
+          font-size:14px;
+          border-radius:14px
+        }
+
+        @media (max-width:1100px){
+          .oren-nav{grid-template-columns:auto auto;justify-content:space-between}
+          .oren-center,.oren-right{display:none}
+          .oren-mobile-btn{display:inline-flex}
+        }
         @keyframes panelSlideIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-        @media (max-width:640px){:global(:root){--nav-top:10px;--nav-height:64px}.oren-nav-shell,.oren-mobile-panel{width:calc(100% - 16px)}.oren-nav{padding:0 12px 0 16px}.oren-logo img{height:34px}}
+        @media (max-width:640px){
+          :global(:root){--nav-top:10px;--nav-height:64px}
+          .oren-nav-shell,.oren-mobile-panel{width:calc(100% - 16px)}
+          .oren-nav{padding:0 12px 0 16px}
+          .oren-logo img{height:34px}
+        }
       `}</style>
 
       <div className="oren-nav-shell">
@@ -159,7 +271,7 @@ export function Navbar() {
           <button
             ref={buttonRef}
             className="oren-mobile-btn"
-            aria-label="Open menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? "✕" : "☰"}
