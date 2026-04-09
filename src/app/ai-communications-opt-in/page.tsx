@@ -8,194 +8,179 @@ export const metadata: Metadata = {
 
 const html = `
   <style>
-    @import url('https://fonts.cdnfonts.com/css/canva-sans');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: var(--background);
-      color: var(--foreground);
-      font-family: 'Canva Sans', sans-serif;
-      line-height: 1.6;
-    }
-
-    /* HEADER SECTION - MATCHING INDUSTRIES STYLE */
     .page-header {
-      padding: 80px 20px 60px;
+      padding: 120px 20px 60px;
       text-align: center;
-      background: var(--background);
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      position: relative;
+      overflow: hidden;
     }
-
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(204,85,0,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, #FFFFFF);
+      pointer-events: none;
+    }
     .page-header h1 {
-      font-family: 'League Spartan', sans-serif;
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 800;
-      line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
       margin: 0 0 16px 0;
-      color: var(--foreground);
-      letter-spacing: 0.02em;
+      color: #F0F4FA;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
     }
-
-    .page-header h1 .orange {
-      color: var(--oren-orange);
-    }
-
+    .page-header h1 .orange { color: #CC5500; }
     .page-header p {
-      font-family: 'Canva Sans', sans-serif;
-      font-size: clamp(14px, 2vw, 16px);
-      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(14px, 2vw, 17px);
+      color: rgba(210, 225, 245, 0.6);
       margin: 0 0 8px 0;
       line-height: 1.6;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 1;
     }
-
     .page-header .meta {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      color: rgba(210, 225, 245, 0.4);
+      position: relative;
+      z-index: 1;
     }
 
-    /* CONTENT SECTION */
     .content-wrapper {
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 20px 80px;
+      padding: 48px 24px 80px;
+      background: #FFFFFF;
     }
 
-    .optin-section {
-      margin-bottom: 40px;
-    }
-
+    .optin-section { margin-bottom: 40px; }
     .optin-section h2 {
-      font-family: 'League Spartan', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 24px;
-      font-weight: 700;
-      color: var(--oren-orange);
+      font-weight: 800;
+      color: #0B1D3A;
       margin-bottom: 16px;
       margin-top: 40px;
+      padding-left: 16px;
+      border-left: 4px solid #CC5500;
     }
-
     .optin-section h3 {
-      font-family: 'League Spartan', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 18px;
-      font-weight: 600;
-      color: var(--foreground);
+      font-weight: 700;
+      color: #0F2847;
       margin-bottom: 12px;
       margin-top: 24px;
     }
-
     .optin-section p {
-      font-family: 'Canva Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 15px;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.8);
+      color: #374151;
       margin-bottom: 16px;
     }
-
     .optin-section ul, .optin-section ol {
       margin-left: 24px;
       margin-bottom: 16px;
     }
-
     .optin-section li {
-      font-family: 'Canva Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 15px;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.8);
+      color: #374151;
       margin-bottom: 8px;
     }
-
+    .optin-section li::marker {
+      color: #CC5500;
+    }
     .optin-section strong {
-      color: var(--foreground);
+      color: #0B1D3A;
       font-weight: 600;
     }
 
     .highlight-box {
-      background: rgba(204, 85, 0, 0.1);
-      border-left: 4px solid var(--oren-orange);
-      padding: 20px;
+      background: #FFF7ED;
+      border-left: 4px solid #CC5500;
+      padding: 20px 24px;
       margin: 24px 0;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
+    .highlight-box p { margin-bottom: 0; color: #374151; }
 
-    .highlight-box p {
-      margin-bottom: 0;
-    }
-
-    .critical-box {
-      background: rgba(204, 85, 0, 0.2);
-      border: 2px solid var(--oren-orange);
-      padding: 24px;
+    .warning-box {
+      background: #FFF7ED;
+      border: 2px solid #CC5500;
+      padding: 20px 24px;
       margin: 24px 0;
       border-radius: 8px;
     }
-
-    .critical-box h3 {
-      margin-top: 0;
-      color: var(--oren-orange);
-      font-size: 20px;
-    }
+    .warning-box h3 { margin-top: 0; color: #CC5500; }
 
     .info-box {
-      background: rgba(0, 51, 102, 0.1);
-      border: 1px solid rgba(0, 51, 102, 0.3);
+      background: #F0F4FA;
+      border: 1px solid #D1DAE6;
       padding: 24px;
       margin: 24px 0;
       border-radius: 8px;
     }
-
-    .info-box h3 {
-      margin-top: 0;
-      color: #003366;
-    }
+    .info-box h3 { margin-top: 0; color: #0B1D3A; }
 
     .contact-info {
-      background: rgba(0, 51, 102, 0.1);
-      border: 1px solid rgba(0, 51, 102, 0.3);
+      background: #F8F9FA;
+      border-left: 4px solid #CC5500;
       padding: 24px;
       margin: 40px 0;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
+    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: 'Playfair Display', serif; }
+    .contact-info p { margin-bottom: 8px; }
 
-    .contact-info h3 {
-      margin-top: 0;
-      color: #003366;
-    }
+    a { color: #CC5500; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .contact-info p {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: var(--oren-orange);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+.critical-box {
+  background: #FFF7ED;
+  border: 2px solid #CC5500;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+.critical-box h3 {
+  margin-top: 0;
+  color: #CC5500;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
 
     @media (max-width: 768px) {
-      .page-header {
-        padding: 60px 20px 40px;
-      }
-
-      .content-wrapper {
-        padding: 0 20px 60px;
-      }
-
-      .optin-section h2 {
-        font-size: 20px;
-      }
-
-      .optin-section h3 {
-        font-size: 16px;
-      }
+      .page-header { padding: 100px 20px 40px; }
+      .content-wrapper { padding: 32px 16px 60px; }
+      .optin-section h2 { font-size: 20px; }
+      .optin-section h3 { font-size: 16px; }
     }
   </style>
 
@@ -532,194 +517,179 @@ export default function Page() {
   return (
     <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
   <style>
-    @import url('https://fonts.cdnfonts.com/css/canva-sans');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: var(--background);
-      color: var(--foreground);
-      font-family: 'Canva Sans', sans-serif;
-      line-height: 1.6;
-    }
-
-    /* HEADER SECTION - MATCHING INDUSTRIES STYLE */
     .page-header {
-      padding: 80px 20px 60px;
+      padding: 120px 20px 60px;
       text-align: center;
-      background: var(--background);
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      position: relative;
+      overflow: hidden;
     }
-
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(204,85,0,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, #FFFFFF);
+      pointer-events: none;
+    }
     .page-header h1 {
-      font-family: 'League Spartan', sans-serif;
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 800;
-      line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
       margin: 0 0 16px 0;
-      color: var(--foreground);
-      letter-spacing: 0.02em;
+      color: #F0F4FA;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
     }
-
-    .page-header h1 .orange {
-      color: var(--oren-orange);
-    }
-
+    .page-header h1 .orange { color: #CC5500; }
     .page-header p {
-      font-family: 'Canva Sans', sans-serif;
-      font-size: clamp(14px, 2vw, 16px);
-      color: var(--oren-sub);
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(14px, 2vw, 17px);
+      color: rgba(210, 225, 245, 0.6);
       margin: 0 0 8px 0;
       line-height: 1.6;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 1;
     }
-
     .page-header .meta {
-      font-size: 14px;
-      color: var(--oren-muted);
+      font-size: 13px;
+      color: rgba(210, 225, 245, 0.4);
+      position: relative;
+      z-index: 1;
     }
 
-    /* CONTENT SECTION */
     .content-wrapper {
       max-width: 900px;
       margin: 0 auto;
-      padding: 0 20px 80px;
+      padding: 48px 24px 80px;
+      background: #FFFFFF;
     }
 
-    .optin-section {
-      margin-bottom: 40px;
-    }
-
+    .optin-section { margin-bottom: 40px; }
     .optin-section h2 {
-      font-family: 'League Spartan', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 24px;
-      font-weight: 700;
-      color: var(--oren-orange);
+      font-weight: 800;
+      color: #0B1D3A;
       margin-bottom: 16px;
       margin-top: 40px;
+      padding-left: 16px;
+      border-left: 4px solid #CC5500;
     }
-
     .optin-section h3 {
-      font-family: 'League Spartan', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 18px;
-      font-weight: 600;
-      color: var(--foreground);
+      font-weight: 700;
+      color: #0F2847;
       margin-bottom: 12px;
       margin-top: 24px;
     }
-
     .optin-section p {
-      font-family: 'Canva Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 15px;
       line-height: 1.8;
-      color: var(--oren-sub);
+      color: #374151;
       margin-bottom: 16px;
     }
-
     .optin-section ul, .optin-section ol {
       margin-left: 24px;
       margin-bottom: 16px;
     }
-
     .optin-section li {
-      font-family: 'Canva Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 15px;
       line-height: 1.8;
-      color: var(--oren-sub);
+      color: #374151;
       margin-bottom: 8px;
     }
-
+    .optin-section li::marker {
+      color: #CC5500;
+    }
     .optin-section strong {
-      color: var(--foreground);
+      color: #0B1D3A;
       font-weight: 600;
     }
 
     .highlight-box {
-      background: rgba(204, 85, 0, 0.1);
-      border-left: 4px solid var(--oren-orange);
-      padding: 20px;
+      background: #FFF7ED;
+      border-left: 4px solid #CC5500;
+      padding: 20px 24px;
       margin: 24px 0;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
+    .highlight-box p { margin-bottom: 0; color: #374151; }
 
-    .highlight-box p {
-      margin-bottom: 0;
-    }
-
-    .critical-box {
-      background: rgba(204, 85, 0, 0.2);
-      border: 2px solid var(--oren-orange);
-      padding: 24px;
+    .warning-box {
+      background: #FFF7ED;
+      border: 2px solid #CC5500;
+      padding: 20px 24px;
       margin: 24px 0;
       border-radius: 8px;
     }
-
-    .critical-box h3 {
-      margin-top: 0;
-      color: var(--oren-orange);
-      font-size: 20px;
-    }
+    .warning-box h3 { margin-top: 0; color: #CC5500; }
 
     .info-box {
-      background: var(--oren-close);
-      border: 1px solid var(--oren-line-subtle);
+      background: #F0F4FA;
+      border: 1px solid #D1DAE6;
       padding: 24px;
       margin: 24px 0;
       border-radius: 8px;
     }
-
-    .info-box h3 {
-      margin-top: 0;
-      color: var(--oren-orange);
-    }
+    .info-box h3 { margin-top: 0; color: #0B1D3A; }
 
     .contact-info {
-      background: var(--oren-close);
-      border: 1px solid var(--oren-line-subtle);
+      background: #F8F9FA;
+      border-left: 4px solid #CC5500;
       padding: 24px;
       margin: 40px 0;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
+    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: 'Playfair Display', serif; }
+    .contact-info p { margin-bottom: 8px; }
 
-    .contact-info h3 {
-      margin-top: 0;
-      color: var(--oren-orange);
-    }
+    a { color: #CC5500; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .contact-info p {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: var(--oren-orange);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+.critical-box {
+  background: #FFF7ED;
+  border: 2px solid #CC5500;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+.critical-box h3 {
+  margin-top: 0;
+  color: #CC5500;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
 
     @media (max-width: 768px) {
-      .page-header {
-        padding: 60px 20px 40px;
-      }
-
-      .content-wrapper {
-        padding: 0 20px 60px;
-      }
-
-      .optin-section h2 {
-        font-size: 20px;
-      }
-
-      .optin-section h3 {
-        font-size: 16px;
-      }
+      .page-header { padding: 100px 20px 40px; }
+      .content-wrapper { padding: 32px 16px 60px; }
+      .optin-section h2 { font-size: 20px; }
+      .optin-section h3 { font-size: 16px; }
     }
   </style>
 
