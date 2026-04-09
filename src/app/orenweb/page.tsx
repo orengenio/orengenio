@@ -29,8 +29,8 @@ const html = `
 --smoke: #f5f5f5;
 --overlay: rgba(0, 0, 0, 0.5);
 --color-m5ye8saq: #ebeef2ff;
---color-m65wrxxb: #381964ff;
---color-m65wsmwf: #ee5d81ff;
+--color-m65wrxxb: #0B1D3Aff;
+--color-m65wsmwf: #E2725Bff;
 --color-azujpfxo: var(--oren-orange)ff;
 --color-lgf1duy4: #0E182C;
 --color-lx2q00eu: #8893A8;
@@ -74,18 +74,18 @@ const html = `
     }
   
 
-    @import url('https://fonts.cdnfonts.com/css/canva-sans');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
 
     :root {
-      /* OrenWeb Purple Theme — #722493 */
-      --primary: #722493;
-      --primary-light: #8B3AAF;
-      --primary-dark: #5A1B75;
-      --accent: #9B4DCA;
-      --accent-dark: #722493;
+      /* OrenWeb Navy/Orange Brand Theme — #CC5500 */
+      --primary: #CC5500;
+      --primary-light: #E2725B;
+      --primary-dark: #993D00;
+      --accent: #CC5500;
+      --accent-dark: #993D00;
 
       /* Base Colors */
-      --bg-dark: #0d0d0d;
+      --bg-dark: #081628;
       --bg-card: rgba(255, 255, 255, 0.03);
       --bg-card-hover: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.08);
@@ -104,9 +104,9 @@ const html = `
     body {
       margin: 0;
       padding: 0;
-      background: var(--bg-dark) !important;
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
       color: var(--text) !important;
-      font-family: 'Canva Sans', 'Inter', sans-serif !important;
+      font-family: 'Roboto', 'Inter', sans-serif !important;
       overflow-x: hidden;
     }
 
@@ -116,7 +116,7 @@ const html = `
     h4,
     h5,
     h6 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
     }
 
     /* Hero Section */
@@ -128,7 +128,7 @@ const html = `
       justify-content: center;
       text-align: center;
       padding: 120px 40px 80px;
-      background: linear-gradient(180deg, rgba(114, 36, 147, 0.06) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(204, 85, 0, 0.06) 0%, transparent 100%);
     }
 
     .hero-content {
@@ -140,11 +140,11 @@ const html = `
       display: inline-flex;
       align-items: center;
       padding: 10px 24px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 2px solid rgba(114, 36, 147, 0.35) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 2px solid rgba(204, 85, 0, 0.35) !important;
       border-radius: 100px;
       color: var(--accent) !important;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 12px !important;
       font-weight: 700 !important;
       letter-spacing: 2px;
@@ -153,7 +153,7 @@ const html = `
     }
 
     h1 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
       margin-bottom: 24px !important;
@@ -163,14 +163,14 @@ const html = `
     }
 
     h1 span {
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
     }
 
     .hero-text {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.6;
       color: var(--text-secondary) !important;
@@ -215,7 +215,7 @@ const html = `
       border-radius: var(--border_radius);
       box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
         0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-        0 0 0 calc(var(--active, 0) * 0.375rem) hsla(280, 61%, 36%, 0.75);
+        0 0 0 calc(var(--active, 0) * 0.375rem) hsla(24, 100%, 40%, 0.75);
       transition: all var(--transtion);
       z-index: 0;
     }
@@ -228,10 +228,10 @@ const html = `
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
-      background-color: hsla(280, 61%, 36%, 0.75);
-      background-image: radial-gradient(at 51% 89%, hsla(280, 61%, 36%, 1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, hsla(280, 61%, 46%, 1) 0px, transparent 50%),
-        radial-gradient(at 22% 91%, hsla(280, 61%, 46%, 1) 0px, transparent 50%);
+      background-color: hsla(24, 100%, 40%, 0.75);
+      background-image: radial-gradient(at 51% 89%, hsla(24, 100%, 40%, 1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(24, 100%, 44%, 1) 0px, transparent 50%),
+        radial-gradient(at 22% 91%, hsla(24, 100%, 44%, 1) 0px, transparent 50%);
       background-position: top;
       opacity: var(--active, 0);
       border-radius: var(--border_radius);
@@ -333,7 +333,7 @@ const html = `
       font-size: 1rem;
       color: transparent;
       font-weight: 600;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
     }
 
     /* Content Sections */
@@ -351,10 +351,10 @@ const html = `
     .section-badge {
       display: inline-block;
       padding: 8px 20px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 1px solid rgba(114, 36, 147, 0.35) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 1px solid rgba(204, 85, 0, 0.35) !important;
       border-radius: 100px;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 12px !important;
       font-weight: 700 !important;
       color: var(--accent) !important;
@@ -364,7 +364,7 @@ const html = `
     }
 
     .section-title {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(36px, 5vw, 56px) !important;
       line-height: 1.1 !important;
       margin-bottom: 20px !important;
@@ -373,14 +373,14 @@ const html = `
     }
 
     .highlight {
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
     }
 
     .section-description {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -396,8 +396,8 @@ const html = `
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
-      border-top: 1px solid rgba(114, 36, 147, 0.25);
-      border-bottom: 1px solid rgba(114, 36, 147, 0.25);
+      border-top: 1px solid rgba(204, 85, 0, 0.25);
+      border-bottom: 1px solid rgba(204, 85, 0, 0.25);
     }
 
     .stat-item {
@@ -405,10 +405,10 @@ const html = `
     }
 
     .stat-value {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 56px !important;
       font-weight: 800 !important;
-      background: linear-gradient(135deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(135deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
@@ -418,7 +418,7 @@ const html = `
     }
 
     .stat-label {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       font-weight: 600;
       color: var(--text-muted);
@@ -428,7 +428,7 @@ const html = `
     }
 
     .stat-context {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 13px !important;
       color: var(--accent);
       margin-top: 8px;
@@ -445,7 +445,7 @@ const html = `
     .capability-card {
       position: relative;
       background: var(--bg-card) !important;
-      border: 1px solid rgba(114, 36, 147, 0.2) !important;
+      border: 1px solid rgba(204, 85, 0, 0.2) !important;
       border-radius: 16px;
       padding: 32px;
       transition: all 0.3s ease;
@@ -453,9 +453,9 @@ const html = `
 
     .capability-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(114, 36, 147, 0.5) !important;
-      background: rgba(114, 36, 147, 0.06) !important;
-      box-shadow: 0 12px 32px rgba(114, 36, 147, 0.15);
+      border-color: rgba(204, 85, 0, 0.5) !important;
+      background: rgba(204, 85, 0, 0.06) !important;
+      box-shadow: 0 12px 32px rgba(204, 85, 0, 0.15);
     }
 
     .capability-card .card-accent {
@@ -464,7 +464,7 @@ const html = `
       left: -1px;
       right: -1px;
       height: 4px;
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       border-radius: 16px 16px 0 0;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -475,7 +475,7 @@ const html = `
     }
 
     .capability-card h3 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 22px !important;
       font-weight: 700 !important;
       color: var(--text) !important;
@@ -483,7 +483,7 @@ const html = `
     }
 
     .capability-card p {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 15px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -497,7 +497,7 @@ const html = `
     }
 
     .capability-card ul li {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       color: var(--text-muted);
       padding: 8px 0;
@@ -538,12 +538,12 @@ const html = `
       width: 80px;
       height: 80px;
       border-radius: 16px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 2px solid rgba(114, 36, 147, 0.3) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 2px solid rgba(204, 85, 0, 0.3) !important;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 32px !important;
       font-weight: 800 !important;
       color: var(--accent) !important;
@@ -551,7 +551,7 @@ const html = `
     }
 
     .process-content h3 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 24px !important;
       font-weight: 700 !important;
       color: var(--text) !important;
@@ -559,7 +559,7 @@ const html = `
     }
 
     .process-content p {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 16px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -575,7 +575,7 @@ const html = `
 
     .tech-item {
       background: var(--bg-card) !important;
-      border: 1px solid rgba(114, 36, 147, 0.2) !important;
+      border: 1px solid rgba(204, 85, 0, 0.2) !important;
       border-radius: 12px;
       padding: 28px 20px;
       display: flex;
@@ -588,9 +588,9 @@ const html = `
 
     .tech-item:hover {
       transform: translateY(-4px);
-      border-color: rgba(114, 36, 147, 0.5) !important;
-      background: rgba(114, 36, 147, 0.06) !important;
-      box-shadow: 0 8px 24px rgba(114, 36, 147, 0.15);
+      border-color: rgba(204, 85, 0, 0.5) !important;
+      background: rgba(204, 85, 0, 0.06) !important;
+      box-shadow: 0 8px 24px rgba(204, 85, 0, 0.15);
     }
 
     .tech-icon i {
@@ -598,7 +598,7 @@ const html = `
     }
 
     .tech-name {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       font-weight: 600;
       color: var(--text-secondary);
@@ -614,7 +614,7 @@ const html = `
     }
 
     .cta-title {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(36px, 5vw, 56px) !important;
       line-height: 1.2 !important;
       margin-bottom: 24px !important;
@@ -623,7 +623,7 @@ const html = `
     }
 
     .cta-description {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -677,35 +677,35 @@ const html = `
   
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Canva Sans','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'League Spartan',sans-serif}
+    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
 
     :root{
-      --purple:#722493;
-      --purple-light:#A64FD4;
-      --purple-glow:rgba(114,36,147,0.35);
-      --purple-dim:rgba(114,36,147,0.7);
+      --purple:#CC5500;
+      --purple-light:#E2725B;
+      --purple-glow:rgba(204,85,0,0.35);
+      --purple-dim:rgba(204,85,0,0.7);
       --green:#4FBF24;
     }
 
     /* ===== HEADER ===== */
     .pricing-header{text-align:center;padding:80px 40px 40px;position:relative}
-    .pricing-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:600px;background:radial-gradient(circle,rgba(114,36,147,0.06) 0%,transparent 65%);pointer-events:none}
+    .pricing-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:600px;background:radial-gradient(circle,rgba(204, 85, 0,0.06) 0%,transparent 65%);pointer-events:none}
     .pricing-header h1{font-size:clamp(36px,6vw,60px);font-weight:800;color:var(--purple);margin-bottom:16px;letter-spacing:-1px;position:relative}
-    .pricing-header p{font-family:'Canva Sans',sans-serif;font-size:17px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 0;position:relative}
+    .pricing-header p{font-family:'Roboto',sans-serif;font-size:17px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 0;position:relative}
 
     /* ===== CENTERED NESTED TAB TOGGLE ===== */
     .tab-container{display:flex;flex-direction:column;align-items:center;padding:36px 20px 48px}
     .tab-toggle{
       display:inline-flex;
-      background:rgba(114,36,147,0.08);
-      border:1px solid rgba(114,36,147,0.2);
+      background:rgba(204, 85, 0,0.08);
+      border:1px solid rgba(204, 85, 0,0.2);
       border-radius:14px;
       padding:5px;
       gap:4px;
     }
     .tab-btn{
-      font-family:'League Spartan',sans-serif;
+      font-family:'Playfair Display',sans-serif;
       font-size:15px;
       font-weight:700;
       padding:12px 32px;
@@ -721,7 +721,7 @@ const html = `
     .tab-btn#tab-talking.active{
       background:var(--purple);
       color:#fff;
-      box-shadow:0 4px 20px rgba(114,36,147,0.4),0 0 0 1px rgba(166,79,212,0.3);
+      box-shadow:0 4px 20px rgba(204, 85, 0,0.4),0 0 0 1px rgba(166,79,212,0.3);
     }
     .tab-btn#tab-custom.active{
       background:#fff;
@@ -729,7 +729,7 @@ const html = `
       box-shadow:0 4px 20px rgba(255,255,255,0.15),0 0 0 1px rgba(255,255,255,0.2);
     }
     .tab-btn .tab-icon{margin-right:8px;font-size:16px}
-    .tab-subtitle{font-family:'Canva Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px}
+    .tab-subtitle{font-family:'Roboto',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px}
 
     /* ===== TAB PANELS ===== */
     .tab-panel{display:none;animation:fadeUp .4s ease}
@@ -738,17 +738,17 @@ const html = `
 
     /* ===== PANEL SUBHEADER ===== */
     .panel-header{text-align:center;padding:0 40px 20px}
-    .panel-header h2{font-family:'League Spartan',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff;margin-bottom:8px}
+    .panel-header h2{font-family:'Playfair Display',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff;margin-bottom:8px}
     .panel-header h2 span{color:var(--purple)}
-    .panel-header p{font-family:'Canva Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);max-width:560px;margin:0 auto}
+    .panel-header p{font-family:'Roboto',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);max-width:560px;margin:0 auto}
 
     /* Engagement pills */
     .engagement-strip{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 24px;flex-wrap:wrap}
-    .engage-pill{font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.5px;padding:6px 16px;border:1px solid rgba(114,36,147,0.2);border-radius:99px;background:rgba(114,36,147,0.06)}
+    .engage-pill{font-family:'Playfair Display',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.5px;padding:6px 16px;border:1px solid rgba(204, 85, 0,0.2);border-radius:99px;background:rgba(204, 85, 0,0.06)}
 
     /* Zero strip */
-    .zero-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 40px;padding:12px 24px;background:rgba(114,36,147,0.06);border:1px solid rgba(114,36,147,0.15);border-radius:99px;flex-wrap:wrap;max-width:640px}
-    .zero-item{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:.3px;display:flex;align-items:center;gap:6px}
+    .zero-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 40px;padding:12px 24px;background:rgba(204, 85, 0,0.06);border:1px solid rgba(204, 85, 0,0.15);border-radius:99px;flex-wrap:wrap;max-width:640px}
+    .zero-item{font-family:'Playfair Display',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:.3px;display:flex;align-items:center;gap:6px}
     .zero-icon{color:var(--purple);font-size:10px}
     .zero-divider{color:rgba(255,255,255,0.15);font-size:16px}
 
@@ -757,74 +757,74 @@ const html = `
 
     /* ===== CARD ===== */
     .plan-card{position:relative;background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 20px 24px;display:flex;flex-direction:column;transition:all .4s ease;overflow:visible}
-    .plan-card:hover{transform:translateY(-4px);border-color:rgba(114,36,147,0.35);box-shadow:0 0 12px rgba(114,36,147,0.06),0 20px 60px rgba(0,0,0,0.4)}
+    .plan-card:hover{transform:translateY(-4px);border-color:rgba(204, 85, 0,0.35);box-shadow:0 0 12px rgba(204, 85, 0,0.06),0 20px 60px rgba(0,0,0,0.4)}
     .plan-card.popular{overflow:visible}
-    .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#722493,#A64FD4);color:#fff;font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;padding:6px 20px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 16px rgba(114,36,147,0.4);z-index:10}
+    .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:#fff;font-family:'Playfair Display',sans-serif;font-size:11px;font-weight:700;padding:6px 20px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 16px rgba(204, 85, 0,0.4);z-index:10}
 
     .logo-spot{width:100%;display:flex;justify-content:center;margin-bottom:16px;min-height:36px}
     .logo-spot img{height:32px;width:auto;opacity:.85}
 
-    .plan-name{font-family:'League Spartan',sans-serif;font-size:22px;font-weight:800;color:var(--purple);text-align:center;margin-bottom:2px}
-    .plan-subtitle{font-family:'Canva Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:16px;line-height:1.3}
+    .plan-name{font-family:'Playfair Display',sans-serif;font-size:22px;font-weight:800;color:var(--purple);text-align:center;margin-bottom:2px}
+    .plan-subtitle{font-family:'Roboto',sans-serif;font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:16px;line-height:1.3}
 
     /* Price block (monthly retainer) */
     .price-block{text-align:center;margin-bottom:16px}
-    .price-build-label{font-family:'Canva Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-    .price-current{font-family:'League Spartan',sans-serif;font-size:40px;font-weight:800;color:var(--purple);line-height:1}
+    .price-build-label{font-family:'Roboto',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+    .price-current{font-family:'Playfair Display',sans-serif;font-size:40px;font-weight:800;color:var(--purple);line-height:1}
     .price-current .currency{font-size:22px;font-weight:700;vertical-align:super;margin-right:1px}
     .price-current.small{font-size:26px;margin-top:8px}
-    .price-period{font-family:'Canva Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);display:inline}
-    .price-setup{font-family:'Canva Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px}
+    .price-period{font-family:'Roboto',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);display:inline}
+    .price-setup{font-family:'Roboto',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px}
     .price-setup strong{color:var(--purple-light);font-weight:700}
-    .price-care-label{font-family:'Canva Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-top:10px;margin-bottom:2px}
-    .price-divider{width:40px;height:1px;background:rgba(114,36,147,0.3);margin:8px auto}
+    .price-care-label{font-family:'Roboto',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-top:10px;margin-bottom:2px}
+    .price-divider{width:40px;height:1px;background:rgba(204, 85, 0,0.3);margin:8px auto}
 
     /* Custom card price */
-    .price-custom{font-family:'League Spartan',sans-serif;font-size:28px;font-weight:800;color:var(--purple);line-height:1;margin-bottom:4px}
+    .price-custom{font-family:'Playfair Display',sans-serif;font-size:28px;font-weight:800;color:var(--purple);line-height:1;margin-bottom:4px}
 
     /* Outcome badge */
-    .outcome-badge{font-family:'Canva Sans',sans-serif;font-size:10px;color:var(--purple-light);background:rgba(114,36,147,0.08);border:1px solid rgba(114,36,147,0.15);border-radius:8px;padding:7px 10px;text-align:center;margin-bottom:14px;line-height:1.4;font-style:italic}
+    .outcome-badge{font-family:'Roboto',sans-serif;font-size:10px;color:var(--purple-light);background:rgba(204, 85, 0,0.08);border:1px solid rgba(204, 85, 0,0.15);border-radius:8px;padding:7px 10px;text-align:center;margin-bottom:14px;line-height:1.4;font-style:italic}
 
     /* ===== NUTRITION LABEL ===== */
-    .nutrition-label{background:#000;border:3px solid rgba(114,36,147,0.8);border-radius:4px;padding:8px 10px 12px;margin-bottom:16px;flex:1}
+    .nutrition-label{background:#000;border:3px solid rgba(204, 85, 0,0.8);border-radius:4px;padding:8px 10px 12px;margin-bottom:16px;flex:1}
     .plan-card.popular .nutrition-label{border-color:var(--purple)}
 
-    .nl-title{font-family:'League Spartan',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1;margin-bottom:2px}
-    .nl-serving{font-family:'Canva Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.65);line-height:1.4;padding-bottom:5px}
+    .nl-title{font-family:'Playfair Display',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1;margin-bottom:2px}
+    .nl-serving{font-family:'Roboto',sans-serif;font-size:10px;color:rgba(255,255,255,0.65);line-height:1.4;padding-bottom:5px}
     .nl-serving strong{color:var(--purple)}
 
     .nl-thick{height:7px;background:var(--purple);margin:0 -10px}
-    .nl-thin{height:1px;background:rgba(114,36,147,0.3);margin:0 -10px}
+    .nl-thin{height:1px;background:rgba(204, 85, 0,0.3);margin:0 -10px}
 
     .nl-header{display:flex;justify-content:space-between;align-items:flex-end;padding:3px 0 2px}
-    .nl-header-left,.nl-header-right{font-family:'Canva Sans',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.5px}
+    .nl-header-left,.nl-header-right{font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.5px}
 
-    .nl-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(114,36,147,0.12);gap:6px}
+    .nl-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(204, 85, 0,0.12);gap:6px}
     .nl-row:last-child{border-bottom:none}
-    .nl-row.blend{border-bottom:1px solid rgba(114,36,147,0.2);padding-top:6px}
+    .nl-row.blend{border-bottom:1px solid rgba(204, 85, 0,0.2);padding-top:6px}
     .nl-row.blend .nl-feature{font-weight:800;color:#fff;font-size:11px}
     .nl-row.indent .nl-feature{padding-left:12px;font-weight:400;color:rgba(255,255,255,0.55);font-size:10.5px}
 
-    .nl-feature{font-family:'Canva Sans',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);flex:1;line-height:1.3}
-    .nl-value{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;color:var(--purple);white-space:nowrap;text-align:right;flex-shrink:0}
+    .nl-feature{font-family:'Roboto',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);flex:1;line-height:1.3}
+    .nl-value{font-family:'Playfair Display',sans-serif;font-size:11px;font-weight:700;color:var(--purple);white-space:nowrap;text-align:right;flex-shrink:0}
     .nl-value.green{color:#4FBF24}
     .nl-value.white{color:rgba(255,255,255,0.4)}
     .nl-value.na{color:rgba(255,255,255,0.15);font-weight:400;font-size:10px}
     .nl-value.highlight{color:var(--purple-light);font-weight:800}
 
-    .nl-credits{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(114,36,147,0.15)}
+    .nl-credits{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(204, 85, 0,0.15)}
     .nl-credits .nl-feature{color:var(--purple);font-weight:800;font-size:11px}
     .nl-credits .nl-value{color:var(--purple);font-size:11px;font-weight:800}
 
-    .nl-footnote{font-family:'Canva Sans',sans-serif;font-size:8px;color:rgba(255,255,255,0.3);padding-top:6px;line-height:1.4}
+    .nl-footnote{font-family:'Roboto',sans-serif;font-size:8px;color:rgba(255,255,255,0.3);padding-top:6px;line-height:1.4}
 
     /* ===== CTA ===== */
-    .cta-btn{display:block;width:100%;padding:12px 0;border:none;border-radius:12px;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;transition:all .3s;margin-top:auto}
-    .cta-btn.primary{background:rgba(114,36,147,0.15);color:var(--purple-light);border:1px solid rgba(114,36,147,0.35)}
-    .cta-btn.primary:hover{background:rgba(114,36,147,0.25);border-color:rgba(114,36,147,0.6);box-shadow:0 0 16px rgba(114,36,147,0.15)}
-    .cta-btn.calendly{background:rgba(114,36,147,0.08);color:var(--purple-light);border:1px dashed rgba(114,36,147,0.4)}
-    .cta-btn.calendly:hover{background:rgba(114,36,147,0.15);border-color:rgba(114,36,147,0.6)}
-    .btn-sub{font-family:'Canva Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.3);text-align:center;margin-top:6px;display:block}
+    .cta-btn{display:block;width:100%;padding:12px 0;border:none;border-radius:12px;font-family:'Playfair Display',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;transition:all .3s;margin-top:auto}
+    .cta-btn.primary{background:rgba(204, 85, 0,0.15);color:var(--purple-light);border:1px solid rgba(204, 85, 0,0.35)}
+    .cta-btn.primary:hover{background:rgba(204, 85, 0,0.25);border-color:rgba(204, 85, 0,0.6);box-shadow:0 0 16px rgba(204, 85, 0,0.15)}
+    .cta-btn.calendly{background:rgba(204, 85, 0,0.08);color:var(--purple-light);border:1px dashed rgba(204, 85, 0,0.4)}
+    .cta-btn.calendly:hover{background:rgba(204, 85, 0,0.15);border-color:rgba(204, 85, 0,0.6)}
+    .btn-sub{font-family:'Roboto',sans-serif;font-size:10px;color:rgba(255,255,255,0.3);text-align:center;margin-top:6px;display:block}
 
     /* ===== RESPONSIVE ===== */
     @media(max-width:1200px){.pricing-grid{grid-template-columns:repeat(2,1fr);gap:16px;max-width:740px}}
@@ -852,7 +852,7 @@ const html = `
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -862,7 +862,7 @@ const html = `
   }
 
   .og-section-header h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -876,7 +876,7 @@ const html = `
   }
 
   .og-section-subtitle {
-    font-family: 'Canva Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
@@ -919,7 +919,7 @@ const html = `
   }
 
   .mkt-footer-trust-label {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -990,7 +990,7 @@ const html = `
   }
 
   .mkt-trust-name {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1221,7 +1221,7 @@ const html = `
   }
 
   .mkt-footer-tagline {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -1265,7 +1265,7 @@ const html = `
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -1277,7 +1277,7 @@ const html = `
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Canva Sans', sans-serif; font-size: 13px;
+    font-family: 'Roboto', sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -1290,7 +1290,7 @@ const html = `
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -1300,7 +1300,7 @@ const html = `
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -1314,11 +1314,11 @@ const html = `
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Canva Sans', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -1356,7 +1356,7 @@ const html = `
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Canva Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -1387,7 +1387,7 @@ const html = `
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -1469,6 +1469,94 @@ const html = `
     inherits: false;
   }
 
+
+    /* === Dot Grid Overlay for Hero === */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    /* === Browser Mockup Showcase === */
+    .browser-mockup {
+      max-width: 700px;
+      margin: 50px auto 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(11, 29, 58, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 12px;
+    }
+    .browser-dots { display: flex; gap: 6px; }
+    .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #febc2e; }
+    .browser-dots span:nth-child(3) { background: #28c840; }
+    .browser-url {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(204, 85, 0, 0.3);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .browser-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #0B1D3A;
+    }
+    .browser-viewport img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: browserCrossfade 12s infinite;
+    }
+    .browser-viewport img:nth-child(1) { animation-delay: 0s; }
+    .browser-viewport img:nth-child(2) { animation-delay: 4s; }
+    .browser-viewport img:nth-child(3) { animation-delay: 8s; }
+    @keyframes browserCrossfade {
+      0%, 5% { opacity: 0; }
+      8.33%, 30% { opacity: 1; }
+      33.33%, 100% { opacity: 0; }
+    }
+
+    /* === Glassmorphic Card Overrides === */
+    .capability-card {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 20px !important;
+    }
+    .tech-item {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 16px !important;
+    }
+
+    @media (max-width: 768px) {
+      .browser-mockup { margin-top: 30px; }
+    }
+
 </style>
 <!-- HERO SECTION -->
   <section class="hero">
@@ -1498,6 +1586,18 @@ const html = `
           </svg>
           <span class="text_button">Book A Meeting</span>
         </a>
+      </div>
+
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">orenweb.io/showcase</div>
+        </div>
+        <div class="browser-viewport">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Dashboard Analytics" />
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Modern SaaS" />
+          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80" alt="Clean Design" />
+        </div>
       </div>
     </div>
   </section>
@@ -1862,8 +1962,8 @@ export default function Page() {
 --smoke: #f5f5f5;
 --overlay: rgba(0, 0, 0, 0.5);
 --color-m5ye8saq: #ebeef2ff;
---color-m65wrxxb: #381964ff;
---color-m65wsmwf: #ee5d81ff;
+--color-m65wrxxb: #0B1D3Aff;
+--color-m65wsmwf: #E2725Bff;
 --color-azujpfxo: var(--oren-orange)ff;
 --color-lgf1duy4: #0E182C;
 --color-lx2q00eu: #8893A8;
@@ -1907,18 +2007,18 @@ export default function Page() {
     }
   
 
-    @import url('https://fonts.cdnfonts.com/css/canva-sans');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
 
     :root {
-      /* OrenWeb Purple Theme — #722493 */
-      --primary: #722493;
-      --primary-light: #8B3AAF;
-      --primary-dark: #5A1B75;
-      --accent: #9B4DCA;
-      --accent-dark: #722493;
+      /* OrenWeb Navy/Orange Brand Theme — #CC5500 */
+      --primary: #CC5500;
+      --primary-light: #E2725B;
+      --primary-dark: #993D00;
+      --accent: #CC5500;
+      --accent-dark: #993D00;
 
       /* Base Colors */
-      --bg-dark: #0d0d0d;
+      --bg-dark: #081628;
       --bg-card: rgba(255, 255, 255, 0.03);
       --bg-card-hover: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.08);
@@ -1937,9 +2037,9 @@ export default function Page() {
     body {
       margin: 0;
       padding: 0;
-      background: var(--bg-dark) !important;
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
       color: var(--text) !important;
-      font-family: 'Canva Sans', 'Inter', sans-serif !important;
+      font-family: 'Roboto', 'Inter', sans-serif !important;
       overflow-x: hidden;
     }
 
@@ -1949,7 +2049,7 @@ export default function Page() {
     h4,
     h5,
     h6 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
     }
 
     /* Hero Section */
@@ -1961,7 +2061,7 @@ export default function Page() {
       justify-content: center;
       text-align: center;
       padding: 120px 40px 80px;
-      background: linear-gradient(180deg, rgba(114, 36, 147, 0.06) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(204, 85, 0, 0.06) 0%, transparent 100%);
     }
 
     .hero-content {
@@ -1973,11 +2073,11 @@ export default function Page() {
       display: inline-flex;
       align-items: center;
       padding: 10px 24px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 2px solid rgba(114, 36, 147, 0.35) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 2px solid rgba(204, 85, 0, 0.35) !important;
       border-radius: 100px;
       color: var(--accent) !important;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 12px !important;
       font-weight: 700 !important;
       letter-spacing: 2px;
@@ -1986,7 +2086,7 @@ export default function Page() {
     }
 
     h1 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
       margin-bottom: 24px !important;
@@ -1996,14 +2096,14 @@ export default function Page() {
     }
 
     h1 span {
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
     }
 
     .hero-text {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.6;
       color: var(--text-secondary) !important;
@@ -2048,7 +2148,7 @@ export default function Page() {
       border-radius: var(--border_radius);
       box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
         0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-        0 0 0 calc(var(--active, 0) * 0.375rem) hsla(280, 61%, 36%, 0.75);
+        0 0 0 calc(var(--active, 0) * 0.375rem) hsla(24, 100%, 40%, 0.75);
       transition: all var(--transtion);
       z-index: 0;
     }
@@ -2061,10 +2161,10 @@ export default function Page() {
       transform: translate(-50%, -50%);
       width: 100%;
       height: 100%;
-      background-color: hsla(280, 61%, 36%, 0.75);
-      background-image: radial-gradient(at 51% 89%, hsla(280, 61%, 36%, 1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, hsla(280, 61%, 46%, 1) 0px, transparent 50%),
-        radial-gradient(at 22% 91%, hsla(280, 61%, 46%, 1) 0px, transparent 50%);
+      background-color: hsla(24, 100%, 40%, 0.75);
+      background-image: radial-gradient(at 51% 89%, hsla(24, 100%, 40%, 1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(24, 100%, 44%, 1) 0px, transparent 50%),
+        radial-gradient(at 22% 91%, hsla(24, 100%, 44%, 1) 0px, transparent 50%);
       background-position: top;
       opacity: var(--active, 0);
       border-radius: var(--border_radius);
@@ -2166,7 +2266,7 @@ export default function Page() {
       font-size: 1rem;
       color: transparent;
       font-weight: 600;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
     }
 
     /* Content Sections */
@@ -2184,10 +2284,10 @@ export default function Page() {
     .section-badge {
       display: inline-block;
       padding: 8px 20px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 1px solid rgba(114, 36, 147, 0.35) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 1px solid rgba(204, 85, 0, 0.35) !important;
       border-radius: 100px;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 12px !important;
       font-weight: 700 !important;
       color: var(--accent) !important;
@@ -2197,7 +2297,7 @@ export default function Page() {
     }
 
     .section-title {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(36px, 5vw, 56px) !important;
       line-height: 1.1 !important;
       margin-bottom: 20px !important;
@@ -2206,14 +2306,14 @@ export default function Page() {
     }
 
     .highlight {
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
     }
 
     .section-description {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -2229,8 +2329,8 @@ export default function Page() {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
-      border-top: 1px solid rgba(114, 36, 147, 0.25);
-      border-bottom: 1px solid rgba(114, 36, 147, 0.25);
+      border-top: 1px solid rgba(204, 85, 0, 0.25);
+      border-bottom: 1px solid rgba(204, 85, 0, 0.25);
     }
 
     .stat-item {
@@ -2238,10 +2338,10 @@ export default function Page() {
     }
 
     .stat-value {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 56px !important;
       font-weight: 800 !important;
-      background: linear-gradient(135deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(135deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
       background-clip: text !important;
@@ -2251,7 +2351,7 @@ export default function Page() {
     }
 
     .stat-label {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       font-weight: 600;
       color: var(--text-muted);
@@ -2261,7 +2361,7 @@ export default function Page() {
     }
 
     .stat-context {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 13px !important;
       color: var(--accent);
       margin-top: 8px;
@@ -2278,7 +2378,7 @@ export default function Page() {
     .capability-card {
       position: relative;
       background: var(--bg-card) !important;
-      border: 1px solid rgba(114, 36, 147, 0.2) !important;
+      border: 1px solid rgba(204, 85, 0, 0.2) !important;
       border-radius: 16px;
       padding: 32px;
       transition: all 0.3s ease;
@@ -2286,9 +2386,9 @@ export default function Page() {
 
     .capability-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(114, 36, 147, 0.5) !important;
-      background: rgba(114, 36, 147, 0.06) !important;
-      box-shadow: 0 12px 32px rgba(114, 36, 147, 0.15);
+      border-color: rgba(204, 85, 0, 0.5) !important;
+      background: rgba(204, 85, 0, 0.06) !important;
+      box-shadow: 0 12px 32px rgba(204, 85, 0, 0.15);
     }
 
     .capability-card .card-accent {
@@ -2297,7 +2397,7 @@ export default function Page() {
       left: -1px;
       right: -1px;
       height: 4px;
-      background: linear-gradient(90deg, #722493, #9B4DCA) !important;
+      background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       border-radius: 16px 16px 0 0;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -2308,7 +2408,7 @@ export default function Page() {
     }
 
     .capability-card h3 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 22px !important;
       font-weight: 700 !important;
       color: var(--text) !important;
@@ -2316,7 +2416,7 @@ export default function Page() {
     }
 
     .capability-card p {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 15px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -2330,7 +2430,7 @@ export default function Page() {
     }
 
     .capability-card ul li {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       color: var(--text-muted);
       padding: 8px 0;
@@ -2371,12 +2471,12 @@ export default function Page() {
       width: 80px;
       height: 80px;
       border-radius: 16px;
-      background: rgba(114, 36, 147, 0.12) !important;
-      border: 2px solid rgba(114, 36, 147, 0.3) !important;
+      background: rgba(204, 85, 0, 0.12) !important;
+      border: 2px solid rgba(204, 85, 0, 0.3) !important;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 32px !important;
       font-weight: 800 !important;
       color: var(--accent) !important;
@@ -2384,7 +2484,7 @@ export default function Page() {
     }
 
     .process-content h3 {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: 24px !important;
       font-weight: 700 !important;
       color: var(--text) !important;
@@ -2392,7 +2492,7 @@ export default function Page() {
     }
 
     .process-content p {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 16px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -2408,7 +2508,7 @@ export default function Page() {
 
     .tech-item {
       background: var(--bg-card) !important;
-      border: 1px solid rgba(114, 36, 147, 0.2) !important;
+      border: 1px solid rgba(204, 85, 0, 0.2) !important;
       border-radius: 12px;
       padding: 28px 20px;
       display: flex;
@@ -2421,9 +2521,9 @@ export default function Page() {
 
     .tech-item:hover {
       transform: translateY(-4px);
-      border-color: rgba(114, 36, 147, 0.5) !important;
-      background: rgba(114, 36, 147, 0.06) !important;
-      box-shadow: 0 8px 24px rgba(114, 36, 147, 0.15);
+      border-color: rgba(204, 85, 0, 0.5) !important;
+      background: rgba(204, 85, 0, 0.06) !important;
+      box-shadow: 0 8px 24px rgba(204, 85, 0, 0.15);
     }
 
     .tech-icon i {
@@ -2431,7 +2531,7 @@ export default function Page() {
     }
 
     .tech-name {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 14px !important;
       font-weight: 600;
       color: var(--text-secondary);
@@ -2447,7 +2547,7 @@ export default function Page() {
     }
 
     .cta-title {
-      font-family: 'League Spartan', sans-serif !important;
+      font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(36px, 5vw, 56px) !important;
       line-height: 1.2 !important;
       margin-bottom: 24px !important;
@@ -2456,7 +2556,7 @@ export default function Page() {
     }
 
     .cta-description {
-      font-family: 'Canva Sans', sans-serif !important;
+      font-family: 'Roboto', sans-serif !important;
       font-size: 18px !important;
       line-height: 1.7;
       color: var(--text-secondary) !important;
@@ -2510,35 +2610,35 @@ export default function Page() {
   
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Canva Sans','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'League Spartan',sans-serif}
+    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
 
     :root{
-      --purple:#722493;
-      --purple-light:#A64FD4;
-      --purple-glow:rgba(114,36,147,0.35);
-      --purple-dim:rgba(114,36,147,0.7);
+      --purple:#CC5500;
+      --purple-light:#E2725B;
+      --purple-glow:rgba(204,85,0,0.35);
+      --purple-dim:rgba(204,85,0,0.7);
       --green:#4FBF24;
     }
 
     /* ===== HEADER ===== */
     .pricing-header{text-align:center;padding:80px 40px 40px;position:relative}
-    .pricing-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:600px;background:radial-gradient(circle,rgba(114,36,147,0.06) 0%,transparent 65%);pointer-events:none}
+    .pricing-header::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:600px;height:600px;background:radial-gradient(circle,rgba(204, 85, 0,0.06) 0%,transparent 65%);pointer-events:none}
     .pricing-header h1{font-size:clamp(36px,6vw,60px);font-weight:800;color:var(--purple);margin-bottom:16px;letter-spacing:-1px;position:relative}
-    .pricing-header p{font-family:'Canva Sans',sans-serif;font-size:17px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 0;position:relative}
+    .pricing-header p{font-family:'Roboto',sans-serif;font-size:17px;color:rgba(255,255,255,0.6);max-width:620px;margin:0 auto 0;position:relative}
 
     /* ===== CENTERED NESTED TAB TOGGLE ===== */
     .tab-container{display:flex;flex-direction:column;align-items:center;padding:36px 20px 48px}
     .tab-toggle{
       display:inline-flex;
-      background:rgba(114,36,147,0.08);
-      border:1px solid rgba(114,36,147,0.2);
+      background:rgba(204, 85, 0,0.08);
+      border:1px solid rgba(204, 85, 0,0.2);
       border-radius:14px;
       padding:5px;
       gap:4px;
     }
     .tab-btn{
-      font-family:'League Spartan',sans-serif;
+      font-family:'Playfair Display',sans-serif;
       font-size:15px;
       font-weight:700;
       padding:12px 32px;
@@ -2554,7 +2654,7 @@ export default function Page() {
     .tab-btn#tab-talking.active{
       background:var(--purple);
       color:#fff;
-      box-shadow:0 4px 20px rgba(114,36,147,0.4),0 0 0 1px rgba(166,79,212,0.3);
+      box-shadow:0 4px 20px rgba(204, 85, 0,0.4),0 0 0 1px rgba(166,79,212,0.3);
     }
     .tab-btn#tab-custom.active{
       background:#fff;
@@ -2562,7 +2662,7 @@ export default function Page() {
       box-shadow:0 4px 20px rgba(255,255,255,0.15),0 0 0 1px rgba(255,255,255,0.2);
     }
     .tab-btn .tab-icon{margin-right:8px;font-size:16px}
-    .tab-subtitle{font-family:'Canva Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px}
+    .tab-subtitle{font-family:'Roboto',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px}
 
     /* ===== TAB PANELS ===== */
     .tab-panel{display:none;animation:fadeUp .4s ease}
@@ -2571,17 +2671,17 @@ export default function Page() {
 
     /* ===== PANEL SUBHEADER ===== */
     .panel-header{text-align:center;padding:0 40px 20px}
-    .panel-header h2{font-family:'League Spartan',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff;margin-bottom:8px}
+    .panel-header h2{font-family:'Playfair Display',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff;margin-bottom:8px}
     .panel-header h2 span{color:var(--purple)}
-    .panel-header p{font-family:'Canva Sans',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);max-width:560px;margin:0 auto}
+    .panel-header p{font-family:'Roboto',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);max-width:560px;margin:0 auto}
 
     /* Engagement pills */
     .engagement-strip{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 24px;flex-wrap:wrap}
-    .engage-pill{font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.5px;padding:6px 16px;border:1px solid rgba(114,36,147,0.2);border-radius:99px;background:rgba(114,36,147,0.06)}
+    .engage-pill{font-family:'Playfair Display',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:.5px;padding:6px 16px;border:1px solid rgba(204, 85, 0,0.2);border-radius:99px;background:rgba(204, 85, 0,0.06)}
 
     /* Zero strip */
-    .zero-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 40px;padding:12px 24px;background:rgba(114,36,147,0.06);border:1px solid rgba(114,36,147,0.15);border-radius:99px;flex-wrap:wrap;max-width:640px}
-    .zero-item{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;color:var(--oren-sub);letter-spacing:.3px;display:flex;align-items:center;gap:6px}
+    .zero-strip{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 40px;padding:12px 24px;background:rgba(204, 85, 0,0.06);border:1px solid rgba(204, 85, 0,0.15);border-radius:99px;flex-wrap:wrap;max-width:640px}
+    .zero-item{font-family:'Playfair Display',sans-serif;font-size:13px;font-weight:700;color:var(--oren-sub);letter-spacing:.3px;display:flex;align-items:center;gap:6px}
     .zero-icon{color:var(--purple);font-size:10px}
     .zero-divider{color:rgba(255,255,255,0.15);font-size:16px}
 
@@ -2590,74 +2690,74 @@ export default function Page() {
 
     /* ===== CARD ===== */
     .plan-card{position:relative;background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--oren-line-subtle);border-radius:20px;padding:28px 20px 24px;display:flex;flex-direction:column;transition:all .4s ease;overflow:visible}
-    .plan-card:hover{transform:translateY(-4px);border-color:rgba(114,36,147,0.35);box-shadow:0 0 12px rgba(114,36,147,0.06),0 20px 60px rgba(0,0,0,0.4)}
+    .plan-card:hover{transform:translateY(-4px);border-color:rgba(204, 85, 0,0.35);box-shadow:0 0 12px rgba(204, 85, 0,0.06),0 20px 60px rgba(0,0,0,0.4)}
     .plan-card.popular{overflow:visible}
-    .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#722493,#A64FD4);color:#fff;font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;padding:6px 20px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 16px rgba(114,36,147,0.4);z-index:10}
+    .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:#fff;font-family:'Playfair Display',sans-serif;font-size:11px;font-weight:700;padding:6px 20px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 16px rgba(204, 85, 0,0.4);z-index:10}
 
     .logo-spot{width:100%;display:flex;justify-content:center;margin-bottom:16px;min-height:36px}
     .logo-spot img{height:32px;width:auto;opacity:.85}
 
-    .plan-name{font-family:'League Spartan',sans-serif;font-size:22px;font-weight:800;color:var(--purple);text-align:center;margin-bottom:2px}
-    .plan-subtitle{font-family:'Canva Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:16px;line-height:1.3}
+    .plan-name{font-family:'Playfair Display',sans-serif;font-size:22px;font-weight:800;color:var(--purple);text-align:center;margin-bottom:2px}
+    .plan-subtitle{font-family:'Roboto',sans-serif;font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-bottom:16px;line-height:1.3}
 
     /* Price block (monthly retainer) */
     .price-block{text-align:center;margin-bottom:16px}
-    .price-build-label{font-family:'Canva Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-    .price-current{font-family:'League Spartan',sans-serif;font-size:40px;font-weight:800;color:var(--purple);line-height:1}
+    .price-build-label{font-family:'Roboto',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+    .price-current{font-family:'Playfair Display',sans-serif;font-size:40px;font-weight:800;color:var(--purple);line-height:1}
     .price-current .currency{font-size:22px;font-weight:700;vertical-align:super;margin-right:1px}
     .price-current.small{font-size:26px;margin-top:8px}
-    .price-period{font-family:'Canva Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);display:inline}
-    .price-setup{font-family:'Canva Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px}
+    .price-period{font-family:'Roboto',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);display:inline}
+    .price-setup{font-family:'Roboto',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px}
     .price-setup strong{color:var(--purple-light);font-weight:700}
-    .price-care-label{font-family:'Canva Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-top:10px;margin-bottom:2px}
-    .price-divider{width:40px;height:1px;background:rgba(114,36,147,0.3);margin:8px auto}
+    .price-care-label{font-family:'Roboto',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-top:10px;margin-bottom:2px}
+    .price-divider{width:40px;height:1px;background:rgba(204, 85, 0,0.3);margin:8px auto}
 
     /* Custom card price */
-    .price-custom{font-family:'League Spartan',sans-serif;font-size:28px;font-weight:800;color:var(--purple);line-height:1;margin-bottom:4px}
+    .price-custom{font-family:'Playfair Display',sans-serif;font-size:28px;font-weight:800;color:var(--purple);line-height:1;margin-bottom:4px}
 
     /* Outcome badge */
-    .outcome-badge{font-family:'Canva Sans',sans-serif;font-size:10px;color:var(--purple-light);background:rgba(114,36,147,0.08);border:1px solid rgba(114,36,147,0.15);border-radius:8px;padding:7px 10px;text-align:center;margin-bottom:14px;line-height:1.4;font-style:italic}
+    .outcome-badge{font-family:'Roboto',sans-serif;font-size:10px;color:var(--purple-light);background:rgba(204, 85, 0,0.08);border:1px solid rgba(204, 85, 0,0.15);border-radius:8px;padding:7px 10px;text-align:center;margin-bottom:14px;line-height:1.4;font-style:italic}
 
     /* ===== NUTRITION LABEL ===== */
-    .nutrition-label{background:#000;border:3px solid rgba(114,36,147,0.8);border-radius:4px;padding:8px 10px 12px;margin-bottom:16px;flex:1}
+    .nutrition-label{background:#000;border:3px solid rgba(204, 85, 0,0.8);border-radius:4px;padding:8px 10px 12px;margin-bottom:16px;flex:1}
     .plan-card.popular .nutrition-label{border-color:var(--purple)}
 
-    .nl-title{font-family:'League Spartan',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1;margin-bottom:2px}
-    .nl-serving{font-family:'Canva Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.65);line-height:1.4;padding-bottom:5px}
+    .nl-title{font-family:'Playfair Display',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1;margin-bottom:2px}
+    .nl-serving{font-family:'Roboto',sans-serif;font-size:10px;color:rgba(255,255,255,0.65);line-height:1.4;padding-bottom:5px}
     .nl-serving strong{color:var(--purple)}
 
     .nl-thick{height:7px;background:var(--purple);margin:0 -10px}
-    .nl-thin{height:1px;background:rgba(114,36,147,0.3);margin:0 -10px}
+    .nl-thin{height:1px;background:rgba(204, 85, 0,0.3);margin:0 -10px}
 
     .nl-header{display:flex;justify-content:space-between;align-items:flex-end;padding:3px 0 2px}
-    .nl-header-left,.nl-header-right{font-family:'Canva Sans',sans-serif;font-size:9px;font-weight:700;color:var(--oren-muted);text-transform:uppercase;letter-spacing:.5px}
+    .nl-header-left,.nl-header-right{font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;color:var(--oren-muted);text-transform:uppercase;letter-spacing:.5px}
 
-    .nl-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(114,36,147,0.12);gap:6px}
+    .nl-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid rgba(204, 85, 0,0.12);gap:6px}
     .nl-row:last-child{border-bottom:none}
-    .nl-row.blend{border-bottom:1px solid rgba(114,36,147,0.2);padding-top:6px}
+    .nl-row.blend{border-bottom:1px solid rgba(204, 85, 0,0.2);padding-top:6px}
     .nl-row.blend .nl-feature{font-weight:800;color:#fff;font-size:11px}
     .nl-row.indent .nl-feature{padding-left:12px;font-weight:400;color:rgba(255,255,255,0.55);font-size:10.5px}
 
-    .nl-feature{font-family:'Canva Sans',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);flex:1;line-height:1.3}
-    .nl-value{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;color:var(--purple);white-space:nowrap;text-align:right;flex-shrink:0}
+    .nl-feature{font-family:'Roboto',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,0.75);flex:1;line-height:1.3}
+    .nl-value{font-family:'Playfair Display',sans-serif;font-size:11px;font-weight:700;color:var(--purple);white-space:nowrap;text-align:right;flex-shrink:0}
     .nl-value.green{color:#4FBF24}
     .nl-value.white{color:rgba(255,255,255,0.4)}
     .nl-value.na{color:rgba(255,255,255,0.15);font-weight:400;font-size:10px}
     .nl-value.highlight{color:var(--purple-light);font-weight:800}
 
-    .nl-credits{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(114,36,147,0.15)}
+    .nl-credits{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(204, 85, 0,0.15)}
     .nl-credits .nl-feature{color:var(--purple);font-weight:800;font-size:11px}
     .nl-credits .nl-value{color:var(--purple);font-size:11px;font-weight:800}
 
-    .nl-footnote{font-family:'Canva Sans',sans-serif;font-size:8px;color:rgba(255,255,255,0.3);padding-top:6px;line-height:1.4}
+    .nl-footnote{font-family:'Roboto',sans-serif;font-size:8px;color:rgba(255,255,255,0.3);padding-top:6px;line-height:1.4}
 
     /* ===== CTA ===== */
-    .cta-btn{display:block;width:100%;padding:12px 0;border:none;border-radius:12px;font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;transition:all .3s;margin-top:auto}
-    .cta-btn.primary{background:rgba(114,36,147,0.15);color:var(--purple-light);border:1px solid rgba(114,36,147,0.35)}
-    .cta-btn.primary:hover{background:rgba(114,36,147,0.25);border-color:rgba(114,36,147,0.6);box-shadow:0 0 16px rgba(114,36,147,0.15)}
-    .cta-btn.calendly{background:rgba(114,36,147,0.08);color:var(--purple-light);border:1px dashed rgba(114,36,147,0.4)}
-    .cta-btn.calendly:hover{background:rgba(114,36,147,0.15);border-color:rgba(114,36,147,0.6)}
-    .btn-sub{font-family:'Canva Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.3);text-align:center;margin-top:6px;display:block}
+    .cta-btn{display:block;width:100%;padding:12px 0;border:none;border-radius:12px;font-family:'Playfair Display',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;transition:all .3s;margin-top:auto}
+    .cta-btn.primary{background:rgba(204, 85, 0,0.15);color:var(--purple-light);border:1px solid rgba(204, 85, 0,0.35)}
+    .cta-btn.primary:hover{background:rgba(204, 85, 0,0.25);border-color:rgba(204, 85, 0,0.6);box-shadow:0 0 16px rgba(204, 85, 0,0.15)}
+    .cta-btn.calendly{background:rgba(204, 85, 0,0.08);color:var(--purple-light);border:1px dashed rgba(204, 85, 0,0.4)}
+    .cta-btn.calendly:hover{background:rgba(204, 85, 0,0.15);border-color:rgba(204, 85, 0,0.6)}
+    .btn-sub{font-family:'Roboto',sans-serif;font-size:10px;color:rgba(255,255,255,0.3);text-align:center;margin-top:6px;display:block}
 
     /* ===== RESPONSIVE ===== */
     @media(max-width:1200px){.pricing-grid{grid-template-columns:repeat(2,1fr);gap:16px;max-width:740px}}
@@ -2685,7 +2785,7 @@ export default function Page() {
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -2695,7 +2795,7 @@ export default function Page() {
   }
 
   .og-section-header h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -2709,7 +2809,7 @@ export default function Page() {
   }
 
   .og-section-subtitle {
-    font-family: 'Canva Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: var(--oren-sub);
     max-width: 600px;
@@ -2752,7 +2852,7 @@ export default function Page() {
   }
 
   .mkt-footer-trust-label {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -2823,7 +2923,7 @@ export default function Page() {
   }
 
   .mkt-trust-name {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -3054,7 +3154,7 @@ export default function Page() {
   }
 
   .mkt-footer-tagline {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -3098,7 +3198,7 @@ export default function Page() {
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -3110,7 +3210,7 @@ export default function Page() {
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Canva Sans', sans-serif; font-size: 13px;
+    font-family: 'Roboto', sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -3123,7 +3223,7 @@ export default function Page() {
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -3133,7 +3233,7 @@ export default function Page() {
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -3147,11 +3247,11 @@ export default function Page() {
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Canva Sans', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -3189,7 +3289,7 @@ export default function Page() {
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Canva Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -3220,7 +3320,7 @@ export default function Page() {
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -3302,6 +3402,94 @@ export default function Page() {
     inherits: false;
   }
 
+
+    /* === Dot Grid Overlay for Hero === */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    /* === Browser Mockup Showcase === */
+    .browser-mockup {
+      max-width: 700px;
+      margin: 50px auto 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(11, 29, 58, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 12px;
+    }
+    .browser-dots { display: flex; gap: 6px; }
+    .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #febc2e; }
+    .browser-dots span:nth-child(3) { background: #28c840; }
+    .browser-url {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(204, 85, 0, 0.3);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .browser-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #0B1D3A;
+    }
+    .browser-viewport img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: browserCrossfade 12s infinite;
+    }
+    .browser-viewport img:nth-child(1) { animation-delay: 0s; }
+    .browser-viewport img:nth-child(2) { animation-delay: 4s; }
+    .browser-viewport img:nth-child(3) { animation-delay: 8s; }
+    @keyframes browserCrossfade {
+      0%, 5% { opacity: 0; }
+      8.33%, 30% { opacity: 1; }
+      33.33%, 100% { opacity: 0; }
+    }
+
+    /* === Glassmorphic Card Overrides === */
+    .capability-card {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 20px !important;
+    }
+    .tech-item {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 16px !important;
+    }
+
+    @media (max-width: 768px) {
+      .browser-mockup { margin-top: 30px; }
+    }
+
 </style>
 <!-- HERO SECTION -->
   <section class="hero">
@@ -3331,6 +3519,18 @@ export default function Page() {
           </svg>
           <span class="text_button">Book A Meeting</span>
         </a>
+      </div>
+
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">orenweb.io/showcase</div>
+        </div>
+        <div class="browser-viewport">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Dashboard Analytics" />
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Modern SaaS" />
+          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80" alt="Clean Design" />
+        </div>
       </div>
     </div>
   </section>
