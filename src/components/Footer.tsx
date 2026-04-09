@@ -197,24 +197,23 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ─── BOTTOM BAR — All black text, correct fonts ─── */}
-        <div className="og-bottom-bar py-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-black/5">
+        <div className="og-bottom-bar py-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-black/5">
           <div className="text-[11px] font-medium text-black/70">
             &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="https://orengen.io" className="hover:text-[#CC5500] transition-colors">OrenGen Worldwide LLC</a>. All rights reserved.
-          </div>
-          <div className="og-payment flex items-center">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-6 w-auto" />
-          </div>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
             {[
               { path: '/privacy-policy', label: 'Privacy' },
               { path: '/terms', label: 'Terms' },
-              { path: '/cookie-policy', label: 'Cookies' },
               { path: '/ai-communications-opt-in', label: 'AI Opt-In' },
               { path: '/sitemap.xml', label: 'Sitemap' },
             ].map(({ path, label }) => (
               <Link key={path} href={path} className="text-[11px] font-medium text-black/70 hover:text-[#CC5500] transition-colors">{label}</Link>
             ))}
             <a href="https://orengen-status-page.instatus.com" className="text-[11px] font-medium text-black/70 hover:text-[#CC5500] transition-colors" target="_blank" rel="noopener noreferrer">Site Status</a>
+          </div>
+          </div>
+          <div className="og-payment flex items-center">
+            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-6 w-auto" />
           </div>
         </div>
       </div>
