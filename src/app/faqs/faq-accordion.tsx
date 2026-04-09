@@ -1,5 +1,4 @@
 'use client';
-"use client";
 
 import { useState } from "react";
 
@@ -42,47 +41,69 @@ export default function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="space-y-3">
+    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       {faqs.map((faq, idx) => {
         const isOpen = openIndex === idx;
         return (
           <div
             key={faq.q}
-            className={`bg-[#0a0a0a] border rounded-2xl overflow-hidden transition-all duration-300 ${
-              isOpen ? "border-[#CC5500]/40" : "border-white/10 hover:border-white/20"
-            }`}
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: isOpen ? "1px solid rgba(204,85,0,0.35)" : "1px solid rgba(255,255,255,0.06)",
+              borderRadius: 20, overflow: "hidden",
+              backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+              transition: "border-color 0.3s",
+            }}
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="w-full flex items-center justify-between gap-4 px-7 py-6 text-left focus:outline-none"
+              style={{
+                width: "100%", display: "flex", alignItems: "center",
+                justifyContent: "space-between", gap: 16,
+                padding: "22px 28px", textAlign: "left",
+                background: "transparent", border: "none", cursor: "pointer",
+                outline: "none",
+              }}
               aria-expanded={isOpen}
             >
               <span
-                className="text-base font-semibold text-white pr-2"
-                style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+                style={{
+                  fontFamily: "'Roboto', sans-serif", fontSize: 16, fontWeight: 600,
+                  color: "#F0F4FA", paddingRight: 8, lineHeight: 1.4,
+                }}
               >
                 {faq.q}
               </span>
               <span
-                className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200"
-                style={{ background: isOpen ? "#CC5500" : "rgba(255,255,255,0.08)" }}
+                style={{
+                  flexShrink: 0, width: 30, height: 30, borderRadius: "50%",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  background: isOpen ? "#CC5500" : "rgba(255,255,255,0.06)",
+                  transition: "background 0.2s",
+                }}
               >
                 {isOpen ? (
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg style={{ width: 14, height: 14, color: "#fff" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                   </svg>
                 ) : (
-                  <svg className="w-3.5 h-3.5 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <svg style={{ width: 14, height: 14, color: "#CC5500" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
                   </svg>
                 )}
               </span>
             </button>
             <div
-              className="overflow-hidden transition-all duration-300"
-              style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
+              style={{
+                overflow: "hidden",
+                maxHeight: isOpen ? 500 : 0,
+                opacity: isOpen ? 1 : 0,
+                transition: "max-height 0.3s ease, opacity 0.3s ease",
+              }}
             >
-              <p className="text-white/65 text-sm leading-relaxed px-7 pb-6">{faq.a}</p>
+              <p style={{ fontFamily: "'Roboto', sans-serif", color: "rgba(210,225,245,0.55)", fontSize: 14.5, lineHeight: 1.75, padding: "0 28px 24px", fontWeight: 300 }}>
+                {faq.a}
+              </p>
             </div>
           </div>
         );

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
@@ -56,115 +55,203 @@ const certs = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-background text-white min-h-screen">
+    <div style={{ background: "linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)", color: "#F0F4FA", minHeight: "100vh" }}>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden pt-32 pb-24 px-6">
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 140, paddingBottom: 80, paddingLeft: 24, paddingRight: 24 }}>
+        {/* Dot grid */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+            backgroundImage: "linear-gradient(rgba(204,85,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(204,85,0,0.03) 1px,transparent 1px)",
+            backgroundSize: "80px 80px",
+            maskImage: "radial-gradient(ellipse 70% 60% at 50% 45%,black 0%,transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 45%,black 0%,transparent 100%)",
+          }}
+        />
         {/* Orb accents */}
         <div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, var(--oren-orange) 0%, transparent 70%)", filter: "blur(90px)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: "-25%", right: "-12%", width: 700, height: 700, borderRadius: "50%",
+            background: "radial-gradient(circle,rgba(30,77,140,0.35) 0%,transparent 70%)", filter: "blur(120px)", pointerEvents: "none",
+          }}
         />
         <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-32 -right-40 w-[500px] h-[500px] rounded-full opacity-15"
-          style={{ background: "radial-gradient(circle, #003366 0%, transparent 70%)", filter: "blur(90px)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute", bottom: "-18%", left: "-10%", width: 500, height: 500, borderRadius: "50%",
+            background: "radial-gradient(circle,rgba(204,85,0,0.15) 0%,transparent 70%)", filter: "blur(120px)", pointerEvents: "none",
+          }}
         />
-        <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-4">About OrenGen</p>
-          <h1
-            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-none text-white mb-6"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+        {/* Top rule */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 1, zIndex: 1, pointerEvents: "none",
+            background: "linear-gradient(90deg,transparent 5%,rgba(204,85,0,0.25) 30%,rgba(204,85,0,0.4) 50%,rgba(204,85,0,0.25) 70%,transparent 95%)",
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+          <div
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px",
+              background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)",
+              borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em",
+              textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 32,
+            }}
           >
-            About OrenGen Worldwide
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} />
+            About OrenGen
+          </div>
+          <h1
+            style={{
+              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontSize: "clamp(42px,8vw,82px)", lineHeight: 1.02,
+              letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28,
+            }}
+          >
+            About <span style={{ color: "#CC5500" }}>OrenGen</span>
           </h1>
-          <p className="text-white/65 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p style={{ fontSize: "clamp(16px,2.2vw,21px)", lineHeight: 1.65, color: "rgba(210,225,245,0.55)", maxWidth: 560, margin: "0 auto", fontWeight: 300 }}>
             We build AI systems that sell, support, and scale — so your team can focus on growth, not operations.
           </p>
         </div>
       </section>
 
-      {/* ── COMPANY STORY ── */}
-      <section className="py-20 px-6 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[var(--oren-orange)]/20 to-transparent" />
-        <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-3">Our Story</p>
-            <h2
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6"
-              style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+      {/* ── STATS BAR ── */}
+      <section style={{ padding: "0 24px 60px" }}>
+        <div style={{ maxWidth: 1060, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+          {[
+            { stat: "40+", label: "Years Leadership Experience" },
+            { stat: "11", label: "Integrated AI Solutions" },
+            { stat: "3-Day", label: "Standard Deployment" },
+            { stat: "24/7", label: "Autonomous Operation" },
+          ].map(({ stat, label }) => (
+            <div
+              key={label}
+              style={{
+                background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+                backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+                borderRadius: 20, padding: "32px 20px", textAlign: "center",
+                transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
+              }}
             >
-              Built in Mansfield, TX.<br />Deployed Worldwide.
+              <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 42, color: "#CC5500", lineHeight: 1, marginBottom: 8 }}>
+                {stat}
+              </p>
+              <p style={{ fontSize: 13, color: "rgba(210,225,245,0.5)", fontWeight: 400 }}>{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── COMPANY STORY ── */}
+      <section style={{ padding: "80px 24px", position: "relative" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "75%", height: 1,
+            background: "linear-gradient(to right,transparent,rgba(204,85,0,0.2),transparent)",
+          }}
+        />
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div
+            style={{
+              background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+              borderRadius: 20, padding: "48px 40px",
+            }}
+          >
+            <div
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 10, padding: "6px 16px",
+                background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)",
+                borderRadius: 999, fontSize: 11, fontWeight: 700, letterSpacing: "0.14em",
+                textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 20,
+              }}
+            >
+              Our Story
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontSize: "clamp(28px,4vw,44px)", lineHeight: 1.08,
+                letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 24,
+              }}
+            >
+              Built in Mansfield, TX.<br />Deployed <span style={{ color: "#CC5500" }}>Worldwide</span>.
             </h2>
-            <p className="text-white/65 leading-relaxed mb-4">
+            <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, marginBottom: 16, fontSize: 16, fontWeight: 300 }}>
               Founded in 2025 and headquartered in Mansfield, Texas, OrenGen Worldwide emerged from a simple observation: most businesses were drowning in manual, repetitive operations that AI could handle permanently.
             </p>
-            <p className="text-white/65 leading-relaxed mb-4">
+            <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, marginBottom: 16, fontSize: 16, fontWeight: 300 }}>
               Our leadership team brings over 40 years of combined business leadership experience — spanning technology, finance, operations, and government contracting — unified around a single mission: give every organization access to enterprise-grade AI infrastructure.
             </p>
-            <p className="text-white/65 leading-relaxed">
+            <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, fontSize: 16, fontWeight: 300 }}>
               Today we serve clients across healthcare, government, real estate, e-commerce, and professional services — building systems that don&apos;t just automate tasks, but transform how organizations operate at their core.
             </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { stat: "40+", label: "Years Leadership Experience" },
-              { stat: "11", label: "Integrated AI Solutions" },
-              { stat: "3-Day", label: "Standard Deployment" },
-              { stat: "24/7", label: "Autonomous Operation" },
-            ].map(({ stat, label }) => (
-              <div
-                key={label}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 text-center hover:border-[var(--oren-orange)]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-              >
-                <p
-                  className="text-4xl font-extrabold text-burnt-orange mb-2"
-                  style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
-                >
-                  {stat}
-                </p>
-                <p className="text-white/55 text-sm leading-snug">{label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* ── MISSION & VISION ── */}
-      <section className="py-20 px-6 bg-[#0a0a0a]">
-        <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-[#111] border border-white/10 rounded-2xl p-10 hover:border-[var(--oren-orange)]/30 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <div className="w-10 h-10 rounded-lg bg-burnt-orange/15 flex items-center justify-center mb-6">
-              <svg className="w-5 h-5 text-burnt-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <section style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: 1060, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+          {/* Mission */}
+          <div
+            style={{
+              background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+              borderRadius: 20, padding: "44px 36px",
+              transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
+            }}
+          >
+            <div
+              style={{
+                width: 44, height: 44, borderRadius: 12,
+                background: "rgba(204,85,0,0.1)", display: "flex",
+                alignItems: "center", justifyContent: "center", marginBottom: 24,
+              }}
+            >
+              <svg style={{ width: 22, height: 22, color: "#CC5500" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <p className="text-burnt-orange text-xs font-semibold uppercase tracking-widest mb-3">Our Mission</p>
-            <h3
-              className="text-2xl font-bold text-white mb-4"
-              style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
-            >
+            <p style={{ color: "#CC5500", fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, marginBottom: 12 }}>Our Mission</p>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
               Empower Every Business With AI
             </h3>
-            <p className="text-white/65 leading-relaxed">
+            <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, fontSize: 15, fontWeight: 300 }}>
               To empower businesses of every size with cutting-edge AI infrastructure that eliminates manual operations, accelerates revenue, and enables teams to focus on what matters most — growth.
             </p>
           </div>
-          <div className="bg-[#111] border border-white/10 rounded-2xl p-10 hover:border-[#003366]/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <div className="w-10 h-10 rounded-lg bg-[#003366]/30 flex items-center justify-center mb-6">
-              <svg className="w-5 h-5 text-[#5b8fd4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          {/* Vision */}
+          <div
+            style={{
+              background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+              borderRadius: 20, padding: "44px 36px",
+              transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
+            }}
+          >
+            <div
+              style={{
+                width: 44, height: 44, borderRadius: 12,
+                background: "rgba(30,77,140,0.15)", display: "flex",
+                alignItems: "center", justifyContent: "center", marginBottom: 24,
+              }}
+            >
+              <svg style={{ width: 22, height: 22, color: "#5b8fd4" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
             </div>
-            <p className="text-[#5b8fd4] text-xs font-semibold uppercase tracking-widest mb-3">Our Vision</p>
-            <h3
-              className="text-2xl font-bold text-white mb-4"
-              style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
-            >
+            <p style={{ color: "#5b8fd4", fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, marginBottom: 12 }}>Our Vision</p>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
               The World&apos;s Most Trusted AI Provider
             </h3>
-            <p className="text-white/65 leading-relaxed">
+            <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, fontSize: 15, fontWeight: 300 }}>
               To become the world&apos;s most trusted provider of AI-driven business innovations — setting the standard for transparency, reliability, and measurable outcomes across every industry we serve.
             </p>
           </div>
@@ -172,34 +259,62 @@ export default function AboutPage() {
       </section>
 
       {/* ── WHY ORENGEN ── */}
-      <section className="py-20 px-6 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[var(--oren-orange)]/15 to-transparent" />
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-14">
-            <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-3">Why OrenGen</p>
-            <h2
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+      <section style={{ padding: "80px 24px", position: "relative" }}>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "75%", height: 1,
+            background: "linear-gradient(to right,transparent,rgba(204,85,0,0.15),transparent)",
+          }}
+        />
+        <div style={{ maxWidth: 1060, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px",
+                background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)",
+                borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em",
+                textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 24,
+              }}
             >
-              What Makes Us Different
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} />
+              Why OrenGen
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
+                letterSpacing: "-0.03em", color: "#F0F4FA",
+              }}
+            >
+              What Makes Us <span style={{ color: "#CC5500" }}>Different</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {differentiators.map((d, i) => (
               <div
                 key={d.title}
-                className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-7 hover:border-[var(--oren-orange)]/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
+                style={{
+                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+                  borderRadius: 20, padding: "28px 24px",
+                  transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
+                }}
               >
-                <div className="w-8 h-8 rounded-md bg-burnt-orange/15 flex items-center justify-center mb-4">
-                  <span className="text-burnt-orange text-sm font-bold">{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <h3
-                  className="text-lg font-bold text-white mb-3 group-hover:text-burnt-orange transition-colors"
-                  style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+                <div
+                  style={{
+                    width: 36, height: 36, borderRadius: 10,
+                    background: "rgba(204,85,0,0.1)", display: "flex",
+                    alignItems: "center", justifyContent: "center", marginBottom: 16,
+                    fontSize: 13, fontWeight: 700, color: "#CC5500",
+                  }}
                 >
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: 17, color: "#F0F4FA", marginBottom: 10, lineHeight: 1.3 }}>
                   {d.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed">{d.desc}</p>
+                <p style={{ color: "rgba(210,225,245,0.45)", fontSize: 13.5, lineHeight: 1.65, fontWeight: 300 }}>{d.desc}</p>
               </div>
             ))}
           </div>
@@ -207,33 +322,47 @@ export default function AboutPage() {
       </section>
 
       {/* ── CERTIFICATIONS ── */}
-      <section className="py-20 px-6 bg-[#0a0a0a]">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-14">
-            <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-3">Credentials</p>
-            <h2
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white"
-              style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+      <section style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: 1060, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px",
+                background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)",
+                borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em",
+                textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 24,
+              }}
             >
-              Verified &amp; Certified
+              Credentials
+            </div>
+            <h2
+              style={{
+                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
+                letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
+              }}
+            >
+              Verified &amp; <span style={{ color: "#CC5500" }}>Certified</span>
             </h2>
-            <p className="text-white/55 mt-4 max-w-xl mx-auto">
+            <p style={{ color: "rgba(210,225,245,0.5)", maxWidth: 600, margin: "0 auto", fontSize: 17, lineHeight: 1.7, fontWeight: 300 }}>
               OrenGen is registered, certified, and compliant — ready for government, enterprise, and regulated industry engagements.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16 }}>
             {certs.map((c) => (
               <div
                 key={c.label}
-                className="bg-[#111] border border-white/10 rounded-2xl px-6 py-4 hover:border-[var(--oren-orange)]/40 hover:-translate-y-0.5 transition-all duration-300 text-center"
+                style={{
+                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+                  borderRadius: 16, padding: "20px 28px", textAlign: "center",
+                  transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
+                }}
               >
-                <p
-                  className="text-white font-semibold text-sm"
-                  style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
-                >
+                <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: "#F0F4FA", marginBottom: 4 }}>
                   {c.label}
                 </p>
-                <p className="text-white/45 text-xs mt-1">{c.detail}</p>
+                <p style={{ color: "rgba(210,225,245,0.4)", fontSize: 12 }}>{c.detail}</p>
               </div>
             ))}
           </div>
@@ -241,27 +370,38 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 pb-32 sm:pb-24 px-6 text-center relative overflow-hidden">
+      <section style={{ padding: "100px 24px 120px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{ background: "radial-gradient(ellipse at 50% 100%, var(--oren-orange) 0%, transparent 60%)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: "radial-gradient(ellipse at 50% 100%, rgba(204,85,0,0.12) 0%, transparent 60%)",
+          }}
         />
-        <div className="relative z-10 mx-auto max-w-2xl">
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 640, margin: "0 auto" }}>
           <h2
-            className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+            style={{
+              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
+              letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
+            }}
           >
-            Ready to Work With Us?
+            Ready to Work <span style={{ color: "#CC5500" }}>With Us</span>?
           </h2>
-          <p className="text-white/60 text-lg mb-8">
+          <p style={{ color: "rgba(210,225,245,0.5)", fontSize: 17, lineHeight: 1.7, fontWeight: 300, marginBottom: 36 }}>
             Let&apos;s talk about what&apos;s slowing your business down — and build the AI system that fixes it permanently.
           </p>
           <a
             href="https://calendly.com/orengenio/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-burnt-orange hover:bg-[#b34a00] text-white font-bold px-10 py-4 rounded-full text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{
+              display: "inline-flex", alignItems: "center", padding: "16px 40px",
+              background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
+              fontWeight: 700, fontSize: 15, borderRadius: 12, textDecoration: "none",
+              boxShadow: "0 4px 24px rgba(204,85,0,0.35)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
           >
             Book a Strategy Call
           </a>
