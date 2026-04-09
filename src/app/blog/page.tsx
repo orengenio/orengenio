@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { posts } from "./[slug]/page"
+import { posts } from "@/data/blog-posts"
 
 export const metadata: Metadata = {
   title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",

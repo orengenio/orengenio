@@ -50,10 +50,19 @@ function AnimatedOrb() {
   );
 }
 
-export function FloatingOrb() {
+interface FloatingOrbProps {
+  onToggleChat?: () => void;
+  isChatOpen?: boolean;
+}
+
+export function FloatingOrb({ onToggleChat, isChatOpen }: FloatingOrbProps) {
   return (
-    <div className="fixed bottom-10 right-10 z-[100] flex flex-col items-center group">
-      <div className="relative h-44 w-44 cursor-pointer transition-transform hover:scale-110 active:scale-95 sm:h-64 sm:w-64">
+    <div className="fixed bottom-10 right-10 z-[100] flex flex-col items-center group" onClick={onToggleChat}>
+      <motion.div
+        animate={isChatOpen ? { scale: 0.7, opacity: 0.6 } : { scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="relative h-44 w-44 cursor-pointer transition-transform hover:scale-110 active:scale-95 sm:h-64 sm:w-64"
+      >
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <ambientLight intensity={2} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={4} />
@@ -87,15 +96,20 @@ export function FloatingOrb() {
           }}
           className="absolute inset-0 -z-20 rounded-full bg-terracotta/20 blur-[120px]" 
         />
-      </div>
+      </motion.div>
 
       {/* Label Under Orb */}
       <motion.div
-        animate={{ 
-          y: [0, -8, 0],
-          boxShadow: ["0 0 10px rgba(204,85,0,0.2)", "0 0 30px rgba(204,85,0,0.5)", "0 0 10px rgba(204,85,0,0.2)"]
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        animate={isChatOpen 
+          ? { y: 0, opacity: 0, scale: 0.8 }
+          : { 
+              y: [0, -8, 0],
+              opacity: 1,
+              scale: 1,
+              boxShadow: ["0 0 10px rgba(204,85,0,0.2)", "0 0 30px rgba(204,85,0,0.5)", "0 0 10px rgba(204,85,0,0.2)"]
+            }
+        }
+        transition={isChatOpen ? { duration: 0.2 } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="mt-6 rounded-full border border-burnt-orange/40 bg-burnt-orange/20 px-8 py-3 backdrop-blur-xl shadow-2xl"
       >
         <span className="text-[14px] font-black tracking-[0.4em] text-white uppercase drop-shadow-lg">
