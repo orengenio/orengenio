@@ -2,15 +2,13 @@
 
 import { useState } from "react";
 import { FloatingOrb } from "./FloatingOrb";
-import { ChatBot } from "./ChatBot";
-
+import { AmeinosChatBot } from "./ChatBot";
 export function OrbChatWrapper() {
   const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <>
       <FloatingOrb onToggleChat={() => setChatOpen((prev) => !prev)} isChatOpen={chatOpen} />
-      <ChatBot isOpen={chatOpen} onClose={() => setChatOpen(false)} />
-    </>
+          <AmeinosChatBot isOpen={chatOpen} onClose={() => setChatOpen(false)} />    </>
   );
 }
