@@ -48,7 +48,6 @@ const fadeUp = {
     transition: {
       duration: 0.65,
       delay: i * 0.12,
-      ease: "easeOut",
     },
   }),
 };
@@ -124,9 +123,7 @@ export function AgentsShowcase() {
 
                 <div className="ogAg-card-stat">
                   <span className="ogAg-stat-val">{agent.stat.val}</span>
-                  <span className="ogAg-stat-label">
-                    {agent.stat.label}
-                  </span>
+                  <span className="ogAg-stat-label">{agent.stat.label}</span>
                 </div>
               </div>
             </motion.div>
