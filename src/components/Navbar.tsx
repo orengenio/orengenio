@@ -22,6 +22,7 @@ const solutionColumns = [
     items: [
       { name: "OrenNexus", desc: "Unified CRM and automation command center.", href: "/orennexus" },
       { name: "OrenSocial", desc: "AI-powered social media and content scheduling.", href: "/orensocial" },
+      { name: "OrenAutomations", desc: "Visual workflow automation, zero code.", href: "/orenautomations" },
     ],
   },
   {
@@ -39,7 +40,7 @@ const solutionColumns = [
     badge: "Add-On",
     badgeClass: "addon",
     colClass: "addon",
-    items: [{ name: "OrenCustoms", desc: "Bespoke AI engineering for scale.", href: "/orencustoms" }],
+    items: [{ name: "OrenConsulting", desc: "Fractional C-suite + custom AI engineering.", href: "/orenconsulting" }],
   },
 ];
 

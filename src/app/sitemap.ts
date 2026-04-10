@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://orengen.io'
   
   const staticRoutes = [
-    '', '/about', '/orenagents', '/orennexus', '/orenweb', '/orensocial', '/orencustoms', '/orenkanbuilder',
+    '', '/about', '/orenagents', '/orennexus', '/orenweb', '/orensocial', '/orenautomations', '/orenconsulting', '/orenkanbuilder',
     '/blog', '/case-studies', '/faqs',
     '/terms', '/privacy-policy', '/cookie-policy', '/acceptable-use', '/refund-policy',
     '/copyright-notice', '/security-overview', '/trademark-policy', '/legal-disclaimers',
