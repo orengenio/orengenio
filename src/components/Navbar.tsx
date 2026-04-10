@@ -10,8 +10,8 @@ const solutionColumns = [
     badgeClass: "core",
     colClass: "core",
     items: [
-      { name: "OrenAgents Voice", desc: "Buy-Lingual™ conversational AI for calls.", href: "/orenagents-voice" },
-      { name: "OrenAgents Employees", desc: "Hire autonomous multi-agent departments.", href: "/orenagents-workforce" },
+      { name: "OrenAgents Voice", desc: "Buy-Lingual™ conversational AI for calls.", href: "/orenagents" },
+      { name: "OrenAgents Employees", desc: "Hire autonomous multi-agent departments.", href: "/orenagents" },
     ],
   },
   {
@@ -30,8 +30,8 @@ const solutionColumns = [
     badgeClass: "addon",
     colClass: "addon",
     items: [
-      { name: "OrenWeb Design", desc: "High-performance bespoke development.", href: "/orenweb-design" },
-      { name: "OrenWeb Talk", desc: "Websites integrated with voice AI concierges.", href: "/orenweb-talk" },
+      { name: "OrenWeb Design", desc: "High-performance bespoke development.", href: "/orenweb" },
+      { name: "OrenWeb Talk", desc: "Websites integrated with voice AI concierges.", href: "/orenweb" },
     ],
   },
   {

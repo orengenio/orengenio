@@ -61,8 +61,8 @@ const affiliateLinks: AffiliateLink[] = [
 
 const footerColumns: FooterColumn[] = [
   { title: 'Solutions', links: [{ name: 'OrenAgents', href: '/orenagents' }, { name: 'OrenNexus', href: '/orennexus' }, { name: 'OrenWeb', href: '/orenweb' }, { name: 'OrenSocial', href: '/orensocial' }, { name: 'OrenCustoms', href: '/orencustoms' }] },
-  { title: 'Company', links: [{ name: 'About', href: '/about' }, { name: 'Blog', href: '/blog' }, { name: 'Case Studies', href: '/case-studies' }, { name: 'Integrations', href: '/integrations' }, { name: 'Support', href: '/support' }, { name: 'FAQs', href: '/faqs' }, { name: 'Pricing', href: '/pricing' }] },
-  { title: 'Partnerships', links: [{ name: 'Sales Partners', href: '/salespartners' }, { name: 'Program Differences', href: '/program-differences' }, { name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
+  { title: 'Company', links: [{ name: 'About', href: '/about' }, { name: 'Blog', href: '/blog' }, { name: 'Case Studies', href: '/case-studies' }, { name: 'Integrations', href: '/orennexus' }, { name: 'Support', href: '/faqs' }, { name: 'FAQs', href: '/faqs' }, { name: 'Pricing', href: '/#pricing' }] },
+  { title: 'Partnerships', links: [{ name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
   { title: 'Productivity', links: affiliateLinks },
   { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }] }
 ];
