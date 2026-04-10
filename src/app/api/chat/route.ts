@@ -38,10 +38,82 @@ BEHAVIOR RULES:
 - Do not make up features or pricing not listed above
 - If you don't know something, say so and recommend they contact the team`;
 
+const MAX_MESSAGES = 50;
+const MAX_MESSAGE_CONTENT_LENGTH = 4000;
+const ALLOWED_MESSAGE_ROLES = new Set(["user", "assistant"] as const);
+
+type ChatMessage = {
+  role: "user" | "assistant";
+  content: string;
+};
+
+function validateMessages(body: unknown): ChatMessage[] {
+  if (!body || typeof body !== "object" || !("messages" in body)) {
+    throw new Error("Invalid request body: `messages` is required.");
+  }
+
+  const { messages } = body as { messages: unknown };
+
+  if (!Array.isArray(messages)) {
+    throw new Error("Invalid request body: `messages` must be an array.");
+  }
+
+  if (messages.length > MAX_MESSAGES) {
+    throw new Error(`Invalid request body: too many messages (max ${MAX_MESSAGES}).`);
+  }
+
+  return messages.map((message, index) => {
+    if (!message || typeof message !== "object" || Array.isArray(message)) {
+      throw new Error(`Invalid message at index ${index}: must be an object.`);
+    }
+
+    const keys = Object.keys(message);
+    if (keys.some((key) => key !== "role" && key !== "content")) {
+      throw new Error(`Invalid message at index ${index}: only \`role\` and \`content\` are allowed.`);
+    }
+
+    const { role, content } = message as { role?: unknown; content?: unknown };
+
+    if (typeof role !== "string" || !ALLOWED_MESSAGE_ROLES.has(role as "user" | "assistant")) {
+      throw new Error(`Invalid message at index ${index}: role must be "user" or "assistant".`);
+    }
+
+    if (typeof content !== "string") {
+      throw new Error(`Invalid message at index ${index}: content must be a string.`);
+    }
+
+    const trimmedContent = content.trim();
+    if (!trimmedContent) {
+      throw new Error(`Invalid message at index ${index}: content must not be empty.`);
+    }
+
+    if (trimmedContent.length > MAX_MESSAGE_CONTENT_LENGTH) {
+      throw new Error(
+        `Invalid message at index ${index}: content exceeds max length of ${MAX_MESSAGE_CONTENT_LENGTH}.`
+      );
+    }
+
+    return {
+      role: role as "user" | "assistant",
+      content: trimmedContent,
+    };
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const body: unknown = await req.json();
+    let messages: ChatMessage[];
 
+    try {
+      messages = validateMessages(body);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Invalid request body.";
+      return new Response(
+        JSON.stringify({ error: message }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
       return new Response(
