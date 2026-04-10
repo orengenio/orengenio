@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { OrbChatWrapper } from "@/components/OrbChatWrapper";
+import { Geist, Geist_Mono, Playfair_Display, Roboto } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
