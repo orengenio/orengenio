@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -93,6 +94,15 @@ function StarRating() {
 export function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
 
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   return (
     <section className="testimonials-section">
       <div className="testimonials-wrap">
@@ -119,8 +129,8 @@ export function Testimonials() {
         <div className="testimonials-marquee">
           <motion.div
             className="testimonials-track"
-            animate={{ x: [0, "-50%"] }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            animate={prefersReducedMotion ? {} : { x: [0, "-50%"] }}
+            transition={prefersReducedMotion ? {} : { duration: 60, repeat: Infinity, ease: "linear" }}
           >
             {doubled.map((t, i) => (
               <div key={i} className="testimonial-card">

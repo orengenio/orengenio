@@ -15,20 +15,15 @@ function AnimatedOrb() {
       sphereRef.current.rotation.x = state.clock.getElapsedTime() * 0.3;
       sphereRef.current.rotation.y = state.clock.getElapsedTime() * 0.4;
     }
-    
-    // Dynamic Color Shifting Logic
     if (materialRef.current) {
       const time = state.clock.getElapsedTime();
-      const color1 = new THREE.Color("#CC5500"); // Burnt Orange
-      const color2 = new THREE.Color("#E2725B"); // Terracotta
-      const color3 = new THREE.Color("#FFFFFF"); // Active White
-      
-      // Smoothly interpolate between colors based on time
+      const color1 = new THREE.Color("#CC5500");
+      const color2 = new THREE.Color("#E2725B");
+      const color3 = new THREE.Color("#FFFFFF");
       const phase = (Math.sin(time * 0.5) + 1) / 2;
-      const finalColor = phase > 0.5 
+      const finalColor = phase > 0.5
         ? color1.clone().lerp(color3, (phase - 0.5) * 2)
         : color2.clone().lerp(color1, phase * 2);
-        
       materialRef.current.color.copy(finalColor);
     }
   });
@@ -36,15 +31,7 @@ function AnimatedOrb() {
   return (
     <Float speed={5} rotationIntensity={2} floatIntensity={3}>
       <Sphere ref={sphereRef} args={[1, 64, 64]} scale={1.5}>
-        <MeshDistortMaterial
-          ref={materialRef}
-          speed={4}
-          distort={0.6}
-          radius={1}
-          metalness={0.9}
-          roughness={0.05}
-          emissiveIntensity={0.5}
-        />
+        <MeshDistortMaterial ref={materialRef} speed={4} distort={0.6} radius={1} metalness={0.9} roughness={0.05} emissiveIntensity={0.5} />
       </Sphere>
     </Float>
   );
@@ -56,8 +43,22 @@ interface FloatingOrbProps {
 }
 
 export function FloatingOrb({ onToggleChat, isChatOpen }: FloatingOrbProps) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onToggleChat?.();
+    }
+  };
+
   return (
-    <div className="fixed bottom-10 right-10 z-[100] flex flex-col items-center group" onClick={onToggleChat}>
+    <div
+      className="fixed bottom-10 right-10 z-[100] flex flex-col items-center group"
+      onClick={onToggleChat}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={isChatOpen ? "Close chat" : "Open chat assistant"}
+    >
       <motion.div
         animate={isChatOpen ? { scale: 0.7, opacity: 0.6 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
@@ -69,52 +70,15 @@ export function FloatingOrb({ onToggleChat, isChatOpen }: FloatingOrbProps) {
           <pointLight position={[-10, -10, -10]} intensity={3} />
           <AnimatedOrb />
         </Canvas>
-        
-        {/* Multi-layered attention-grabbing glow */}
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0.7, 0.4] 
-          }}
-          transition={{ 
-            duration: 3, 
-            repeat: Infinity,
-            ease: "easeInOut" 
-          }}
-          className="absolute inset-0 -z-10 rounded-full bg-burnt-orange/30 blur-[80px]" 
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.5, 1],
-            opacity: [0.1, 0.3, 0.1] 
-          }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity,
-            delay: 1,
-            ease: "easeInOut" 
-          }}
-          className="absolute inset-0 -z-20 rounded-full bg-terracotta/20 blur-[120px]" 
-        />
+        <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 -z-10 rounded-full bg-burnt-orange/30 blur-[80px]" />
+        <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }} transition={{ duration: 4, repeat: Infinity, delay: 1, ease: "easeInOut" }} className="absolute inset-0 -z-20 rounded-full bg-terracotta/20 blur-[120px]" />
       </motion.div>
-
-      {/* Label Under Orb */}
       <motion.div
-        animate={isChatOpen 
-          ? { y: 0, opacity: 0, scale: 0.8 }
-          : { 
-              y: [0, -8, 0],
-              opacity: 1,
-              scale: 1,
-              boxShadow: ["0 0 10px rgba(204,85,0,0.2)", "0 0 30px rgba(204,85,0,0.5)", "0 0 10px rgba(204,85,0,0.2)"]
-            }
-        }
+        animate={isChatOpen ? { y: 0, opacity: 0, scale: 0.8 } : { y: [0, -8, 0], opacity: 1, scale: 1, boxShadow: ["0 0 10px rgba(204,85,0,0.2)", "0 0 30px rgba(204,85,0,0.5)", "0 0 10px rgba(204,85,0,0.2)"] }}
         transition={isChatOpen ? { duration: 0.2 } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="mt-6 rounded-full border border-burnt-orange/40 bg-burnt-orange/20 px-8 py-3 backdrop-blur-xl shadow-2xl"
       >
-        <span className="text-[14px] font-black tracking-[0.4em] text-white uppercase drop-shadow-lg">
-          TALK TO ME
-        </span>
+        <span className="text-[14px] font-black tracking-[0.4em] text-white uppercase drop-shadow-lg">TALK TO ME</span>
       </motion.div>
     </div>
   );

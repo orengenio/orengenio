@@ -64,6 +64,8 @@ export default function FaqAccordion() {
                 background: "transparent", border: "none", cursor: "pointer",
                 outline: "none",
               }}
+              onFocus={(e) => { e.currentTarget.style.outline = "2px solid #CC5500"; e.currentTarget.style.outlineOffset = "2px"; }}
+              onBlur={(e) => { e.currentTarget.style.outline = "none"; }}
               aria-expanded={isOpen}
             >
               <span
