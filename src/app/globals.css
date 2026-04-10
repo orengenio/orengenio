@@ -1721,8 +1721,8 @@
 
 .agent-card-img-wrap {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   margin: 0 auto 16px;
 }
 
@@ -1744,7 +1744,7 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 15%;
   display: block;
 }
 
