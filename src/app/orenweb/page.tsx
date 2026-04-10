@@ -94,29 +94,27 @@ const html = `
       --text-muted: rgba(255, 255, 255, 0.5);
     }
 
-    * {
+    .web-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
-      color: var(--text) !important;
-      font-family: 'Roboto', 'Inter', sans-serif !important;
+    .web-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Roboto', 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Playfair Display', sans-serif !important;
+    .web-page h1,
+    .web-page h2,
+    .web-page h3,
+    .web-page h4,
+    .web-page h5,
+    .web-page h6 {
+      font-family: 'Playfair Display', sans-serif;
     }
 
     /* Hero Section */
@@ -152,7 +150,7 @@ const html = `
       margin-bottom: 32px;
     }
 
-    h1 {
+    .web-page h1 {
       font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
@@ -162,7 +160,7 @@ const html = `
       color: var(--text) !important;
     }
 
-    h1 span {
+    .web-page h1 span {
       background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -639,7 +637,7 @@ const html = `
         padding: 100px 20px 60px;
       }
 
-      h1 {
+      .web-page h1 {
         font-size: 42px !important;
       }
 
@@ -676,9 +674,9 @@ const html = `
     }
   
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
+    .web-page *{margin:0;padding:0;box-sizing:border-box}
+    .web-page{color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    .web-page h1,.web-page h2,.web-page h3,.web-page h4,.web-page h5,.web-page h6{font-family:'Playfair Display',sans-serif}
 
     :root{
       --purple:#CC5500;
@@ -1939,7 +1937,7 @@ const html = `
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 web-page" dangerouslySetInnerHTML={{ __html: `
 <style>
  
 
@@ -2027,29 +2025,27 @@ export default function Page() {
       --text-muted: var(--oren-muted);
     }
 
-    * {
+    .web-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
-      color: var(--text) !important;
-      font-family: 'Roboto', 'Inter', sans-serif !important;
+    .web-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Roboto', 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Playfair Display', sans-serif !important;
+    .web-page h1,
+    .web-page h2,
+    .web-page h3,
+    .web-page h4,
+    .web-page h5,
+    .web-page h6 {
+      font-family: 'Playfair Display', sans-serif;
     }
 
     /* Hero Section */
@@ -2085,7 +2081,7 @@ export default function Page() {
       margin-bottom: 32px;
     }
 
-    h1 {
+    .web-page h1 {
       font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
@@ -2095,7 +2091,7 @@ export default function Page() {
       color: var(--text) !important;
     }
 
-    h1 span {
+    .web-page h1 span {
       background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -2572,7 +2568,7 @@ export default function Page() {
         padding: 100px 20px 60px;
       }
 
-      h1 {
+      .web-page h1 {
         font-size: 42px !important;
       }
 
@@ -2609,9 +2605,9 @@ export default function Page() {
     }
   
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
+    .web-page *{margin:0;padding:0;box-sizing:border-box}
+    .web-page{color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    .web-page h1,.web-page h2,.web-page h3,.web-page h4,.web-page h5,.web-page h6{font-family:'Playfair Display',sans-serif}
 
     :root{
       --purple:#CC5500;

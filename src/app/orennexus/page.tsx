@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 nexus-page" dangerouslySetInnerHTML={{ __html: `
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .nexus-page *, .nexus-page *::before, .nexus-page *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --primary: #CC5500;
@@ -52,11 +52,11 @@ export default function Page() {
       --glass-blur: blur(12px);
     }
 
-    html, body {
-      background: var(--bg-dark) !important;
-      color: var(--text-primary) !important;
-      font-family: var(--font-body) !important;
-      overflow-x: hidden !important;
+    .nexus-page {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }

@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 consult-page" dangerouslySetInnerHTML={{ __html: `
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
   :root{--primary:#CC5500;--primary-light:#E8762B;--primary-dark:#B34A00;--bg-dark:#0B1D3A;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--text:#F0F4FA;--text-secondary:rgba(210,225,245,0.6);--text-muted:rgba(210,225,245,0.4)}
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{background:var(--bg-dark)!important;color:var(--text)!important;font-family:'Roboto','Inter',sans-serif!important;overflow-x:hidden}
-  h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif!important}
+  .consult-page *{margin:0;padding:0;box-sizing:border-box}
+  .consult-page{background:var(--bg-dark);color:var(--text);font-family:'Roboto','Inter',sans-serif;overflow-x:hidden}
+  .consult-page h1,.consult-page h2,.consult-page h3,.consult-page h4,.consult-page h5,.consult-page h6{font-family:'Playfair Display',serif}
 
   /* ===== HERO ===== */
   .oc-hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;overflow:hidden;background:linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)}

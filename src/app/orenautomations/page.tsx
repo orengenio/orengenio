@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 auto-page" dangerouslySetInnerHTML={{ __html: `
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
     :root{--primary:#CC5500;--primary-light:#E8762B;--primary-dark:#B34A00;--accent:#CC5500;--accent-dark:#B34A00;--bg-dark:#0B1D3A;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--text:#F0F4FA;--text-secondary:rgba(210,225,245,0.6);--text-muted:rgba(210,225,245,0.4);--terracotta:#E2725B}
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--bg-dark)!important;color:var(--text)!important;font-family:'Roboto','Inter',sans-serif!important;overflow-x:hidden}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif!important}
+    .auto-page *{margin:0;padding:0;box-sizing:border-box}
+    .auto-page{background:var(--bg-dark);color:var(--text);font-family:'Roboto','Inter',sans-serif;overflow-x:hidden}
+    .auto-page h1,.auto-page h2,.auto-page h3,.auto-page h4,.auto-page h5,.auto-page h6{font-family:'Playfair Display',serif}
 
     /* ===== HERO ===== */
     .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;overflow:hidden;background:linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)}
@@ -32,8 +32,8 @@ export default function Page() {
     .hero-visual{flex:0 0 auto;width:480px;height:160px;position:relative;display:flex;align-items:center;justify-content:center}
     .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.25)!important;border-radius:100px;color:#CC5500!important;font-family:'Roboto',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px}
     .hero-badge svg{width:14px;height:14px;stroke:#CC5500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    h1{font-size:clamp(42px,7vw,84px)!important;line-height:1.02!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
-    h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
+    .auto-page h1{font-size:clamp(42px,7vw,84px)!important;line-height:1.02!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
+    .auto-page h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
     .hero-text{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.65;color:rgba(210,225,245,0.55)!important;max-width:600px;margin:0 0 36px;font-weight:300}
     .actions{display:flex;gap:18px;flex-wrap:wrap}
 
@@ -150,7 +150,7 @@ export default function Page() {
       .hero{padding:100px 20px 60px;min-height:70vh}
       .hero-inner{flex-direction:column;text-align:center}
       .hero-visual{width:100%;height:auto;min-height:100px}
-      h1{font-size:42px!important}
+      .auto-page h1{font-size:42px!important}
       .wf-diagram{flex-wrap:wrap;justify-content:center;gap:12px}
       .wf-connector{display:none}
       .auto-grid{grid-template-columns:1fr}

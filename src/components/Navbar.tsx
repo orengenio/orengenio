@@ -82,7 +82,7 @@ export function Navbar() {
           </Link>
 
           <div className="oren-center">
-            <Link className="oren-link" href="#engine">The Engine</Link>
+            <Link className="oren-link" href="/#engine">The Engine</Link>
             <div className="oren-item">
               <button className="oren-trigger" type="button">Solutions <span className="oren-caret">▼</span></button>
               <div className="oren-mega">
@@ -104,12 +104,12 @@ export function Navbar() {
                 </div>
               </div>
             </div>
-            <Link className="oren-link" href="#pricing">Pricing</Link>
+            <Link className="oren-link" href="/#pricing">Pricing</Link>
           </div>
 
           <div className="oren-right">
             <Link className="oren-login" href="https://app.orengen.io">Login</Link>
-            <Link className="oren-cta" href="#demo">Hear a Demo</Link>
+            <Link className="oren-cta" href="/#demo">Hear a Demo</Link>
           </div>
 
           <button
@@ -125,7 +125,7 @@ export function Navbar() {
 
       <div ref={panelRef} className={`oren-mobile-panel ${mobileOpen ? "show" : ""}`}>
         <div className="oren-mobile-card">
-          <Link href="#engine" className="oren-mobile-link" onClick={() => setMobileOpen(false)}>The Engine</Link>
+          <Link href="/#engine" className="oren-mobile-link" onClick={() => setMobileOpen(false)}>The Engine</Link>
 
           <button className="oren-mobile-trigger" onClick={() => setSolutionsOpen((p) => !p)}>
             Solutions <span className={`oren-mobile-trigger-caret ${solutionsOpen ? "flipped" : ""}`}>▼</span>
@@ -151,10 +151,10 @@ export function Navbar() {
           </div>
 
           <div className="oren-mobile-divider" />
-          <Link href="#pricing" className="oren-mobile-link" onClick={() => setMobileOpen(false)}>Pricing</Link>
+          <Link href="/#pricing" className="oren-mobile-link" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <div className="oren-mobile-divider" />
           <div className="oren-mobile-actions">
-            <Link href="#demo" className="oren-cta" onClick={() => setMobileOpen(false)}>Hear a Demo</Link>
+            <Link href="/#demo" className="oren-cta" onClick={() => setMobileOpen(false)}>Hear a Demo</Link>
             <Link href="https://app.orengen.io" className="oren-login-mobile" onClick={() => setMobileOpen(false)}>Login</Link>
           </div>
         </div>

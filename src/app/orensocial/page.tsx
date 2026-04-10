@@ -154,7 +154,7 @@ const html = `
             margin-bottom: 24px;
         }
 
-        h2 {
+        .social-page h2 {
             font-family: 'Playfair Display', sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
@@ -162,7 +162,7 @@ const html = `
             font-weight: 700;
         }
 
-        h2 span {
+        .social-page h2 span {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -690,7 +690,7 @@ const html = `
         }
 
         @media (max-width: 768px) {
-            section {
+            .social-page section {
                 padding: 0 24px;
                 margin-bottom: 80px;
             }
@@ -1355,10 +1355,10 @@ const html = `
   }
 
 
-    /* === Body Navy Gradient Override === */
-    body {
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
-      background-attachment: fixed !important;
+    /* === Navy Gradient Override === */
+    .social-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
     }
 
     /* === Social Hero Section === */
@@ -1913,7 +1913,7 @@ const html = `
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 social-page" dangerouslySetInnerHTML={{ __html: `
 <style>
  
 
@@ -1991,7 +1991,7 @@ export default function Page() {
   
 
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
-        * {
+        .social-page * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -2004,7 +2004,7 @@ export default function Page() {
             --primary-dark: #993D00;
             --accent: #CC5500;
             --accent-glow: rgba(204, 85, 0, 0.3);
-            
+
             /* Base Colors */
             --bg-dark: #081628;
             --bg-card: rgba(255, 255, 255, 0.03);
@@ -2015,14 +2015,12 @@ export default function Page() {
             --text-muted: var(--oren-muted);
         }
 
-        body {
+        .social-page {
             font-family: 'Roboto', 'Playfair Display', sans-serif;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            padding: 0;
-            margin: 0;
         }
 
         /* GHL Override - Kill their spacing */
@@ -2032,13 +2030,13 @@ export default function Page() {
         }
 
         /* Section Styling */
-        section {
+        .social-page section {
             max-width: 1400px;
             margin: 0 auto 120px;
             padding: 0 40px;
         }
 
-        section:first-of-type {
+        .social-page section:first-of-type {
             padding-top: 60px;
         }
 
@@ -2061,7 +2059,7 @@ export default function Page() {
             margin-bottom: 24px;
         }
 
-        h2 {
+        .social-page h2 {
             font-family: 'Playfair Display', sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
@@ -2069,7 +2067,7 @@ export default function Page() {
             font-weight: 700;
         }
 
-        h2 span {
+        .social-page h2 span {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -2597,7 +2595,7 @@ export default function Page() {
         }
 
         @media (max-width: 768px) {
-            section {
+            .social-page section {
                 padding: 0 24px;
                 margin-bottom: 80px;
             }
@@ -3262,10 +3260,10 @@ export default function Page() {
   }
 
 
-    /* === Body Navy Gradient Override === */
-    body {
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
-      background-attachment: fixed !important;
+    /* === Navy Gradient Override === */
+    .social-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
     }
 
     /* === Social Hero Section === */

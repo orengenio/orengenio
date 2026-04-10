@@ -24,12 +24,12 @@ interface FooterColumn {
 }
 
 const trustLinks: TrustLink[] = [
-  { href: 'https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews', icon: 'https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Better-Business-Bureau-Reviews.png', label: 'BBB' },
+  { href: 'https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 30'%3E%3Crect width='80' height='30' rx='4' fill='%23006BB6'/%3E%3Ctext x='40' y='20' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='14' fill='white'%3EBBB%3C/text%3E%3C/svg%3E", label: 'BBB' },
   { href: 'https://g.page/r/CcTOiNDyo03PEBM/review', icon: 'https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980242c66e7ca8c84cce4b8.svg', label: 'Google' },
   { href: 'https://www.trustpilot.com/review/orengen.io', icon: 'https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980251966e7ca0123cd2a56.svg', label: 'Trustpilot' },
   { href: 'https://clutch.co/profile/orengen-worldwide', icon: 'https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/69802a6a1fd8278b3c8c75e6.svg', label: 'Clutch' },
   { href: 'https://www.g2.com/products/orengen/reviews', icon: 'https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/698026301311f6be3e8f43f1.svg', label: 'G2' },
-  { href: 'https://www.capterra.com/p/1000236185/orengen/reviews/', icon: 'https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Capterra-Reviews.png', label: 'Capterra' },
+  { href: 'https://www.capterra.com/p/1000236185/orengen/reviews/', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'%3E%3Crect width='100' height='30' rx='4' fill='%23FF6B35'/%3E%3Ctext x='50' y='20' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='11' fill='white'%3ECapterra%3C/text%3E%3C/svg%3E", label: 'Capterra' },
 ];
 
 interface SocialLink {
