@@ -71,12 +71,12 @@ const testimonials = [
 ];
 
 const trustPlatforms = [
-  { name: "BBB", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Better-Business-Bureau-Reviews.png", href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews" },
+  { name: "BBB", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 50'%3E%3Crect rx='6' width='120' height='50' fill='%23006BA6'/%3E%3Ctext x='60' y='35' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='28' fill='white'%3EBBB%3C/text%3E%3C/svg%3E", href: "https://www.bbb.org/us/tx/mansfield/profile/computer-software/orengen-worldwide-0825-1000236185/customer-reviews" },
   { name: "Google", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980242c66e7ca8c84cce4b8.svg", href: "https://g.page/r/CcTOiNDyo03PEBM/review" },
   { name: "Trustpilot", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/6980251966e7ca0123cd2a56.svg", href: "https://www.trustpilot.com/review/orengen.io" },
   { name: "Clutch", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/69802a6a1fd8278b3c8c75e6.svg", href: "https://clutch.co/profile/orengen-worldwide" },
   { name: "G2", icon: "https://storage.googleapis.com/msgsndr/42o9MlhprxMSOet4heWk/media/698026301311f6be3e8f43f1.svg", href: "https://www.g2.com/products/orengen/reviews" },
-  { name: "Capterra", icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/Capterra-Reviews.png", href: "https://www.capterra.com/p/1000236185/orengen/reviews/" },
+  { name: "Capterra", icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 50'%3E%3Crect rx='6' width='180' height='50' fill='%23FF9D28'/%3E%3Ctext x='90' y='34' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='22' fill='white'%3ECapterra%3C/text%3E%3C/svg%3E", href: "https://www.capterra.com/p/1000236185/orengen/reviews/" },
 ];
 
 function StarRating() {
