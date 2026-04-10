@@ -121,7 +121,7 @@ export function FloatingOrb({ onClick, isActive }: FloatingOrbProps) {
         />
       </motion.div>
 
-      {/* TALK TO ME label — hidden when panel is open */}
+      {/* LIVE AI AGENT label — hidden when panel is open */}
       <AnimatedLabel isActive={isActive} />
     </div>
   );
@@ -144,7 +144,7 @@ function AnimatedLabel({ isActive }: { isActive: boolean }) {
       style={{ boxShadow: "0 0 20px rgba(204,85,0,0.2)" }}
     >
       <span className="text-[12px] sm:text-[13px] font-black tracking-[0.3em] text-white uppercase drop-shadow-lg">
-        TALK TO ME
+        LIVE AI AGENT
       </span>
     </motion.div>
   );

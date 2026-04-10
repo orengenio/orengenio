@@ -224,7 +224,7 @@ export default function CaseStudiesPage() {
               transition: "transform 0.2s, box-shadow 0.2s",
             }}
           >
-            Hear a Demo
+            Talk to Our AI Agent
           </a>
         </div>
       </section>
