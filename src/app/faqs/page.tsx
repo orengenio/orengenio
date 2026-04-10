@@ -99,57 +99,104 @@ export const metadata: Metadata = {
 
 export default function FaqsPage() {
   return (
-    <div className="bg-background text-white min-h-screen">
+    <div style={{ background: "linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)", color: "#F0F4FA", minHeight: "100vh" }}>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden pt-32 pb-20 px-6">
+      <section style={{ position: "relative", overflow: "hidden", paddingTop: 140, paddingBottom: 64, paddingLeft: 24, paddingRight: 24 }}>
+        {/* Dot grid */}
         <div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-15"
-          style={{ background: "radial-gradient(circle, var(--oren-orange) 0%, transparent 70%)", filter: "blur(100px)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+            backgroundImage: "linear-gradient(rgba(204,85,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(204,85,0,0.03) 1px,transparent 1px)",
+            backgroundSize: "80px 80px",
+            maskImage: "radial-gradient(ellipse 70% 60% at 50% 45%,black 0%,transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 45%,black 0%,transparent 100%)",
+          }}
         />
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <p className="text-burnt-orange text-sm font-semibold uppercase tracking-widest mb-4">FAQ</p>
-          <h1
-            className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-none text-white mb-6"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+        {/* Orb accent */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: "-30%", left: "50%", transform: "translateX(-50%)",
+            width: 600, height: 400, borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(204,85,0,0.12) 0%, transparent 70%)", filter: "blur(120px)", pointerEvents: "none",
+          }}
+        />
+        {/* Top rule */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 1, zIndex: 1, pointerEvents: "none",
+            background: "linear-gradient(90deg,transparent 5%,rgba(204,85,0,0.25) 30%,rgba(204,85,0,0.4) 50%,rgba(204,85,0,0.25) 70%,transparent 95%)",
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+          <div
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px",
+              background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)",
+              borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em",
+              textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 32,
+            }}
           >
-            Frequently Asked Questions
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} />
+            FAQ
+          </div>
+          <h1
+            style={{
+              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontSize: "clamp(42px,8vw,82px)", lineHeight: 1.02,
+              letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28,
+            }}
+          >
+            Frequently Asked <span style={{ color: "#CC5500" }}>Questions</span>
           </h1>
-          <p className="text-white/65 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p style={{ fontSize: "clamp(16px,2.2vw,21px)", lineHeight: 1.65, color: "rgba(210,225,245,0.55)", maxWidth: 560, margin: "0 auto", fontWeight: 300 }}>
             Everything you need to know about working with OrenGen. Don&apos;t see your question? Book a call and we&apos;ll answer it in 30 minutes.
           </p>
         </div>
       </section>
 
       {/* ── ACCORDION ── */}
-      <section className="py-8 pb-20 px-6">
-        <div className="mx-auto max-w-3xl">
+      <section style={{ padding: "16px 24px 80px" }}>
+        <div style={{ maxWidth: 720, margin: "0 auto" }}>
           <FaqAccordion />
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 px-6 bg-[#0a0a0a] text-center relative overflow-hidden">
+      <section style={{ padding: "100px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{ background: "radial-gradient(ellipse at 50% 100%, var(--oren-orange) 0%, transparent 60%)" }}
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: "radial-gradient(ellipse at 50% 100%, rgba(204,85,0,0.12) 0%, transparent 60%)",
+          }}
         />
-        <div className="relative z-10 mx-auto max-w-2xl">
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 640, margin: "0 auto" }}>
           <h2
-            className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+            style={{
+              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
+              letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
+            }}
           >
-            Still Have Questions?
+            Still Have <span style={{ color: "#CC5500" }}>Questions</span>?
           </h2>
-          <p className="text-white/60 text-lg mb-8">
+          <p style={{ color: "rgba(210,225,245,0.5)", fontSize: 17, lineHeight: 1.7, fontWeight: 300, marginBottom: 36 }}>
             Our team answers every question personally. Book a free 30-minute strategy call and get straight answers.
           </p>
           <a
             href="https://calendly.com/orengenio/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-burnt-orange hover:bg-[#b34a00] text-white font-semibold px-10 py-4 rounded-xl text-base transition-colors duration-200"
+            style={{
+              display: "inline-flex", alignItems: "center", padding: "16px 40px",
+              background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
+              fontWeight: 700, fontSize: 15, borderRadius: 12, textDecoration: "none",
+              boxShadow: "0 4px 24px rgba(204,85,0,0.35)",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
           >
             Book a Strategy Call
           </a>

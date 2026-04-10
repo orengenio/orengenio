@@ -29,8 +29,8 @@ const html = `
 --smoke: #f5f5f5;
 --overlay: rgba(0, 0, 0, 0.5);
 --color-m5ye8saq: #ebeef2ff;
---color-m65wrxxb: #381964ff;
---color-m65wsmwf: #ee5d81ff;
+--color-m65wrxxb: #0B1D3Aff;
+--color-m65wsmwf: #E2725Bff;
 --color-azujpfxo: var(--oren-orange)ff;
 --color-lgf1duy4: #0E182C;
 --color-lx2q00eu: #8893A8;
@@ -83,7 +83,7 @@ const html = `
     }
   
 
-        @import url('https://fonts.cdnfonts.com/css/canva-sans');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -91,15 +91,15 @@ const html = `
         }
 
         :root {
-            /* Golden Yellow Theme - OrenSocial */
-            --primary: #e4b91d;
-            --primary-light: #f5d042;
-            --primary-dark: #c9a419;
-            --accent: #ffd700;
-            --accent-glow: rgba(228, 185, 29, 0.3);
+            /* Navy/Orange Brand Theme - OrenSocial */
+            --primary: #CC5500;
+            --primary-light: #E2725B;
+            --primary-dark: #993D00;
+            --accent: #CC5500;
+            --accent-glow: rgba(204, 85, 0, 0.3);
             
             /* Base Colors */
-            --bg-dark: #0d0d0d;
+            --bg-dark: #081628;
             --bg-card: rgba(255, 255, 255, 0.03);
             --bg-card-hover: rgba(255, 255, 255, 0.06);
             --border: rgba(255, 255, 255, 0.08);
@@ -109,7 +109,7 @@ const html = `
         }
 
         body {
-            font-family: 'Canva Sans', 'League Spartan', sans-serif;
+            font-family: 'Roboto', 'Playfair Display', sans-serif;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
@@ -143,7 +143,7 @@ const html = `
         .section-label {
             display: inline-block;
             padding: 8px 24px;
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border: 1px solid var(--primary);
             border-radius: 50px;
             color: var(--primary);
@@ -155,7 +155,7 @@ const html = `
         }
 
         h2 {
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
             margin-bottom: 20px;
@@ -262,7 +262,7 @@ const html = `
         .feature-icon {
             width: 48px;
             height: 48px;
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border: 1px solid var(--primary);
             border-radius: 12px;
             display: flex;
@@ -277,7 +277,7 @@ const html = `
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
         }
 
         .feature-card p {
@@ -306,14 +306,14 @@ const html = `
             display: flex;
             gap: 16px;
             padding: 24px;
-            background: rgba(228, 185, 29, 0.05);
+            background: rgba(204, 85, 0, 0.05);
             border-radius: 12px;
-            border: 1px solid rgba(228, 185, 29, 0.2);
+            border: 1px solid rgba(204, 85, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .capability-item:hover {
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border-color: var(--primary);
             transform: translateX(8px);
         }
@@ -344,7 +344,7 @@ const html = `
 
         /* Workflow Visualization */
         .workflow-section {
-            background: linear-gradient(135deg, rgba(228, 185, 29, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 60px;
@@ -432,7 +432,7 @@ const html = `
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
         }
 
         .stat-label {
@@ -481,7 +481,7 @@ const html = `
         /* CTA Section */
         .cta-section {
             text-align: center;
-            background: linear-gradient(135deg, rgba(228, 185, 29, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
             border: 1px solid var(--primary);
             border-radius: 24px;
             padding: 80px 40px;
@@ -542,7 +542,7 @@ const html = `
             border-radius: var(--border_radius);
             box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
                 0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-                0 0 0 calc(var(--active, 0) * 0.375rem) hsl(48 89% 51% / 0.75);
+                0 0 0 calc(var(--active, 0) * 0.375rem) hsl(24 100% 40% / 0.75);
             transition: all var(--transtion);
             z-index: 0;
         }
@@ -555,14 +555,14 @@ const html = `
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            background-color: hsla(48 89% 61% / 0.75);
+            background-color: hsla(24 100% 44% / 0.75);
             background-image: radial-gradient(
                 at 51% 89%,
-                hsla(48, 89%, 61%, 1) 0px,
+                hsla(24, 100%, 44%, 1) 0px,
                 transparent 50%
             ),
-            radial-gradient(at 100% 100%, hsla(48, 89%, 51%, 1) 0px, transparent 50%),
-            radial-gradient(at 22% 91%, hsla(48, 89%, 51%, 1) 0px, transparent 50%);
+            radial-gradient(at 100% 100%, hsla(24, 100%, 40%, 1) 0px, transparent 50%),
+            radial-gradient(at 22% 91%, hsla(24, 100%, 40%, 1) 0px, transparent 50%);
             background-position: top;
             opacity: var(--active, 0);
             border-radius: var(--border_radius);
@@ -737,7 +737,7 @@ const html = `
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -747,7 +747,7 @@ const html = `
   }
 
   .og-section-header h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -761,7 +761,7 @@ const html = `
   }
 
   .og-section-subtitle {
-    font-family: 'Canva Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
@@ -804,7 +804,7 @@ const html = `
   }
 
   .mkt-footer-trust-label {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -875,7 +875,7 @@ const html = `
   }
 
   .mkt-trust-name {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1106,7 +1106,7 @@ const html = `
   }
 
   .mkt-footer-tagline {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -1150,7 +1150,7 @@ const html = `
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -1162,7 +1162,7 @@ const html = `
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Canva Sans', sans-serif; font-size: 13px;
+    font-family: 'Roboto', sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -1175,7 +1175,7 @@ const html = `
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -1185,7 +1185,7 @@ const html = `
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -1199,11 +1199,11 @@ const html = `
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Canva Sans', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -1241,7 +1241,7 @@ const html = `
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Canva Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -1272,7 +1272,7 @@ const html = `
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -1354,7 +1354,243 @@ const html = `
     inherits: false;
   }
 
+
+    /* === Body Navy Gradient Override === */
+    body {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
+      background-attachment: fixed !important;
+    }
+
+    /* === Social Hero Section === */
+    .social-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      background: linear-gradient(180deg, rgba(204, 85, 0, 0.08) 0%, rgba(11, 29, 58, 0.5) 50%, transparent 100%);
+      max-width: 100%;
+      margin: 0;
+    }
+    .social-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    .social-hero .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .social-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 24px;
+      background: rgba(204, 85, 0, 0.12);
+      border: 2px solid rgba(204, 85, 0, 0.35);
+      border-radius: 100px;
+      color: #CC5500;
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .social-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 80px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      font-weight: 800;
+      color: #F0F4FA;
+    }
+    .social-hero h1 span {
+      background: linear-gradient(90deg, #CC5500, #E2725B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .social-hero .hero-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 720px;
+      margin: 0 auto 36px auto;
+    }
+
+    /* === Social Feed Showcase === */
+    .social-feed-showcase {
+      max-width: 400px;
+      margin: 50px auto 0;
+      position: relative;
+      height: 420px;
+    }
+    .social-card {
+      position: absolute;
+      width: 300px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .social-card:nth-child(1) {
+      top: 0; left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      z-index: 3;
+      animation: socialFloat1 6s ease-in-out infinite;
+      border-color: rgba(204, 85, 0, 0.15);
+    }
+    .social-card:nth-child(2) {
+      top: 50px; left: 58%;
+      transform: translateX(-50%) rotate(2deg);
+      z-index: 2;
+      animation: socialFloat2 6s ease-in-out infinite;
+      border-color: rgba(226, 114, 91, 0.15);
+    }
+    .social-card:nth-child(3) {
+      top: 100px; left: 42%;
+      transform: translateX(-50%) rotate(-1deg);
+      z-index: 1;
+      animation: socialFloat3 6s ease-in-out infinite;
+      border-color: rgba(204, 85, 0, 0.1);
+    }
+    @keyframes socialFloat1 {
+      0%, 100% { transform: translateX(-50%) rotate(-3deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(-3deg) translateY(-8px); }
+    }
+    @keyframes socialFloat2 {
+      0%, 100% { transform: translateX(-50%) rotate(2deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(2deg) translateY(-6px); }
+    }
+    @keyframes socialFloat3 {
+      0%, 100% { transform: translateX(-50%) rotate(-1deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(-1deg) translateY(-10px); }
+    }
+    .social-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .social-card-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #CC5500, #E2725B);
+      flex-shrink: 0;
+    }
+    .social-card-name {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px; font-weight: 600; color: #F0F4FA;
+    }
+    .social-card-handle {
+      font-family: 'Roboto', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.4);
+    }
+    .social-card-image {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0B1D3A 0%, #CC5500 50%, #E2725B 100%);
+      margin-bottom: 12px;
+    }
+    .social-card-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      line-height: 1.5; margin-bottom: 10px;
+    }
+    .social-card-stats {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px; color: rgba(255,255,255,0.4);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .social-card-stats .stat-icon { color: #CC5500; }
+
+    /* === Glassmorphic Card Overrides === */
+    .platform-card,
+    .feature-card,
+    .stat-card,
+    .integration-logo {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 20px !important;
+    }
+    .capability-item {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    @media (max-width: 768px) {
+      .social-hero {
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+      .social-hero h1 { font-size: 36px; }
+      .social-feed-showcase {
+        max-width: 300px; height: 360px;
+      }
+      .social-card { width: 250px; padding: 16px; }
+    }
+
 </style>
+
+<!-- HERO SECTION -->
+<section class="social-hero">
+  <div class="hero-content">
+    <div class="hero-badge">AI-Powered Social Media</div>
+    <h1>Social Media<br /><span>Management</span> at Scale</h1>
+    <p class="hero-text">AI-powered content creation, scheduling, and community management across all platforms. Grow your brand presence effortlessly.</p>
+    <div class="cta-buttons" style="margin-bottom: 0;">
+      <a href="https://calendly.com/orengenio/30min" target="_blank" rel="noopener noreferrer" class="button">
+        <div class="dots_border"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path>
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path>
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path>
+        </svg>
+        <span class="text_button">Book A Meeting</span>
+      </a>
+    </div>
+
+    <div class="social-feed-showcase">
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar"></div>
+          <div><div class="social-card-name">Brand Studio</div><div class="social-card-handle">@brandstudio</div></div>
+        </div>
+        <div class="social-card-image"></div>
+        <div class="social-card-stats"><span class="stat-icon">&#9829;</span> 2.4K likes</div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar" style="border-radius:4px;"></div>
+          <div><div class="social-card-name">Marketing Pro</div><div class="social-card-handle">Chief Marketing Officer</div></div>
+        </div>
+        <div class="social-card-text">Excited to share our Q4 results &#8212; 340% growth in organic reach using AI-driven content strategies...</div>
+        <div class="social-card-stats"><span class="stat-icon">&#128077;</span> 47 reactions</div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar"></div>
+          <div><div class="social-card-name">TechInsider</div><div class="social-card-handle">@techinsider</div></div>
+        </div>
+        <div class="social-card-text">The future of social media management is AI-powered automation. Here&#39;s what we learned from managing 500+ accounts...</div>
+        <div class="social-card-stats"><span class="stat-icon">&#128065;</span> 1.2K views</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="ghl-override">
 
     <!-- Platform Overview -->
@@ -1581,73 +1817,73 @@ const html = `
 
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-bottom:40px;">
             <!-- Standard -->
-            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(228,185,29,0.2);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(204, 85, 0,0.2);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Standard</div>
                 <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;">3 Platforms — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $97/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$47</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $470/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 3 social platforms</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 12 posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> AI content creation</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 3 social platforms</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 12 posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> AI content creation</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
                 </ul>
-                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#e4b91d;border:1.5px solid rgba(228,185,29,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
 
             <!-- Professional -->
-            <div style="background:rgba(228,185,29,0.08);border:2px solid rgba(228,185,29,0.5);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 60px rgba(228,185,29,0.15);">
-                <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#e4b91d;color:#000;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;border-radius:9999px;padding:5px 16px;white-space:nowrap;">Most Popular</div>
-                <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e4b91d;margin-bottom:8px;">Professional</div>
+            <div style="background:rgba(204, 85, 0,0.08);border:2px solid rgba(204, 85, 0,0.5);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 60px rgba(204, 85, 0,0.15);">
+                <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#CC5500;color:#000;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;border-radius:9999px;padding:5px 16px;white-space:nowrap;">Most Popular</div>
+                <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#CC5500;margin-bottom:8px;">Professional</div>
                 <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;">5 Platforms + Ads — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $197/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$97</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $970/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 5 social platforms</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 30 posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Community management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Paid social support</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 5 social platforms</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 30 posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Community management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Paid social support</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
                 </ul>
-                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#e4b91d;color:#000;border:none;">Get Started →</a>
+                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
             </div>
 
             <!-- Premium -->
-            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(228,185,29,0.2);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(204, 85, 0,0.2);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Premium</div>
                 <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;">All Platforms — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $397/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$197</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $1,970/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All platforms + TikTok</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 60+ posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Full community management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Ad campaign management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Weekly strategy call</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All platforms + TikTok</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 60+ posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Full community management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Ad campaign management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Weekly strategy call</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
                 </ul>
-                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#e4b91d;border:1.5px solid rgba(228,185,29,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
         </div>
     </section>
@@ -1700,8 +1936,8 @@ export default function Page() {
 --smoke: #f5f5f5;
 --overlay: rgba(0, 0, 0, 0.5);
 --color-m5ye8saq: #ebeef2ff;
---color-m65wrxxb: #381964ff;
---color-m65wsmwf: #ee5d81ff;
+--color-m65wrxxb: #0B1D3Aff;
+--color-m65wsmwf: #E2725Bff;
 --color-azujpfxo: var(--oren-orange)ff;
 --color-lgf1duy4: #0E182C;
 --color-lx2q00eu: #8893A8;
@@ -1754,7 +1990,7 @@ export default function Page() {
     }
   
 
-        @import url('https://fonts.cdnfonts.com/css/canva-sans');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -1762,15 +1998,15 @@ export default function Page() {
         }
 
         :root {
-            /* Golden Yellow Theme - OrenSocial */
-            --primary: #e4b91d;
-            --primary-light: #f5d042;
-            --primary-dark: #c9a419;
-            --accent: #ffd700;
-            --accent-glow: rgba(228, 185, 29, 0.3);
+            /* Navy/Orange Brand Theme - OrenSocial */
+            --primary: #CC5500;
+            --primary-light: #E2725B;
+            --primary-dark: #993D00;
+            --accent: #CC5500;
+            --accent-glow: rgba(204, 85, 0, 0.3);
             
             /* Base Colors */
-            --bg-dark: #0d0d0d;
+            --bg-dark: #081628;
             --bg-card: rgba(255, 255, 255, 0.03);
             --bg-card-hover: rgba(255, 255, 255, 0.06);
             --border: rgba(255, 255, 255, 0.08);
@@ -1780,7 +2016,7 @@ export default function Page() {
         }
 
         body {
-            font-family: 'Canva Sans', 'League Spartan', sans-serif;
+            font-family: 'Roboto', 'Playfair Display', sans-serif;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
@@ -1814,7 +2050,7 @@ export default function Page() {
         .section-label {
             display: inline-block;
             padding: 8px 24px;
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border: 1px solid var(--primary);
             border-radius: 50px;
             color: var(--primary);
@@ -1826,7 +2062,7 @@ export default function Page() {
         }
 
         h2 {
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
             margin-bottom: 20px;
@@ -1933,7 +2169,7 @@ export default function Page() {
         .feature-icon {
             width: 48px;
             height: 48px;
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border: 1px solid var(--primary);
             border-radius: 12px;
             display: flex;
@@ -1948,7 +2184,7 @@ export default function Page() {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
         }
 
         .feature-card p {
@@ -1977,14 +2213,14 @@ export default function Page() {
             display: flex;
             gap: 16px;
             padding: 24px;
-            background: rgba(228, 185, 29, 0.05);
+            background: rgba(204, 85, 0, 0.05);
             border-radius: 12px;
-            border: 1px solid rgba(228, 185, 29, 0.2);
+            border: 1px solid rgba(204, 85, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .capability-item:hover {
-            background: rgba(228, 185, 29, 0.1);
+            background: rgba(204, 85, 0, 0.1);
             border-color: var(--primary);
             transform: translateX(8px);
         }
@@ -2015,7 +2251,7 @@ export default function Page() {
 
         /* Workflow Visualization */
         .workflow-section {
-            background: linear-gradient(135deg, rgba(228, 185, 29, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 60px;
@@ -2103,7 +2339,7 @@ export default function Page() {
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
         }
 
         .stat-label {
@@ -2152,7 +2388,7 @@ export default function Page() {
         /* CTA Section */
         .cta-section {
             text-align: center;
-            background: linear-gradient(135deg, rgba(228, 185, 29, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
             border: 1px solid var(--primary);
             border-radius: 24px;
             padding: 80px 40px;
@@ -2213,7 +2449,7 @@ export default function Page() {
             border-radius: var(--border_radius);
             box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
                 0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-                0 0 0 calc(var(--active, 0) * 0.375rem) hsl(48 89% 51% / 0.75);
+                0 0 0 calc(var(--active, 0) * 0.375rem) hsl(24 100% 40% / 0.75);
             transition: all var(--transtion);
             z-index: 0;
         }
@@ -2226,14 +2462,14 @@ export default function Page() {
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            background-color: hsla(48 89% 61% / 0.75);
+            background-color: hsla(24 100% 44% / 0.75);
             background-image: radial-gradient(
                 at 51% 89%,
-                hsla(48, 89%, 61%, 1) 0px,
+                hsla(24, 100%, 44%, 1) 0px,
                 transparent 50%
             ),
-            radial-gradient(at 100% 100%, hsla(48, 89%, 51%, 1) 0px, transparent 50%),
-            radial-gradient(at 22% 91%, hsla(48, 89%, 51%, 1) 0px, transparent 50%);
+            radial-gradient(at 100% 100%, hsla(24, 100%, 40%, 1) 0px, transparent 50%),
+            radial-gradient(at 22% 91%, hsla(24, 100%, 40%, 1) 0px, transparent 50%);
             background-position: top;
             opacity: var(--active, 0);
             border-radius: var(--border_radius);
@@ -2408,7 +2644,7 @@ export default function Page() {
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -2418,7 +2654,7 @@ export default function Page() {
   }
 
   .og-section-header h2 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -2432,7 +2668,7 @@ export default function Page() {
   }
 
   .og-section-subtitle {
-    font-family: 'Canva Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: var(--oren-sub);
     max-width: 600px;
@@ -2475,7 +2711,7 @@ export default function Page() {
   }
 
   .mkt-footer-trust-label {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -2546,7 +2782,7 @@ export default function Page() {
   }
 
   .mkt-trust-name {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -2777,7 +3013,7 @@ export default function Page() {
   }
 
   .mkt-footer-tagline {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -2821,7 +3057,7 @@ export default function Page() {
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -2833,7 +3069,7 @@ export default function Page() {
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Canva Sans', sans-serif; font-size: 13px;
+    font-family: 'Roboto', sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -2846,7 +3082,7 @@ export default function Page() {
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -2856,7 +3092,7 @@ export default function Page() {
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -2870,11 +3106,11 @@ export default function Page() {
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Canva Sans', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Canva Sans', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -2912,7 +3148,7 @@ export default function Page() {
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Canva Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -2943,7 +3179,7 @@ export default function Page() {
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -3025,7 +3261,243 @@ export default function Page() {
     inherits: false;
   }
 
+
+    /* === Body Navy Gradient Override === */
+    body {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
+      background-attachment: fixed !important;
+    }
+
+    /* === Social Hero Section === */
+    .social-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      background: linear-gradient(180deg, rgba(204, 85, 0, 0.08) 0%, rgba(11, 29, 58, 0.5) 50%, transparent 100%);
+      max-width: 100%;
+      margin: 0;
+    }
+    .social-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    .social-hero .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .social-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 24px;
+      background: rgba(204, 85, 0, 0.12);
+      border: 2px solid rgba(204, 85, 0, 0.35);
+      border-radius: 100px;
+      color: #CC5500;
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .social-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 8vw, 80px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      font-weight: 800;
+      color: #F0F4FA;
+    }
+    .social-hero h1 span {
+      background: linear-gradient(90deg, #CC5500, #E2725B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .social-hero .hero-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 720px;
+      margin: 0 auto 36px auto;
+    }
+
+    /* === Social Feed Showcase === */
+    .social-feed-showcase {
+      max-width: 400px;
+      margin: 50px auto 0;
+      position: relative;
+      height: 420px;
+    }
+    .social-card {
+      position: absolute;
+      width: 300px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .social-card:nth-child(1) {
+      top: 0; left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      z-index: 3;
+      animation: socialFloat1 6s ease-in-out infinite;
+      border-color: rgba(204, 85, 0, 0.15);
+    }
+    .social-card:nth-child(2) {
+      top: 50px; left: 58%;
+      transform: translateX(-50%) rotate(2deg);
+      z-index: 2;
+      animation: socialFloat2 6s ease-in-out infinite;
+      border-color: rgba(226, 114, 91, 0.15);
+    }
+    .social-card:nth-child(3) {
+      top: 100px; left: 42%;
+      transform: translateX(-50%) rotate(-1deg);
+      z-index: 1;
+      animation: socialFloat3 6s ease-in-out infinite;
+      border-color: rgba(204, 85, 0, 0.1);
+    }
+    @keyframes socialFloat1 {
+      0%, 100% { transform: translateX(-50%) rotate(-3deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(-3deg) translateY(-8px); }
+    }
+    @keyframes socialFloat2 {
+      0%, 100% { transform: translateX(-50%) rotate(2deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(2deg) translateY(-6px); }
+    }
+    @keyframes socialFloat3 {
+      0%, 100% { transform: translateX(-50%) rotate(-1deg) translateY(0); }
+      50% { transform: translateX(-50%) rotate(-1deg) translateY(-10px); }
+    }
+    .social-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .social-card-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #CC5500, #E2725B);
+      flex-shrink: 0;
+    }
+    .social-card-name {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px; font-weight: 600; color: #F0F4FA;
+    }
+    .social-card-handle {
+      font-family: 'Roboto', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.4);
+    }
+    .social-card-image {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0B1D3A 0%, #CC5500 50%, #E2725B 100%);
+      margin-bottom: 12px;
+    }
+    .social-card-text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      line-height: 1.5; margin-bottom: 10px;
+    }
+    .social-card-stats {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px; color: rgba(255,255,255,0.4);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .social-card-stats .stat-icon { color: #CC5500; }
+
+    /* === Glassmorphic Card Overrides === */
+    .platform-card,
+    .feature-card,
+    .stat-card,
+    .integration-logo {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-radius: 20px !important;
+    }
+    .capability-item {
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    @media (max-width: 768px) {
+      .social-hero {
+        padding: 100px 20px 60px;
+        min-height: auto;
+      }
+      .social-hero h1 { font-size: 36px; }
+      .social-feed-showcase {
+        max-width: 300px; height: 360px;
+      }
+      .social-card { width: 250px; padding: 16px; }
+    }
+
 </style>
+
+<!-- HERO SECTION -->
+<section class="social-hero">
+  <div class="hero-content">
+    <div class="hero-badge">AI-Powered Social Media</div>
+    <h1>Social Media<br /><span>Management</span> at Scale</h1>
+    <p class="hero-text">AI-powered content creation, scheduling, and community management across all platforms. Grow your brand presence effortlessly.</p>
+    <div class="cta-buttons" style="margin-bottom: 0;">
+      <a href="https://calendly.com/orengenio/30min" target="_blank" rel="noopener noreferrer" class="button">
+        <div class="dots_border"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path>
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path>
+          <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path>
+        </svg>
+        <span class="text_button">Book A Meeting</span>
+      </a>
+    </div>
+
+    <div class="social-feed-showcase">
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar"></div>
+          <div><div class="social-card-name">Brand Studio</div><div class="social-card-handle">@brandstudio</div></div>
+        </div>
+        <div class="social-card-image"></div>
+        <div class="social-card-stats"><span class="stat-icon">&#9829;</span> 2.4K likes</div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar" style="border-radius:4px;"></div>
+          <div><div class="social-card-name">Marketing Pro</div><div class="social-card-handle">Chief Marketing Officer</div></div>
+        </div>
+        <div class="social-card-text">Excited to share our Q4 results &#8212; 340% growth in organic reach using AI-driven content strategies...</div>
+        <div class="social-card-stats"><span class="stat-icon">&#128077;</span> 47 reactions</div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-header">
+          <div class="social-card-avatar"></div>
+          <div><div class="social-card-name">TechInsider</div><div class="social-card-handle">@techinsider</div></div>
+        </div>
+        <div class="social-card-text">The future of social media management is AI-powered automation. Here&#39;s what we learned from managing 500+ accounts...</div>
+        <div class="social-card-stats"><span class="stat-icon">&#128065;</span> 1.2K views</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="ghl-override">
 
     <!-- Platform Overview -->
@@ -3252,73 +3724,73 @@ export default function Page() {
 
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-bottom:40px;">
             <!-- Standard -->
-            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(228,185,29,0.2);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(204, 85, 0,0.2);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Standard</div>
                 <div style="font-size:13px;color:var(--oren-muted);margin-bottom:16px;">3 Platforms — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $97/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$47</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $470/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 3 social platforms</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 12 posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> AI content creation</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 3 social platforms</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 12 posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> AI content creation</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
                 </ul>
-                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#e4b91d;border:1.5px solid rgba(228,185,29,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
 
             <!-- Professional -->
-            <div style="background:rgba(228,185,29,0.08);border:2px solid rgba(228,185,29,0.5);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 60px rgba(228,185,29,0.15);">
-                <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#e4b91d;color:#000;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;border-radius:9999px;padding:5px 16px;white-space:nowrap;">Most Popular</div>
-                <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e4b91d;margin-bottom:8px;">Professional</div>
+            <div style="background:rgba(204, 85, 0,0.08);border:2px solid rgba(204, 85, 0,0.5);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 60px rgba(204, 85, 0,0.15);">
+                <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#CC5500;color:#000;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;border-radius:9999px;padding:5px 16px;white-space:nowrap;">Most Popular</div>
+                <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#CC5500;margin-bottom:8px;">Professional</div>
                 <div style="font-size:13px;color:var(--oren-muted);margin-bottom:16px;">5 Platforms + Ads — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $197/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$97</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $970/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 5 social platforms</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 30 posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Community management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Paid social support</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 5 social platforms</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 30 posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Community management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Paid social support</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
                 </ul>
-                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#e4b91d;color:#000;border:none;">Get Started →</a>
+                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
             </div>
 
             <!-- Premium -->
-            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(228,185,29,0.2);border-top:4px solid #e4b91d;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(204, 85, 0,0.2);border-top:4px solid #CC5500;border-radius:20px;padding:36px 30px;display:flex;flex-direction:column;">
                 <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Premium</div>
                 <div style="font-size:13px;color:var(--oren-muted);margin-bottom:16px;">All Platforms — Fully Managed</div>
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $397/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'League Spartan',sans-serif;font-size:44px;font-weight:800;color:#e4b91d;line-height:1;">$197</span>
+                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $1,970/yr (Save 17%)</div>
                 </div>
                 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1;">
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All platforms + TikTok</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> 60+ posts/month</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Full community management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Ad campaign management</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Weekly strategy call</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
-                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#e4b91d;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All platforms + TikTok</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> 60+ posts/month</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Full community management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Ad campaign management</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Weekly strategy call</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
+                    <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
                 </ul>
-                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#e4b91d;border:1.5px solid rgba(228,185,29,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
         </div>
     </section>
