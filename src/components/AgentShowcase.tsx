@@ -6,8 +6,8 @@ import Link from "next/link";
 const CDN = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026";
 
 const agents = [
-  { id: 1, name: "Marcus Rivera", role: "Voice Agent", desc: "Inbound & outbound voice calls in any language, 24/7.", img: `${CDN}/0en2s7yB49MbtyKWUbQBtoD0LTak2efoFTwNnIne.png` },
-  { id: 2, name: "Sofia Chen", role: "Chat Agent", desc: "Real-time website chat that qualifies and converts.", img: `${CDN}/ulCvfZnyWhP728iI6r49IB6edmUJhP3dtNYtxi6d.png` },
+  { id: 1, name: "Marcus Thompson", role: "Voice Agent", desc: "Inbound & outbound voice calls in any language, 24/7.", img: `${CDN}/0en2s7yB49MbtyKWUbQBtoD0LTak2efoFTwNnIne.png` },
+  { id: 2, name: "Mei Lin Chen", role: "Chat Agent", desc: "Real-time website chat that qualifies and converts.", img: `${CDN}/ulCvfZnyWhP728iI6r49IB6edmUJhP3dtNYtxi6d.png` },
   { id: 3, name: "David Okafor", role: "Pipeline Manager", desc: "Automated CRM updates, lead scoring, deal tracking.", img: `${CDN}/5GUZsCIDK7EtI9IXX8eXDodhFU5WLxPTIt5OjPVe.png` },
   { id: 4, name: "Priya Sharma", role: "Social Agent", desc: "AI-powered content scheduling and engagement.", img: `${CDN}/6gykA2fUW07eswgzXXBKZDaYryiuZJQo1M2uNlj1.png` },
   { id: 5, name: "James Mitchell", role: "Outbound Caller", desc: "Cold outreach campaigns that book meetings on autopilot.", img: `${CDN}/0kvoSAWaBaSKZRTiNVWpMPgZIC5OvdHoxperpkV3.png` },
