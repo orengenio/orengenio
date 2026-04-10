@@ -35,7 +35,7 @@ const cardVariants = {
 
 export function AgentShowcase() {
   return (
-    <section className="agent-showcase">
+    <section id="engine" className="agent-showcase">
       <div className="agent-showcase-bg" />
       <div className="agent-showcase-wrap">
         <motion.div
