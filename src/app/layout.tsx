@@ -1,5 +1,4 @@
-Page_Downimport type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Roboto } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
