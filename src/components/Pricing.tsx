@@ -139,9 +139,43 @@ export function Pricing() {
         </div>
       </div>
 
-      <Link href="/pricing" className="tier-custom-link">
-        Want full control? Build your custom AI Engine with OrenKanBuilder™ →
-      </Link>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{ marginBottom: 64 }}
+      >
+        <Link
+          href="/orenkanbuilder"
+          className="tier-custom-link"
+          style={{
+            display: "block",
+            maxWidth: 720,
+            margin: "0 auto",
+            padding: "32px 36px",
+            background: "rgba(204,85,0,0.06)",
+            border: "1px solid rgba(204,85,0,0.25)",
+            borderRadius: 20,
+            textAlign: "center",
+            textDecoration: "none",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            boxShadow: "0 0 30px rgba(204,85,0,0.08), 0 0 60px rgba(204,85,0,0.04)",
+            animation: "ctaPulseGlow 3s ease-in-out infinite",
+            transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s",
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#CC5500",
+            lineHeight: 1.5,
+          }}
+        >
+          <span style={{ display: "block", fontSize: 13, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(210,225,245,0.5)", marginBottom: 8 }}>
+            Custom Configuration
+          </span>
+          Want full control? Build your custom AI Engine with OrenKanBuilder™ →
+        </Link>
+      </motion.div>
 
       {/* USAGE-BASED RATES */}
       <div className="usage-section">

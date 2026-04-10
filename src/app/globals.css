@@ -1330,7 +1330,7 @@
 .pricing-section{max-width:1280px;margin:0 auto;padding:80px 24px}
 
 .section-tag{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--oren-orange);text-align:center;margin-bottom:12px}
-.section-title{font-family:var(--font-display);font-weight:900;font-size:clamp(32px,5vw,48px);text-align:center;line-height:1.15;margin-bottom:16px}
+.section-title{font-family:'Playfair Display', serif;font-weight:900;font-size:clamp(32px,5vw,48px);text-align:center;line-height:1.15;margin-bottom:16px}
 .section-title span{color:var(--oren-orange)}
 .section-sub{font-size:16px;color:#5B6675;text-align:center;max-width:620px;margin:0 auto 56px;line-height:1.6}
 
@@ -1367,17 +1367,22 @@
 .tier-features{list-style:none;margin-bottom:24px;flex:1;padding:0;}
 .tier-features li{font-size:12.5px;color:var(--oren-sub);padding:5px 0;padding-left:20px;position:relative;line-height:1.5}
 .tier-features li::before{content:'✓';position:absolute;left:0;color:#22C55E;font-weight:700;font-size:12px}
-.tier-cta{display:block;width:100%;padding:13px;border:none;border-radius:10px;font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.3s;text-decoration:none;margin-top:auto}
+.tier-cta{display:block;width:100%;padding:13px;border:none;border-radius:10px;font-family:'Roboto', sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.3s;text-decoration:none;margin-top:auto}
 .tier-cta.primary{background:linear-gradient(135deg,var(--oren-orange),var(--oren-orange-glow));color:#fff;box-shadow:0 4px 20px rgba(204,85,0,0.3)}
 .tier-cta.primary:hover{box-shadow:0 8px 30px rgba(204,85,0,0.5);transform:translateY(-2px)}
 .tier-cta.outline{background:transparent;color:var(--oren-white);border:1px solid var(--oren-line-subtle)}
 .tier-cta.outline:hover{border-color:var(--oren-orange);color:var(--oren-orange)}
-.tier-custom-link{display:block;text-align:center;margin-bottom:64px;font-size:14px;color:var(--oren-orange);text-decoration:none;transition:color 0.2s}
-.tier-custom-link:hover{color:var(--oren-terra)}
+.tier-custom-link{display:block;text-align:center;font-size:14px;color:var(--oren-orange);text-decoration:none;transition:color 0.2s,transform 0.3s,box-shadow 0.3s,border-color 0.3s}
+.tier-custom-link:hover{color:var(--oren-terra);transform:translateY(-4px);box-shadow:0 0 40px rgba(204,85,0,0.2),0 0 80px rgba(204,85,0,0.08);border-color:rgba(204,85,0,0.5)}
+
+@keyframes ctaPulseGlow{
+  0%,100%{box-shadow:0 0 30px rgba(204,85,0,0.08),0 0 60px rgba(204,85,0,0.04);border-color:rgba(204,85,0,0.25)}
+  50%{box-shadow:0 0 40px rgba(204,85,0,0.18),0 0 80px rgba(204,85,0,0.08);border-color:rgba(204,85,0,0.45)}
+}
 
 /* Usage Rates */
 .usage-section{margin-bottom:72px}
-.usage-title{font-family:var(--font-display);font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
+.usage-title{font-family:'Playfair Display', serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
 .usage-sub{font-size:14px;color:#5B6675;text-align:center;margin-bottom:32px}
 .usage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .usage-card{background:var(--oren-close);border:1px solid var(--oren-line-subtle);border-radius:12px;padding:24px 16px;text-align:center;transition:border-color 0.3s,box-shadow 0.3s}
@@ -1389,22 +1394,22 @@
 
 /* Competitive Chart */
 .comp-section{margin-bottom:56px}
-.comp-title{font-family:var(--font-display);font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
+.comp-title{font-family:'Playfair Display', serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
 .comp-sub{font-size:14px;color:#5B6675;text-align:center;margin-bottom:36px}
 .comp-chart{max-width:800px;margin:0 auto}
 .comp-row{display:flex;align-items:center;margin-bottom:10px;gap:12px}
-.comp-label{width:120px;flex-shrink:0;font-size:13px;font-weight:500;color:var(--oren-sub);text-align:right}
+.comp-label{width:120px;flex-shrink:0;font-size:13px;font-weight:500;color:#5B6675;text-align:right}
 .comp-label.ours{color:var(--oren-white);font-weight:700}
 .comp-bar-wrap{flex:1;position:relative;height:32px;background:rgba(210,225,245,0.04);border-radius:6px;overflow:hidden}
 .comp-bar{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:11px;font-weight:700;color:#fff;transition:width 0.8s cubic-bezier(0.25,0.46,0.45,0.94);min-width:60px}
 .comp-bar.ours{background:linear-gradient(90deg,var(--oren-orange),var(--oren-orange-glow))}
 .comp-bar.competitor{background:linear-gradient(90deg,#1E4D8C,#2A6ABF)}
-.comp-legend{display:flex;justify-content:center;gap:24px;margin-top:16px;font-size:12px;color:var(--oren-sub)}
+.comp-legend{display:flex;justify-content:center;gap:24px;margin-top:16px;font-size:12px;color:#5B6675}
 .comp-legend-dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:middle}
 
 /* Bottom CTA */
 .bottom-cta{text-align:center;padding:48px 24px;background:var(--oren-close);border-radius:16px;border:1px solid var(--oren-line-subtle)}
-.bottom-cta-text{font-family:var(--font-display);font-weight:900;font-size:clamp(20px,3vw,28px);margin-bottom:8px}
+.bottom-cta-text{font-family:'Playfair Display', serif;font-weight:900;font-size:clamp(20px,3vw,28px);margin-bottom:8px;color:#F0F4FA;}
 .bottom-cta-sub{font-size:14px;color:var(--oren-sub);margin-bottom:24px}
 .bottom-cta a{display:inline-block;padding:14px 40px;background:linear-gradient(135deg,var(--oren-orange),var(--oren-orange-glow));color:#fff;font-weight:700;font-size:15px;border-radius:10px;text-decoration:none;box-shadow:0 4px 20px rgba(204,85,0,0.3);transition:all 0.3s}
 .bottom-cta a:hover{box-shadow:0 8px 30px rgba(204,85,0,0.5);transform:translateY(-2px)}
@@ -1586,35 +1591,6 @@
   gap: 48px 24px;
   padding: 48px 0;
   border-bottom: 1px solid var(--og-border);
-}
-
-.og-col-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--og-text);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--og-accent);
-  display: inline-block;
-}
-
-.og-col-links a {
-  font-size: 13px;
-  color: var(--og-text-secondary);
-  transition: color 0.2s ease;
-}
-
-.og-col-links a:hover { color: #CC5500; }
-
-.og-bottom-bar {
-  padding: 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
 }
 
 @media (max-width: 1024px) {
