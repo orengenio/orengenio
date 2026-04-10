@@ -50,7 +50,7 @@ export function AgentShowcase() {
             Your AI Workforce
           </div>
           <h2 className="agent-showcase-title">
-            Meet the Agents That <span className="accent">Never Clock Out</span>
+            Meet the Agents That<br /><span className="accent">Never Clock Out</span>
           </h2>
           <p className="agent-showcase-sub">
             12 specialized AI employees — each trained for a specific role — working together
