@@ -1,41 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, MeshDistortMaterial, Float } from "@react-three/drei";
-import * as THREE from "three";
+import React from "react";
 import { motion } from "framer-motion";
-
-function AnimatedOrb() {
-  const sphereRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<any>(null);
-
-  useFrame((state) => {
-    if (sphereRef.current) {
-      sphereRef.current.rotation.x = state.clock.getElapsedTime() * 0.3;
-      sphereRef.current.rotation.y = state.clock.getElapsedTime() * 0.4;
-    }
-    if (materialRef.current) {
-      const time = state.clock.getElapsedTime();
-      const color1 = new THREE.Color("#CC5500");
-      const color2 = new THREE.Color("#E2725B");
-      const color3 = new THREE.Color("#FFFFFF");
-      const phase = (Math.sin(time * 0.5) + 1) / 2;
-      const finalColor = phase > 0.5
-        ? color1.clone().lerp(color3, (phase - 0.5) * 2)
-        : color2.clone().lerp(color1, phase * 2);
-      materialRef.current.color.copy(finalColor);
-    }
-  });
-
-  return (
-    <Float speed={5} rotationIntensity={2} floatIntensity={3}>
-      <Sphere ref={sphereRef} args={[1, 64, 64]} scale={1.5}>
-        <MeshDistortMaterial ref={materialRef} speed={4} distort={0.6} radius={1} metalness={0.9} roughness={0.05} emissiveIntensity={0.5} />
-      </Sphere>
-    </Float>
-  );
-}
 
 interface FloatingOrbProps {
   onToggleChat?: () => void;
@@ -52,7 +18,7 @@ export function FloatingOrb({ onToggleChat, isChatOpen }: FloatingOrbProps) {
 
   return (
     <div
-      className="fixed bottom-10 right-10 z-[100] flex flex-col items-center group"
+      className="fixed bottom-8 right-8 z-[100] flex flex-col items-center"
       onClick={onToggleChat}
       onKeyDown={handleKeyDown}
       role="button"
@@ -60,25 +26,79 @@ export function FloatingOrb({ onToggleChat, isChatOpen }: FloatingOrbProps) {
       aria-label={isChatOpen ? "Close chat" : "Open chat assistant"}
     >
       <motion.div
-        animate={isChatOpen ? { scale: 0.7, opacity: 0.6 } : { scale: 1, opacity: 1 }}
+        animate={isChatOpen ? { scale: 0.65, opacity: 0.5 } : { scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="relative h-44 w-44 cursor-pointer transition-transform hover:scale-110 active:scale-95 sm:h-64 sm:w-64"
+        className="relative cursor-pointer"
       >
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={2} />
-          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={4} />
-          <pointLight position={[-10, -10, -10]} intensity={3} />
-          <AnimatedOrb />
-        </Canvas>
-        <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 -z-10 rounded-full bg-burnt-orange/30 blur-[80px]" />
-        <motion.div animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }} transition={{ duration: 4, repeat: Infinity, delay: 1, ease: "easeInOut" }} className="absolute inset-0 -z-20 rounded-full bg-terracotta/20 blur-[120px]" />
+        {/* Outer pulse ring */}
+        <motion.div
+          animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(204,85,0,0.3) 0%, transparent 70%)", margin: -20 }}
+        />
+        
+        {/* Inner pulse ring */}
+        <motion.div
+          animate={{ scale: [1, 1.25, 1], opacity: [0.4, 0.1, 0.4] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute inset-0 rounded-full border-2 border-burnt-orange/30"
+          style={{ margin: -8 }}
+        />
+
+        {/* Main orb */}
+        <div
+          className="relative w-[72px] h-[72px] sm:w-[88px] sm:h-[88px] rounded-full flex items-center justify-center overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #CC5500 0%, #E2725B 50%, #CC5500 100%)",
+            boxShadow: "0 0 30px rgba(204,85,0,0.4), 0 0 60px rgba(204,85,0,0.15), inset 0 0 20px rgba(255,255,255,0.1)",
+          }}
+        >
+          {/* Logo */}
+          <img
+            src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png"
+            alt="OrenGen"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-lg"
+            style={{ filter: "brightness(10)" }}
+          />
+          
+          {/* Shimmer overlay */}
+          <motion.div
+            animate={{ x: ["-100%", "200%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 2 }}
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
+            }}
+          />
+        </div>
+
+        {/* Rotating dashed ring */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full pointer-events-none"
+          style={{ margin: -4, border: "1.5px dashed rgba(204,85,0,0.25)" }}
+        />
       </motion.div>
+
+      {/* TALK TO ME label */}
       <motion.div
-        animate={isChatOpen ? { y: 0, opacity: 0, scale: 0.8 } : { y: [0, -8, 0], opacity: 1, scale: 1, boxShadow: ["0 0 10px rgba(204,85,0,0.2)", "0 0 30px rgba(204,85,0,0.5)", "0 0 10px rgba(204,85,0,0.2)"] }}
-        transition={isChatOpen ? { duration: 0.2 } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="mt-6 rounded-full border border-burnt-orange/40 bg-burnt-orange/20 px-8 py-3 backdrop-blur-xl shadow-2xl"
+        animate={isChatOpen
+          ? { y: 0, opacity: 0, scale: 0.8 }
+          : {
+              y: [0, -5, 0],
+              opacity: 1,
+              scale: 1,
+            }
+        }
+        transition={isChatOpen ? { duration: 0.2 } : { duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="mt-4 rounded-full border border-burnt-orange/40 bg-burnt-orange/20 px-6 py-2 backdrop-blur-xl"
+        style={{ boxShadow: "0 0 20px rgba(204,85,0,0.2)" }}
       >
-        <span className="text-[14px] font-black tracking-[0.4em] text-white uppercase drop-shadow-lg">TALK TO ME</span>
+        <span className="text-[12px] sm:text-[13px] font-black tracking-[0.3em] text-white uppercase drop-shadow-lg">
+          TALK TO ME
+        </span>
       </motion.div>
     </div>
   );

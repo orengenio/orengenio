@@ -6,18 +6,18 @@ import Link from "next/link";
 const CDN = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026";
 
 const agents = [
-  { id: 1, name: "Oren-V1", role: "Voice Agent", desc: "Inbound & outbound voice calls in any language, 24/7.", img: `${CDN}/0en2s7yB49MbtyKWUbQBtoD0LTak2efoFTwNnIne.png` },
-  { id: 2, name: "Oren-Chat", role: "Chat Agent", desc: "Real-time website chat that qualifies and converts.", img: `${CDN}/ulCvfZnyWhP728iI6r49IB6edmUJhP3dtNYtxi6d.png` },
-  { id: 3, name: "Oren-CRM", role: "Pipeline Manager", desc: "Automated CRM updates, lead scoring, deal tracking.", img: `${CDN}/5GUZsCIDK7EtI9IXX8eXDodhFU5WLxPTIt5OjPVe.png` },
-  { id: 4, name: "Oren-Social", role: "Social Agent", desc: "AI-powered content scheduling and engagement.", img: `${CDN}/6gykA2fUW07eswgzXXBKZDaYryiuZJQo1M2uNlj1.png` },
-  { id: 5, name: "Oren-Outbound", role: "Outbound Caller", desc: "Cold outreach campaigns that book meetings on autopilot.", img: `${CDN}/0kvoSAWaBaSKZRTiNVWpMPgZIC5OvdHoxperpkV3.png` },
-  { id: 6, name: "Oren-SMS", role: "SMS Agent", desc: "Two-way texting for follow-ups, reminders, and re-engagement.", img: `${CDN}/5pskqfuAhTBYlvOoORFggFLnhGevlpvBfD3pKl44.png` },
-  { id: 7, name: "Oren-Email", role: "Email Agent", desc: "Automated email sequences with smart personalization.", img: `${CDN}/IxZAEmDYHEoOZ5ZzjgBG4HqpQD4FVmJGYYbPyUVn.png` },
-  { id: 8, name: "Oren-Book", role: "Scheduler", desc: "AI appointment booking that eliminates no-shows.", img: `${CDN}/KrbVdZn8iJm8uu7ITI70tRrltw0d0HNaUTiRkFgr.png` },
-  { id: 9, name: "Oren-Qualify", role: "Lead Qualifier", desc: "Scores and qualifies every lead before your team sees it.", img: `${CDN}/Ah0QGWHKOnmqIXAIDUOqG1ELinSUoFG4lWwQWaqp.png` },
-  { id: 10, name: "Oren-Analytics", role: "Analytics Agent", desc: "Real-time dashboards and performance intelligence.", img: `${CDN}/fCrG3qB5RJyo07xuxEFtFQETrS7pF6w0kcmI9D60.png` },
-  { id: 11, name: "Oren-Support", role: "Support Agent", desc: "Tier-1 customer support across every channel.", img: `${CDN}/630pIcDcYFr25CQDlYix4uZ6nsoljoZxKbDXoReL.png` },
-  { id: 12, name: "Oren-Guard", role: "Compliance Agent", desc: "Monitors conversations for compliance and quality.", img: `${CDN}/iqZj5mGXEzmK1UusWvX6KXSSd8gdvsIAQHMK1lt0.png` },
+  { id: 1, name: "Marcus Rivera", role: "Voice Agent", desc: "Inbound & outbound voice calls in any language, 24/7.", img: `${CDN}/0en2s7yB49MbtyKWUbQBtoD0LTak2efoFTwNnIne.png` },
+  { id: 2, name: "Sofia Chen", role: "Chat Agent", desc: "Real-time website chat that qualifies and converts.", img: `${CDN}/ulCvfZnyWhP728iI6r49IB6edmUJhP3dtNYtxi6d.png` },
+  { id: 3, name: "David Okafor", role: "Pipeline Manager", desc: "Automated CRM updates, lead scoring, deal tracking.", img: `${CDN}/5GUZsCIDK7EtI9IXX8eXDodhFU5WLxPTIt5OjPVe.png` },
+  { id: 4, name: "Priya Sharma", role: "Social Agent", desc: "AI-powered content scheduling and engagement.", img: `${CDN}/6gykA2fUW07eswgzXXBKZDaYryiuZJQo1M2uNlj1.png` },
+  { id: 5, name: "James Mitchell", role: "Outbound Caller", desc: "Cold outreach campaigns that book meetings on autopilot.", img: `${CDN}/0kvoSAWaBaSKZRTiNVWpMPgZIC5OvdHoxperpkV3.png` },
+  { id: 6, name: "Elena Torres", role: "SMS Agent", desc: "Two-way texting for follow-ups, reminders, and re-engagement.", img: `${CDN}/5pskqfuAhTBYlvOoORFggFLnhGevlpvBfD3pKl44.png` },
+  { id: 7, name: "Nathan Brooks", role: "Email Agent", desc: "Automated email sequences with smart personalization.", img: `${CDN}/IxZAEmDYHEoOZ5ZzjgBG4HqpQD4FVmJGYYbPyUVn.png` },
+  { id: 8, name: "Aisha Williams", role: "Scheduler", desc: "AI appointment booking that eliminates no-shows.", img: `${CDN}/KrbVdZn8iJm8uu7ITI70tRrltw0d0HNaUTiRkFgr.png` },
+  { id: 9, name: "Carlos Mendez", role: "Lead Qualifier", desc: "Scores and qualifies every lead before your team sees it.", img: `${CDN}/Ah0QGWHKOnmqIXAIDUOqG1ELinSUoFG4lWwQWaqp.png` },
+  { id: 10, name: "Rachel Kim", role: "Analytics Agent", desc: "Real-time dashboards and performance intelligence.", img: `${CDN}/fCrG3qB5RJyo07xuxEFtFQETrS7pF6w0kcmI9D60.png` },
+  { id: 11, name: "Michael Osei", role: "Support Agent", desc: "Tier-1 customer support across every channel.", img: `${CDN}/630pIcDcYFr25CQDlYix4uZ6nsoljoZxKbDXoReL.png` },
+  { id: 12, name: "Sarah Whitfield", role: "Compliance Agent", desc: "Monitors conversations for compliance and quality.", img: `${CDN}/iqZj5mGXEzmK1UusWvX6KXSSd8gdvsIAQHMK1lt0.png` },
 ];
 
 const containerVariants = {
