@@ -115,6 +115,29 @@ export default function Page() {
     .pricing-note p{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.6)!important;font-weight:300}
     .pricing-note strong{color:#CC5500!important;font-weight:700}
 
+    /* ===== PRICING GRID ===== */
+    .auto-pricing{max-width:1100px;margin:0 auto;padding:80px 40px 40px}
+    .auto-pricing-title{text-align:center;font-size:clamp(32px,5vw,48px)!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important;margin-bottom:12px}
+    .auto-pricing-title span{color:#CC5500}
+    .auto-pricing-sub{text-align:center;font-family:'Roboto',sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+    .auto-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .auto-tier{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 28px;position:relative;transition:all .3s;display:flex;flex-direction:column}
+    .auto-tier:hover{border-color:rgba(204,85,0,0.3);transform:translateY(-4px)}
+    .auto-tier.featured{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.04)}
+    .auto-tier.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:white;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+    .auto-tier-name{font-size:20px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
+    .auto-tier-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
+    .auto-tier-price{font-family:'Playfair Display',serif!important;font-size:36px;font-weight:900;color:#CC5500;margin-bottom:4px}
+    .auto-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:'Roboto',sans-serif;font-weight:400}
+    .auto-tier-note{font-family:'Roboto',sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
+    .auto-tier ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
+    .auto-tier li{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+    .auto-tier li::before{content:'✓ ';color:#CC5500;font-weight:700}
+    .auto-tier-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;border:1px solid rgba(204,85,0,0.3);color:#CC5500;background:transparent}
+    .auto-tier-btn:hover{background:rgba(204,85,0,0.08);border-color:#CC5500}
+    .auto-tier-btn.primary{background:linear-gradient(135deg,#CC5500,#E2725B);color:white;border:none}
+    .auto-tier-btn.primary:hover{opacity:0.9;transform:translateY(-1px)}
+
     /* ===== CTA ===== */
     .cta-section{max-width:900px;margin:0 auto;padding:100px 40px 100px;text-align:center}
     .cta-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:60px 40px;backdrop-filter:blur(16px);position:relative;overflow:hidden}
@@ -138,6 +161,8 @@ export default function Page() {
       .cta-section{padding:60px 20px}
       .cta-card{padding:40px 24px}
       .pricing-note{padding:40px 20px}
+      .auto-pricing{padding:60px 20px 20px}
+      .auto-tiers{grid-template-columns:1fr}
     }
     @media(max-width:480px){
       .how-node{flex:0 0 100%}
@@ -295,9 +320,71 @@ export default function Page() {
   </div>
 </section>
 
-<!-- PRICING NOTE -->
-<section class="pricing-note">
-  <p>Automation engine included with every OrenGen plan. Custom workflow builds start at <strong>$497</strong>.</p>
+<!-- PRICING -->
+<section class="auto-pricing">
+  <h2 class="auto-pricing-title">Custom Automation <span>Build Packages</span></h2>
+  <p class="auto-pricing-sub">Automation engine included with every OrenGen plan. Need custom workflows? We build them for you.</p>
+  <div class="auto-tiers">
+    <div class="auto-tier">
+      <div class="auto-tier-name">Standard</div>
+      <div class="auto-tier-desc">Simple workflows to automate your core processes.</div>
+      <div class="auto-tier-price">$497 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>1–2 custom automations</li>
+        <li>Basic triggers &amp; actions</li>
+        <li>Single platform integration</li>
+        <li>Testing &amp; deployment</li>
+        <li>30-day support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Get Started</a>
+    </div>
+    <div class="auto-tier featured">
+      <div class="auto-tier-name">Professional</div>
+      <div class="auto-tier-desc">Multi-step workflows with logic and integrations.</div>
+      <div class="auto-tier-price">$1,497 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>3–5 custom automations</li>
+        <li>Conditional logic &amp; branching</li>
+        <li>Multi-platform integrations</li>
+        <li>CRM &amp; pipeline automation</li>
+        <li>Error handling &amp; retries</li>
+        <li>60-day support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn primary" target="_blank" rel="noopener">Build My Workflows</a>
+    </div>
+    <div class="auto-tier">
+      <div class="auto-tier-name">Premium</div>
+      <div class="auto-tier-desc">Full automation architecture for your entire operation.</div>
+      <div class="auto-tier-price">$2,997 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>Unlimited automations</li>
+        <li>Custom API integrations</li>
+        <li>Webhooks &amp; advanced logic</li>
+        <li>Full stack orchestration</li>
+        <li>Performance optimization</li>
+        <li>90-day priority support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Go Premium</a>
+    </div>
+    <div class="auto-tier" style="border-color:rgba(204,85,0,0.15);background:rgba(15,40,71,0.3)">
+      <div class="auto-tier-name">Enterprise</div>
+      <div class="auto-tier-desc">Custom-scoped automation for complex, large-scale operations.</div>
+      <div class="auto-tier-price">Custom</div>
+      <div class="auto-tier-note">Scoped to your needs</div>
+      <ul>
+        <li>Dedicated automation architect</li>
+        <li>Enterprise integrations &amp; APIs</li>
+        <li>Multi-department workflows</li>
+        <li>Ongoing optimization &amp; management</li>
+        <li>SLA &amp; dedicated support</li>
+        <li>White-glove delivery</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Book a Strategy Call</a>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->

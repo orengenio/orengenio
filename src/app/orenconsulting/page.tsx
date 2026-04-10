@@ -121,6 +121,29 @@ export default function Page() {
   .oc-flow-connector:nth-of-type(2)::after{animation-delay:0s}.oc-flow-connector:nth-of-type(4)::after{animation-delay:.5s}.oc-flow-connector:nth-of-type(6)::after{animation-delay:1s}.oc-flow-connector:nth-of-type(8)::after{animation-delay:1.5s}
   @keyframes ocFlowDot{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 8px);opacity:0}}
 
+  /* ===== PRICING ===== */
+  .oc-pricing{max-width:1100px;margin:0 auto;padding:80px 40px 40px}
+  .oc-pricing-title{text-align:center;font-size:clamp(32px,5vw,48px)!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important;margin-bottom:12px}
+  .oc-pricing-title span{color:#CC5500}
+  .oc-pricing-sub{text-align:center;font-family:'Roboto',sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+  .oc-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .oc-tier{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 28px;position:relative;transition:all .3s;display:flex;flex-direction:column}
+  .oc-tier:hover{border-color:rgba(204,85,0,0.3);transform:translateY(-4px)}
+  .oc-tier.featured{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.04)}
+  .oc-tier.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:white;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+  .oc-tier-name{font-size:20px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
+  .oc-tier-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
+  .oc-tier-price{font-family:'Playfair Display',serif!important;font-size:32px;font-weight:900;color:#CC5500;margin-bottom:4px}
+  .oc-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:'Roboto',sans-serif;font-weight:400}
+  .oc-tier-note{font-family:'Roboto',sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
+  .oc-tier ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
+  .oc-tier li{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+  .oc-tier li::before{content:'✓ ';color:#CC5500;font-weight:700}
+  .oc-tier-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;border:1px solid rgba(204,85,0,0.3);color:#CC5500;background:transparent}
+  .oc-tier-btn:hover{background:rgba(204,85,0,0.08);border-color:#CC5500}
+  .oc-tier-btn.primary{background:linear-gradient(135deg,#CC5500,#E2725B);color:white;border:none}
+  .oc-tier-btn.primary:hover{opacity:0.9;transform:translateY(-1px)}
+
   /* ===== CTA ===== */
   .oc-cta{max-width:900px;margin:0 auto;padding:120px 40px 100px;text-align:center}
   .oc-cta-title{font-size:clamp(36px,5vw,56px)!important;line-height:1.08;margin-bottom:24px!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important}
@@ -147,6 +170,8 @@ export default function Page() {
     .oc-build-flow{flex-wrap:wrap;gap:8px;padding:40px 20px}.oc-flow-connector{display:none}.oc-flow-node{flex:0 0 calc(50% - 8px)}
     .oc-section{padding:60px 20px}
     .oc-cta{padding:80px 20px}
+    .oc-pricing{padding:60px 20px 20px}
+    .oc-tiers{grid-template-columns:1fr}
   }
 </style>
 
@@ -267,6 +292,74 @@ export default function Page() {
   <div class="oc-flow-node"><div class="oc-flow-icon dark"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="oc-flow-label">Deploy</div></div>
   <div class="oc-flow-connector"></div>
   <div class="oc-flow-node"><div class="oc-flow-icon amber"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="oc-flow-label">Optimize</div></div>
+</section>
+
+<!-- PRICING -->
+<section class="oc-pricing">
+  <h2 class="oc-pricing-title">Fractional C-Suite <span>Pricing</span></h2>
+  <p class="oc-pricing-sub">Executive-level leadership at a fraction of the cost. Deploy in 2 weeks, cancel anytime.</p>
+  <div class="oc-tiers">
+    <div class="oc-tier">
+      <div class="oc-tier-name">Standard</div>
+      <div class="oc-tier-desc">1 fractional role, strategic advisory &amp; execution.</div>
+      <div class="oc-tier-price">$8,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $80,000/yr (save 17%)</div>
+      <ul>
+        <li>1 Fractional C-Suite role</li>
+        <li>10–15 hours per week</li>
+        <li>Strategic advisory &amp; planning</li>
+        <li>AI systems architecture</li>
+        <li>Monthly reporting</li>
+        <li>Deploy in 2 weeks</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier featured">
+      <div class="oc-tier-name">Professional</div>
+      <div class="oc-tier-desc">1–2 roles with deeper integration into your team.</div>
+      <div class="oc-tier-price">$15,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $150,000/yr (save 17%)</div>
+      <ul>
+        <li>1–2 Fractional C-Suite roles</li>
+        <li>20–25 hours per week</li>
+        <li>Team integration &amp; leadership</li>
+        <li>AI implementation &amp; management</li>
+        <li>Bi-weekly strategy sessions</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn primary" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier">
+      <div class="oc-tier-name">Premium</div>
+      <div class="oc-tier-desc">Full C-suite access with dedicated leadership.</div>
+      <div class="oc-tier-price">$25,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $250,000/yr (save 17%)</div>
+      <ul>
+        <li>Full C-Suite access</li>
+        <li>Dedicated executive leadership</li>
+        <li>Enterprise-scale AI strategy</li>
+        <li>Board &amp; investor support</li>
+        <li>Weekly strategy sessions</li>
+        <li>Dedicated success manager</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier" style="border-color:rgba(204,85,0,0.15);background:rgba(15,40,71,0.3)">
+      <div class="oc-tier-name">Enterprise</div>
+      <div class="oc-tier-desc">Custom-scoped executive AI leadership for complex organizations.</div>
+      <div class="oc-tier-price">Custom</div>
+      <div class="oc-tier-note">Scoped to your organization</div>
+      <ul>
+        <li>Multi-executive deployment</li>
+        <li>Custom AI engineering team</li>
+        <li>Full organizational transformation</li>
+        <li>White-label &amp; IP ownership</li>
+        <li>SLA &amp; enterprise agreements</li>
+        <li>White-glove onboarding</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Strategy Call</a>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
