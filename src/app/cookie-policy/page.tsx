@@ -614,7 +614,7 @@ th {
       <p>For more information about how we collect, use, and protect your data, please review:</p>
       <ul>
         <li><a href="/privacy-policy">Privacy Policy</a> - Our comprehensive data protection practices</li>
-        <li><a href="/terms-and-conditions">Terms and Conditions</a> - Legal terms governing service use</li>
+        <li><a href="/terms">Terms and Conditions</a> - Legal terms governing service use</li>
       </ul>
 
       <h3>10.2 External Resources</h3>
@@ -1257,7 +1257,7 @@ th {
       <p>For more information about how we collect, use, and protect your data, please review:</p>
       <ul>
         <li><a href="/privacy-policy">Privacy Policy</a> - Our comprehensive data protection practices</li>
-        <li><a href="/terms-and-conditions">Terms and Conditions</a> - Legal terms governing service use</li>
+        <li><a href="/terms">Terms and Conditions</a> - Legal terms governing service use</li>
       </ul>
 
       <h3>10.2 External Resources</h3>

@@ -64,7 +64,7 @@ export function Pricing() {
             <li>We build it. We manage it.</li>
             <li>Email support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta outline">Get Started</Link>
+          <Link href="/orenagents" className="tier-cta outline">Get Started</Link>
         </div>
 
         {/* TIER 2 - FEATURED */}
@@ -88,7 +88,7 @@ export function Pricing() {
             <li>Multi-channel deployment, 24/7</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta primary">Start Growing</Link>
+          <Link href="/orenagents" className="tier-cta primary">Start Growing</Link>
         </div>
 
         {/* TIER 3 */}
@@ -112,7 +112,7 @@ export function Pricing() {
             <li>Advanced analytics + lead scoring</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta outline">Start Dominating</Link>
+          <Link href="/orenagents" className="tier-cta outline">Start Dominating</Link>
         </div>
 
         {/* TIER 4 - ENTERPRISE */}
@@ -135,7 +135,7 @@ export function Pricing() {
             <li>White-glove onboarding</li>
             <li>SLA &amp; custom integrations</li>
           </ul>
-          <Link href="/book-strategy-call" className="tier-cta">Book a Strategy Call</Link>
+          <Link href="https://calendly.com/orengenio/30min" className="tier-cta">Book a Strategy Call</Link>
         </div>
       </div>
 
@@ -249,7 +249,7 @@ export function Pricing() {
       <div className="bottom-cta">
         <div className="bottom-cta-text">Ready to Deploy Your AI Workforce?</div>
         <p className="bottom-cta-sub">Start with a free strategy call. See exactly how Buy-Lingual™ fits your business.</p>
-        <Link href="/book-strategy-call">Book a Free Demo →</Link>
+        <Link href="https://calendly.com/orengenio/30min">Book a Free Demo →</Link>
       </div>
 
     </section>
