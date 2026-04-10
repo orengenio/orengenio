@@ -197,7 +197,7 @@ const html = `
         <li>API access and integrations</li>
         <li>Any other OrenGen products, services, or technologies</li>
       </ul>
-      <p>This AUP is incorporated into and is part of our <a href="/terms-and-conditions">Terms and Conditions</a>. Violation of this AUP constitutes a material breach of our agreement with you and may result in immediate suspension or termination of services, legal action, and reporting to law enforcement authorities.</p>
+      <p>This AUP is incorporated into and is part of our <a href="/terms">Terms and Conditions</a>. Violation of this AUP constitutes a material breach of our agreement with you and may result in immediate suspension or termination of services, legal action, and reporting to law enforcement authorities.</p>
     </section>
 
     <!-- 2. GENERAL PRINCIPLES -->
@@ -764,7 +764,7 @@ export default function Page() {
         <li>API access and integrations</li>
         <li>Any other OrenGen products, services, or technologies</li>
       </ul>
-      <p>This AUP is incorporated into and is part of our <a href="/terms-and-conditions">Terms and Conditions</a>. Violation of this AUP constitutes a material breach of our agreement with you and may result in immediate suspension or termination of services, legal action, and reporting to law enforcement authorities.</p>
+      <p>This AUP is incorporated into and is part of our <a href="/terms">Terms and Conditions</a>. Violation of this AUP constitutes a material breach of our agreement with you and may result in immediate suspension or termination of services, legal action, and reporting to law enforcement authorities.</p>
     </section>
 
     <!-- 2. GENERAL PRINCIPLES -->

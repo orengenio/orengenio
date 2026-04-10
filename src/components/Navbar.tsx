@@ -10,8 +10,8 @@ const solutionColumns = [
     badgeClass: "core",
     colClass: "core",
     items: [
-      { name: "OrenAgents Voice", desc: "Buy-Lingual™ conversational AI for calls.", href: "/orenagents-voice" },
-      { name: "OrenAgents Employees", desc: "Hire autonomous multi-agent departments.", href: "/orenagents-workforce" },
+      { name: "OrenAgents Voice", desc: "Buy-Lingual™ conversational AI for calls.", href: "/orenagents" },
+      { name: "OrenAgents Employees", desc: "Hire autonomous multi-agent departments.", href: "/orenagents" },
     ],
   },
   {
@@ -22,6 +22,7 @@ const solutionColumns = [
     items: [
       { name: "OrenNexus", desc: "Unified CRM and automation command center.", href: "/orennexus" },
       { name: "OrenSocial", desc: "AI-powered social media and content scheduling.", href: "/orensocial" },
+      { name: "OrenAutomations", desc: "Visual workflow automation, zero code.", href: "/orenautomations" },
     ],
   },
   {
@@ -30,8 +31,8 @@ const solutionColumns = [
     badgeClass: "addon",
     colClass: "addon",
     items: [
-      { name: "OrenWeb Design", desc: "High-performance bespoke development.", href: "/orenweb-design" },
-      { name: "OrenWeb Talk", desc: "Websites integrated with voice AI concierges.", href: "/orenweb-talk" },
+      { name: "OrenWeb Design", desc: "High-performance bespoke development.", href: "/orenweb" },
+      { name: "OrenWeb Talk", desc: "Websites integrated with voice AI concierges.", href: "/orenweb" },
     ],
   },
   {
@@ -39,7 +40,7 @@ const solutionColumns = [
     badge: "Add-On",
     badgeClass: "addon",
     colClass: "addon",
-    items: [{ name: "OrenCustoms", desc: "Bespoke AI engineering for scale.", href: "/orencustoms" }],
+    items: [{ name: "OrenConsulting", desc: "Fractional C-suite + custom AI engineering.", href: "/orenconsulting" }],
   },
 ];
 

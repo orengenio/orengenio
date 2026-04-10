@@ -931,23 +931,23 @@ export default function Page() {
 
     <div class="stats-grid">
       <div class="stat-card" data-delay="0">
-        <span class="stat-number" data-target="1200" data-suffix="+">0</span>
+        <span class="stat-number" data-target="500" data-suffix="+">500+</span>
         <span class="stat-label">Customers Served</span>
       </div>
       <div class="stat-card" data-delay="100">
-        <span class="stat-number" data-target="98" data-suffix="%">0</span>
+        <span class="stat-number" data-target="98" data-suffix="%">98%</span>
         <span class="stat-label">Client Satisfaction</span>
       </div>
       <div class="stat-card" data-delay="200">
-        <span class="stat-number" data-target="100" data-suffix="%" data-prefix="">0</span>
+        <span class="stat-number" data-target="100" data-suffix="%" data-prefix="">100%</span>
         <span class="stat-label">AI-Automated</span>
       </div>
       <div class="stat-card" data-delay="300">
-        <span class="stat-number" data-target="100" data-suffix="%" data-prefix="">0</span>
+        <span class="stat-number" data-target="100" data-suffix="%" data-prefix="">100%</span>
         <span class="stat-label">Compliance Ready</span>
       </div>
       <div class="stat-card" data-delay="400">
-        <span class="stat-number" data-target="5" data-suffix="M+" data-prefix="$">0</span>
+        <span class="stat-number" data-target="12" data-suffix="M+" data-prefix="$">$12M+</span>
         <span class="stat-label">Revenue Generated</span>
       </div>
       <div class="stat-card" data-delay="500">
@@ -1011,15 +1011,15 @@ export default function Page() {
     <h2 class="nx-stats-title">One Platform. Every Stage of the Client Journey.</h2>
     <div class="nx-stats-grid">
       <div class="nx-stat-card">
-        <span class="nx-stat-num" data-target="1200" data-suffix="+">0</span>
+        <span class="nx-stat-num" data-target="500" data-suffix="+">500+</span>
         <span class="nx-stat-lbl">Clients Managed</span>
       </div>
       <div class="nx-stat-card">
-        <span class="nx-stat-num" data-target="98" data-suffix="%">0</span>
+        <span class="nx-stat-num" data-target="98" data-suffix="%">98%</span>
         <span class="nx-stat-lbl">Client Satisfaction</span>
       </div>
       <div class="nx-stat-card">
-        <span class="nx-stat-num" data-target="3" data-suffix="x">0</span>
+        <span class="nx-stat-num" data-target="391" data-suffix="%">391%</span>
         <span class="nx-stat-lbl">Avg. Lead Conversion Lift</span>
       </div>
       <div class="nx-stat-card">
@@ -1027,11 +1027,11 @@ export default function Page() {
         <span class="nx-stat-lbl">Automated Outreach</span>
       </div>
       <div class="nx-stat-card">
-        <span class="nx-stat-num" data-target="5" data-suffix="M+" data-prefix="$">0</span>
+        <span class="nx-stat-num" data-target="12" data-suffix="M+" data-prefix="$">$12M+</span>
         <span class="nx-stat-lbl">Revenue Influenced</span>
       </div>
       <div class="nx-stat-card">
-        <span class="nx-stat-num" data-target="100" data-suffix="%">0</span>
+        <span class="nx-stat-num" data-target="100" data-suffix="%">100%</span>
         <span class="nx-stat-lbl">Fully Integrated</span>
       </div>
     </div>

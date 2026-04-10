@@ -487,7 +487,7 @@ const html = `
     <!-- 9. DISPUTE RESOLUTION -->
     <section class="optin-section">
       <h2>9. Dispute Resolution and Governing Law</h2>
-      <p>Any disputes arising from this AI-Communications Opt-In are governed by the laws of the State of Texas and subject to the dispute resolution provisions in our <a href="/terms-and-conditions">Terms and Conditions</a>.</p>
+      <p>Any disputes arising from this AI-Communications Opt-In are governed by the laws of the State of Texas and subject to the dispute resolution provisions in our <a href="/terms">Terms and Conditions</a>.</p>
       <p>By consenting to AI-communications, you waive any right to participate in class action lawsuits related to communications sent in accordance with this consent.</p>
     </section>
 
@@ -996,7 +996,7 @@ export default function Page() {
     <!-- 9. DISPUTE RESOLUTION -->
     <section class="optin-section">
       <h2>9. Dispute Resolution and Governing Law</h2>
-      <p>Any disputes arising from this AI-Communications Opt-In are governed by the laws of the State of Texas and subject to the dispute resolution provisions in our <a href="/terms-and-conditions">Terms and Conditions</a>.</p>
+      <p>Any disputes arising from this AI-Communications Opt-In are governed by the laws of the State of Texas and subject to the dispute resolution provisions in our <a href="/terms">Terms and Conditions</a>.</p>
       <p>By consenting to AI-communications, you waive any right to participate in class action lawsuits related to communications sent in accordance with this consent.</p>
     </section>
 

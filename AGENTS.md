@@ -22,4 +22,5 @@ This is a **single-service** Next.js 16 (App Router) marketing website with no b
 - There are no automated tests configured; the `package.json` has no `test` script.
 - Lint exits with code 1 due to pre-existing warnings/errors in the repo (unused vars, `<img>` vs `<Image />`, unescaped entities). This is expected and does not indicate a new problem.
 - The site loads 3D scenes and images from external CDNs (`cdn.content360.io`, `storage.googleapis.com`, `unpkg.com`). These assets require internet access; pages still render without them but will show missing visuals.
+- `/orenkanbuilder` is an interactive drag-and-drop pricing configurator (`KanBuilder.tsx` client component). It uses HTML5 drag-and-drop, inline styles, and posts checkout data to an external webhook.
 - No `.env` files or secrets are required to run the dev server.

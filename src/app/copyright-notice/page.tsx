@@ -226,7 +226,7 @@ const html = `
       <p><em>Copyright © 2026 OrenGen Worldwide LLC</em></p>
 
       <h3>1.3 Reservation of Rights</h3>
-      <p>All rights not expressly granted in our <a href="/termsandconditions">Terms and Conditions</a> are reserved by OrenGen. No license or right to use OrenGen's copyrighted materials is granted except as explicitly stated in writing.</p>
+      <p>All rights not expressly granted in our <a href="/terms">Terms and Conditions</a> are reserved by OrenGen. No license or right to use OrenGen's copyrighted materials is granted except as explicitly stated in writing.</p>
     </section>
 
     <!-- 2. USER RIGHTS AND RESTRICTIONS -->
@@ -706,7 +706,7 @@ export default function Page() {
       <p><em>Copyright © 2026 OrenGen Worldwide LLC</em></p>
 
       <h3>1.3 Reservation of Rights</h3>
-      <p>All rights not expressly granted in our <a href="/termsandconditions">Terms and Conditions</a> are reserved by OrenGen. No license or right to use OrenGen's copyrighted materials is granted except as explicitly stated in writing.</p>
+      <p>All rights not expressly granted in our <a href="/terms">Terms and Conditions</a> are reserved by OrenGen. No license or right to use OrenGen's copyrighted materials is granted except as explicitly stated in writing.</p>
     </section>
 
     <!-- 2. USER RIGHTS AND RESTRICTIONS -->

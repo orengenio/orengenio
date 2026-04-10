@@ -64,7 +64,7 @@ export function Pricing() {
             <li>We build it. We manage it.</li>
             <li>Email support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta outline">Get Started</Link>
+          <Link href="/orenagents" className="tier-cta outline">Get Started</Link>
         </div>
 
         {/* TIER 2 - FEATURED */}
@@ -88,7 +88,7 @@ export function Pricing() {
             <li>Multi-channel deployment, 24/7</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta primary">Start Growing</Link>
+          <Link href="/orenagents" className="tier-cta primary">Start Growing</Link>
         </div>
 
         {/* TIER 3 */}
@@ -112,7 +112,7 @@ export function Pricing() {
             <li>Advanced analytics + lead scoring</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/pricing" className="tier-cta outline">Start Dominating</Link>
+          <Link href="/orenagents" className="tier-cta outline">Start Dominating</Link>
         </div>
 
         {/* TIER 4 - ENTERPRISE */}
@@ -135,13 +135,47 @@ export function Pricing() {
             <li>White-glove onboarding</li>
             <li>SLA &amp; custom integrations</li>
           </ul>
-          <Link href="/book-strategy-call" className="tier-cta">Book a Strategy Call</Link>
+          <Link href="https://calendly.com/orengenio/30min" className="tier-cta">Book a Strategy Call</Link>
         </div>
       </div>
 
-      <Link href="/pricing" className="tier-custom-link">
-        Want full control? Build your custom AI Engine with OrenKanBuilder™ →
-      </Link>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{ marginBottom: 64 }}
+      >
+        <Link
+          href="/orenkanbuilder"
+          className="tier-custom-link"
+          style={{
+            display: "block",
+            maxWidth: 720,
+            margin: "0 auto",
+            padding: "32px 36px",
+            background: "rgba(204,85,0,0.06)",
+            border: "1px solid rgba(204,85,0,0.25)",
+            borderRadius: 20,
+            textAlign: "center",
+            textDecoration: "none",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            boxShadow: "0 0 30px rgba(204,85,0,0.08), 0 0 60px rgba(204,85,0,0.04)",
+            animation: "ctaPulseGlow 3s ease-in-out infinite",
+            transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s",
+            fontSize: 18,
+            fontWeight: 700,
+            color: "#CC5500",
+            lineHeight: 1.5,
+          }}
+        >
+          <span style={{ display: "block", fontSize: 13, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(210,225,245,0.5)", marginBottom: 8 }}>
+            Custom Configuration
+          </span>
+          Want full control? Build your custom AI Engine with OrenKanBuilder™ →
+        </Link>
+      </motion.div>
 
       {/* USAGE-BASED RATES */}
       <div className="usage-section">
@@ -215,7 +249,7 @@ export function Pricing() {
       <div className="bottom-cta">
         <div className="bottom-cta-text">Ready to Deploy Your AI Workforce?</div>
         <p className="bottom-cta-sub">Start with a free strategy call. See exactly how Buy-Lingual™ fits your business.</p>
-        <Link href="/book-strategy-call">Book a Free Demo →</Link>
+        <Link href="https://calendly.com/orengenio/30min">Book a Free Demo →</Link>
       </div>
 
     </section>
