@@ -30,9 +30,6 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://orengen.io'),
-    icons: {
-          icon: 'https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png',
-    },
   title: {
     default: "OrenGen | The Evolution of Intelligence",
     template: "%s | OrenGen",
