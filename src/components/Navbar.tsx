@@ -109,7 +109,7 @@ export function Navbar() {
 
           <div className="oren-right">
             <Link className="oren-login" href="https://app.orengen.io">Login</Link>
-            <Link className="oren-cta" href="#demo">Book Demo</Link>
+            <Link className="oren-cta" href="#demo">Hear a Demo</Link>
           </div>
 
           <button
@@ -154,7 +154,7 @@ export function Navbar() {
           <Link href="#pricing" className="oren-mobile-link" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <div className="oren-mobile-divider" />
           <div className="oren-mobile-actions">
-            <Link href="#demo" className="oren-cta" onClick={() => setMobileOpen(false)}>Book Demo</Link>
+            <Link href="#demo" className="oren-cta" onClick={() => setMobileOpen(false)}>Hear a Demo</Link>
             <Link href="https://app.orengen.io" className="oren-login-mobile" onClick={() => setMobileOpen(false)}>Login</Link>
           </div>
         </div>

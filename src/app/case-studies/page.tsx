@@ -224,7 +224,7 @@ export default function CaseStudiesPage() {
               transition: "transform 0.2s, box-shadow 0.2s",
             }}
           >
-            Book a Demo
+            Hear a Demo
           </a>
         </div>
       </section>

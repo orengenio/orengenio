@@ -249,7 +249,7 @@ export function Pricing() {
       <div className="bottom-cta">
         <div className="bottom-cta-text">Ready to Deploy Your AI Workforce?</div>
         <p className="bottom-cta-sub">Start with a free strategy call. See exactly how Buy-Lingual™ fits your business.</p>
-        <Link href="https://calendly.com/orengenio/30min">Book a Free Demo →</Link>
+        <Link href="https://calendly.com/orengenio/30min">Hear a Free Demo →</Link>
       </div>
 
     </section>
