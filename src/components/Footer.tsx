@@ -62,7 +62,7 @@ const affiliateLinks: AffiliateLink[] = [
 const footerColumns: FooterColumn[] = [
   { title: 'Solutions', links: [{ name: 'OrenAgents', href: '/orenagents' }, { name: 'OrenNexus', href: '/orennexus' }, { name: 'OrenWeb', href: '/orenweb' }, { name: 'OrenSocial', href: '/orensocial' }, { name: 'OrenAutomations', href: '/orenautomations' }, { name: 'OrenConsulting', href: '/orenconsulting' }] },
   { title: 'Company', links: [{ name: 'About', href: '/about' }, { name: 'Blog', href: '/blog' }, { name: 'Case Studies', href: '/case-studies' }, { name: 'Integrations', href: '/orennexus' }, { name: 'Support', href: '/faqs' }, { name: 'FAQs', href: '/faqs' }, { name: 'Pricing', href: '/#pricing' }] },
-  { title: 'Partnerships', links: [{ name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
+  { title: 'Partnerships', links: [{ name: 'Join Our Affiliate Program', href: '/affiliate-program' }, { name: 'Join Our Sales Partner Program', href: '/sales-partner-program' }, { name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
   { title: 'Productivity', links: affiliateLinks },
   { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }, { name: 'Security Overview', href: '/security-overview' }] }
 ];
@@ -157,11 +157,16 @@ export const Footer: React.FC = () => {
                   );
                 })}
               </ul>
+              {col.title === 'Legal' && (
+                <div className="mt-4">
+                  <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-10 w-auto" />
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* ─── BOTTOM BAR — All black, same font, payment seal pinned right ─── */}
+        {/* ─── BOTTOM BAR — All black, same font ─── */}
         <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-black/5">
           <div className="text-[12px] font-normal text-black/80 shrink-0 text-center md:text-left" style={{ fontFamily: "'Roboto', sans-serif" }}>
             &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="https://orengen.io" className="hover:text-[#CC5500] transition-colors">OrenGen Worldwide LLC</a>. All rights reserved.
@@ -171,9 +176,6 @@ export const Footer: React.FC = () => {
               <Link key={path} href={path} className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }}>{label}</Link>
             ))}
             <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }} target="_blank" rel="noopener noreferrer">Site Status</a>
-          </div>
-          <div className="shrink-0 md:ml-auto mx-auto md:mx-0">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-12 w-auto" />
           </div>
         </div>
 
