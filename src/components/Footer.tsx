@@ -138,7 +138,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ─── LINK COLUMNS — Uniform 12px Roboto, tight spacing ─── */}
-        <div className="py-6 grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-6 border-t border-black/5">
+        <div className="py-6 grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-6 border-t border-black/5">
           {footerColumns.map((col) => (
             <div key={col.title}>
               <h4 className="text-[12px] font-bold uppercase tracking-[2px] mb-3 inline-block pb-0.5 border-b-2 border-[#CC5500]" style={{ fontFamily: "'Roboto', sans-serif", color: '#000' }}>{col.title}</h4>
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
 
         {/* ─── BOTTOM BAR — All black, same font, payment seal pinned right ─── */}
         <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-black/5">
-          <div className="text-[12px] font-normal text-black/80 shrink-0" style={{ fontFamily: "'Roboto', sans-serif" }}>
+          <div className="text-[12px] font-normal text-black/80 shrink-0 text-center md:text-left" style={{ fontFamily: "'Roboto', sans-serif" }}>
             &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="https://orengen.io" className="hover:text-[#CC5500] transition-colors">OrenGen Worldwide LLC</a>. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
@@ -172,8 +172,8 @@ export const Footer: React.FC = () => {
             ))}
             <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }} target="_blank" rel="noopener noreferrer">Site Status</a>
           </div>
-          <div className="shrink-0 ml-auto">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-12 w-auto-left" />
+          <div className="shrink-0 md:ml-auto mx-auto md:mx-0">
+            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/cxVPrJJ67UaREKmwI8Qc17nRrlI6Ml8mB2BCzWUd.png" alt="We accept Visa, Mastercard, Amex, PayPal, Stripe and more" className="h-12 w-auto" />
           </div>
         </div>
 
