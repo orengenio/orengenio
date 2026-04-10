@@ -118,7 +118,7 @@ export function Testimonials() {
             Client Results
           </div>
           <h2 className="testimonials-title">
-            Real Businesses. <span className="accent">Real Results.</span>
+            Real Businesses.<br /><span className="accent">Real Results.</span>
           </h2>
           <p className="testimonials-sub">
             From solar companies to law firms, our AI workforce delivers measurable outcomes

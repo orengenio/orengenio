@@ -1036,14 +1036,14 @@
   .ogS3-grid{grid-template-columns:1fr;gap:16px}
   .ogS3-bars{grid-template-columns:1fr}
   .ogS3-mrow{grid-template-columns:1.3fr 1fr .8fr .8fr}
-  .ogS3-stats{gap:24px;flex-wrap:wrap;justify-content:center}
-  .ogS3-stat{min-width:120px}
-  .ogS3-stat-val{font-size:clamp(22px, 5vw, 30px)}
+  .ogS3-stats{gap:16px;flex-wrap:nowrap;justify-content:center}
+  .ogS3-stat{min-width:auto}
+  .ogS3-stat-val{font-size:clamp(20px, 5vw, 28px)}
 }
 @media(max-width:480px){
-  .ogS3-stats{gap:16px}
-  .ogS3-stat{min-width:100px}
-  .ogS3-stat-val{font-size:22px}
+  .ogS3-stats{gap:10px}
+  .ogS3-stat{min-width:auto}
+  .ogS3-stat-val{font-size:clamp(18px, 5vw, 22px)}
 }
 
 /* ═══════════════════════════════════════
