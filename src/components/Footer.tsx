@@ -64,7 +64,7 @@ const footerColumns: FooterColumn[] = [
   { title: 'Company', links: [{ name: 'About', href: '/about' }, { name: 'Blog', href: '/blog' }, { name: 'Case Studies', href: '/case-studies' }, { name: 'Integrations', href: '/orennexus' }, { name: 'Support', href: '/faqs' }, { name: 'FAQs', href: '/faqs' }, { name: 'Pricing', href: '/#pricing' }] },
   { title: 'Partnerships', links: [{ name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
   { title: 'Productivity', links: affiliateLinks },
-  { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }] }
+  { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }, { name: 'Security Overview', href: '/security-overview' }] }
 ];
 
 const bottomLinks = [
