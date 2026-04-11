@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { listProjects, createWebsite } from "@/lib/simvoly";
+import { listSubscriptions, findContactByEmail } from "@/lib/systemeio";
 
 /**
  * GET /api/simvoly/projects?email=...
- * List all projects for a customer.
+ * List subscriptions for a contact (replaces Simvoly project listing).
  */
 export async function GET(req: NextRequest) {
   try {
@@ -12,53 +12,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "email query parameter is required" }, { status: 400 });
     }
 
-    const projects = await listProjects({ customerEmail: email });
-    return NextResponse.json({ projects });
-  } catch (err) {
-    const message = err instanceof Error ? err.message : "Unknown error";
-    console.error("[Simvoly Projects]", message);
-    return NextResponse.json({ error: message }, { status: 500 });
-  }
-}
-
-/**
- * POST /api/simvoly/projects
- * Create a new project with a website.
- *
- * Body (JSON): { firstName, lastName, email, subdomain?, websiteName?, templateId? }
- */
-export async function POST(req: NextRequest) {
-  try {
-    const body = (await req.json()) as {
-      firstName: string;
-      lastName: string;
-      email: string;
-      subdomain?: string;
-      websiteName?: string;
-      templateId?: string;
-    };
-
-    if (!body.firstName || !body.lastName || !body.email) {
-      return NextResponse.json(
-        { error: "firstName, lastName, and email are required" },
-        { status: 400 }
-      );
+    const contact = await findContactByEmail(email);
+    if (!contact) {
+      return NextResponse.json({ subscriptions: [], contact: null });
     }
 
-    const result = await createWebsite({
-      customerFirstName: body.firstName,
-      customerLastName: body.lastName,
-      customerEmail: body.email,
-      customerSubdomain: body.subdomain,
-      websiteName: body.websiteName,
-      templateId: body.templateId,
-      brandColor: "#CC5500",
-    });
-
-    return NextResponse.json(result);
+    const subscriptions = await listSubscriptions();
+    return NextResponse.json({ subscriptions: subscriptions.items, contact });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
-    console.error("[Simvoly Create Project]", message);
+    console.error("[systeme.io Subscriptions]", message);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

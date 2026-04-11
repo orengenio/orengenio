@@ -3,49 +3,53 @@ import { NextRequest, NextResponse } from "next/server";
 /**
  * POST /api/simvoly/webhooks
  *
- * Receives webhook events from Simvoly.
- * Configure this URL in your Simvoly admin panel:
+ * Receives webhook events from systeme.io.
+ * Configure this URL in your systeme.io settings:
  *   https://orengen.io/api/simvoly/webhooks
  *
- * Events: subscription_activated, subscription_renewed, subscription_expired,
- *         user_created, project_created, project_deleted, website_created,
- *         website_deleted, trial_expired, affiliate_joined, etc.
+ * Events: new_sale, new_subscription, subscription_cancelled,
+ *         new_contact, tag_added, tag_removed, etc.
  */
 export async function POST(req: NextRequest) {
   try {
-    const topic = req.headers.get("X-Webhook-Topic") || "unknown";
-    const webhookId = req.headers.get("X-Webhook-Id");
     const payload = await req.json();
+    const event = payload.event || "unknown";
 
-    console.log(`[Simvoly Webhook] ${topic} (id: ${webhookId})`, JSON.stringify(payload));
+    console.log(`[systeme.io Webhook] ${event}`, JSON.stringify(payload));
 
-    // Handle different webhook events
-    switch (topic) {
-      case "subscription_activated":
-        // New subscription — could trigger welcome email, CRM update, etc.
-        console.log(`[Simvoly] Subscription activated for project ${payload.project?.id}`);
+    switch (event) {
+      case "new_sale":
+        console.log(`[systeme.io] New sale: ${payload.buyer_email}`);
         break;
 
-      case "subscription_expired":
-        console.log(`[Simvoly] Subscription expired for project ${payload.project?.id}`);
+      case "new_subscription":
+        console.log(`[systeme.io] New subscription: ${payload.buyer_email}`);
         break;
 
-      case "user_created":
-        console.log(`[Simvoly] New user: ${payload.user?.email}`);
+      case "subscription_cancelled":
+        console.log(`[systeme.io] Subscription cancelled: ${payload.buyer_email}`);
         break;
 
-      case "trial_expired":
-        console.log(`[Simvoly] Trial expired for project ${payload.project?.id}`);
+      case "new_contact":
+        console.log(`[systeme.io] New contact: ${payload.email}`);
+        break;
+
+      case "tag_added":
+        console.log(`[systeme.io] Tag added: ${payload.tag_name} to ${payload.email}`);
+        break;
+
+      case "tag_removed":
+        console.log(`[systeme.io] Tag removed: ${payload.tag_name} from ${payload.email}`);
         break;
 
       default:
-        console.log(`[Simvoly] Unhandled event: ${topic}`);
+        console.log(`[systeme.io] Unhandled event: ${event}`);
     }
 
     return NextResponse.json({ received: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
-    console.error("[Simvoly Webhook Error]", message);
+    console.error("[systeme.io Webhook Error]", message);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

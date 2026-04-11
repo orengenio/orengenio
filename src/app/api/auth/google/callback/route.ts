@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { searchUser, createUser, createSSOSession, listProjects } from "@/lib/simvoly";
+import { findContactByEmail, createContact } from "@/lib/systemeio";
 
 /**
  * GET /api/auth/google/callback
  *
  * Google OAuth callback. Exchanges code for tokens, gets user profile,
- * creates/finds Simvoly user, starts SSO session, redirects to builder.
+ * creates/finds systeme.io contact, redirects to app.orengen.io.
  */
 export async function GET(req: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://orengen.io";
+  const appUrl = process.env.SYSTEMEIO_APP_URL || "https://app.orengen.io";
 
   try {
     const code = req.nextUrl.searchParams.get("code");
@@ -65,46 +66,27 @@ export async function GET(req: NextRequest) {
       picture: string;
     };
 
-    // 3. Find or create Simvoly user
-    let simvolyUserId: number | undefined;
-
+    // 3. Find or create systeme.io contact
     try {
-      const existing = await searchUser(profile.email);
-      simvolyUserId = existing.id;
-    } catch {
-      // User doesn't exist — create them
-      try {
-        const newUser = await createUser({
-          name: profile.name,
+      const existing = await findContactByEmail(profile.email);
+      if (!existing) {
+        await createContact({
           email: profile.email,
+          firstName: profile.given_name || profile.name,
+          lastName: profile.family_name || "",
+          tags: [{ name: "google-oauth" }],
         });
-        simvolyUserId = newUser.data.id;
-      } catch (createErr) {
-        console.error("[Google OAuth] Failed to create Simvoly user:", createErr);
-        return NextResponse.redirect(`${baseUrl}/login?error=user_creation_failed`);
+        console.log(`[Google OAuth] Created systeme.io contact for ${profile.email}`);
+      } else {
+        console.log(`[Google OAuth] Found existing systeme.io contact for ${profile.email} (id: ${existing.id})`);
       }
+    } catch (contactErr) {
+      // Log but don't block — user can still access app.orengen.io
+      console.error("[Google OAuth] Failed to sync contact to systeme.io:", contactErr);
     }
 
-    // 4. Find their project (if any) to go straight to builder
-    let projectId: number | undefined;
-    try {
-      const projects = await listProjects({ userId: simvolyUserId });
-      if (Array.isArray(projects) && projects.length > 0) {
-        projectId = projects[0].id;
-      }
-    } catch {
-      // No projects yet — that's fine
-    }
-
-    // 5. Create SSO session to Simvoly builder
-    const session = await createSSOSession({
-      userId: simvolyUserId,
-      projectId,
-      path: projectId ? "/me/website" : "/me/dashboard",
-    });
-
-    // 6. Redirect user to Simvoly builder
-    return NextResponse.redirect(session.accessUrl);
+    // 4. Redirect user to app.orengen.io
+    return NextResponse.redirect(appUrl);
   } catch (err) {
     console.error("[Google OAuth] Unexpected error:", err);
     return NextResponse.redirect(`${baseUrl}/login?error=unexpected`);
