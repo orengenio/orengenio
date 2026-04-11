@@ -4,14 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
  * GET /api/auth/google/callback
  *
  * Google OAuth callback. Exchanges code for tokens, gets user profile,
- * and redirects to the app dashboard.
- *
- * When ERPNext is set up, this callback will create/authenticate
- * the user in Frappe and establish a session.
+ * syncs to ERPNext via n8n webhook, and redirects to app.orengen.io.
  */
 export async function GET(req: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://orengen.io";
   const appUrl = process.env.APP_URL || "https://app.orengen.io";
+  const n8nWebhook = process.env.N8N_WEBHOOK_URL || "https://automate.orengen.io/webhook/google-oauth-sync";
 
   try {
     const code = req.nextUrl.searchParams.get("code");
@@ -70,11 +68,35 @@ export async function GET(req: NextRequest) {
 
     console.log(`[Google OAuth] Authenticated: ${profile.email} (${profile.name})`);
 
-    // TODO: When ERPNext/Frappe is set up:
-    // - Create or find user in Frappe via API
-    // - Generate Frappe session/token
-    // - Set session cookie
-    // For now, redirect to the app dashboard
+    // 3. Sync user to ERPNext via n8n webhook
+    try {
+      const syncRes = await fetch(n8nWebhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: profile.email,
+          name: profile.name,
+          given_name: profile.given_name,
+          family_name: profile.family_name,
+          picture: profile.picture,
+          google_id: profile.id,
+        }),
+      });
+
+      if (syncRes.ok) {
+        const result = (await syncRes.json()) as { redirect?: string };
+        if (result.redirect) {
+          return NextResponse.redirect(result.redirect);
+        }
+      } else {
+        console.error("[Google OAuth] n8n sync failed:", await syncRes.text());
+      }
+    } catch (syncErr) {
+      // Log but don't block — user can still access app
+      console.error("[Google OAuth] n8n webhook error:", syncErr);
+    }
+
+    // 4. Redirect to app dashboard
     return NextResponse.redirect(appUrl);
   } catch (err) {
     console.error("[Google OAuth] Unexpected error:", err);
