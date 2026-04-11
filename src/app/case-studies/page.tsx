@@ -213,7 +213,7 @@ export default function CaseStudiesPage() {
             Every business has operations that AI can handle permanently. Let&apos;s find yours.
           </p>
           <a
-            href="https://calendly.com/orengenio/30min"
+            href="https://book.orengen.io"
             target="_blank"
             rel="noopener noreferrer"
             style={{

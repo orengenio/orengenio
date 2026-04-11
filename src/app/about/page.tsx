@@ -392,7 +392,7 @@ export default function AboutPage() {
             Let&apos;s talk about what&apos;s slowing your business down — and build the AI system that fixes it permanently.
           </p>
           <a
-            href="https://calendly.com/orengenio/30min"
+            href="https://book.orengen.io"
             target="_blank"
             rel="noopener noreferrer"
             style={{

@@ -850,7 +850,7 @@ export default function Page() {
       </p>
 
       <div class="hero-actions">
-        <a href="https://calendly.com/orengenio/30min" class="cta-button" target="_blank" rel="noopener" aria-label="Book a strategy meeting with OrenGen">
+        <a href="https://book.orengen.io" class="cta-button" target="_blank" rel="noopener" aria-label="Book a strategy meeting with OrenGen">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
@@ -1107,7 +1107,7 @@ export default function Page() {
 <section class="nx-final-cta">
   <h2>Ready to Take <span>Command</span>?</h2>
   <p>One platform. Every touchpoint. Let's build your client acquisition engine.</p>
-  <a href="https://calendly.com/orengenio/30min" class="nx-cta-primary" target="_blank" rel="noopener" style="display:inline-flex;">
+  <a href="https://book.orengen.io" class="nx-cta-primary" target="_blank" rel="noopener" style="display:inline-flex;">
     Book A Strategy Call
   </a>
 </section>

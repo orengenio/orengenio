@@ -135,7 +135,7 @@ export function Pricing() {
             <li>White-glove onboarding</li>
             <li>SLA &amp; custom integrations</li>
           </ul>
-          <Link href="https://calendly.com/orengenio/30min" className="tier-cta">Book a Strategy Call</Link>
+          <Link href="https://book.orengen.io" className="tier-cta">Book a Strategy Call</Link>
         </div>
       </div>
 
