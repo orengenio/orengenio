@@ -359,28 +359,6 @@ services:
       redis:
         condition: service_started
 
-  appwrite-usage:
-    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
-    restart: unless-stopped
-    <<: *x-logging
-    entrypoint: usage
-    environment:
-      - _APP_ENV=${_APP_ENV:-production}
-      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
-      - _APP_DB_HOST=mariadb
-      - _APP_DB_PORT=3306
-      - _APP_DB_SCHEMA=appwrite
-      - _APP_DB_USER=$SERVICE_USER_MARIADB
-      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
-      - _APP_REDIS_HOST=redis
-      - _APP_REDIS_PORT=6379
-      - _APP_USAGE_STATS=${_APP_USAGE_STATS:-enabled}
-    depends_on:
-      mariadb:
-        condition: service_healthy
-      redis:
-        condition: service_started
-
   appwrite-schedule-functions:
     image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
     restart: unless-stopped
