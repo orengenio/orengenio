@@ -91,7 +91,11 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap justify-center items-center gap-6">
             {trustLinks.map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="transition-all hover:scale-110" aria-label={`Review us on ${link.label}`}>
-                <img src={link.icon} alt={link.label} className="h-5 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
+                <img
+                  src={link.icon}
+                  alt={link.label}
+                  className={`h-5 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity ${link.label === 'BBB' || link.label === 'Capterra' ? '' : 'brightness-0 invert'}`}
+                />
               </a>
             ))}
           </div>
