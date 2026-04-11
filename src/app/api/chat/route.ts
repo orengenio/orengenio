@@ -1,3 +1,4 @@
+import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
 
 const SYSTEM_PROMPT = `You are the OrenGen AI assistant — a knowledgeable, professional, and friendly representative of OrenGen Worldwide (orengen.io). You help prospects and clients understand OrenGen's AI-powered products and services.
@@ -114,81 +115,49 @@ export async function POST(req: NextRequest) {
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
-    const apiKey = process.env.OPENAI_API_KEY;
+
+    const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
       return new Response(
-        JSON.stringify({ error: "OpenAI API key not configured. Add OPENAI_API_KEY to your environment variables." }),
+        JSON.stringify({ error: "Anthropic API key not configured. Add ANTHROPIC_API_KEY to your environment variables." }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        stream: true,
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...messages,
-        ],
-        temperature: 0.7,
-        max_tokens: 800,
-      }),
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      return new Response(
-        JSON.stringify({ error: `OpenAI API error: ${response.status}`, details: errText }),
-        { status: response.status, headers: { "Content-Type": "application/json" } }
-      );
-    }
+    const client = new Anthropic({ apiKey });
 
     const encoder = new TextEncoder();
-    const decoder = new TextDecoder();
 
     const stream = new ReadableStream({
       async start(controller) {
-        const reader = response.body?.getReader();
-        if (!reader) {
-          controller.close();
-          return;
-        }
+        try {
+          const anthropicStream = await client.messages.stream({
+            model: "claude-haiku-4-5-20251001",
+            max_tokens: 800,
+            system: SYSTEM_PROMPT,
+            messages,
+          });
 
-        let buffer = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split("\n");
-          buffer = lines.pop() || "";
-
-          for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed || !trimmed.startsWith("data: ")) continue;
-            const data = trimmed.slice(6);
-            if (data === "[DONE]") {
-              controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-              continue;
-            }
-            try {
-              const parsed = JSON.parse(data);
-              const content = parsed.choices?.[0]?.delta?.content;
-              if (content) {
-                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ content })}\n\n`));
-              }
-            } catch {
-              // skip malformed chunks
+          for await (const event of anthropicStream) {
+            if (
+              event.type === "content_block_delta" &&
+              event.delta.type === "text_delta"
+            ) {
+              controller.enqueue(
+                encoder.encode(`data: ${JSON.stringify({ content: event.delta.text })}\n\n`)
+              );
             }
           }
+
+          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+        } catch (err) {
+          const message = err instanceof Error ? err.message : "Stream error";
+          controller.enqueue(
+            encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`)
+          );
+        } finally {
+          controller.close();
         }
-        controller.close();
       },
     });
 
