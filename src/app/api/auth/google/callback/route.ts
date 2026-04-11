@@ -24,8 +24,13 @@ export async function GET(req: NextRequest) {
     }
 
     // 1. Exchange code for tokens
-    const clientId = process.env.GOOGLE_CLIENT_ID!;
-    const clientSecret = process.env.GOOGLE_CLIENT_SECRET!;
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+
+    if (!clientId?.trim() || !clientSecret?.trim()) {
+      console.error("[Google OAuth] Missing GOOGLE_CLIENT_ID or GOOGLE_CLIENT_SECRET");
+      return NextResponse.redirect(`${baseUrl}/login?error=google_oauth_not_configured`);
+    }
     const redirectUri = `${baseUrl}/api/auth/google/callback`;
 
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
