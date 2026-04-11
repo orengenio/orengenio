@@ -9,17 +9,17 @@ export const metadata: Metadata = {
 export default function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: { error?: string };
 }) {
-  return <LoginContent searchParamsPromise={searchParams} />;
+  return <LoginContent searchParams={searchParams} />;
 }
 
-async function LoginContent({
-  searchParamsPromise,
+function LoginContent({
+  searchParams,
 }: {
-  searchParamsPromise: Promise<{ error?: string }>;
+  searchParams: { error?: string };
 }) {
-  const { error } = await searchParamsPromise;
+  const { error } = searchParams;
 
   return (
     <div
