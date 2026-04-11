@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { findContactByEmail, createContact } from "@/lib/systemeio";
 
 /**
  * GET /api/auth/google/callback
  *
  * Google OAuth callback. Exchanges code for tokens, gets user profile,
- * creates/finds systeme.io contact, redirects to app.orengen.io.
+ * and redirects to the app dashboard.
+ *
+ * When ERPNext is set up, this callback will create/authenticate
+ * the user in Frappe and establish a session.
  */
 export async function GET(req: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://orengen.io";
-  const appUrl = process.env.SYSTEMEIO_APP_URL || "https://app.orengen.io";
+  const appUrl = process.env.APP_URL || "https://app.orengen.io";
 
   try {
     const code = req.nextUrl.searchParams.get("code");
@@ -66,26 +68,13 @@ export async function GET(req: NextRequest) {
       picture: string;
     };
 
-    // 3. Find or create systeme.io contact
-    try {
-      const existing = await findContactByEmail(profile.email);
-      if (!existing) {
-        await createContact({
-          email: profile.email,
-          firstName: profile.given_name || profile.name,
-          lastName: profile.family_name || "",
-          tags: [{ name: "google-oauth" }],
-        });
-        console.log(`[Google OAuth] Created systeme.io contact for ${profile.email}`);
-      } else {
-        console.log(`[Google OAuth] Found existing systeme.io contact for ${profile.email} (id: ${existing.id})`);
-      }
-    } catch (contactErr) {
-      // Log but don't block — user can still access app.orengen.io
-      console.error("[Google OAuth] Failed to sync contact to systeme.io:", contactErr);
-    }
+    console.log(`[Google OAuth] Authenticated: ${profile.email} (${profile.name})`);
 
-    // 4. Redirect user to app.orengen.io
+    // TODO: When ERPNext/Frappe is set up:
+    // - Create or find user in Frappe via API
+    // - Generate Frappe session/token
+    // - Set session cookie
+    // For now, redirect to the app dashboard
     return NextResponse.redirect(appUrl);
   } catch (err) {
     console.error("[Google OAuth] Unexpected error:", err);

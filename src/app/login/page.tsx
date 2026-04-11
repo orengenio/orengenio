@@ -162,7 +162,7 @@ async function LoginContent({
           <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.08)" }} />
         </div>
 
-        {/* Direct systeme.io Login */}
+        {/* Direct Login to App Dashboard */}
         <a
           href="https://app.orengen.io"
           style={{
