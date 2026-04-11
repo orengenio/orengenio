@@ -1,0 +1,470 @@
+# OrenGen Platform — Appwrite on Coolify
+#
+# Appwrite BaaS at appwrite.orengen.io
+# Provides: Auth, Database, Storage, Functions, Realtime, Messaging
+#
+# Coolify routes traffic via Traefik to the appwrite container on port 80.
+#
+# Required env vars (set in Coolify):
+#   _APP_OPENSSL_KEY_V1 (generate with: openssl rand -hex 32)
+
+x-logging: &x-logging
+  logging:
+    driver: json-file
+    options:
+      max-file: "5"
+      max-size: "10m"
+
+services:
+  appwrite:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    environment:
+      - SERVICE_FQDN_APPWRITE_80
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_LOCALE=${_APP_LOCALE:-en}
+      - _APP_DOMAIN=${_APP_DOMAIN:-appwrite.orengen.io}
+      - _APP_DOMAIN_TARGET=${_APP_DOMAIN_TARGET:-appwrite.orengen.io}
+      - _APP_DOMAIN_FUNCTIONS=${_APP_DOMAIN_FUNCTIONS:-functions.appwrite.orengen.io}
+      - _APP_CONSOLE_WHITELIST_ROOT=${_APP_CONSOLE_WHITELIST_ROOT:-enabled}
+      - _APP_CONSOLE_WHITELIST_EMAILS=${_APP_CONSOLE_WHITELIST_EMAILS:-}
+      - _APP_CONSOLE_WHITELIST_IPS=${_APP_CONSOLE_WHITELIST_IPS:-}
+      - _APP_SYSTEM_EMAIL_NAME=${_APP_SYSTEM_EMAIL_NAME:-OrenGen Platform}
+      - _APP_SYSTEM_EMAIL_ADDRESS=${_APP_SYSTEM_EMAIL_ADDRESS:-noreply@orengen.io}
+      - _APP_SYSTEM_RESPONSE_FORMAT=${_APP_SYSTEM_RESPONSE_FORMAT:-}
+      - _APP_SYSTEM_SECURITY_EMAIL_ADDRESS=${_APP_SYSTEM_SECURITY_EMAIL_ADDRESS:-security@orengen.io}
+      - _APP_OPTIONS_ABUSE=${_APP_OPTIONS_ABUSE:-enabled}
+      - _APP_OPTIONS_ROUTER_PROTECTION=${_APP_OPTIONS_ROUTER_PROTECTION:-disabled}
+      - _APP_OPTIONS_FORCE_HTTPS=${_APP_OPTIONS_FORCE_HTTPS:-disabled}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_STORAGE_LIMIT=${_APP_STORAGE_LIMIT:-30000000}
+      - _APP_STORAGE_PREVIEW_LIMIT=${_APP_STORAGE_PREVIEW_LIMIT:-20000000}
+      - _APP_STORAGE_ANTIVIRUS=${_APP_STORAGE_ANTIVIRUS:-disabled}
+      - _APP_STORAGE_DEVICE=${_APP_STORAGE_DEVICE:-local}
+      - _APP_LOGGING_PROVIDER=${_APP_LOGGING_PROVIDER:-}
+      - _APP_LOGGING_CONFIG=${_APP_LOGGING_CONFIG:-}
+      - _APP_USAGE_STATS=${_APP_USAGE_STATS:-enabled}
+      - _APP_SMS_PROVIDER=${_APP_SMS_PROVIDER:-}
+      - _APP_SMS_FROM=${_APP_SMS_FROM:-}
+      - _APP_GRAPHQL_MAX_BATCH_SIZE=${_APP_GRAPHQL_MAX_BATCH_SIZE:-10}
+      - _APP_GRAPHQL_MAX_COMPLEXITY=${_APP_GRAPHQL_MAX_COMPLEXITY:-250}
+      - _APP_GRAPHQL_MAX_DEPTH=${_APP_GRAPHQL_MAX_DEPTH:-3}
+    volumes:
+      - appwrite-uploads:/storage/uploads
+      - appwrite-cache:/storage/cache
+      - appwrite-config:/storage/config
+      - appwrite-certificates:/storage/certificates
+      - appwrite-functions:/storage/functions
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-realtime:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: realtime
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_LOGGING_PROVIDER=${_APP_LOGGING_PROVIDER:-}
+      - _APP_LOGGING_CONFIG=${_APP_LOGGING_CONFIG:-}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-audits:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-audits
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-webhooks:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-webhooks
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-deletes:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-deletes
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_STORAGE_DEVICE=${_APP_STORAGE_DEVICE:-local}
+    volumes:
+      - appwrite-uploads:/storage/uploads
+      - appwrite-cache:/storage/cache
+      - appwrite-functions:/storage/functions
+      - appwrite-certificates:/storage/certificates
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-databases:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-databases
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-builds:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-builds
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_LOGGING_PROVIDER=${_APP_LOGGING_PROVIDER:-}
+      - _APP_LOGGING_CONFIG=${_APP_LOGGING_CONFIG:-}
+    volumes:
+      - appwrite-functions:/storage/functions
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-certificates:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-certificates
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_DOMAIN=${_APP_DOMAIN:-appwrite.orengen.io}
+      - _APP_DOMAIN_TARGET=${_APP_DOMAIN_TARGET:-appwrite.orengen.io}
+      - _APP_DOMAIN_FUNCTIONS=${_APP_DOMAIN_FUNCTIONS:-functions.appwrite.orengen.io}
+    volumes:
+      - appwrite-config:/storage/config
+      - appwrite-certificates:/storage/certificates
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-functions:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-functions
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_STORAGE_DEVICE=${_APP_STORAGE_DEVICE:-local}
+      - _APP_LOGGING_PROVIDER=${_APP_LOGGING_PROVIDER:-}
+      - _APP_LOGGING_CONFIG=${_APP_LOGGING_CONFIG:-}
+      - DOCKERHUB_PULL_USERNAME=${DOCKERHUB_PULL_USERNAME:-}
+      - DOCKERHUB_PULL_PASSWORD=${DOCKERHUB_PULL_PASSWORD:-}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - appwrite-functions:/storage/functions
+      - /tmp:/tmp
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-mails:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-mails
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_SYSTEM_EMAIL_NAME=${_APP_SYSTEM_EMAIL_NAME:-OrenGen Platform}
+      - _APP_SYSTEM_EMAIL_ADDRESS=${_APP_SYSTEM_EMAIL_ADDRESS:-noreply@orengen.io}
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_SMTP_HOST=${_APP_SMTP_HOST:-}
+      - _APP_SMTP_PORT=${_APP_SMTP_PORT:-}
+      - _APP_SMTP_SECURE=${_APP_SMTP_SECURE:-}
+      - _APP_SMTP_USERNAME=${_APP_SMTP_USERNAME:-}
+      - _APP_SMTP_PASSWORD=${_APP_SMTP_PASSWORD:-}
+    depends_on:
+      redis:
+        condition: service_started
+
+  appwrite-worker-messaging:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-messaging
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_SMS_PROVIDER=${_APP_SMS_PROVIDER:-}
+      - _APP_SMS_FROM=${_APP_SMS_FROM:-}
+      - _APP_LOGGING_PROVIDER=${_APP_LOGGING_PROVIDER:-}
+      - _APP_LOGGING_CONFIG=${_APP_LOGGING_CONFIG:-}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-worker-migrations:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: worker-migrations
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-maintenance:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: maintenance
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_MAINTENANCE_INTERVAL=${_APP_MAINTENANCE_INTERVAL:-86400}
+      - _APP_MAINTENANCE_RETENTION_EXECUTION=${_APP_MAINTENANCE_RETENTION_EXECUTION:-1209600}
+      - _APP_MAINTENANCE_RETENTION_CACHE=${_APP_MAINTENANCE_RETENTION_CACHE:-2592000}
+      - _APP_MAINTENANCE_RETENTION_ABUSE=${_APP_MAINTENANCE_RETENTION_ABUSE:-86400}
+      - _APP_MAINTENANCE_RETENTION_AUDIT=${_APP_MAINTENANCE_RETENTION_AUDIT:-1209600}
+      - _APP_MAINTENANCE_RETENTION_USAGE_HOURLY=${_APP_MAINTENANCE_RETENTION_USAGE_HOURLY:-8640000}
+      - _APP_MAINTENANCE_RETENTION_SCHEDULES=${_APP_MAINTENANCE_RETENTION_SCHEDULES:-86400}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-usage:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: usage
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_USAGE_STATS=${_APP_USAGE_STATS:-enabled}
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-schedule-functions:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: schedule-functions
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  appwrite-schedule-messages:
+    image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
+    restart: unless-stopped
+    <<: *x-logging
+    entrypoint: schedule-messages
+    environment:
+      - _APP_ENV=${_APP_ENV:-production}
+      - _APP_OPENSSL_KEY_V1=${_APP_OPENSSL_KEY_V1}
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=$SERVICE_USER_MARIADB
+      - _APP_DB_PASS=$SERVICE_PASSWORD_MARIADB
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  # ── MariaDB ────────────────────────────────────────────────────
+  mariadb:
+    image: mariadb:10.11
+    restart: unless-stopped
+    <<: *x-logging
+    command:
+      - --innodb-flush-method=fsync
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: $SERVICE_PASSWORD_MARIADB
+      MYSQL_DATABASE: appwrite
+      MYSQL_USER: $SERVICE_USER_MARIADB
+      MYSQL_PASSWORD: $SERVICE_PASSWORD_MARIADB
+    volumes:
+      - appwrite-mariadb:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h localhost -u root --password=$SERVICE_PASSWORD_MARIADB
+      interval: 5s
+      retries: 15
+
+  # ── Redis ──────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    <<: *x-logging
+    command: >
+      redis-server
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+    volumes:
+      - appwrite-redis:/data
+    healthcheck:
+      test: redis-cli ping
+      interval: 5s
+      retries: 10
+
+volumes:
+  appwrite-mariadb:
+  appwrite-redis:
+  appwrite-uploads:
+  appwrite-cache:
+  appwrite-config:
+  appwrite-certificates:
+  appwrite-functions:
