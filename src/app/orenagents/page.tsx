@@ -226,7 +226,7 @@ export default function OrenAgentsPage() {
 
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <a
-                href="https://book.orengen.io"
+                href="https://book.orengen.io/coffeechat"
                 target="_blank" rel="noopener noreferrer"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
@@ -713,7 +713,7 @@ export default function OrenAgentsPage() {
               Book a 30-minute strategy call. We&apos;ll show you exactly how OrenAgents fits your business — and what your ROI looks like before you spend a dollar.
             </p>
             <a
-              href="https://book.orengen.io"
+              href="https://book.orengen.io/coffeechat"
               target="_blank" rel="noopener noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,

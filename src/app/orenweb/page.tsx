@@ -1571,7 +1571,7 @@ const html = `
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://book.orengen.io" class="button" target="_blank" rel="noopener">
+        <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -1918,7 +1918,7 @@ const html = `
       Schedule a free consultation to discuss your project.
     </p>
     <div class="actions">
-      <a href="https://book.orengen.io" class="button" target="_blank" rel="noopener">
+      <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
         <div class="dots_border"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
           <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -3504,7 +3504,7 @@ export default function Page() {
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://book.orengen.io" class="button" target="_blank" rel="noopener">
+        <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -3851,7 +3851,7 @@ export default function Page() {
       Schedule a free consultation to discuss your project.
     </p>
     <div class="actions">
-      <a href="https://book.orengen.io" class="button" target="_blank" rel="noopener">
+      <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
         <div class="dots_border"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
           <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"

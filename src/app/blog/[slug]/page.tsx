@@ -284,7 +284,7 @@ export default async function BlogPostPage({
             Book a 30-minute strategy call and we&apos;ll show you exactly what AI automation looks like for your business.
           </p>
           <a
-            href="https://book.orengen.io"
+            href="https://book.orengen.io/coffeechat"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#CC5500] hover:bg-[#b34a00] text-white font-semibold px-10 py-4 rounded-xl text-base transition-colors duration-200"

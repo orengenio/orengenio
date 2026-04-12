@@ -187,7 +187,7 @@ export default function FaqsPage() {
             Our team answers every question personally. Book a free 30-minute strategy call and get straight answers.
           </p>
           <a
-            href="https://book.orengen.io"
+            href="https://book.orengen.io/coffeechat"
             target="_blank"
             rel="noopener noreferrer"
             style={{
