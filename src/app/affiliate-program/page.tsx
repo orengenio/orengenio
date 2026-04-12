@@ -2,14 +2,13 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Affiliate Program — OrenGen Worldwide",
-  description: "Earn 30% direct commissions + 10% on your downline + 5% three levels deep. 120-day cookie, monthly payouts, full marketing kit included.",
+  description: "Earn recurring commissions by referring businesses to OrenGen AI. 120-day cookie, monthly payouts, full marketing kit included.",
   alternates: { canonical: "https://orengen.io/affiliate-program" },
 }
 
 const tiers = [
-  { pct: "30%", label: "Tier 1 — Direct MRR", desc: "Every client you refer directly earns you 30% of their monthly spend, recurring, for life." },
-  { pct: "10%", label: "Tier 2 — Your Downline", desc: "When the people you recruit refer clients, you earn 10% of those commissions automatically." },
-  { pct: "5%", label: "Tier 3 — 3 Levels Deep", desc: "Your downline's downline. Passive income that compounds as your network grows." },
+  { pct: "15%", label: "Tier 1 — Direct Referrals", desc: "Every client you refer earns you 15% of their monthly spend, recurring, for the life of the account." },
+  { pct: "5%", label: "Tier 2 — Your Network", desc: "When affiliates you refer bring in clients, you earn 5% of those commissions automatically." },
 ]
 
 const bonuses = [
@@ -21,7 +20,7 @@ const bonuses = [
 const features = [
   { title: "Universal Single Link", desc: "One link, every product. Share it once, earn on every product your referral buys — forever." },
   { title: "Ready-Made Marketing Kit", desc: "Cold emails, social posts, ad copy, scripts — all pre-written and auto-filled with your link." },
-  { title: "3-Tier Network Tree", desc: "Recruit other affiliates and earn from their sales automatically — 3 levels deep." },
+  { title: "2-Tier Network", desc: "Recruit other affiliates and earn from their referrals automatically — 2 levels deep." },
   { title: "120-Day Cookie", desc: "Your referral link stays active for 120 days. If they sign up anytime in that window, you get credit." },
   { title: "AI Revenue Coach", desc: "Your AI coach answers questions, suggests strategies, and tracks your progress 24/7." },
   { title: "Real-Time Dashboard", desc: "See every click, conversion, commission, and payout — live, with full downline visibility." },
@@ -37,13 +36,13 @@ export default function AffiliateProgramPage() {
         <div style={{ position: "relative", zIndex: 1, maxWidth: 860, margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px", background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)", borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} />
-            Earn While You Sleep — 3-Tier Commissions
+            Affiliate Program — Recurring Commissions
           </div>
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: "clamp(40px,7vw,78px)", lineHeight: 1.02, letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28 }}>
             Turn Your Network Into <span style={{ color: "#CC5500" }}>Recurring Revenue</span>
           </h1>
           <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: "clamp(16px,2vw,20px)", lineHeight: 1.65, color: "rgba(210,225,245,0.6)", maxWidth: 620, margin: "0 auto 20px", fontWeight: 300 }}>
-            Join OrenGen&apos;s affiliate program and earn <strong style={{ color: "#F0F4FA", fontWeight: 700 }}>30% direct commissions + 10% on your downline + 5% three levels deep.</strong>
+            Join OrenGen&apos;s affiliate program and earn <strong style={{ color: "#F0F4FA", fontWeight: 700 }}>15% recurring commissions on every referral + 5% on your network</strong> — with a full marketing kit and AI coach included.
           </p>
           <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: 14, color: "rgba(210,225,245,0.4)", marginBottom: 44 }}>
             120-day cookie · Monthly payouts · $50 minimum · Powered by WeShare
