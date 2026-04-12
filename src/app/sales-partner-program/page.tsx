@@ -2,14 +2,14 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Sales Partner Program — OrenGen Worldwide",
-  description: "Resell OrenGen AI under your brand. 30% direct + 10% tier 2 + 5% tier 3 commissions. Full marketing kit, AI coach, real-time dashboard via WeShare.",
+  description: "1099 independent sales contractors. 30% direct + 10% tier 2 + 5% tier 3 recurring commissions. You sell, we deliver.",
   alternates: { canonical: "https://orengen.io/sales-partner-program" },
 }
 
 const tiers = [
-  { pct: "30%", label: "Tier 1 — Direct Sales", desc: "30% of every client you close, every month, recurring. Your highest earner — own the front line." },
-  { pct: "10%", label: "Tier 2 — Your Downline", desc: "Recruit other sales partners and automatically earn 10% of their commissions without lifting a finger." },
-  { pct: "5%", label: "Tier 3 — 3 Levels Deep", desc: "Passive compounding income. Your downline builds a network, you earn from three tiers deep." },
+  { pct: "30%", label: "Tier 1 — Direct Sales", desc: "You close the deal, we deliver. 30% of every client's monthly spend, recurring, for the life of the account." },
+  { pct: "10%", label: "Tier 2 — Your Downline", desc: "Bring on other sales partners under you. Earn 10% of their closed revenue automatically — you manage the team, we handle payroll." },
+  { pct: "5%", label: "Tier 3 — 3 Levels Deep", desc: "Your downline builds their own team, you earn from three levels deep. Maximum leverage on every relationship you cultivate." },
 ]
 
 const bonuses = [
@@ -19,19 +19,19 @@ const bonuses = [
 ]
 
 const features = [
-  { title: "Universal Partner Link", desc: "One link covers every OrenGen product. Your referral buys anything — you earn on all of it, forever." },
-  { title: "White-Label Marketing Kit", desc: "Pre-written cold emails, social posts, ad copy, video scripts — all auto-filled with your partner link." },
-  { title: "3-Tier Partner Network", desc: "Build a team of sub-partners and earn from their sales automatically. Three levels of passive income." },
-  { title: "120-Day Cookie Tracking", desc: "The longest window in the industry. If your lead converts any time in 120 days, you get credit." },
-  { title: "AI Sales Coach", desc: "Your personal AI revenue coach — answers questions, suggests follow-up strategies, tracks your pipeline 24/7." },
-  { title: "Real-Time Dashboard", desc: "Every click, conversion, commission, and payout tracked live. Full downline visibility. Powered by WeShare." },
+  { title: "1099 Independent Contractor", desc: "You operate as your own business. Set your own schedule, run your own pipeline, close deals your way. No cap on earnings." },
+  { title: "You Sell, We Deliver", desc: "Own the client relationship. OrenGen handles all implementation, support, and infrastructure behind the scenes." },
+  { title: "White-Label Marketing Kit", desc: "Pre-written cold emails, social posts, ad copy, video scripts — all auto-filled with your partner link and ready to deploy." },
+  { title: "3-Tier Partner Network", desc: "Recruit sub-partners and earn from their sales automatically. Build a team and multiply your earning surface." },
+  { title: "120-Day Pipeline Window", desc: "Long sales cycles are normal. Your referral link stays active 120 days — plenty of time to work the deal." },
+  { title: "AI Sales Coach + Dashboard", desc: "Real-time commission tracking, pipeline visibility, downline tree, and an AI coach to help you close more — all in WeShare." },
 ]
 
 const whyItems = [
-  { title: "Proven Platform", desc: "OrenGen runs across healthcare, legal, construction, and e-commerce. Your clients get results, not experiments." },
-  { title: "Full Delivery Support", desc: "You close the deal. We build, deliver, and support. You keep the relationship and the margin." },
-  { title: "Monthly Payouts", desc: "Stripe, PayPal, or bank transfer. Minimum $50. Paid on the 1st every month, reliably." },
-  { title: "Your Own Dashboard", desc: "Track everything in WeShare — your partner portal with live stats, marketing tools, and AI coaching." },
+  { title: "Proven Platform to Sell", desc: "OrenGen runs across healthcare, legal, construction, and e-commerce. Easy to demo, easy to close." },
+  { title: "You Keep the Relationship", desc: "Clients remain yours. OrenGen operates as your back-office delivery partner — invisible to your client if you prefer." },
+  { title: "Real Recurring Income", desc: "Not a one-time bounty. 30% of monthly spend, every month, for the life of the account. Retention is your MRR." },
+  { title: "Monthly Direct Payouts", desc: "Paid on the 1st via Stripe, PayPal, or bank transfer. Minimum $50. Transparent, no surprises." },
 ]
 
 export default function SalesPartnerProgramPage() {
@@ -44,16 +44,16 @@ export default function SalesPartnerProgramPage() {
         <div style={{ position: "relative", zIndex: 1, maxWidth: 860, margin: "0 auto" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 20px", background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)", borderRadius: 999, fontSize: 12, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, color: "#CC5500", marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#CC5500", boxShadow: "0 0 0 3px rgba(204,85,0,0.3)" }} />
-            Sales Partner Program
+            1099 Independent Sales Partner
           </div>
           <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: "clamp(40px,7vw,78px)", lineHeight: 1.02, letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28 }}>
-            Sell AI. <span style={{ color: "#CC5500" }}>Keep the Margin.</span>
+            Sell AI. <span style={{ color: "#CC5500" }}>Build Your Book.</span>
           </h1>
-          <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: "clamp(16px,2vw,20px)", lineHeight: 1.65, color: "rgba(210,225,245,0.6)", maxWidth: 640, margin: "0 auto 20px", fontWeight: 300 }}>
-            Join OrenGen&apos;s Sales Partner Program and earn <strong style={{ color: "#F0F4FA", fontWeight: 700 }}>30% direct + 10% on your downline + 5% three levels deep</strong> — with a full marketing kit and AI coach included.
+          <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: "clamp(16px,2vw,20px)", lineHeight: 1.65, color: "rgba(210,225,245,0.6)", maxWidth: 660, margin: "0 auto 20px", fontWeight: 300 }}>
+            OrenGen&apos;s Sales Partners are <strong style={{ color: "#F0F4FA", fontWeight: 700 }}>1099 independent contractors</strong> who actively sell our AI platform and earn <strong style={{ color: "#F0F4FA", fontWeight: 700 }}>30% recurring + 10% downline + 5% three levels deep.</strong> You close the deals. We deliver everything.
           </p>
           <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: 14, color: "rgba(210,225,245,0.4)", marginBottom: 44 }}>
-            120-day cookie · Monthly payouts · $50 minimum · Powered by WeShare
+            1099 contractor · 120-day pipeline · Monthly payouts · Powered by WeShare
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="https://weshare.orengen.io" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 36px", background: "#CC5500", color: "#fff", fontFamily: "'Roboto',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "0.04em", textTransform: "uppercase" as const, textDecoration: "none", borderRadius: 999 }}>
@@ -129,8 +129,8 @@ export default function SalesPartnerProgramPage() {
           <h2 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: "clamp(28px,4vw,44px)", color: "#F0F4FA", marginBottom: 16 }}>
             Your Dashboard Is <span style={{ color: "#CC5500" }}>Waiting</span>
           </h2>
-          <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: 16, color: "rgba(210,225,245,0.5)", fontWeight: 300, maxWidth: 500, margin: "0 auto 36px" }}>
-            Apply now and get instant access to WeShare — your partner portal with live commissions, marketing kit, downline tree, and AI sales coach.
+          <p style={{ fontFamily: "'Roboto',sans-serif", fontSize: 16, color: "rgba(210,225,245,0.5)", fontWeight: 300, maxWidth: 520, margin: "0 auto 36px" }}>
+            Apply now. Once approved as a 1099 Sales Partner, you&apos;ll get access to WeShare — your live commission dashboard, full marketing kit, downline management, and AI sales coach.
           </p>
           <a href="https://weshare.orengen.io" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 40px", background: "#CC5500", color: "#fff", fontFamily: "'Roboto',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "0.04em", textTransform: "uppercase" as const, textDecoration: "none", borderRadius: 999 }}>
             Apply as Sales Partner →
