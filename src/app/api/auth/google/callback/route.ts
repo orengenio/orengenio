@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
       picture: string;
     };
 
-    console.log(`[Google OAuth] Authenticated: ${profile.email} (${profile.name})`);
+    console.log(`[Google OAuth] Authenticated user id: ${profile.id}`);
 
     // 3. Sync user to ERPNext via n8n webhook
     try {
