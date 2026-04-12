@@ -23,7 +23,7 @@ const caseStudies = [
     stat: "312% ROI",
     description:
       "Deployed AI voice agents to handle 100% of appointment scheduling and patient follow-ups, eliminating 6 FTEs of manual call volume and recovering $1.2M in missed appointments annually.",
-    href: "#",
+    href: "https://book.orengen.io/coffeechat",
   },
   {
     icon: "🏗️",
@@ -32,7 +32,7 @@ const caseStudies = [
     stat: "47hrs → 90sec",
     description:
       "Automated bid proposal generation from 47 hours of manual assembly down to 90-second AI-powered drafts — increasing bid volume by 4x without adding headcount.",
-    href: "#",
+    href: "https://book.orengen.io/coffeechat",
   },
   {
     icon: "🛒",
@@ -41,7 +41,7 @@ const caseStudies = [
     stat: "+$2.3M Revenue",
     description:
       "Implemented AI-driven customer support and upsell agents across 14 storefronts, driving $2.3M in incremental revenue through automated post-purchase engagement.",
-    href: "#",
+    href: "https://book.orengen.io/coffeechat",
   },
   {
     icon: "⚖️",
@@ -50,7 +50,7 @@ const caseStudies = [
     stat: "82% Cost Cut",
     description:
       "Replaced legacy document review workflows with AI-powered contract analysis, reducing outside counsel costs by 82% and cutting average review time from 5 days to 4 hours.",
-    href: "#",
+    href: "https://book.orengen.io/coffeechat",
   },
 ];
 
@@ -175,6 +175,8 @@ export default function CaseStudiesPage() {
               </p>
               <a
                 href={cs.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 6,
                   fontSize: 13, fontWeight: 700, color: "#CC5500",
@@ -182,7 +184,7 @@ export default function CaseStudiesPage() {
                   transition: "color 0.2s",
                 }}
               >
-                Read Case Study <span style={{ fontSize: 16 }}>→</span>
+                Get Results Like This <span style={{ fontSize: 16 }}>→</span>
               </a>
             </div>
           ))}
