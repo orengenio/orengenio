@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrenSiteBuild — Visual Page Builder</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🔨</text></svg>">
+  <link rel="stylesheet" href="https://unpkg.com/grapesjs@0.21.13/dist/css/grapes.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; overflow: hidden; background: #1a1a2e; }
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 48px;
+      background: #0f0f1a;
+      border-bottom: 1px solid rgba(204,85,0,0.3);
+      z-index: 100;
+    }
+    #header .brand {
+      font-family: sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #CC5500;
+      letter-spacing: 0.05em;
+    }
+    #header .brand span { color: #d2e1f5; font-weight: 400; }
+    #gjs { height: calc(100vh - 48px); }
+    .gjs-one-bg { background-color: #1a1a2e; }
+    .gjs-two-bg { background-color: #151525; }
+    .gjs-cv-canvas { background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="brand">OrenSiteBuild<span> — Visual Page Builder</span></div>
+    <div style="font-family:sans-serif;font-size:12px;color:rgba(210,225,245,0.4);">Powered by GrapesJS &bull; OrenGen Worldwide</div>
+  </div>
+  <div id="gjs"></div>
+  <script src="https://unpkg.com/grapesjs@0.21.13/dist/grapes.min.js"></script>
+  <script src="https://unpkg.com/grapesjs-preset-webpage@1.0.2/dist/index.js"></script>
+  <script src="https://unpkg.com/grapesjs-blocks-basic@0.1.11/dist/grapesjs-blocks-basic.min.js"></script>
+  <script>
+    const editor = grapesjs.init({
+      container: "#gjs",
+      height: "100%",
+      storageManager: { type: "local", autosave: true, autoload: true },
+      plugins: ["gjs-preset-webpage", "grapesjs-blocks-basic"],
+      pluginsOpts: {
+        "gjs-preset-webpage": {
+          modalImportTitle: "Import Template",
+          modalImportButton: "Import",
+          modalImportContent: "",
+        },
+        "grapesjs-blocks-basic": {}
+      },
+      canvas: { styles: [] },
+      deviceManager: {
+        devices: [
+          { name: "Desktop", width: "" },
+          { name: "Tablet", width: "768px", widthMedia: "992px" },
+          { name: "Mobile", width: "320px", widthMedia: "480px" }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
