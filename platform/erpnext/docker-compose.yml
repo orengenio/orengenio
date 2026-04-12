@@ -126,34 +126,40 @@ services:
       - bash
       - -c
     command:
-      - >
-        wait-for-it -t 120 db:3306;
-        wait-for-it -t 120 redis-cache:6379;
-        wait-for-it -t 120 redis-queue:6379;
-        export start=$$(date +%s);
-        until [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty") ]] &&
-          [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty") ]] &&
-          [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty") ]];
-        do
-          echo "Waiting for configurator...";
-          sleep 5;
+      - |
+        set -e
+        wait-for-it -t 120 db:3306
+        wait-for-it -t 120 redis-cache:6379
+        wait-for-it -t 120 redis-queue:6379
+        start=$$(date +%s)
+        until [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty") ]] && [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty") ]] && [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty") ]]; do
+          echo "Waiting for configurator..."
+          sleep 5
           if (( $$(date +%s)-start > 120 )); then
-            echo "Could not find configurator! Exiting...";
-            exit 1;
+            echo "Could not find configurator! Exiting..."
+            exit 1
           fi
-        done;
-        echo "Configurator found, checking site...";
-        if [[ ! -f sites/${SITE_NAME}/site_config.json ]]; then
-          echo "Creating site ${SITE_NAME}...";
-          bench new-site --no-mariadb-socket
-            --mariadb-root-password=$${DB_ROOT_PASSWORD}
-            --install-app erpnext
-            --admin-password=$${ADMIN_PASSWORD}
-            $${SITE_NAME};
+        done
+        echo "Configurator found, checking site..."
+        if [[ ! -f sites/$${SITE_NAME}/site_config.json ]]; then
+          echo "Creating site $${SITE_NAME}..."
+          bench new-site --no-mariadb-socket --mariadb-root-password="$${DB_ROOT_PASSWORD}" --install-app erpnext --admin-password="$${ADMIN_PASSWORD}" "$${SITE_NAME}"
         else
-          echo "Site ${SITE_NAME} already exists, running migrate...";
-          bench --site $${SITE_NAME} migrate;
+          echo "Site $${SITE_NAME} already exists, running migrate..."
+          bench --site "$${SITE_NAME}" migrate || echo "Migrate failed but continuing"
         fi
+        echo "Checking setup wizard status..."
+        SETUP=$$(bench --site "$${SITE_NAME}" execute frappe.db.get_single_value --kwargs "{\"doctype\":\"System Settings\",\"field\":\"setup_complete\"}" 2>&1 | tail -1 | tr -d '[:space:]' || echo "")
+        echo "Setup complete flag: [$$SETUP]"
+        if [[ "$$SETUP" != "1" ]]; then
+          echo "Running setup wizard for $${SITE_NAME}..."
+          bench --site "$${SITE_NAME}" execute frappe.desk.page.setup_wizard.setup_wizard.setup_complete --args "[{\"language\":\"English\",\"country\":\"United States\",\"timezone\":\"America/New_York\",\"currency\":\"USD\",\"full_name\":\"Administrator\",\"email\":\"admin@orengen.io\",\"password\":\"$${ADMIN_PASSWORD}\",\"company_name\":\"OrenGen\",\"company_abbr\":\"OG\",\"chart_of_accounts\":\"Standard\",\"fy_start_date\":\"2026-01-01\",\"fy_end_date\":\"2026-12-31\"}]" || echo "Setup wizard failed but continuing"
+          echo "Setup wizard step done"
+        else
+          echo "Setup wizard already complete"
+        fi
+        bench --site "$${SITE_NAME}" clear-cache || true
+        echo "Site initialization complete"
     environment:
       SITE_NAME: ${SITE_NAME:-app.orengen.io}
       DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}

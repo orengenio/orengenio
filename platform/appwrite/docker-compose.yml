@@ -20,6 +20,14 @@ services:
     image: appwrite/appwrite:${APPWRITE_VERSION:-1.6}
     restart: unless-stopped
     <<: *x-logging
+    expose:
+      - "80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
     environment:
       - SERVICE_FQDN_APPWRITE_80
       - _APP_ENV=${_APP_ENV:-production}
