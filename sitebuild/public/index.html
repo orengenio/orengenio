@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OrenSiteBuild — Visual Page Builder</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🔨</text></svg>">
-  <link rel="stylesheet" href="https://unpkg.com/grapesjs@0.21.13/dist/css/grapes.min.css">
+  <!-- GrapesJS CSS — loaded from npm dist via nginx (no CDN dependency) -->
+  <link rel="stylesheet" href="/grapesjs/css/grapes.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; width: 100%; overflow: hidden; background: #1a1a2e; }
@@ -18,52 +19,101 @@
       background: #0f0f1a;
       border-bottom: 1px solid rgba(204,85,0,0.3);
       z-index: 100;
+      position: relative;
     }
-    #header .brand {
-      font-family: sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: #CC5500;
-      letter-spacing: 0.05em;
-    }
+    #header .brand { font-family: sans-serif; font-weight: 700; font-size: 16px; color: #CC5500; letter-spacing: 0.05em; }
     #header .brand span { color: #d2e1f5; font-weight: 400; }
+    #header .meta { font-family: sans-serif; font-size: 12px; color: rgba(210,225,245,0.4); }
     #gjs { height: calc(100vh - 48px); }
     .gjs-one-bg { background-color: #1a1a2e; }
     .gjs-two-bg { background-color: #151525; }
-    .gjs-cv-canvas { background-color: #f0f0f0; }
   </style>
 </head>
 <body>
   <div id="header">
     <div class="brand">OrenSiteBuild<span> — Visual Page Builder</span></div>
-    <div style="font-family:sans-serif;font-size:12px;color:rgba(210,225,245,0.4);">Powered by GrapesJS &bull; OrenGen Worldwide</div>
+    <div class="meta">GrapesJS v0.22 &bull; OrenGen Worldwide &bull; Ctrl+Z to undo</div>
   </div>
   <div id="gjs"></div>
-  <script src="https://unpkg.com/grapesjs@0.21.13/dist/grapes.min.js"></script>
-  <script src="https://unpkg.com/grapesjs-preset-webpage@1.0.2/dist/index.js"></script>
-  <script src="https://unpkg.com/grapesjs-blocks-basic@0.1.11/dist/grapesjs-blocks-basic.min.js"></script>
+
+  <!-- GrapesJS core — served from npm package via nginx -->
+  <script src="/grapesjs/grapes.min.js"></script>
+  <!-- Official presets from npm -->
+  <script src="/grapesjs-preset-webpage/index.js"></script>
+  <script src="/grapesjs-blocks-basic/grapesjs-blocks-basic.min.js"></script>
+
   <script>
     const editor = grapesjs.init({
       container: "#gjs",
       height: "100%",
-      storageManager: { type: "local", autosave: true, autoload: true },
+      fromElement: false,
+
+      // Persistence: localStorage keeps work across sessions
+      storageManager: {
+        type: "local",
+        autosave: true,
+        autoload: true,
+        stepsBeforeSave: 1,
+      },
+
+      // Official plugins
       plugins: ["gjs-preset-webpage", "grapesjs-blocks-basic"],
       pluginsOpts: {
         "gjs-preset-webpage": {
-          modalImportTitle: "Import Template",
+          modalImportTitle: "Import HTML Template",
           modalImportButton: "Import",
           modalImportContent: "",
+          filestackOpts: null,
+          aviaryOpts: false,
+          blocksBasicOpts: { flexGrid: true },
+          customStyleManager: [],
         },
-        "grapesjs-blocks-basic": {}
+        "grapesjs-blocks-basic": { flexGrid: true },
       },
-      canvas: { styles: [] },
+
+      // Responsive device presets
       deviceManager: {
         devices: [
           { name: "Desktop", width: "" },
           { name: "Tablet", width: "768px", widthMedia: "992px" },
-          { name: "Mobile", width: "320px", widthMedia: "480px" }
-        ]
-      }
+          { name: "Mobile portrait", width: "320px", widthMedia: "480px" },
+        ],
+      },
+
+      // Asset manager config
+      assetManager: {
+        embedAsBase64: true,
+      },
+
+      canvas: {
+        styles: [
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+        ],
+      },
+    });
+
+    // Export HTML command
+    editor.Commands.add("export-page", {
+      run(ed) {
+        const html = ed.getHtml();
+        const css = ed.getCss();
+        const full = "<!DOCTYPE html>
+<html>
+<head>
+<style>
+" + css + "
+</style>
+</head>
+<body>
+" + html + "
+</body>
+</html>";
+        const blob = new Blob([full], { type: "text/html" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "page-export.html";
+        a.click();
+      },
     });
   </script>
 </body>
