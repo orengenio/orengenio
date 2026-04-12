@@ -64,7 +64,7 @@ export function Pricing() {
             <li>We build it. We manage it.</li>
             <li>Email support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta outline">Get Started</Link>
+          <Link href="https://buy.stripe.com/3cIaEXekw11dc0rd8lfQI3s" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Get Started</Link>
         </div>
 
         {/* TIER 2 - FEATURED */}
@@ -88,7 +88,7 @@ export function Pricing() {
             <li>Multi-channel deployment, 24/7</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta primary">Start Growing</Link>
+          <Link href="https://buy.stripe.com/7sYcN52BObFRc0r8S5fQI3t" target="_blank" rel="noopener noreferrer" className="tier-cta primary">Start Growing</Link>
         </div>
 
         {/* TIER 3 */}
@@ -112,7 +112,7 @@ export function Pricing() {
             <li>Advanced analytics + lead scoring</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta outline">Start Dominating</Link>
+          <Link href="https://buy.stripe.com/dRm5kDb8k25h9Sjd8lfQI3u" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Start Dominating</Link>
         </div>
 
         {/* TIER 4 - ENTERPRISE */}
