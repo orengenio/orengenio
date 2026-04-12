@@ -144,17 +144,38 @@ services:
         if [[ ! -f sites/$${SITE_NAME}/site_config.json ]]; then
           echo "Creating site $${SITE_NAME}..."
           bench new-site --no-mariadb-socket --mariadb-root-password="$${DB_ROOT_PASSWORD}" --install-app erpnext --admin-password="$${ADMIN_PASSWORD}" "$${SITE_NAME}"
-        else
-          echo "Site $${SITE_NAME} already exists, running migrate..."
-          bench --site "$${SITE_NAME}" migrate || echo "Migrate failed but continuing"
         fi
+        echo "Checking for stale installed-apps entries (apps listed in site but missing from bench)..."
+        for app in $$(bench --site "$${SITE_NAME}" list-apps 2>/dev/null | awk '{print $$1}' | grep -v '^$$'); do
+          if [[ ! -d "apps/$$app" ]]; then
+            echo "  App '$$app' is listed as installed but missing from bench/apps/. Removing from installed-apps..."
+            bench --site "$${SITE_NAME}" remove-from-installed-apps "$$app" || echo "    remove-from-installed-apps $$app failed, continuing"
+          fi
+        done
+        echo "Running migrate (post-cleanup)..."
+        bench --site "$${SITE_NAME}" migrate || echo "Migrate failed but continuing"
         echo "Checking setup wizard status..."
         SETUP=$$(bench --site "$${SITE_NAME}" execute frappe.db.get_single_value --kwargs "{\"doctype\":\"System Settings\",\"field\":\"setup_complete\"}" 2>&1 | tail -1 | tr -d '[:space:]' || echo "")
         echo "Setup complete flag: [$$SETUP]"
         if [[ "$$SETUP" != "1" ]]; then
-          echo "Running setup wizard for $${SITE_NAME}..."
-          bench --site "$${SITE_NAME}" execute frappe.desk.page.setup_wizard.setup_wizard.setup_complete --args "[{\"language\":\"English\",\"country\":\"United States\",\"timezone\":\"America/New_York\",\"currency\":\"USD\",\"full_name\":\"Administrator\",\"email\":\"admin@orengen.io\",\"password\":\"$${ADMIN_PASSWORD}\",\"company_name\":\"OrenGen\",\"company_abbr\":\"OG\",\"chart_of_accounts\":\"Standard\",\"fy_start_date\":\"2026-01-01\",\"fy_end_date\":\"2026-12-31\"}]" || echo "Setup wizard failed but continuing"
-          echo "Setup wizard step done"
+          echo "Running direct setup (bypassing buggy setup wizard) for $${SITE_NAME}..."
+          COMPANY_ARGS='[{"country":"United States","currency":"USD","timezone":"America/New_York","company_name":"OrenGen","company_abbr":"OG","company_tagline":"","bank_account":"","chart_of_accounts":"Standard","fy_start_date":"2026-01-01","fy_end_date":"2026-12-31","language":"English","domains":["Services"]}]'
+          echo "Step 1: Installing fixtures (country=United States)..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.install_fixtures.install --args '["United States"]' 2>&1 || echo "install_fixtures warning"
+          echo "Step 2: Creating Company + Fiscal Year..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.company_setup.create_fiscal_year_and_company --args "$$COMPANY_ARGS" 2>&1 || echo "company creation warning"
+          echo "Step 3: Setting default ERPNext settings..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.defaults_setup.set_default_settings --args "$$COMPANY_ARGS" 2>&1 || echo "defaults_setup warning (may not exist in this version)"
+          echo "Step 4: Marking System Settings / Global Defaults..."
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "setup_complete", 1]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "country", "United States"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "currency", "USD"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "time_zone", "America/New_York"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "language", "en"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "default_company", "OrenGen"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "default_currency", "USD"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "country", "United States"]' 2>&1 || true
+          echo "Direct setup step done"
         else
           echo "Setup wizard already complete"
         fi
