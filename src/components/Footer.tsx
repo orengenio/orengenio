@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { SignalSignup } from './SignalSignup';
 
 interface TrustLink {
   href: string;
@@ -95,6 +96,16 @@ export const Footer: React.FC = () => {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─── ORENSIGNAL NEWSLETTER SIGNUP ─── */}
+      <section
+        className="py-10 border-b border-white/10"
+        style={{ background: 'linear-gradient(165deg, #0B1D3A 0%, #0D2240 100%)' }}
+      >
+        <div className="max-w-[640px] mx-auto px-6">
+          <SignalSignup />
         </div>
       </section>
 
