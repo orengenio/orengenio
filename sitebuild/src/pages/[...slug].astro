@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import Blocks from "../components/Blocks.astro";
+import { getPageBySlug } from "../lib/payload";
+
+const { slug } = Astro.params;
+const key = Array.isArray(slug) ? slug.join("/") : slug || "";
+const page = await getPageBySlug(key).catch(() => null);
+
+if (!page) {
+  return new Response("Not found", { status: 404 });
+}
+---
+<Base title={page.meta?.title || page.title} description={page.meta?.description}>
+  <main>
+    <Blocks blocks={page.blocks} />
+  </main>
+</Base>

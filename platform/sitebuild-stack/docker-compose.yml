@@ -1,0 +1,66 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: orengen_sitebuild
+      POSTGRES_USER: ${POSTGRES_USER:-sitebuild}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER:-sitebuild}", "-d", "orengen_sitebuild"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  payload:
+    build:
+      context: ../../payload-cms
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DATABASE_URI: postgres://${POSTGRES_USER:-sitebuild}:${POSTGRES_PASSWORD}@postgres:5432/orengen_sitebuild
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-https://admin.orengen.io}
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://sitebuild.orengen.io}
+      PORT: 3000
+    volumes:
+      - payload-media:/app/media
+    labels:
+      - coolify.managed=true
+      - traefik.enable=true
+      - traefik.http.routers.orenbuild-admin.rule=Host(`admin.orengen.io`)
+      - traefik.http.routers.orenbuild-admin.entrypoints=https
+      - traefik.http.routers.orenbuild-admin.tls=true
+      - traefik.http.routers.orenbuild-admin.tls.certresolver=letsencrypt
+      - traefik.http.routers.orenbuild-admin.service=orenbuild-admin-svc
+      - traefik.http.services.orenbuild-admin-svc.loadbalancer.server.port=3000
+
+  sitebuild:
+    build:
+      context: ../../sitebuild
+    restart: unless-stopped
+    depends_on:
+      - payload
+    environment:
+      NODE_ENV: production
+      PAYLOAD_URL: http://payload:3000
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://sitebuild.orengen.io}
+      PORT: 4321
+    labels:
+      - coolify.managed=true
+      - traefik.enable=true
+      - traefik.http.routers.orenbuild-site.rule=Host(`sitebuild.orengen.io`)
+      - traefik.http.routers.orenbuild-site.entrypoints=https
+      - traefik.http.routers.orenbuild-site.tls=true
+      - traefik.http.routers.orenbuild-site.tls.certresolver=letsencrypt
+      - traefik.http.routers.orenbuild-site.service=orenbuild-site-svc
+      - traefik.http.services.orenbuild-site-svc.loadbalancer.server.port=4321
+
+volumes:
+  postgres-data:
+  payload-media:
