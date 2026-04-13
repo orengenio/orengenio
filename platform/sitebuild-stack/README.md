@@ -1,4 +1,12 @@
-# OrenGen Sitebuild — Astro + Payload 3.0
+# OrenBuild — Client Mockup Tool (Astro + Payload 3.0)
+
+> **This is OrenGen's internal tool for building live mockup sites to send to sales prospects.** Pages are authored in Payload CMS (admin.orengen.io) and rendered by Astro (sitebuild.orengen.io). Each prospect gets a branded preview URL before signing.
+>
+> **Do NOT confuse with:**
+> - `orengen.io` marketing site (Next.js, at repo root — different codebase)
+> - Any "builder" in OrenGen's client-facing products
+
+**Coolify application name: `OrenBuild — Client Mockup Tool (Astro + Payload)`**
 
 Replaces the defunct GrapesJS `sitebuild/` with a proper two-service stack:
 
