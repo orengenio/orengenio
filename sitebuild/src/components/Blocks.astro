@@ -1,0 +1,56 @@
+---
+import type { Block } from "../lib/payload";
+export interface Props { blocks?: Block[] }
+const { blocks = [] } = Astro.props;
+---
+{blocks.map((block) => {
+  switch (block.blockType) {
+    case "hero":
+      return (
+        <section style="padding: 80px 0 40px; text-align: center;">
+          {block.eyebrow && <div style="letter-spacing:0.3em;text-transform:uppercase;color:#CC5500;font-size:12px;font-weight:700;margin-bottom:16px;">{block.eyebrow}</div>}
+          <h1 style="font-size: clamp(36px, 6vw, 72px); margin: 0 0 20px; font-weight: 900;">{block.headline}</h1>
+          {block.subhead && <p style="font-size: 19px; max-width: 680px; margin: 0 auto 32px; opacity: 0.65;">{block.subhead}</p>}
+          {block.ctaLabel && block.ctaHref && <a class="btn-primary" href={block.ctaHref}>{block.ctaLabel}</a>}
+        </section>
+      );
+    case "richtext":
+      return (
+        <section style="padding: 40px 0; line-height: 1.7; font-size: 17px;">
+          <pre style="white-space: pre-wrap; font-family: inherit;">{JSON.stringify(block.content, null, 2)}</pre>
+        </section>
+      );
+    case "features":
+      return (
+        <section style="padding: 40px 0;">
+          {block.title && <h2 style="font-size: 36px; text-align: center; margin-bottom: 40px;">{block.title}</h2>}
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;">
+            {block.items?.map((item) => (
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-top: 3px solid #CC5500; border-radius: 18px; padding: 28px;">
+                {item.icon && <div style="font-size: 36px; margin-bottom: 14px;">{item.icon}</div>}
+                <h3 style="margin: 0 0 8px; font-size: 20px;">{item.title}</h3>
+                {item.description && <p style="margin: 0; opacity: 0.6; font-size: 14px; line-height: 1.6;">{item.description}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    case "cta":
+      return (
+        <section style="padding: 80px 0 40px; text-align: center;">
+          <h2 style="font-size: clamp(28px, 4.5vw, 48px); margin: 0 0 16px;">{block.headline}</h2>
+          {block.body && <p style="opacity: 0.65; max-width: 600px; margin: 0 auto 32px; font-size: 17px;">{block.body}</p>}
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+            {block.primaryLabel && block.primaryHref && <a class="btn-primary" href={block.primaryHref}>{block.primaryLabel}</a>}
+            {block.secondaryLabel && block.secondaryHref && (
+              <a href={block.secondaryHref} style="padding:14px 28px;border-radius:9999px;border:1.5px solid rgba(255,255,255,0.15);color:rgba(240,244,250,0.8);text-decoration:none;font-weight:600;">
+                {block.secondaryLabel}
+              </a>
+            )}
+          </div>
+        </section>
+      );
+    default:
+      return null;
+  }
+})}

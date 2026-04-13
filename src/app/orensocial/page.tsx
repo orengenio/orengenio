@@ -1835,7 +1835,7 @@ const html = `
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
                 </ul>
-                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/aFa9AT0tGcJV5C34BPfQI3m" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
 
             <!-- Professional -->
@@ -1859,7 +1859,7 @@ const html = `
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
                 </ul>
-                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
+                <a href="https://buy.stripe.com/14A7sLccocJVaWnc4hfQI3o" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
             </div>
 
             <!-- Premium -->
@@ -1883,7 +1883,7 @@ const html = `
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
                 </ul>
-                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/7sYbJ190c25haWnecpfQI3q" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
         </div>
     </section>
@@ -3742,7 +3742,7 @@ export default function Page() {
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Basic scheduling</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Monthly analytics report</li>
                 </ul>
-                <a href="https://buy.stripe.com/eVqbJ1gsEcJV9Sj7O1fQI2u" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/aFa9AT0tGcJV5C34BPfQI3m" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
 
             <!-- Professional -->
@@ -3766,7 +3766,7 @@ export default function Page() {
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Bi-weekly strategy call</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Standard features</li>
                 </ul>
-                <a href="https://buy.stripe.com/4gM5kDdgs39l8Of8S5fQI2w" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
+                <a href="https://buy.stripe.com/14A7sLccocJVaWnc4hfQI3o" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:#CC5500;color:#000;border:none;">Get Started →</a>
             </div>
 
             <!-- Premium -->
@@ -3790,7 +3790,7 @@ export default function Page() {
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> Dedicated social manager</li>
                     <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,0.65);"><span style="color:#CC5500;flex-shrink:0;font-weight:700;">✓</span> All Professional features</li>
                 </ul>
-                <a href="https://buy.stripe.com/7sYdR9b8kh0bggH0lzfQI2y" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
+                <a href="https://buy.stripe.com/7sYbJ190c25haWnecpfQI3q" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:14px 0;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;background:transparent;color:#CC5500;border:1.5px solid rgba(204, 85, 0,0.4);">Get Started →</a>
             </div>
         </div>
     </section>
