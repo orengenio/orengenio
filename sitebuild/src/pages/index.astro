@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import { getPublishedPages } from "../lib/payload";
+
+let pages: Awaited<ReturnType<typeof getPublishedPages>> = [];
+let error: string | null = null;
+try {
+  pages = await getPublishedPages();
+} catch (e) {
+  error = e instanceof Error ? e.message : String(e);
+}
+---
+<Base title="OrenGen Sitebuild">
+  <main>
+    <h1 style="font-size: clamp(40px, 6vw, 72px); margin: 0 0 16px; font-weight: 900;">
+      OrenGen <span style="color: #CC5500;">Sitebuild</span>
+    </h1>
+    <p style="opacity: 0.65; font-size: 18px; margin: 0 0 40px;">
+      Pages managed in Payload CMS, served by Astro.
+    </p>
+
+    {error && (
+      <div style="background:rgba(204,85,0,0.1);border:1px solid rgba(204,85,0,0.3);padding:20px;border-radius:12px;margin-bottom:24px;">
+        <strong>CMS unreachable.</strong> {error}
+      </div>
+    )}
+
+    {pages.length === 0 && !error && (
+      <p style="opacity: 0.5;">No published pages yet. Open <a href="https://admin.orengen.io/admin" style="color:#CC5500;">the admin</a> to create one.</p>
+    )}
+
+    <ul style="list-style: none; padding: 0;">
+      {pages.map((p) => (
+        <li style="padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <a href={`/${p.slug}`} style="color: inherit; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 18px; font-weight: 600;">{p.title}</span>
+            <span style="opacity: 0.4; font-size: 13px;">/{p.slug} →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Base>

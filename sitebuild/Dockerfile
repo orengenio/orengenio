@@ -1,16 +1,25 @@
-# Stage 1: Install GrapesJS from npm (official package)
-FROM node:20-alpine AS builder
-WORKDIR /build
+FROM node:22-bookworm-slim AS deps
+WORKDIR /app
 COPY package.json ./
-RUN npm install --production
+RUN npm install
 
-# Stage 2: Serve via nginx
-FROM nginx:alpine
-# Copy GrapesJS dist from npm (official source)
-COPY --from=builder /build/node_modules/grapesjs/dist /usr/share/nginx/html/grapesjs
-COPY --from=builder /build/node_modules/grapesjs-preset-webpage/dist /usr/share/nginx/html/grapesjs-preset-webpage
-COPY --from=builder /build/node_modules/grapesjs-blocks-basic/dist /usr/share/nginx/html/grapesjs-blocks-basic
-# Copy the editor page and nginx config
-COPY public /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+FROM node:22-bookworm-slim AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build
+
+FROM node:22-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=4321
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 4321
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:4321/ > /dev/null || exit 1
+
+CMD ["node", "dist/server/entry.mjs"]
