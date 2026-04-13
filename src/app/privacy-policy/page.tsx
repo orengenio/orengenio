@@ -366,6 +366,11 @@ th {
 
       <h3>5.5 With Your Consent</h3>
       <p>We may share information with third parties when you provide explicit consent or direct us to do so.</p>
+
+      <h3>5.6 Mobile Information and SMS Data</h3>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+      <p>Phone numbers and SMS opt-in data collected by OrenGen are used exclusively to deliver the AI communications, notifications, and services you have authorized, and are disclosed only to the subcontracted service providers (e.g., telecommunications carriers, messaging platforms such as Twilio) strictly necessary to send those messages on our behalf. These providers are contractually prohibited from using your mobile information for their own marketing.</p>
+      <p>You can stop receiving SMS messages at any time by replying <strong>STOP</strong> to any message, or by emailing <a href="mailto:support@orengen.io">support@orengen.io</a>. See our <a href="/ai-communications-opt-in">AI Communications Opt-In</a> page for full program details, message frequency, and rate disclosures.</p>
     </section>
 
     <!-- 6. DATA RETENTION -->
@@ -1006,6 +1011,11 @@ th {
 
       <h3>5.5 With Your Consent</h3>
       <p>We may share information with third parties when you provide explicit consent or direct us to do so.</p>
+
+      <h3>5.6 Mobile Information and SMS Data</h3>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+      <p>Phone numbers and SMS opt-in data collected by OrenGen are used exclusively to deliver the AI communications, notifications, and services you have authorized, and are disclosed only to the subcontracted service providers (e.g., telecommunications carriers, messaging platforms such as Twilio) strictly necessary to send those messages on our behalf. These providers are contractually prohibited from using your mobile information for their own marketing.</p>
+      <p>You can stop receiving SMS messages at any time by replying <strong>STOP</strong> to any message, or by emailing <a href="mailto:support@orengen.io">support@orengen.io</a>. See our <a href="/ai-communications-opt-in">AI Communications Opt-In</a> page for full program details, message frequency, and rate disclosures.</p>
     </section>
 
     <!-- 6. DATA RETENTION -->
