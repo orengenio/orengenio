@@ -1,0 +1,115 @@
+{% extends "templates/web.html" %}
+{% block title %}Sign in to OrenGen{% endblock %}
+
+{% block head_include %}
+<link rel="icon" href="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png" type="image/png">
+<style>
+  :root {
+    --oren-navy: #0B1D3A;
+    --oren-navy-dark: #071325;
+    --oren-orange: #CC5500;
+    --oren-white: #F0F4FA;
+  }
+  body.login-page {
+    background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
+    font-family: 'Roboto', sans-serif !important;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: var(--oren-white);
+  }
+  .oren-login-shell {
+    width: 100%;
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(204, 85, 0, 0.25);
+    border-radius: 20px;
+    padding: 48px 36px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 60px rgba(204, 85, 0, 0.12);
+  }
+  .oren-login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .oren-login-logo img { height: 48px; }
+  .oren-login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--oren-white);
+  }
+  .oren-login-sub {
+    text-align: center;
+    color: rgba(240, 244, 250, 0.5);
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+  .oren-login-shell .page_content { padding: 0; }
+  .oren-login-shell input[type="text"],
+  .oren-login-shell input[type="email"],
+  .oren-login-shell input[type="password"] {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(204, 85, 0, 0.25) !important;
+    color: var(--oren-white) !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    font-size: 15px !important;
+    margin-bottom: 14px !important;
+  }
+  .oren-login-shell input::placeholder { color: rgba(240, 244, 250, 0.35); }
+  .oren-login-shell .btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, var(--oren-orange), #E8762B) !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    padding: 14px 0 !important;
+    border-radius: 10px !important;
+    font-size: 15px !important;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 32px rgba(204, 85, 0, 0.45);
+  }
+  .oren-login-shell a { color: var(--oren-orange); }
+  .oren-login-shell .text-muted { color: rgba(240, 244, 250, 0.5) !important; }
+  .oren-login-footer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(240, 244, 250, 0.4);
+  }
+  .oren-login-footer a {
+    color: var(--oren-orange);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  /* Hide the default login page wrappers Frappe injects */
+  .page-container, .container, .web-container { background: transparent !important; padding: 0 !important; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="oren-login-shell">
+  <div class="oren-login-logo">
+    <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png" alt="OrenGen">
+  </div>
+  <h1 class="oren-login-title">Welcome to <span style="color:#CC5500">OrenGen</span></h1>
+  <p class="oren-login-sub">Sign in to your command center</p>
+
+  {{ super() }}
+
+  <div class="oren-login-footer">
+    Need help? <a href="mailto:support@orengen.io">support@orengen.io</a>
+    <br><br>
+    <a href="https://orengen.io">orengen.io</a> &middot;
+    <a href="https://book.orengen.io/coffeechat">Book a call</a>
+  </div>
+</div>
+{% endblock %}
