@@ -1,30 +1,165 @@
-/* OrenGen ERP Desk Theme v1.0 - Brand: #0B1D3A + #CC5500 */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
-:root{--oren-navy:#0B1D3A;--oren-navy-dark:#071325;--oren-orange:#CC5500;--oren-orange-h:#E06000;--oren-white:#F8F8F8;--oren-white-m:rgba(248,248,248,.6);--oren-border:rgba(204,85,0,.18)}
-body{font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
-.layout-side-section,.list-sidebar,.desk-sidebar{background-color:var(--oren-navy)!important;border-right:1px solid var(--oren-border)!important}
-.desk-sidebar-item,.standard-sidebar-item,.standard-sidebar-item>a,.desk-sidebar-item span{color:var(--oren-white)!important}
-.desk-sidebar-item:hover,.standard-sidebar-item:hover{background-color:rgba(204,85,0,.08)!important;border-radius:4px!important}
-.desk-sidebar-item.selected,.standard-sidebar-item.selected{background-color:rgba(204,85,0,.15)!important;border-left:3px solid var(--oren-orange)!important}
-.desk-sidebar-item.selected span,.standard-sidebar-item.selected>a{color:var(--oren-orange)!important;font-weight:600!important}
-.standard-sidebar-label{color:var(--oren-white-m)!important;font-size:10px!important;text-transform:uppercase!important;letter-spacing:.1em!important}
-.desk-sidebar-item .es-icon,.standard-sidebar-item .es-icon{color:var(--oren-white)!important;fill:var(--oren-white)!important}
-.desk-sidebar-item.selected .es-icon,.standard-sidebar-item.selected .es-icon{color:var(--oren-orange)!important;fill:var(--oren-orange)!important}
-.page-head{background-color:#fff!important;border-bottom:2px solid var(--oren-orange)!important}
-.page-head .title-text,.page-title .title-text{color:var(--oren-navy)!important;font-weight:700!important}
-.btn-primary,.btn-primary:hover,.btn-primary:focus{background-color:var(--oren-orange)!important;border-color:var(--oren-orange)!important;color:#fff!important}
-.btn-primary:hover{background-color:var(--oren-orange-h)!important}
-.page-actions .btn-primary,.standard-actions .btn-primary{background-color:var(--oren-orange)!important;border-color:var(--oren-orange)!important;border-radius:6px!important;font-weight:600!important}
-.powered-by,.footer-powered,[class*="powered"]{display:none!important}
-.footer img[src*="erpnext"],.footer img[src*="frappe"],img[src*="erpnext-logo"],img[alt*="ERPNext"],img[alt*="Frappe"]{display:none!important}
-.about-app-name[data-app="frappe"],.about-app-name[data-app="erpnext"]{display:none!important}
-.section-head,.form-section .section-head{color:var(--oren-navy)!important;font-weight:600!important}
-.reqd-asterisk{color:var(--oren-orange)!important}
-.form-link-title a,.ellipsis a{color:var(--oren-orange)!important}
-.list-row-head{background-color:var(--oren-navy)!important;color:var(--oren-white)!important}
-.list-row-head .list-header-subject,.list-row-head .list-header-col{color:var(--oren-white)!important}
-.navbar,.navbar-default{background-color:var(--oren-navy)!important}
-.navbar .navbar-brand,.navbar .navbar-nav>li>a{color:var(--oren-white)!important}
-::-webkit-scrollbar{width:6px;height:6px}
-::-webkit-scrollbar-track{background:#f1f1f1}
-::-webkit-scrollbar-thumb{background:var(--oren-orange);border-radius:3px}
+/* OrenGen ERP Desk Theme v1.1 — Brand: #0B1D3A + #CC5500 */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --oren-navy: #0B1D3A;
+  --oren-navy-dark: #071325;
+  --oren-orange: #CC5500;
+  --oren-orange-h: #E06000;
+  --oren-white: #F8F8F8;
+  --oren-white-m: rgba(248, 248, 248, 0.6);
+  --oren-border: rgba(204, 85, 0, 0.18);
+}
+
+body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+/* Headings on desk */
+.section-head,
+.form-section .section-head,
+.page-head .title-text,
+.page-title .title-text {
+  font-family: "Playfair Display", serif !important;
+  font-weight: 700 !important;
+  color: var(--oren-navy) !important;
+}
+
+/* Sidebar */
+.layout-side-section,
+.list-sidebar,
+.desk-sidebar {
+  background-color: var(--oren-navy) !important;
+  border-right: 1px solid var(--oren-border) !important;
+}
+.desk-sidebar-item,
+.standard-sidebar-item,
+.standard-sidebar-item > a,
+.desk-sidebar-item span {
+  color: var(--oren-white) !important;
+}
+.desk-sidebar-item:hover,
+.standard-sidebar-item:hover {
+  background-color: rgba(204, 85, 0, 0.08) !important;
+  border-radius: 4px !important;
+}
+.desk-sidebar-item.selected,
+.standard-sidebar-item.selected {
+  background-color: rgba(204, 85, 0, 0.15) !important;
+  border-left: 3px solid var(--oren-orange) !important;
+}
+.desk-sidebar-item.selected span,
+.standard-sidebar-item.selected > a {
+  color: var(--oren-orange) !important;
+  font-weight: 600 !important;
+}
+.standard-sidebar-label {
+  color: var(--oren-white-m) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+.desk-sidebar-item .es-icon,
+.standard-sidebar-item .es-icon {
+  color: var(--oren-white) !important;
+  fill: var(--oren-white) !important;
+}
+.desk-sidebar-item.selected .es-icon,
+.standard-sidebar-item.selected .es-icon {
+  color: var(--oren-orange) !important;
+  fill: var(--oren-orange) !important;
+}
+
+/* Page chrome */
+.page-head {
+  background-color: #fff !important;
+  border-bottom: 2px solid var(--oren-orange) !important;
+}
+
+/* Navbar */
+.navbar,
+.navbar-default {
+  background-color: var(--oren-navy) !important;
+}
+.navbar .navbar-brand,
+.navbar .navbar-nav > li > a {
+  color: var(--oren-white) !important;
+}
+.navbar .navbar-brand img {
+  max-height: 28px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.page-actions .btn-primary,
+.standard-actions .btn-primary {
+  background-color: var(--oren-orange) !important;
+  border-color: var(--oren-orange) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+}
+.btn-primary:hover {
+  background-color: var(--oren-orange-h) !important;
+}
+
+/* Forms */
+.reqd-asterisk {
+  color: var(--oren-orange) !important;
+}
+.form-link-title a,
+.ellipsis a {
+  color: var(--oren-orange) !important;
+}
+
+/* List rows */
+.list-row-head {
+  background-color: var(--oren-navy) !important;
+  color: var(--oren-white) !important;
+}
+.list-row-head .list-header-subject,
+.list-row-head .list-header-col {
+  color: var(--oren-white) !important;
+}
+
+/* Hide Frappe/ERPNext branding */
+.powered-by,
+.footer-powered,
+[class*="powered"] {
+  display: none !important;
+}
+.footer img[src*="erpnext"],
+.footer img[src*="frappe"],
+img[src*="erpnext-logo"],
+img[alt*="ERPNext"],
+img[alt*="Frappe"] {
+  display: none !important;
+}
+.about-app-name[data-app="frappe"],
+.about-app-name[data-app="erpnext"] {
+  display: none !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--oren-orange);
+  border-radius: 3px;
+}
+
+/* Splash */
+.splash,
+.splash-container {
+  background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important;
+}
+.splash img {
+  filter: none !important;
+}
