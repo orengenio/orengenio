@@ -32,14 +32,65 @@ always returns a usable response.
 
 ## Deploy to Coolify
 
-1. In Coolify, create a new resource of type **Docker Compose**.
-2. Point it at this directory's `docker-compose.yml` (or paste the file
-   contents).
-3. Coolify will populate `SERVICE_FQDN_CREWAI_8000` automatically. Set the
-   remaining env vars in the Coolify UI.
-4. Deploy. The container exposes port `8000` internally; Coolify proxies the
-   FQDN onto it.
-5. Set the resulting URL as `CREWAI_URL` in the Next.js app's environment.
+Because this directory sits inside a private GitHub repo, Coolify needs a way
+to clone it. Pick **one** of the three paths below.
+
+### Option A — GitHub Deploy Key (recommended, one-time setup)
+
+1. In **Coolify → Projects → OrenGen → Resources → New → Private Repository
+   (with deploy key)**, create the resource and let Coolify generate a new
+   ed25519 key pair. Copy the shown public key.
+2. In **GitHub → `andre-mandel/orengenio` → Settings → Deploy keys → Add
+   deploy key**, paste the public key. Check **Allow write access** is OFF
+   (read-only is fine). Save.
+3. Back in Coolify, finish the "new resource" flow:
+   - Repository: `git@github.com:andre-mandel/orengenio.git`
+   - Branch: `main`
+   - Build Pack: **Docker Compose**
+   - Base Directory: `/platform/crewai`
+   - Docker Compose Location: `/docker-compose.yml`
+   - Ports Exposes: `8000`
+4. On the resource's **Environment Variables** tab set:
+   - `ANTHROPIC_API_KEY` (required)
+   - `INTERNAL_API_TOKEN` (shared with the Next.js app)
+   - `N8N_QUALIFIER_RESULT_WEBHOOK`
+   - `OPENAI_API_KEY` (optional)
+   - `LOG_LEVEL=INFO`
+   Coolify auto-provides `SERVICE_FQDN_CREWAI_8000`; set its Domain to
+   `https://crewai.orengen.io` in the UI's "Domains" section.
+5. **Deploy**. First build takes ~5 min (pip install is heavy).
+6. Set `CREWAI_URL=https://crewai.orengen.io` in the Next.js app's env vars
+   and redeploy the marketing site.
+
+### Option B — GitHub App
+
+If OrenGen already has a GitHub App installed on `andre-mandel/orengenio`,
+register it under **Coolify → Sources → New → GitHub App**, then create the
+resource via **Private Repository (with GitHub App)** and follow the same
+steps as Option A from step 3.
+
+### Option C — Pre-built image
+
+Build and push the image somewhere Coolify can pull it from:
+
+```bash
+cd platform/crewai
+docker build -t ghcr.io/orengen/crewai:latest .
+docker push ghcr.io/orengen/crewai:latest
+```
+
+Then create a Coolify Docker Compose resource with an inline compose that
+just pulls the pre-built image (no `build:` stanza).
+
+### API-only creation note
+
+The Coolify REST API (`/api/v1/applications/*`) currently cannot create a
+resource that clones a private repo via PAT-in-URL — `/applications/public`
+forces `source_id=0` which causes Coolify to double-prefix `https://github.com/`
+at clone time. Deploy-key-based API creation requires a pre-registered private
+key in Coolify *and* a matching public key installed as a GitHub deploy key,
+which needs the GitHub UI (our fine-grained PAT lacks `administration:write`
+scope for `POST /repos/{owner}/{repo}/keys`). Hence the UI-led flow above.
 
 ## Local testing
 
