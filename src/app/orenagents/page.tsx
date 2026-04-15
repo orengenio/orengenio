@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 export const metadata: Metadata = {
   title: "OrenAgents — Buy-Lingual™ AI Voice Employees | OrenGen Worldwide",
@@ -22,8 +23,8 @@ const employeeTiers = [
     label: "1 AI Employee",
     was: "$197/mo",
     highlight: false,
-    stripeMonthly: "https://buy.stripe.com/8x214nb8k8tFc0r1pDfQI3v",
-    stripeAnnual: "https://buy.stripe.com/aFa7sLgsE7pB6G7d8lfQI3w",
+    stripeMonthly: "https://buy.stripe.com/3cI5kD1xK7pB0hJ0lzfQI2M",
+    stripeAnnual: "https://buy.stripe.com/eVqdR9a4gcJV3tV2tHfQI2N",
     stripeSetup: null,
     features: [
       "1 AI digital employee",
@@ -41,8 +42,8 @@ const employeeTiers = [
     label: "3 AI Employees",
     was: "$397/mo",
     highlight: true,
-    stripeMonthly: "https://buy.stripe.com/7sY4gz1xK8tF6G75FTfQI3x",
-    stripeAnnual: "https://buy.stripe.com/bJeaEXb8k7pB2pR8S5fQI3y",
+    stripeMonthly: "https://buy.stripe.com/6oU3cvdgs5hte8zecpfQI2O",
+    stripeAnnual: "https://buy.stripe.com/28E5kD90ccJV1lNd8lfQI2P",
     stripeSetup: null,
     features: [
       "3 AI digital employees",
@@ -60,8 +61,8 @@ const employeeTiers = [
     label: "Full AI Employee Stack",
     was: "$797/mo",
     highlight: false,
-    stripeMonthly: "https://buy.stripe.com/6oUaEX5O0fW73tVfgtfQI3z",
-    stripeAnnual: "https://buy.stripe.com/3cIcN5dgsaBN0hJ7O1fQI3A",
+    stripeMonthly: "https://buy.stripe.com/9B69AT4JWh0bc0r6JXfQI2Q",
+    stripeAnnual: "https://buy.stripe.com/28EdR96S4bFRd4vb0dfQI2R",
     stripeSetup: null,
     features: [
       "Unlimited AI digital employees",
@@ -82,8 +83,8 @@ const voiceTiers = [
     label: "1 AI Voice Agent",
     was: "$397/mo",
     highlight: false,
-    stripeMonthly: "https://buy.stripe.com/00w00jdgsfW7c0rc4hfQI3B",
-    stripeAnnual: "https://buy.stripe.com/00w9AT4JW39l2pR0lzfQI3C",
+    stripeMonthly: "https://buy.stripe.com/8x23cvb8k25hd4v4BPfQI2S",
+    stripeAnnual: "https://buy.stripe.com/9B66oH5O039le8z0lzfQI2T",
     stripeSetup: null,
     features: [
       "1 AI voice agent (English + Spanish)",
@@ -101,8 +102,8 @@ const voiceTiers = [
     label: "3 AI Voice Agents",
     was: "$697/mo",
     highlight: true,
-    stripeMonthly: "https://buy.stripe.com/14AeVd90c4dpc0r0lzfQI3D",
-    stripeAnnual: "https://buy.stripe.com/cNi8wP0tGeS3c0recpfQI3E",
+    stripeMonthly: "https://buy.stripe.com/5kQ00ja4g4dpd4v3xLfQI2U",
+    stripeAnnual: "https://buy.stripe.com/00wcN5foA25h7Kbb0dfQI2V",
     stripeSetup: null,
     features: [
       "3 AI voice agents (English + Spanish)",
@@ -120,8 +121,8 @@ const voiceTiers = [
     label: "Unlimited AI Voice Agents",
     was: "$1,297/mo",
     highlight: false,
-    stripeMonthly: "https://buy.stripe.com/00w28r7W86lx3tVfgtfQI3F",
-    stripeAnnual: "https://buy.stripe.com/3cIeVdekw8tF6G78S5fQI3G",
+    stripeMonthly: "https://buy.stripe.com/9B6aEXccoeS38Of9W9fQI2W",
+    stripeAnnual: "https://buy.stripe.com/5kQbJ1ccodNZ0hJc4hfQI2X",
     stripeSetup: null,
     features: [
       "Unlimited AI voice agents",
@@ -154,6 +155,11 @@ export default function OrenAgentsPage() {
 
   return (
     <main style={{ fontFamily: "'Roboto', sans-serif", background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
+      <LeadModalTrigger
+        defaultSource="orenagents"
+        title="Deploy Your AI Voice Agents"
+        subtitle="Tell us about your business and we'll be in touch within the hour."
+      />
       <style>{`
         @keyframes agentFloat1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
         @keyframes agentFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
@@ -225,19 +231,19 @@ export default function OrenAgentsPage() {
             </p>
 
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a
-                href="https://book.orengen.io/coffeechat"
-                target="_blank" rel="noopener noreferrer"
+              <button
+                type="button"
+                data-lead-source="orenagents"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
                   fontWeight: 700, fontSize: 16, padding: "16px 36px", borderRadius: 9999,
-                  textDecoration: "none",
+                  border: "none", cursor: "pointer", fontFamily: "inherit",
                   boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
                 }}
               >
                 ✦ Deploy My AI Agents
-              </a>
+              </button>
               <a
                 href="#pricing"
                 style={{
@@ -712,19 +718,19 @@ export default function OrenAgentsPage() {
             <p style={{ color: "rgba(210,225,245,0.5)", fontSize: 18, maxWidth: 560, margin: "0 auto 44px", lineHeight: 1.65, fontWeight: 300 }}>
               Book a 30-minute strategy call. We&apos;ll show you exactly how OrenAgents fits your business — and what your ROI looks like before you spend a dollar.
             </p>
-            <a
-              href="https://book.orengen.io/coffeechat"
-              target="_blank" rel="noopener noreferrer"
+            <button
+              type="button"
+              data-lead-source="orenagents"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
                 fontWeight: 700, fontSize: 16, padding: "16px 40px", borderRadius: 9999,
-                textDecoration: "none",
+                border: "none", cursor: "pointer", fontFamily: "inherit",
                 boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
               }}
             >
               ✦ Deploy My AI Agents
-            </a>
+            </button>
             <div style={{ marginTop: 28, display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", color: "rgba(210,225,245,0.3)", fontSize: 13 }}>
               <span>✓ Fast deployment</span>
               <span>✓ Buy-Lingual™ included</span>

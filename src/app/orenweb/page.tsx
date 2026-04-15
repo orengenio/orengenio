@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 
 export const metadata: Metadata = {
@@ -94,29 +95,27 @@ const html = `
       --text-muted: rgba(255, 255, 255, 0.5);
     }
 
-    * {
+    .web-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
-      color: var(--text) !important;
-      font-family: 'Roboto', 'Inter', sans-serif !important;
+    .web-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Roboto', 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Playfair Display', sans-serif !important;
+    .web-page h1,
+    .web-page h2,
+    .web-page h3,
+    .web-page h4,
+    .web-page h5,
+    .web-page h6 {
+      font-family: 'Playfair Display', sans-serif;
     }
 
     /* Hero Section */
@@ -152,7 +151,7 @@ const html = `
       margin-bottom: 32px;
     }
 
-    h1 {
+    .web-page h1 {
       font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
@@ -162,7 +161,7 @@ const html = `
       color: var(--text) !important;
     }
 
-    h1 span {
+    .web-page h1 span {
       background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -639,7 +638,7 @@ const html = `
         padding: 100px 20px 60px;
       }
 
-      h1 {
+      .web-page h1 {
         font-size: 42px !important;
       }
 
@@ -676,9 +675,9 @@ const html = `
     }
   
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
+    .web-page *{margin:0;padding:0;box-sizing:border-box}
+    .web-page{color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    .web-page h1,.web-page h2,.web-page h3,.web-page h4,.web-page h5,.web-page h6{font-family:'Playfair Display',sans-serif}
 
     :root{
       --purple:#CC5500;
@@ -1571,7 +1570,7 @@ const html = `
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenweb" class="button" aria-label="Talk to a strategist about OrenWeb">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -1584,7 +1583,7 @@ const html = `
               d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z">
             </path>
           </svg>
-          <span class="text_button">Book A Meeting</span>
+          <span class="text_button">Talk to a Strategist</span>
         </a>
       </div>
 
@@ -1918,7 +1917,7 @@ const html = `
       Schedule a free consultation to discuss your project.
     </p>
     <div class="actions">
-      <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+      <a href="https://calendly.com/orengenio/30min" class="button" target="_blank" rel="noopener">
         <div class="dots_border"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
           <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -1939,7 +1938,13 @@ const html = `
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <>
+    <LeadModalTrigger
+      defaultSource="orenweb"
+      title="Launch Your Next Website"
+      subtitle="Tell us about the project and we'll be in touch within the hour."
+    />
+    <div className="pt-24 pb-12 web-page" dangerouslySetInnerHTML={{ __html: `
 <style>
  
 
@@ -2027,29 +2032,27 @@ export default function Page() {
       --text-muted: var(--oren-muted);
     }
 
-    * {
+    .web-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%) !important; background-attachment: fixed !important;
-      color: var(--text) !important;
-      font-family: 'Roboto', 'Inter', sans-serif !important;
+    .web-page {
+      background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Roboto', 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Playfair Display', sans-serif !important;
+    .web-page h1,
+    .web-page h2,
+    .web-page h3,
+    .web-page h4,
+    .web-page h5,
+    .web-page h6 {
+      font-family: 'Playfair Display', sans-serif;
     }
 
     /* Hero Section */
@@ -2085,7 +2088,7 @@ export default function Page() {
       margin-bottom: 32px;
     }
 
-    h1 {
+    .web-page h1 {
       font-family: 'Playfair Display', sans-serif !important;
       font-size: clamp(48px, 8vw, 96px) !important;
       line-height: 1.05 !important;
@@ -2095,7 +2098,7 @@ export default function Page() {
       color: var(--text) !important;
     }
 
-    h1 span {
+    .web-page h1 span {
       background: linear-gradient(90deg, #CC5500, #E2725B) !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -2572,7 +2575,7 @@ export default function Page() {
         padding: 100px 20px 60px;
       }
 
-      h1 {
+      .web-page h1 {
         font-size: 42px !important;
       }
 
@@ -2609,9 +2612,9 @@ export default function Page() {
     }
   
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--background);color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',sans-serif}
+    .web-page *{margin:0;padding:0;box-sizing:border-box}
+    .web-page{color:#fff;font-family:'Roboto','Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+    .web-page h1,.web-page h2,.web-page h3,.web-page h4,.web-page h5,.web-page h6{font-family:'Playfair Display',sans-serif}
 
     :root{
       --purple:#CC5500;
@@ -3504,7 +3507,7 @@ export default function Page() {
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenweb" class="button" aria-label="Talk to a strategist about OrenWeb">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -3517,7 +3520,7 @@ export default function Page() {
               d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z">
             </path>
           </svg>
-          <span class="text_button">Book A Meeting</span>
+          <span class="text_button">Talk to a Strategist</span>
         </a>
       </div>
 
@@ -3851,7 +3854,7 @@ export default function Page() {
       Schedule a free consultation to discuss your project.
     </p>
     <div class="actions">
-      <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+      <a href="https://calendly.com/orengenio/30min" class="button" target="_blank" rel="noopener">
         <div class="dots_border"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
           <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -3869,5 +3872,6 @@ export default function Page() {
     </div>
   </section>
 ` }} />
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 
 export const metadata: Metadata = {
@@ -17,12 +18,18 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <>
+    <LeadModalTrigger
+      defaultSource="orennexus"
+      title="Centralize Your CRM with OrenNexus"
+      subtitle="Tell us about your team and we'll be in touch within the hour."
+    />
+    <div className="pt-24 pb-12 nexus-page" dangerouslySetInnerHTML={{ __html: `
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .nexus-page *, .nexus-page *::before, .nexus-page *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --primary: #CC5500;
@@ -52,11 +59,11 @@ export default function Page() {
       --glass-blur: blur(12px);
     }
 
-    html, body {
-      background: var(--bg-dark) !important;
-      color: var(--text-primary) !important;
-      font-family: var(--font-body) !important;
-      overflow-x: hidden !important;
+    .nexus-page {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -850,11 +857,11 @@ export default function Page() {
       </p>
 
       <div class="hero-actions">
-        <a href="https://book.orengen.io/coffeechat" class="cta-button" target="_blank" rel="noopener" aria-label="Book a strategy meeting with OrenGen">
+        <a href="#contact" data-lead-source="orennexus" class="cta-button" aria-label="Talk to a strategist about OrenNexus">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-          <span>Book A Strategy Call</span>
+          <span>Talk to a Strategist</span>
         </a>
       </div>
     </div>
@@ -1107,7 +1114,7 @@ export default function Page() {
 <section class="nx-final-cta">
   <h2>Ready to Take <span>Command</span>?</h2>
   <p>One platform. Every touchpoint. Let's build your client acquisition engine.</p>
-  <a href="https://book.orengen.io/coffeechat" class="nx-cta-primary" target="_blank" rel="noopener" style="display:inline-flex;">
+  <a href="https://calendly.com/orengenio/30min" class="nx-cta-primary" target="_blank" rel="noopener" style="display:inline-flex;">
     Book A Strategy Call
   </a>
 </section>
@@ -1136,5 +1143,6 @@ export default function Page() {
 })();
 </script>
 ` }} />
+    </>
   );
 }

@@ -11,8 +11,9 @@ PRODUCTS & SERVICES:
 - OrenAgents Employees: Autonomous multi-agent AI departments — chat agents, SMS agents, email agents, schedulers, and more working together as a team.
 - OrenNexus: Unified CRM and automation command center. Pipeline management, funnels, analytics, lead scoring, and workflow automation.
 - OrenSocial: AI-powered social media management — content scheduling, engagement automation, and analytics.
-- OrenWeb Design: High-performance bespoke web development and design.
-- OrenCustoms: Custom AI engineering for enterprise-scale deployments.
+- OrenWeb Design: High-performance bespoke web development and design (includes Talking Websites with AI).
+- OrenAutomations: Custom workflow automation builds — n8n, Zapier, Make integrations, API connections, and business process automation.
+- OrenConsulting: Fractional C-suite leadership — CTO, CMO, COO, CSO on-demand for strategy, execution, and scaling.
 
 PRICING TIERS:
 - Starter ($197/mo, setup $597): 1 AI Chat Employee, website chat widget, lead qualification, OrenNexus CRM Standard, email support.
@@ -25,6 +26,18 @@ USAGE-BASED RATES (on top of plan):
 - Voice Outbound: $0.14/min
 - SMS Outbound: $0.02/msg
 - SMS Inbound: $0.015/msg
+
+ORENAUTOMATIONS PRICING (one-time build fees):
+- Standard ($497): 1-2 automations, basic triggers, email/Slack notifications, 1 revision round.
+- Professional ($1,497): 3-5 automations, conditional logic, CRM/calendar integrations, 2 revision rounds. MOST POPULAR.
+- Premium ($2,997): Unlimited automations, custom API integrations, database syncs, multi-step workflows, 3 revision rounds, 30-day support.
+- Enterprise (Custom): Book a strategy call for full-scale automation architecture.
+
+ORENCONSULTING PRICING (fractional C-suite):
+- Standard ($8,000/mo or $80,000/yr): 1 fractional role, 10-15 hrs/week, weekly strategy sessions, monthly reporting.
+- Professional ($15,000/mo or $150,000/yr): 1-2 fractional roles, 20-25 hrs/week, bi-weekly board prep, quarterly roadmaps. MOST POPULAR.
+- Premium ($25,000/mo or $250,000/yr): Full C-suite access, unlimited hours, weekly board prep, dedicated Slack channel, quarterly offsites.
+- Enterprise (Custom): Book a strategy call for multi-division or PE/VC portfolio leadership.
 
 KEY DIFFERENTIATORS:
 - All-inclusive pricing — no hidden API fees, no BYOK, no managing multiple vendors

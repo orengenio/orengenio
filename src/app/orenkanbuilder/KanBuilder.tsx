@@ -487,6 +487,8 @@ export function KanBuilder() {
   const [expandedFeats, setExpandedFeats] = useState<Record<string, boolean>>({})
   const [chartAnimated, setChartAnimated] = useState(false)
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "" })
+  const [payLoading, setPayLoading] = useState(false)
+  const [payError, setPayError] = useState<string | null>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setChartAnimated(true), 400)
@@ -585,6 +587,67 @@ export function KanBuilder() {
       /* silently continue */
     }
     setSubmitted(true)
+  }
+
+  /* Stripe Checkout — "Pay Now" path. Posts the cart to /api/checkout
+     and redirects the browser to the hosted Stripe Checkout URL. */
+  const handlePayNow = async () => {
+    if (engineModules.length === 0 || payLoading) return
+    setPayError(null)
+    setPayLoading(true)
+    try {
+      const items = engineModules.flatMap((mod) => {
+        const tier = cardTiers[mod.id]
+        const bill = cardBills[mod.id]
+        const t = mod.tiers[tier]
+        const monthly = bill === "annual" ? annualPrice(t.mo) : t.mo
+        const recurring: "month" | "year" = bill === "annual" ? "year" : "month"
+        const subscriptionUnit =
+          bill === "annual" ? Math.round(monthly * 12 * 100) : Math.round(monthly * 100)
+        const lines: { name: string; price_cents: number; qty: number; recurring?: "month" | "year" }[] = [
+          {
+            name: `${mod.name} \u2014 ${TIER_LABEL[tier]} (${bill === "annual" ? "Annual" : "Monthly"})`,
+            price_cents: subscriptionUnit,
+            qty: 1,
+            recurring,
+          },
+        ]
+        if (t.setup > 0) {
+          lines.push({
+            name: `${mod.name} \u2014 ${TIER_LABEL[tier]} setup (one-time)`,
+            price_cents: Math.round(t.setup * 100),
+            qty: 1,
+          })
+        }
+        return lines
+      })
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items,
+          customer_email: formData.email || undefined,
+          metadata: {
+            source: "orenkanbuilder",
+            company: formData.company,
+            name: formData.name,
+            phone: formData.phone,
+          },
+        }),
+      })
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; url?: string; error?: string }
+        | null
+      if (!res.ok || !data?.url) {
+        setPayError(data?.error || "Could not start checkout. Please try again.")
+        setPayLoading(false)
+        return
+      }
+      window.location.href = data.url
+    } catch {
+      setPayError("Network error. Please try again.")
+      setPayLoading(false)
+    }
   }
 
   /* card renderer */
@@ -1589,23 +1652,63 @@ export function KanBuilder() {
                       </div>
                     ))}
                   </div>
-                  <button
-                    type="submit"
-                    style={{
-                      width: "100%",
-                      padding: "14px 24px",
-                      background: "linear-gradient(135deg, #CC5500, #E8762B)",
-                      color: "#fff",
-                      fontWeight: 700,
-                      fontSize: 15,
-                      border: "none",
-                      borderRadius: 12,
-                      cursor: "pointer",
-                      boxShadow: "0 4px 24px rgba(204,85,0,0.35)",
-                    }}
-                  >
-                    Submit &amp; Lock In My Engine
-                  </button>
+                  <div style={{ display: "grid", gap: 10 }}>
+                    <button
+                      type="submit"
+                      style={{
+                        width: "100%",
+                        padding: "14px 24px",
+                        background: "linear-gradient(135deg, #CC5500, #E8762B)",
+                        color: "#fff",
+                        fontWeight: 700,
+                        fontSize: 15,
+                        border: "none",
+                        borderRadius: 12,
+                        cursor: "pointer",
+                        boxShadow: "0 4px 24px rgba(204,85,0,0.35)",
+                      }}
+                    >
+                      Send to Sales &amp; Lock In My Engine
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handlePayNow}
+                      disabled={payLoading || engineModules.length === 0}
+                      style={{
+                        width: "100%",
+                        padding: "14px 24px",
+                        background:
+                          payLoading || engineModules.length === 0
+                            ? "rgba(255,255,255,0.06)"
+                            : "rgba(255,255,255,0.04)",
+                        color:
+                          payLoading || engineModules.length === 0
+                            ? "rgba(210,225,245,0.45)"
+                            : "#F0F4FA",
+                        fontWeight: 700,
+                        fontSize: 15,
+                        border: "1px solid rgba(204,85,0,0.55)",
+                        borderRadius: 12,
+                        cursor:
+                          payLoading || engineModules.length === 0 ? "not-allowed" : "pointer",
+                        transition: "background 0.2s",
+                      }}
+                    >
+                      {payLoading ? "Redirecting to Stripe\u2026" : "Pay Now with Stripe"}
+                    </button>
+                    {payError && (
+                      <div
+                        role="alert"
+                        style={{
+                          fontSize: 12,
+                          color: "#F47C7C",
+                          textAlign: "center",
+                        }}
+                      >
+                        {payError}
+                      </div>
+                    )}
+                  </div>
                 </form>
               </>
             )}

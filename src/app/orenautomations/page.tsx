@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 export const metadata: Metadata = {
   title: "OrenAutomations — Workflow Automation Engine | OrenGen Worldwide",
@@ -15,13 +16,19 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <>
+    <LeadModalTrigger
+      defaultSource="orenautomations"
+      title="Build Your Automation Stack"
+      subtitle="Tell us what you want automated and we'll be in touch within the hour."
+    />
+    <div className="pt-24 pb-12 auto-page" dangerouslySetInnerHTML={{ __html: `
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
     :root{--primary:#CC5500;--primary-light:#E8762B;--primary-dark:#B34A00;--accent:#CC5500;--accent-dark:#B34A00;--bg-dark:#0B1D3A;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--text:#F0F4FA;--text-secondary:rgba(210,225,245,0.6);--text-muted:rgba(210,225,245,0.4);--terracotta:#E2725B}
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{background:var(--bg-dark)!important;color:var(--text)!important;font-family:'Roboto','Inter',sans-serif!important;overflow-x:hidden}
-    h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif!important}
+    .auto-page *{margin:0;padding:0;box-sizing:border-box}
+    .auto-page{background:var(--bg-dark);color:var(--text);font-family:'Roboto','Inter',sans-serif;overflow-x:hidden}
+    .auto-page h1,.auto-page h2,.auto-page h3,.auto-page h4,.auto-page h5,.auto-page h6{font-family:'Playfair Display',serif}
 
     /* ===== HERO ===== */
     .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;overflow:hidden;background:linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)}
@@ -29,11 +36,11 @@ export default function Page() {
     .hero::after{content:'';position:absolute;top:-10%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(204,85,0,0.1) 0%,transparent 70%);border-radius:50%;filter:blur(80px);pointer-events:none}
     .hero-inner{display:flex;align-items:center;justify-content:center;gap:60px;max-width:1200px;margin:0 auto;position:relative;z-index:2;flex-wrap:wrap}
     .hero-content{flex:1 1 480px;min-width:320px}
-    .hero-visual{flex:0 0 auto;width:560px;position:relative}
+    .hero-visual{flex:0 0 auto;width:480px;height:160px;position:relative;display:flex;align-items:center;justify-content:center}
     .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.25)!important;border-radius:100px;color:#CC5500!important;font-family:'Roboto',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px}
     .hero-badge svg{width:14px;height:14px;stroke:#CC5500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    h1{font-size:clamp(42px,7vw,84px)!important;line-height:1.02!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
-    h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
+    .auto-page h1{font-size:clamp(42px,7vw,84px)!important;line-height:1.02!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
+    .auto-page h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
     .hero-text{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.65;color:rgba(210,225,245,0.55)!important;max-width:600px;margin:0 0 36px;font-weight:300}
     .actions{display:flex;gap:18px;flex-wrap:wrap}
 
@@ -53,37 +60,18 @@ export default function Page() {
     @keyframes pathAnim{0%,34%,71%,100%{transform:scale(1)}17%{transform:scale(var(--scale_path_1,1))}49%{transform:scale(var(--scale_path_2,1))}83%{transform:scale(var(--scale_path_3,1))}}
     .button .text_button{position:relative;z-index:10;background-image:linear-gradient(90deg,hsla(0 0% 100%/1) 0%,hsla(0 0% 100%/var(--active,0)) 120%);background-clip:text;-webkit-background-clip:text;font-size:1rem;color:transparent;font-weight:600;font-family:'Playfair Display',serif!important}
 
-    /* ===== LIVE FLOW CANVAS ===== */
-    .flow-canvas{width:100%;display:block;filter:drop-shadow(0 8px 40px rgba(204,85,0,0.18))}
-    .flow-bg-grid{opacity:0.18}
-    .flow-path{fill:none;stroke:rgba(204,85,0,0.22);stroke-width:1.5;stroke-dasharray:6 10}
-    .flow-path-main{fill:none;stroke:rgba(204,85,0,0.35);stroke-width:1.5;stroke-dasharray:6 10}
-    .flow-particle{fill:#CC5500;filter:url(#glow)}
-    .flow-node-rect{fill:rgba(255,255,255,0.03);stroke:rgba(204,85,0,0.32);stroke-width:1.5;rx:9;animation:flowNodeBeat 3s ease-in-out infinite;transition:all .3s}
-    .flow-node-label{font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;fill:rgba(210,225,245,0.45)}
-    .flow-node-name{font-family:'Roboto',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.5px;fill:#F0F4FA}
-    .flow-node-icon{fill:none;stroke:#CC5500;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .flow-node-accent{fill:#CC5500;opacity:0.9}
-    .flow-branch-label{font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;fill:rgba(204,85,0,0.7)}
-    .flow-live-dot{fill:#4ade80;animation:flowLivePulse 1.4s ease-in-out infinite}
-    .flow-live-text{font-family:'Roboto',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;fill:rgba(210,225,245,0.5)}
-    .flow-counter{font-family:'Roboto',sans-serif;font-size:9px;fill:rgba(210,225,245,0.2);letter-spacing:0.5px}
-    .flow-status-dot{animation:flowStatusPulse 2s ease-in-out infinite}
-    .flow-n0 .flow-node-rect{animation-delay:0s}
-    .flow-n1 .flow-node-rect{animation-delay:.55s}
-    .flow-n2 .flow-node-rect{animation-delay:1.1s}
-    .flow-n3 .flow-node-rect{animation-delay:1.1s}
-    .flow-n4 .flow-node-rect{animation-delay:1.65s}
-    .flow-n5 .flow-node-rect{animation-delay:1.65s}
-    .flow-n0 .flow-status-dot{animation-delay:0s}
-    .flow-n1 .flow-status-dot{animation-delay:.55s}
-    .flow-n2 .flow-status-dot{animation-delay:1.1s}
-    .flow-n3 .flow-status-dot{animation-delay:1.1s}
-    .flow-n4 .flow-status-dot{animation-delay:1.65s}
-    .flow-n5 .flow-status-dot{animation-delay:1.65s}
-    @keyframes flowNodeBeat{0%,100%{stroke-opacity:0.32}18%,22%{stroke-opacity:0.85;fill:rgba(204,85,0,0.06)}40%{stroke-opacity:0.32;fill:rgba(255,255,255,0.03)}}
-    @keyframes flowLivePulse{0%,100%{opacity:1;r:3}50%{opacity:0.4;r:2}}
-    @keyframes flowStatusPulse{0%,100%{opacity:0.9}50%{opacity:0.3}}
+    /* ===== WORKFLOW DIAGRAM ===== */
+    .wf-diagram{display:flex;align-items:center;gap:0;width:100%}
+    .wf-node{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
+    .wf-node-circle{width:72px;height:72px;border-radius:18px;background:rgba(255,255,255,0.04);border:1.5px solid rgba(204,85,0,0.3);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;font-size:28px;transition:all .3s}
+    .wf-node-circle:hover{border-color:rgba(204,85,0,0.6);background:rgba(204,85,0,0.08);transform:scale(1.08)}
+    .wf-node-label{font-family:'Roboto',sans-serif!important;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+    .wf-connector{flex:1;height:2px;background:rgba(204,85,0,0.15);position:relative;min-width:20px;max-width:80px}
+    .wf-connector::after{content:'';position:absolute;top:-3px;width:8px;height:8px;background:#CC5500;border-radius:50%;animation:flowDot 2.5s ease-in-out infinite;box-shadow:0 0 12px rgba(204,85,0,0.5)}
+    .wf-connector:nth-of-type(2)::after{animation-delay:0s}
+    .wf-connector:nth-of-type(4)::after{animation-delay:0.6s}
+    .wf-connector:nth-of-type(6)::after{animation-delay:1.2s}
+    @keyframes flowDot{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 8px);opacity:0}}
 
     /* ===== MARQUEE BANNER ===== */
     .marquee-banner{background:#081628;border-top:1px solid rgba(204,85,0,0.25);border-bottom:1px solid rgba(204,85,0,0.25);box-shadow:0 -4px 30px rgba(204,85,0,0.06),0 4px 30px rgba(204,85,0,0.06);padding:18px 0;overflow:hidden;position:relative}
@@ -134,6 +122,29 @@ export default function Page() {
     .pricing-note p{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.6)!important;font-weight:300}
     .pricing-note strong{color:#CC5500!important;font-weight:700}
 
+    /* ===== PRICING GRID ===== */
+    .auto-pricing{max-width:1100px;margin:0 auto;padding:80px 40px 40px}
+    .auto-pricing-title{text-align:center;font-size:clamp(32px,5vw,48px)!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important;margin-bottom:12px}
+    .auto-pricing-title span{color:#CC5500}
+    .auto-pricing-sub{text-align:center;font-family:'Roboto',sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+    .auto-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .auto-tier{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 28px;position:relative;transition:all .3s;display:flex;flex-direction:column}
+    .auto-tier:hover{border-color:rgba(204,85,0,0.3);transform:translateY(-4px)}
+    .auto-tier.featured{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.04)}
+    .auto-tier.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:white;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+    .auto-tier-name{font-size:20px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
+    .auto-tier-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
+    .auto-tier-price{font-family:'Playfair Display',serif!important;font-size:36px;font-weight:900;color:#CC5500;margin-bottom:4px}
+    .auto-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:'Roboto',sans-serif;font-weight:400}
+    .auto-tier-note{font-family:'Roboto',sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
+    .auto-tier ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
+    .auto-tier li{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+    .auto-tier li::before{content:'✓ ';color:#CC5500;font-weight:700}
+    .auto-tier-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;border:1px solid rgba(204,85,0,0.3);color:#CC5500;background:transparent}
+    .auto-tier-btn:hover{background:rgba(204,85,0,0.08);border-color:#CC5500}
+    .auto-tier-btn.primary{background:linear-gradient(135deg,#CC5500,#E2725B);color:white;border:none}
+    .auto-tier-btn.primary:hover{opacity:0.9;transform:translateY(-1px)}
+
     /* ===== CTA ===== */
     .cta-section{max-width:900px;margin:0 auto;padding:100px 40px 100px;text-align:center}
     .cta-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:60px 40px;backdrop-filter:blur(16px);position:relative;overflow:hidden}
@@ -145,8 +156,10 @@ export default function Page() {
     @media(max-width:768px){
       .hero{padding:100px 20px 60px;min-height:70vh}
       .hero-inner{flex-direction:column;text-align:center}
-      .hero-visual{width:100%;height:auto}
-      h1{font-size:42px!important}
+      .hero-visual{width:100%;height:auto;min-height:100px}
+      .auto-page h1{font-size:42px!important}
+      .wf-diagram{flex-wrap:wrap;justify-content:center;gap:12px}
+      .wf-connector{display:none}
       .auto-grid{grid-template-columns:1fr}
       .how-flow{flex-wrap:wrap;gap:16px}
       .how-connector{display:none}
@@ -155,9 +168,12 @@ export default function Page() {
       .cta-section{padding:60px 20px}
       .cta-card{padding:40px 24px}
       .pricing-note{padding:40px 20px}
+      .auto-pricing{padding:60px 20px 20px}
+      .auto-tiers{grid-template-columns:1fr}
     }
     @media(max-width:480px){
       .how-node{flex:0 0 100%}
+      .wf-node-circle{width:56px;height:56px;font-size:22px;border-radius:14px}
     }
 </style>
 
@@ -172,180 +188,23 @@ export default function Page() {
       <h1>Automate Everything.<br /><span>Break Nothing.</span></h1>
       <p class="hero-text">Visual workflow automation that connects your AI agents, CRM, tools, and data — zero code, infinite scale. Fully managed.</p>
       <div class="actions">
-        <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenautomations" class="button" aria-label="Talk to a strategist about OrenAutomations">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path></svg>
-          <span class="text_button">Book an Automation Strategy Call</span>
+          <span class="text_button">Talk to a Strategist</span>
         </a>
       </div>
     </div>
     <div class="hero-visual">
-      <svg class="flow-canvas" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="softglow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="6" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <pattern id="flowgrid" width="28" height="28" patternUnits="userSpaceOnUse">
-            <circle cx="14" cy="14" r="1" fill="rgba(204,85,0,0.35)"/>
-          </pattern>
-          <!-- Motion paths in defs (invisible, used for animateMotion) -->
-          <path id="fp1" d="M 155 210 L 225 210"/>
-          <path id="fp2" d="M 345 210 C 385 210 370 130 400 130"/>
-          <path id="fp3" d="M 345 210 C 385 210 370 290 400 290"/>
-          <path id="fp4" d="M 520 130 L 555 130"/>
-          <path id="fp5" d="M 520 290 L 555 290"/>
-        </defs>
-
-        <!-- Background dot grid -->
-        <rect width="680" height="420" fill="url(#flowgrid)" class="flow-bg-grid"/>
-
-        <!-- Visible flow paths -->
-        <path d="M 155 210 L 225 210" class="flow-path-main"/>
-        <path d="M 345 210 C 385 210 370 130 400 130" class="flow-path"/>
-        <path d="M 345 210 C 385 210 370 290 400 290" class="flow-path"/>
-        <path d="M 520 130 L 555 130" class="flow-path-main"/>
-        <path d="M 520 290 L 555 290" class="flow-path-main"/>
-
-        <!-- Branch labels -->
-        <text x="368" y="162" text-anchor="middle" class="flow-branch-label">HIGH INTENT</text>
-        <text x="368" y="258" text-anchor="middle" class="flow-branch-label">LOW INTENT</text>
-
-        <!-- Animated particles on all paths -->
-        <circle r="3.5" class="flow-particle">
-          <animateMotion dur="1.2s" begin="0s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp1"/>
-          </animateMotion>
-        </circle>
-        <circle r="3.5" class="flow-particle" opacity="0.6">
-          <animateMotion dur="1.2s" begin="0.6s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp1"/>
-          </animateMotion>
-        </circle>
-        <circle r="3" class="flow-particle">
-          <animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp2"/>
-          </animateMotion>
-        </circle>
-        <circle r="3" class="flow-particle" opacity="0.55">
-          <animateMotion dur="1.6s" begin="1.6s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp2"/>
-          </animateMotion>
-        </circle>
-        <circle r="3" class="flow-particle">
-          <animateMotion dur="1.6s" begin="0.8s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp3"/>
-          </animateMotion>
-        </circle>
-        <circle r="3" class="flow-particle" opacity="0.55">
-          <animateMotion dur="1.6s" begin="1.6s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp3"/>
-          </animateMotion>
-        </circle>
-        <circle r="3.5" class="flow-particle">
-          <animateMotion dur="0.7s" begin="1.8s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp4"/>
-          </animateMotion>
-        </circle>
-        <circle r="3.5" class="flow-particle">
-          <animateMotion dur="0.7s" begin="1.8s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#fp5"/>
-          </animateMotion>
-        </circle>
-
-        <!-- NODE 0: WEBHOOK (trigger) — orange accent bar on left edge -->
-        <g class="flow-n0" transform="translate(35,184)">
-          <rect class="flow-node-rect" width="120" height="52" rx="9"/>
-          <!-- orange left accent bar -->
-          <rect class="flow-node-accent" x="0" y="0" width="4" height="52" rx="2"/>
-          <!-- icon: lightning bolt -->
-          <g transform="translate(22,26)" class="flow-node-icon">
-            <polyline points="4,-10 -2,0 3,0 -4,10"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">TRIGGER</text>
-          <text x="36" y="33" class="flow-node-name">Webhook</text>
-          <!-- status dot -->
-          <circle cx="108" cy="10" r="4" fill="#4ade80" class="flow-status-dot"/>
-        </g>
-
-        <!-- NODE 1: AI QUALIFY (processor) -->
-        <g class="flow-n1" transform="translate(225,184)">
-          <rect class="flow-node-rect" width="120" height="52" rx="9"/>
-          <!-- icon: diamond/AI symbol -->
-          <g transform="translate(20,26)" class="flow-node-icon">
-            <polygon points="0,-10 8,0 0,10 -8,0"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">AI AGENT</text>
-          <text x="36" y="33" class="flow-node-name">AI Qualify</text>
-          <circle cx="108" cy="10" r="4" fill="#CC5500" class="flow-status-dot"/>
-        </g>
-
-        <!-- NODE 2: HOT LEAD -->
-        <g class="flow-n2" transform="translate(400,104)">
-          <rect class="flow-node-rect" width="120" height="52" rx="9"/>
-          <!-- icon: upward flame / arrow -->
-          <g transform="translate(20,26)" class="flow-node-icon" stroke="#E2725B">
-            <path d="M 0,-10 C -4,-4 -6,2 -2,6 C -4,3 0,2 0,6 C 2,2 4,4 4,-2 C 6,0 6,6 2,10 C -6,8 -8,2 -4,-4"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">HOT LEAD</text>
-          <text x="36" y="33" class="flow-node-name">Book Demo</text>
-          <circle cx="108" cy="10" r="4" fill="#E2725B" class="flow-status-dot"/>
-        </g>
-
-        <!-- NODE 3: COLD LEAD -->
-        <g class="flow-n3" transform="translate(400,264)">
-          <rect class="flow-node-rect" width="120" height="52" rx="9"/>
-          <!-- icon: asterisk/snowflake -->
-          <g transform="translate(20,26)" class="flow-node-icon" stroke="rgba(210,225,245,0.6)">
-            <line x1="0" y1="-10" x2="0" y2="10"/>
-            <line x1="-8.66" y1="-5" x2="8.66" y2="5"/>
-            <line x1="-8.66" y1="5" x2="8.66" y2="-5"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">COLD LEAD</text>
-          <text x="36" y="33" class="flow-node-name">Email Drip</text>
-          <circle cx="108" cy="10" r="4" fill="rgba(210,225,245,0.5)" class="flow-status-dot"/>
-        </g>
-
-        <!-- NODE 4: BOOK DEMO -->
-        <g class="flow-n4" transform="translate(555,104)">
-          <rect class="flow-node-rect" width="110" height="52" rx="9"/>
-          <!-- icon: calendar -->
-          <g transform="translate(20,26)" class="flow-node-icon">
-            <rect x="-8" y="-8" width="16" height="14" rx="2"/>
-            <line x1="-4" y1="-11" x2="-4" y2="-5"/>
-            <line x1="4" y1="-11" x2="4" y2="-5"/>
-            <line x1="-8" y1="-2" x2="8" y2="-2"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">ACTION</text>
-          <text x="36" y="33" class="flow-node-name">Book Demo</text>
-          <circle cx="98" cy="10" r="4" fill="#4ade80" class="flow-status-dot"/>
-        </g>
-
-        <!-- NODE 5: EMAIL DRIP -->
-        <g class="flow-n5" transform="translate(555,264)">
-          <rect class="flow-node-rect" width="110" height="52" rx="9"/>
-          <!-- icon: envelope -->
-          <g transform="translate(20,26)" class="flow-node-icon">
-            <rect x="-9" y="-7" width="18" height="13" rx="2"/>
-            <polyline points="-9,-7 0,1 9,-7"/>
-          </g>
-          <text x="36" y="18" class="flow-node-label">ACTION</text>
-          <text x="36" y="33" class="flow-node-name">Email Drip</text>
-          <circle cx="98" cy="10" r="4" fill="rgba(210,225,245,0.45)" class="flow-status-dot"/>
-        </g>
-
-        <!-- LIVE badge (top-left) -->
-        <rect x="12" y="12" width="64" height="22" rx="11" fill="rgba(255,255,255,0.04)" stroke="rgba(74,222,128,0.35)" stroke-width="1"/>
-        <circle cx="26" cy="23" r="3" fill="#4ade80" class="flow-live-dot"/>
-        <text x="33" y="27" class="flow-live-text">LIVE</text>
-
-        <!-- Run counter (top-right) -->
-        <text x="668" y="22" text-anchor="end" class="flow-counter">24,847 runs today</text>
-      </svg>
+      <div class="wf-diagram">
+        <div class="wf-node"><div class="wf-node-circle">⚡</div><div class="wf-node-label">Trigger</div></div>
+        <div class="wf-connector"></div>
+        <div class="wf-node"><div class="wf-node-circle">⚙️</div><div class="wf-node-label">Process</div></div>
+        <div class="wf-connector"></div>
+        <div class="wf-node"><div class="wf-node-circle">🔀</div><div class="wf-node-label">Decision</div></div>
+        <div class="wf-connector"></div>
+        <div class="wf-node"><div class="wf-node-circle">🚀</div><div class="wf-node-label">Action</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -468,9 +327,71 @@ export default function Page() {
   </div>
 </section>
 
-<!-- PRICING NOTE -->
-<section class="pricing-note">
-  <p>Automation engine included with every OrenGen plan. Custom workflow builds start at <strong>$497</strong>.</p>
+<!-- PRICING -->
+<section class="auto-pricing">
+  <h2 class="auto-pricing-title">Custom Automation <span>Build Packages</span></h2>
+  <p class="auto-pricing-sub">Automation engine included with every OrenGen plan. Need custom workflows? We build them for you.</p>
+  <div class="auto-tiers">
+    <div class="auto-tier">
+      <div class="auto-tier-name">Standard</div>
+      <div class="auto-tier-desc">Simple workflows to automate your core processes.</div>
+      <div class="auto-tier-price">$497 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>1–2 custom automations</li>
+        <li>Basic triggers &amp; actions</li>
+        <li>Single platform integration</li>
+        <li>Testing &amp; deployment</li>
+        <li>30-day support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Get Started</a>
+    </div>
+    <div class="auto-tier featured">
+      <div class="auto-tier-name">Professional</div>
+      <div class="auto-tier-desc">Multi-step workflows with logic and integrations.</div>
+      <div class="auto-tier-price">$1,497 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>3–5 custom automations</li>
+        <li>Conditional logic &amp; branching</li>
+        <li>Multi-platform integrations</li>
+        <li>CRM &amp; pipeline automation</li>
+        <li>Error handling &amp; retries</li>
+        <li>60-day support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn primary" target="_blank" rel="noopener">Build My Workflows</a>
+    </div>
+    <div class="auto-tier">
+      <div class="auto-tier-name">Premium</div>
+      <div class="auto-tier-desc">Full automation architecture for your entire operation.</div>
+      <div class="auto-tier-price">$2,997 <span>one-time</span></div>
+      <div class="auto-tier-note">No recurring fees</div>
+      <ul>
+        <li>Unlimited automations</li>
+        <li>Custom API integrations</li>
+        <li>Webhooks &amp; advanced logic</li>
+        <li>Full stack orchestration</li>
+        <li>Performance optimization</li>
+        <li>90-day priority support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Go Premium</a>
+    </div>
+    <div class="auto-tier" style="border-color:rgba(204,85,0,0.15);background:rgba(15,40,71,0.3)">
+      <div class="auto-tier-name">Enterprise</div>
+      <div class="auto-tier-desc">Custom-scoped automation for complex, large-scale operations.</div>
+      <div class="auto-tier-price">Custom</div>
+      <div class="auto-tier-note">Scoped to your needs</div>
+      <ul>
+        <li>Dedicated automation architect</li>
+        <li>Enterprise integrations &amp; APIs</li>
+        <li>Multi-department workflows</li>
+        <li>Ongoing optimization &amp; management</li>
+        <li>SLA &amp; dedicated support</li>
+        <li>White-glove delivery</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="auto-tier-btn" target="_blank" rel="noopener">Book a Strategy Call</a>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
@@ -479,7 +400,7 @@ export default function Page() {
     <h2 class="cta-title">Let Us Build Your <span class="highlight">Automations</span></h2>
     <p class="cta-description">White-glove automation service — we design, build, deploy, and manage your workflows so you never have to touch a single node.</p>
     <div class="actions" style="justify-content:center">
-      <a href="https://book.orengen.io/coffeechat" class="button" target="_blank" rel="noopener">
+      <a href="https://calendly.com/orengenio/30min" class="button" target="_blank" rel="noopener">
         <div class="dots_border"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path></svg>
         <span class="text_button">Book an Automation Strategy Call</span>
@@ -488,5 +409,6 @@ export default function Page() {
   </div>
 </section>
 ` }} />
+    </>
   );
 }

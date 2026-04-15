@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 export const metadata: Metadata = {
   title: "OrenConsulting — Fractional C-Suite + Custom AI Engineering | OrenGen",
@@ -8,13 +9,19 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <>
+    <LeadModalTrigger
+      defaultSource="orenconsulting"
+      title="Engage Your Fractional C-Suite"
+      subtitle="Tell us about your business and we'll be in touch within the hour."
+    />
+    <div className="pt-24 pb-12 consult-page" dangerouslySetInnerHTML={{ __html: `
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
   :root{--primary:#CC5500;--primary-light:#E8762B;--primary-dark:#B34A00;--bg-dark:#0B1D3A;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--text:#F0F4FA;--text-secondary:rgba(210,225,245,0.6);--text-muted:rgba(210,225,245,0.4)}
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{background:var(--bg-dark)!important;color:var(--text)!important;font-family:'Roboto','Inter',sans-serif!important;overflow-x:hidden}
-  h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif!important}
+  .consult-page *{margin:0;padding:0;box-sizing:border-box}
+  .consult-page{background:var(--bg-dark);color:var(--text);font-family:'Roboto','Inter',sans-serif;overflow-x:hidden}
+  .consult-page h1,.consult-page h2,.consult-page h3,.consult-page h4,.consult-page h5,.consult-page h6{font-family:'Playfair Display',serif}
 
   /* ===== HERO ===== */
   .oc-hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;overflow:hidden;background:linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)}
@@ -22,7 +29,7 @@ export default function Page() {
   .oc-hero::after{content:'';position:absolute;top:-10%;right:5%;width:500px;height:500px;background:radial-gradient(circle,rgba(204,85,0,0.1) 0%,transparent 70%);border-radius:50%;filter:blur(80px);pointer-events:none}
   .oc-hero-inner{display:flex;align-items:center;justify-content:center;gap:60px;max-width:1200px;margin:0 auto;position:relative;z-index:2;flex-wrap:wrap}
   .oc-hero-content{flex:1 1 480px;min-width:320px}
-  .oc-hero-visual{flex:0 0 auto;width:460px;height:460px;position:relative}
+  .oc-hero-visual{flex:0 0 auto;width:420px;height:340px;position:relative}
   .oc-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.25)!important;border-radius:100px;color:#CC5500!important;font-family:'Roboto',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px}
   .oc-h1{font-size:clamp(42px,6vw,72px)!important;line-height:1.05!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
   .oc-h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
@@ -44,59 +51,31 @@ export default function Page() {
   .oc-btn-text{position:relative;z-index:10;background-image:linear-gradient(90deg,hsla(0 0% 100%/1) 0%,hsla(0 0% 100%/0) 120%);background-clip:text;-webkit-background-clip:text;font-size:1rem;color:transparent;font-weight:600;font-family:'Playfair Display',serif!important}
   .oc-btn:hover .oc-btn-text{background-image:linear-gradient(90deg,hsla(0 0% 100%/1) 0%,hsla(0 0% 100%/1) 120%)}
 
-  /* ===== COMMAND HUB VISUAL ===== */
-  .oc-hub-svg{width:100%;height:100%;overflow:visible}
-  /* Rings */
-  .oc-hub-ring-orbit{fill:none;stroke:rgba(204,85,0,0.15);stroke-width:1;stroke-dasharray:4 9}
-  .oc-hub-ring-outer{fill:none;stroke:rgba(204,85,0,0.06);stroke-width:1;stroke-dasharray:5 40}
-  .oc-hub-ring-inner{fill:none;stroke:rgba(255,255,255,0.06);stroke-width:1}
-  .oc-hub-ring-mid{fill:none;stroke:rgba(204,85,0,0.08);stroke-width:1;stroke-dasharray:2 18;transform-origin:250px 250px;animation:ocHubSpin 28s linear infinite}
-  /* Scan arcs */
-  .oc-hub-scan-arcs{transform-origin:250px 250px;animation:ocHubSpin 12s linear infinite}
-  .oc-hub-scan-a{fill:none;stroke:rgba(204,85,0,0.55);stroke-width:2;stroke-linecap:round}
-  .oc-hub-scan-b{fill:none;stroke:rgba(204,85,0,0.18);stroke-width:1.5;stroke-linecap:round}
-  @keyframes ocHubSpin{to{transform:rotate(360deg)}}
-  /* Sector arcs */
-  .oc-hub-arc{fill:none;stroke:rgba(204,85,0,0.08);stroke-width:1.5}
-  /* Center */
-  .oc-hub-center-ring{fill:none;stroke:rgba(204,85,0,0.22);stroke-width:1;animation:ocHubRingPulse 6s ease-in-out infinite}
-  .oc-hub-center-hex{fill:rgba(204,85,0,0.07);stroke:#CC5500;stroke-width:1.5;animation:ocHubPulse 4s ease-in-out infinite}
-  @keyframes ocHubPulse{0%,100%{stroke-opacity:0.45;fill-opacity:0.04}50%{stroke-opacity:1;fill-opacity:0.1}}
-  @keyframes ocHubRingPulse{0%,100%{stroke-opacity:0.12}50%{stroke-opacity:0.4}}
-  /* Center labels */
-  .oc-hub-center-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;fill:#CC5500;text-anchor:middle;dominant-baseline:middle}
-  .oc-hub-center-sub{font-family:'Roboto',sans-serif;font-size:8px;font-weight:700;fill:rgba(210,225,245,0.3);text-anchor:middle;dominant-baseline:middle;letter-spacing:2.5px}
-  .oc-hub-center-role{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;fill:#F0F4FA;text-anchor:middle;dominant-baseline:middle}
-  .oc-hub-center-keys{font-family:'Roboto',sans-serif;font-size:7.5px;font-weight:600;fill:rgba(204,85,0,0.9);text-anchor:middle;dominant-baseline:middle;letter-spacing:1.2px}
-  /* Label switching */
-  .oc-hub-label-default,.oc-hub-label-cto,.oc-hub-label-ceo,.oc-hub-label-cmo,.oc-hub-label-coo,.oc-hub-label-cio{transition:opacity 0.35s ease}
-  .oc-hub-label-cto,.oc-hub-label-ceo,.oc-hub-label-cmo,.oc-hub-label-coo,.oc-hub-label-cio{opacity:0;pointer-events:none}
-  .oc-hub-svg:has(.oc-hub-role:hover) .oc-hub-label-default{opacity:0}
-  .oc-hub-svg:has(.oc-role-cto:hover) .oc-hub-label-cto{opacity:1}
-  .oc-hub-svg:has(.oc-role-ceo:hover) .oc-hub-label-ceo{opacity:1}
-  .oc-hub-svg:has(.oc-role-cmo:hover) .oc-hub-label-cmo{opacity:1}
-  .oc-hub-svg:has(.oc-role-coo:hover) .oc-hub-label-coo{opacity:1}
-  .oc-hub-svg:has(.oc-role-cio:hover) .oc-hub-label-cio{opacity:1}
-  /* Connecting lines */
-  .oc-hub-line{fill:none;stroke-width:1.5;stroke-dasharray:4 16;animation:ocHubFlow 2.2s linear infinite}
-  @keyframes ocHubFlow{to{stroke-dashoffset:-20}}
-  .oc-hub-role:hover .oc-hub-line{stroke-width:2;animation-duration:0.9s}
-  /* Role nodes */
-  .oc-hub-role{cursor:pointer}
-  .oc-hub-node{fill:rgba(8,18,38,0.96);stroke:rgba(204,85,0,0.35);stroke-width:1.5;transition:fill 0.3s,stroke 0.3s,stroke-width 0.3s,filter 0.3s}
-  .oc-hub-hittarget{fill:transparent;pointer-events:all}
-  .oc-hub-role:hover .oc-hub-node{fill:rgba(204,85,0,0.1);stroke:#CC5500;stroke-width:2.5;filter:url(#hubglow)}
-  .oc-hub-icon{fill:none;stroke:rgba(204,85,0,0.5);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;transition:stroke 0.3s}
-  .oc-hub-role:hover .oc-hub-icon{stroke:#CC5500}
-  .oc-hub-abbr{font-family:'Roboto',sans-serif;font-size:8px;font-weight:800;fill:rgba(210,225,245,0.5);text-anchor:middle;dominant-baseline:middle;pointer-events:none;letter-spacing:1.5px;transition:fill 0.3s}
-  .oc-hub-role:hover .oc-hub-abbr{fill:rgba(210,225,245,0.9)}
-  /* Cardinal diamonds */
-  .oc-hub-diamond{fill:rgba(204,85,0,0.5);transition:fill 0.3s}
-  /* HUD corners */
-  .oc-hub-corner{fill:none;stroke:rgba(204,85,0,0.3);stroke-width:2;stroke-linecap:square}
-  /* Orbit dots */
-  .oc-hub-dot{animation:ocHubDotPulse 3.5s ease-in-out infinite}
-  @keyframes ocHubDotPulse{0%,100%{opacity:0.25}50%{opacity:0.75}}
+  /* ===== ORG CHART VISUAL ===== */
+  .oc-org-svg{width:100%;height:100%}
+  .oc-org-line{stroke:rgba(204,85,0,0.3);stroke-width:2;fill:none;stroke-dasharray:200;stroke-dashoffset:200;animation:ocDrawLine 2s ease forwards}
+  .oc-org-line:nth-child(2){animation-delay:0.2s}
+  .oc-org-line:nth-child(3){animation-delay:0.4s}
+  .oc-org-line:nth-child(4){animation-delay:0.6s}
+  .oc-org-line:nth-child(5){animation-delay:0.8s}
+  @keyframes ocDrawLine{to{stroke-dashoffset:0}}
+  .oc-org-node{fill:#0B1D3A;stroke:#CC5500;stroke-width:2;opacity:0;animation:ocNodeIn .5s ease forwards}
+  .oc-org-node:nth-of-type(6){animation-delay:0.3s}
+  .oc-org-node:nth-of-type(7){animation-delay:0.5s}
+  .oc-org-node:nth-of-type(8){animation-delay:0.7s}
+  .oc-org-node:nth-of-type(9){animation-delay:0.9s}
+  .oc-org-node:nth-of-type(10){animation-delay:1.1s}
+  .oc-org-node:nth-of-type(11){animation-delay:1.3s}
+  @keyframes ocNodeIn{to{opacity:1}}
+  .oc-org-glow{fill:none;stroke:#CC5500;stroke-width:3;opacity:0;filter:url(#ocglow);animation:ocPulse 3s ease-in-out infinite}
+  .oc-org-glow:nth-of-type(12){animation-delay:0s}
+  .oc-org-glow:nth-of-type(13){animation-delay:0.6s}
+  .oc-org-glow:nth-of-type(14){animation-delay:1.2s}
+  .oc-org-glow:nth-of-type(15){animation-delay:1.8s}
+  .oc-org-glow:nth-of-type(16){animation-delay:2.4s}
+  @keyframes ocPulse{0%,100%{opacity:0}30%,70%{opacity:0.7}50%{opacity:1}}
+  .oc-org-label{font-family:'Roboto',sans-serif;font-size:10px;font-weight:700;fill:rgba(210,225,245,0.7);text-anchor:middle;opacity:0;animation:ocNodeIn .5s ease forwards}
+  .oc-org-top-label{font-family:'Playfair Display',serif;font-size:13px;font-weight:900;fill:#CC5500;text-anchor:middle;opacity:0;animation:ocNodeIn .5s ease forwards;animation-delay:0.3s}
 
   /* ===== FRACTIONAL MODEL ===== */
   .oc-section{max-width:1200px;margin:0 auto;padding:100px 40px}
@@ -149,6 +128,29 @@ export default function Page() {
   .oc-flow-connector:nth-of-type(2)::after{animation-delay:0s}.oc-flow-connector:nth-of-type(4)::after{animation-delay:.5s}.oc-flow-connector:nth-of-type(6)::after{animation-delay:1s}.oc-flow-connector:nth-of-type(8)::after{animation-delay:1.5s}
   @keyframes ocFlowDot{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 8px);opacity:0}}
 
+  /* ===== PRICING ===== */
+  .oc-pricing{max-width:1100px;margin:0 auto;padding:80px 40px 40px}
+  .oc-pricing-title{text-align:center;font-size:clamp(32px,5vw,48px)!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important;margin-bottom:12px}
+  .oc-pricing-title span{color:#CC5500}
+  .oc-pricing-sub{text-align:center;font-family:'Roboto',sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+  .oc-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .oc-tier{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 28px;position:relative;transition:all .3s;display:flex;flex-direction:column}
+  .oc-tier:hover{border-color:rgba(204,85,0,0.3);transform:translateY(-4px)}
+  .oc-tier.featured{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.04)}
+  .oc-tier.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:white;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
+  .oc-tier-name{font-size:20px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
+  .oc-tier-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
+  .oc-tier-price{font-family:'Playfair Display',serif!important;font-size:32px;font-weight:900;color:#CC5500;margin-bottom:4px}
+  .oc-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:'Roboto',sans-serif;font-weight:400}
+  .oc-tier-note{font-family:'Roboto',sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
+  .oc-tier ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
+  .oc-tier li{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+  .oc-tier li::before{content:'✓ ';color:#CC5500;font-weight:700}
+  .oc-tier-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;border:1px solid rgba(204,85,0,0.3);color:#CC5500;background:transparent}
+  .oc-tier-btn:hover{background:rgba(204,85,0,0.08);border-color:#CC5500}
+  .oc-tier-btn.primary{background:linear-gradient(135deg,#CC5500,#E2725B);color:white;border:none}
+  .oc-tier-btn.primary:hover{opacity:0.9;transform:translateY(-1px)}
+
   /* ===== CTA ===== */
   .oc-cta{max-width:900px;margin:0 auto;padding:120px 40px 100px;text-align:center}
   .oc-cta-title{font-size:clamp(36px,5vw,56px)!important;line-height:1.08;margin-bottom:24px!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important}
@@ -166,7 +168,7 @@ export default function Page() {
   @media(max-width:768px){
     .oc-hero{padding:100px 20px 60px;min-height:70vh}
     .oc-hero-inner{flex-direction:column;text-align:center}
-    .oc-hero-visual{width:300px;height:300px;margin:0 auto}
+    .oc-hero-visual{width:300px;height:260px;margin:0 auto}
     .oc-h1{font-size:36px!important}
     .oc-compare{grid-template-columns:1fr}
     .oc-roles-grid{grid-template-columns:1fr}
@@ -175,6 +177,8 @@ export default function Page() {
     .oc-build-flow{flex-wrap:wrap;gap:8px;padding:40px 20px}.oc-flow-connector{display:none}.oc-flow-node{flex:0 0 calc(50% - 8px)}
     .oc-section{padding:60px 20px}
     .oc-cta{padding:80px 20px}
+    .oc-pricing{padding:60px 20px 20px}
+    .oc-tiers{grid-template-columns:1fr}
   }
 </style>
 
@@ -186,218 +190,43 @@ export default function Page() {
       <h1 class="oc-h1">Your Fractional <span>C-Suite</span>, Powered by AI</h1>
       <p class="oc-hero-sub">Executive-level strategy meets hands-on AI engineering. We embed as your CTO, CEO, CMO, COO, or CIO &mdash; and build the systems to match.</p>
       <div style="display:flex;gap:18px;flex-wrap:wrap">
-        <a href="https://book.orengen.io/coffeechat" class="oc-btn" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenconsulting" class="oc-btn" aria-label="Talk to a strategist about OrenConsulting">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path></svg>
-          <span class="oc-btn-text">Book a Strategy Call</span>
+          <span class="oc-btn-text">Talk to a Strategist</span>
         </a>
       </div>
     </div>
     <div class="oc-hero-visual">
-      <svg class="oc-hub-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="hubglow" x="-70%" y="-70%" width="240%" height="240%">
-            <feGaussianBlur stdDeviation="7" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="hubglowsm" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <radialGradient id="hubbg" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(204,85,0,0.1)"/>
-            <stop offset="70%" stop-color="rgba(11,29,58,0.3)"/>
-            <stop offset="100%" stop-color="rgba(8,18,38,0)"/>
-          </radialGradient>
-          <!-- Per-line gradients: orange at center, fading outward -->
-          <linearGradient id="lg-cto" x1="250" y1="198" x2="250" y2="119" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#CC5500" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#CC5500" stop-opacity="0.12"/>
-          </linearGradient>
-          <linearGradient id="lg-ceo" x1="300" y1="234" x2="375" y2="210" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#CC5500" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#CC5500" stop-opacity="0.12"/>
-          </linearGradient>
-          <linearGradient id="lg-cmo" x1="281" y1="292" x2="328" y2="357" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#CC5500" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#CC5500" stop-opacity="0.12"/>
-          </linearGradient>
-          <linearGradient id="lg-coo" x1="219" y1="292" x2="172" y2="357" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#CC5500" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#CC5500" stop-opacity="0.12"/>
-          </linearGradient>
-          <linearGradient id="lg-cio" x1="200" y1="234" x2="125" y2="210" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#CC5500" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#CC5500" stop-opacity="0.12"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Background disk -->
-        <circle cx="250" cy="250" r="234" fill="rgba(7,16,34,0.75)" stroke="rgba(204,85,0,0.08)" stroke-width="1"/>
-        <circle cx="250" cy="250" r="234" fill="url(#hubbg)"/>
-
-        <!-- HUD corner brackets -->
-        <path d="M 28 72 L 28 28 L 72 28" class="oc-hub-corner"/>
-        <path d="M 472 72 L 472 28 L 428 28" class="oc-hub-corner"/>
-        <path d="M 28 428 L 28 472 L 72 472" class="oc-hub-corner"/>
-        <path d="M 472 428 L 472 472 L 428 472" class="oc-hub-corner"/>
-
-        <!-- Outer static tick ring -->
-        <circle cx="250" cy="250" r="220" class="oc-hub-ring-outer"/>
-
-        <!-- Mid spinning ring -->
-        <circle cx="250" cy="250" r="196" class="oc-hub-ring-mid"/>
-
-        <!-- Orbital ring -->
-        <circle cx="250" cy="250" r="165" class="oc-hub-ring-orbit"/>
-
-        <!-- Inner ring around center -->
-        <circle cx="250" cy="250" r="80" class="oc-hub-ring-inner"/>
-
-        <!-- Sector arc boundaries between nodes -->
-        <path d="M 250 85 A 165 165 0 0 1 407 199" class="oc-hub-arc"/>
-        <path d="M 407 199 A 165 165 0 0 1 347 383" class="oc-hub-arc"/>
-        <path d="M 347 383 A 165 165 0 0 1 153 383" class="oc-hub-arc"/>
-        <path d="M 153 383 A 165 165 0 0 1 93 199" class="oc-hub-arc"/>
-        <path d="M 93 199 A 165 165 0 0 1 250 85" class="oc-hub-arc"/>
-
-        <!-- Cardinal point diamonds on orbit ring -->
-        <polygon class="oc-hub-diamond" points="250,29 254,39 250,49 246,39" filter="url(#hubglowsm)"/>
-        <polygon class="oc-hub-diamond" points="451,246 461,250 451,254 441,250" style="opacity:0.35"/>
-        <polygon class="oc-hub-diamond" points="250,451 254,461 250,471 246,461" style="opacity:0.35"/>
-        <polygon class="oc-hub-diamond" points="39,246 49,250 39,254 29,250" style="opacity:0.35"/>
-
-        <!-- Rotating scan arcs (the key dynamic element) -->
-        <g class="oc-hub-scan-arcs">
-          <!-- Primary scan arc: 80° sweep on outer ring r=220 -->
-          <path d="M 250 30 A 220 220 0 0 1 442 358" class="oc-hub-scan-a"/>
-          <!-- Secondary ghost arc: offset 180°, softer -->
-          <path d="M 250 470 A 220 220 0 0 1 58 142" class="oc-hub-scan-b"/>
-        </g>
-
-        <!-- Orbit position dots -->
-        <circle cx="250" cy="85" r="3.5" fill="#CC5500" class="oc-hub-dot" style="animation-delay:0s"/>
-        <circle cx="407" cy="199" r="3.5" fill="#CC5500" class="oc-hub-dot" style="animation-delay:0.7s"/>
-        <circle cx="347" cy="383" r="3.5" fill="#CC5500" class="oc-hub-dot" style="animation-delay:1.4s"/>
-        <circle cx="153" cy="383" r="3.5" fill="#CC5500" class="oc-hub-dot" style="animation-delay:2.1s"/>
-        <circle cx="93" cy="199" r="3.5" fill="#CC5500" class="oc-hub-dot" style="animation-delay:2.8s"/>
-
-        <!-- Center glow halo -->
-        <circle cx="250" cy="250" r="72" fill="rgba(204,85,0,0.05)" filter="url(#hubglow)"/>
-
-        <!-- Center outer ring (double hex effect) -->
-        <polygon class="oc-hub-center-ring" points="303,221 303,279 250,308 197,279 197,221 250,192"/>
-
-        <!-- Center hex (flat-top, r=48) -->
-        <polygon class="oc-hub-center-hex" points="292,226 292,274 250,298 208,274 208,226 250,202"/>
-
-        <!-- Center label: default -->
-        <g class="oc-hub-label-default">
-          <text class="oc-hub-center-title" x="250" y="246">OrenGen</text>
-          <text class="oc-hub-center-sub" x="250" y="265">COMMAND HUB</text>
-        </g>
-        <!-- Center label: CTO -->
-        <g class="oc-hub-label-cto">
-          <text class="oc-hub-center-role" x="250" y="236">Chief Technology</text>
-          <text class="oc-hub-center-role" x="250" y="252">Officer</text>
-          <text class="oc-hub-center-keys" x="250" y="268">AI · SYSTEMS · ENGINEERING</text>
-        </g>
-        <!-- Center label: CEO -->
-        <g class="oc-hub-label-ceo">
-          <text class="oc-hub-center-role" x="250" y="236">Chief Executive</text>
-          <text class="oc-hub-center-role" x="250" y="252">Officer</text>
-          <text class="oc-hub-center-keys" x="250" y="268">STRATEGY · VISION · GROWTH</text>
-        </g>
-        <!-- Center label: CMO -->
-        <g class="oc-hub-label-cmo">
-          <text class="oc-hub-center-role" x="250" y="236">Chief Marketing</text>
-          <text class="oc-hub-center-role" x="250" y="252">Officer</text>
-          <text class="oc-hub-center-keys" x="250" y="268">BRAND · GROWTH · DEMAND</text>
-        </g>
-        <!-- Center label: COO -->
-        <g class="oc-hub-label-coo">
-          <text class="oc-hub-center-role" x="250" y="236">Chief Operating</text>
-          <text class="oc-hub-center-role" x="250" y="252">Officer</text>
-          <text class="oc-hub-center-keys" x="250" y="268">PROCESS · TEAMS · SYSTEMS</text>
-        </g>
-        <!-- Center label: CIO -->
-        <g class="oc-hub-label-cio">
-          <text class="oc-hub-center-role" x="250" y="236">Chief Information</text>
-          <text class="oc-hub-center-role" x="250" y="252">Officer</text>
-          <text class="oc-hub-center-keys" x="250" y="268">DATA · SECURITY · DIGITAL</text>
-        </g>
-
-        <!-- Role: CTO (top) -->
-        <g class="oc-hub-role oc-role-cto">
-          <line class="oc-hub-line" x1="250" y1="202" x2="250" y2="119" stroke="url(#lg-cto)" style="animation-delay:0s"/>
-          <circle class="oc-hub-hittarget" cx="250" cy="85" r="46"/>
-          <polygon class="oc-hub-node" points="279,68 279,102 250,119 221,102 221,68 250,51"/>
-          <!-- CTO icon: processor chip -->
-          <g transform="translate(250,79)" class="oc-hub-icon">
-            <rect x="-6" y="-5" width="12" height="10" rx="1"/>
-            <line x1="-2" y1="-8" x2="-2" y2="-5"/><line x1="2" y1="-8" x2="2" y2="-5"/>
-            <line x1="-2" y1="5" x2="-2" y2="8"/><line x1="2" y1="5" x2="2" y2="8"/>
-            <line x1="-9" y1="-2" x2="-6" y2="-2"/><line x1="-9" y1="2" x2="-6" y2="2"/>
-            <line x1="6" y1="-2" x2="9" y2="-2"/><line x1="6" y1="2" x2="9" y2="2"/>
-          </g>
-          <text class="oc-hub-abbr" x="250" y="96">CTO</text>
-        </g>
-
-        <!-- Role: CEO (upper-right) -->
-        <g class="oc-hub-role oc-role-ceo">
-          <line class="oc-hub-line" x1="300" y1="234" x2="375" y2="210" stroke="url(#lg-ceo)" style="animation-delay:0.44s"/>
-          <circle class="oc-hub-hittarget" cx="407" cy="199" r="46"/>
-          <polygon class="oc-hub-node" points="436,182 436,216 407,233 378,216 378,182 407,165"/>
-          <!-- CEO icon: upward arrow -->
-          <g transform="translate(407,192)" class="oc-hub-icon">
-            <polyline points="-6,6 0,-6 6,6"/>
-            <line x1="0" y1="-6" x2="0" y2="7"/>
-          </g>
-          <text class="oc-hub-abbr" x="407" y="210">CEO</text>
-        </g>
-
-        <!-- Role: CMO (lower-right) -->
-        <g class="oc-hub-role oc-role-cmo">
-          <line class="oc-hub-line" x1="281" y1="292" x2="328" y2="357" stroke="url(#lg-cmo)" style="animation-delay:0.88s"/>
-          <circle class="oc-hub-hittarget" cx="347" cy="383" r="46"/>
-          <polygon class="oc-hub-node" points="376,366 376,400 347,417 318,400 318,366 347,349"/>
-          <!-- CMO icon: broadcast waves -->
-          <g transform="translate(347,376)" class="oc-hub-icon">
-            <path d="M -3,6 A 4 4 0 0 1 3,6"/>
-            <path d="M -6,3 A 7 7 0 0 1 6,3"/>
-            <path d="M -9,0 A 10 10 0 0 1 9,0"/>
-          </g>
-          <text class="oc-hub-abbr" x="347" y="395">CMO</text>
-        </g>
-
-        <!-- Role: COO (lower-left) -->
-        <g class="oc-hub-role oc-role-coo">
-          <line class="oc-hub-line" x1="219" y1="292" x2="172" y2="357" stroke="url(#lg-coo)" style="animation-delay:1.32s"/>
-          <circle class="oc-hub-hittarget" cx="153" cy="383" r="46"/>
-          <polygon class="oc-hub-node" points="182,366 182,400 153,417 124,400 124,366 153,349"/>
-          <!-- COO icon: settings cross + circle -->
-          <g transform="translate(153,376)" class="oc-hub-icon">
-            <circle cx="0" cy="0" r="5"/>
-            <line x1="0" y1="-9" x2="0" y2="9"/>
-            <line x1="-9" y1="0" x2="9" y2="0"/>
-          </g>
-          <text class="oc-hub-abbr" x="153" y="395">COO</text>
-        </g>
-
-        <!-- Role: CIO (upper-left) -->
-        <g class="oc-hub-role oc-role-cio">
-          <line class="oc-hub-line" x1="200" y1="234" x2="125" y2="210" stroke="url(#lg-cio)" style="animation-delay:1.76s"/>
-          <circle class="oc-hub-hittarget" cx="93" cy="199" r="46"/>
-          <polygon class="oc-hub-node" points="122,182 122,216 93,233 64,216 64,182 93,165"/>
-          <!-- CIO icon: database stack -->
-          <g transform="translate(93,192)" class="oc-hub-icon">
-            <ellipse cx="0" cy="-4" rx="7" ry="3"/>
-            <line x1="-7" y1="-4" x2="-7" y2="4"/>
-            <line x1="7" y1="-4" x2="7" y2="4"/>
-            <path d="M -7,4 A 7 3 0 0 0 7,4"/>
-          </g>
-          <text class="oc-hub-abbr" x="93" y="210">CIO</text>
-        </g>
+      <svg class="oc-org-svg" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg">
+        <defs><filter id="ocglow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+        <!-- Lines from top node to 5 role nodes -->
+        <line class="oc-org-line" x1="210" y1="70" x2="50" y2="220"/>
+        <line class="oc-org-line" x1="210" y1="70" x2="130" y2="220"/>
+        <line class="oc-org-line" x1="210" y1="70" x2="210" y2="220"/>
+        <line class="oc-org-line" x1="210" y1="70" x2="290" y2="220"/>
+        <line class="oc-org-line" x1="210" y1="70" x2="370" y2="220"/>
+        <!-- Top node -->
+        <rect class="oc-org-node" x="170" y="35" width="80" height="36" rx="8"/>
+        <!-- 5 role nodes -->
+        <rect class="oc-org-node" x="20" y="205" width="60" height="32" rx="6"/>
+        <rect class="oc-org-node" x="100" y="205" width="60" height="32" rx="6"/>
+        <rect class="oc-org-node" x="180" y="205" width="60" height="32" rx="6"/>
+        <rect class="oc-org-node" x="260" y="205" width="60" height="32" rx="6"/>
+        <rect class="oc-org-node" x="340" y="205" width="60" height="32" rx="6"/>
+        <!-- Glow on role nodes -->
+        <circle class="oc-org-glow" cx="50" cy="221" r="22"/>
+        <circle class="oc-org-glow" cx="130" cy="221" r="22"/>
+        <circle class="oc-org-glow" cx="210" cy="221" r="22"/>
+        <circle class="oc-org-glow" cx="290" cy="221" r="22"/>
+        <circle class="oc-org-glow" cx="370" cy="221" r="22"/>
+        <!-- Labels -->
+        <text class="oc-org-top-label" x="210" y="58" style="animation-delay:0.3s">OrenGen</text>
+        <text class="oc-org-label" x="50" y="260" style="animation-delay:0.5s">CTO</text>
+        <text class="oc-org-label" x="130" y="260" style="animation-delay:0.7s">CEO</text>
+        <text class="oc-org-label" x="210" y="260" style="animation-delay:0.9s">CMO</text>
+        <text class="oc-org-label" x="290" y="260" style="animation-delay:1.1s">COO</text>
+        <text class="oc-org-label" x="370" y="260" style="animation-delay:1.3s">CIO</text>
       </svg>
     </div>
   </div>
@@ -472,12 +301,80 @@ export default function Page() {
   <div class="oc-flow-node"><div class="oc-flow-icon amber"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="oc-flow-label">Optimize</div></div>
 </section>
 
+<!-- PRICING -->
+<section class="oc-pricing">
+  <h2 class="oc-pricing-title">Fractional C-Suite <span>Pricing</span></h2>
+  <p class="oc-pricing-sub">Executive-level leadership at a fraction of the cost. Deploy in 2 weeks, cancel anytime.</p>
+  <div class="oc-tiers">
+    <div class="oc-tier">
+      <div class="oc-tier-name">Standard</div>
+      <div class="oc-tier-desc">1 fractional role, strategic advisory &amp; execution.</div>
+      <div class="oc-tier-price">$8,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $80,000/yr (save 17%)</div>
+      <ul>
+        <li>1 Fractional C-Suite role</li>
+        <li>10–15 hours per week</li>
+        <li>Strategic advisory &amp; planning</li>
+        <li>AI systems architecture</li>
+        <li>Monthly reporting</li>
+        <li>Deploy in 2 weeks</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier featured">
+      <div class="oc-tier-name">Professional</div>
+      <div class="oc-tier-desc">1–2 roles with deeper integration into your team.</div>
+      <div class="oc-tier-price">$15,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $150,000/yr (save 17%)</div>
+      <ul>
+        <li>1–2 Fractional C-Suite roles</li>
+        <li>20–25 hours per week</li>
+        <li>Team integration &amp; leadership</li>
+        <li>AI implementation &amp; management</li>
+        <li>Bi-weekly strategy sessions</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn primary" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier">
+      <div class="oc-tier-name">Premium</div>
+      <div class="oc-tier-desc">Full C-suite access with dedicated leadership.</div>
+      <div class="oc-tier-price">$25,000 <span>/mo</span></div>
+      <div class="oc-tier-note">Annual: $250,000/yr (save 17%)</div>
+      <ul>
+        <li>Full C-Suite access</li>
+        <li>Dedicated executive leadership</li>
+        <li>Enterprise-scale AI strategy</li>
+        <li>Board &amp; investor support</li>
+        <li>Weekly strategy sessions</li>
+        <li>Dedicated success manager</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <div class="oc-tier" style="border-color:rgba(204,85,0,0.15);background:rgba(15,40,71,0.3)">
+      <div class="oc-tier-name">Enterprise</div>
+      <div class="oc-tier-desc">Custom-scoped executive AI leadership for complex organizations.</div>
+      <div class="oc-tier-price">Custom</div>
+      <div class="oc-tier-note">Scoped to your organization</div>
+      <ul>
+        <li>Multi-executive deployment</li>
+        <li>Custom AI engineering team</li>
+        <li>Full organizational transformation</li>
+        <li>White-label &amp; IP ownership</li>
+        <li>SLA &amp; enterprise agreements</li>
+        <li>White-glove onboarding</li>
+      </ul>
+      <a href="https://calendly.com/orengenio/30min" class="oc-tier-btn" target="_blank" rel="noopener">Book a Strategy Call</a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="oc-cta">
   <h2 class="oc-cta-title">Ready for Executive-Level <span class="oc-highlight">AI Leadership?</span></h2>
   <p class="oc-cta-desc">Stop settling for generic consultants. Get a fractional executive who builds, not just advises.</p>
   <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center">
-    <a href="https://book.orengen.io/coffeechat" class="oc-btn" target="_blank" rel="noopener">
+    <a href="https://calendly.com/orengenio/30min" class="oc-btn" target="_blank" rel="noopener">
       <div class="dots_border"></div>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle"><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"></path><path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black" d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"></path></svg>
       <span class="oc-btn-text">Book a Strategy Call</span>
@@ -493,5 +390,6 @@ export default function Page() {
   <div class="oc-stat"><span class="oc-stat-val">Month-to-month</span><span class="oc-stat-label">No long-term contracts</span></div>
 </section>
 ` }} />
+    </>
   );
 }

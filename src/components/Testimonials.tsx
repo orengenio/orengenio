@@ -96,11 +96,17 @@ export function Testimonials() {
 
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
+    const handler = (e: MediaQueryListEvent | MediaQueryList) =>
+      setPrefersReducedMotion(e.matches);
+    handler(mq);
+    mq.addEventListener("change", handler as (e: MediaQueryListEvent) => void);
+    return () =>
+      mq.removeEventListener(
+        "change",
+        handler as (e: MediaQueryListEvent) => void,
+      );
   }, []);
 
   return (

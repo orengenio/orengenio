@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { OrbChatWrapper } from "@/components/OrbChatWrapper";
+import { Analytics } from "@/components/Analytics";
+import { ContactBar } from "@/components/ContactBar";
 import { Geist, Geist_Mono, Playfair_Display, Roboto } from "next/font/google";
 
 const geistSans = Geist({
@@ -104,10 +106,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+          <ContactBar />
           {children}
           <Footer />
           <OrbChatWrapper />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ const html = `
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .legal-page * { margin: 0; padding: 0; box-sizing: border-box; }
 
     .page-header {
       padding: 120px 20px 60px;
@@ -651,11 +651,11 @@ th {
 
 export default function Page() {
   return (
-    <div className="pt-24 pb-12" dangerouslySetInnerHTML={{ __html: `
+    <div className="pt-24 pb-12 legal-page" dangerouslySetInnerHTML={{ __html: `
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .legal-page * { margin: 0; padding: 0; box-sizing: border-box; }
 
     .page-header {
       padding: 120px 20px 60px;

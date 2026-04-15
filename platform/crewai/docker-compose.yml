@@ -1,0 +1,34 @@
+# OrenGen CrewAI lead-qualifier service.
+# Designed for Coolify: Coolify provisions the public FQDN via the
+# SERVICE_FQDN_CREWAI_8000 magic env var and routes :8000 internally.
+#
+# Deploy: point a Coolify "Docker Compose" resource at this file.
+services:
+  crewai:
+    container_name: orengen-crewai
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orengen/crewai:latest
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      # Coolify magic var — populated automatically with the public FQDN.
+      - SERVICE_FQDN_CREWAI_8000
+      # LLM provider keys — at least ANTHROPIC_API_KEY should be set for the
+      # Claude-backed tools. OPENAI_API_KEY is read by crewai itself if you
+      # want to use OpenAI-backed agents instead.
+      - ANTHROPIC_API_KEY
+      - OPENAI_API_KEY
+      # Shared secret required on the X-OrenGen-Token header.
+      - INTERNAL_API_TOKEN
+      # Where qualification verdicts get POSTed for downstream automation.
+      - N8N_QUALIFIER_RESULT_WEBHOOK
+      - LOG_LEVEL=INFO
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s

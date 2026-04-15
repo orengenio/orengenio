@@ -1,0 +1,231 @@
+# OrenGen Platform — ERPNext on Coolify
+#
+# This docker-compose is designed for Coolify deployment.
+# Traefik handles SSL and routing to the frontend nginx container on port 8080.
+#
+# Site name should match your domain: app.orengen.io
+#
+# Required env vars (set in Coolify):
+#   DB_ROOT_PASSWORD, ADMIN_PASSWORD, ERPNEXT_VERSION
+#
+# Coolify will auto-generate SERVICE_FQDN_FRONTEND_8080 for the domain.
+
+x-erpnext-common: &erpnext-common
+  image: frappe/erpnext:${ERPNEXT_VERSION:-v15}
+  restart: unless-stopped
+  volumes:
+    - sites:/home/frappe/frappe-bench/sites
+
+services:
+  # ── Nginx reverse proxy (entry point for Traefik) ──────────────
+  frontend:
+    <<: *erpnext-common
+    command:
+      - nginx-entrypoint.sh
+    environment:
+      - BACKEND=backend:8000
+      - SOCKETIO=websocket:9000
+      - FRAPPE_SITE_NAME_HEADER=${SITE_NAME:-app.orengen.io}
+      - UPSTREAM_REAL_IP_ADDRESS=127.0.0.1
+      - UPSTREAM_REAL_IP_HEADER=X-Forwarded-For
+      - UPSTREAM_REAL_IP_RECURSIVE=off
+      - PROXY_READ_TIMEOUT=120
+      - CLIENT_MAX_BODY_SIZE=50m
+      - SERVICE_FQDN_FRONTEND_8080
+    depends_on:
+      backend:
+        condition: service_started
+      websocket:
+        condition: service_started
+
+  # ── Frappe/ERPNext application server ──────────────────────────
+  backend:
+    <<: *erpnext-common
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  # ── Background workers ─────────────────────────────────────────
+  queue-short:
+    <<: *erpnext-common
+    command:
+      - bench
+      - worker
+      - --queue
+      - short,default
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  queue-long:
+    <<: *erpnext-common
+    command:
+      - bench
+      - worker
+      - --queue
+      - long
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  # ── Scheduler (cron jobs) ──────────────────────────────────────
+  scheduler:
+    <<: *erpnext-common
+    command:
+      - bench
+      - schedule
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  # ── WebSocket server (real-time updates) ───────────────────────
+  websocket:
+    <<: *erpnext-common
+    command:
+      - node
+      - /home/frappe/frappe-bench/apps/frappe/socketio.js
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  # ── One-shot configurator (writes common_site_config.json) ─────
+  configurator:
+    <<: *erpnext-common
+    restart: "no"
+    entrypoint:
+      - bash
+      - -c
+    command:
+      - >
+        ls -1 apps > sites/apps.txt;
+        bench set-config -g db_host $$DB_HOST;
+        bench set-config -gp db_port $$DB_PORT;
+        bench set-config -g redis_cache "redis://$$REDIS_CACHE";
+        bench set-config -g redis_queue "redis://$$REDIS_QUEUE";
+        bench set-config -g redis_socketio "redis://$$REDIS_QUEUE";
+        bench set-config -gp socketio_port $$SOCKETIO_PORT;
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      REDIS_CACHE: redis-cache:6379
+      REDIS_QUEUE: redis-queue:6379
+      SOCKETIO_PORT: "9000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis-cache:
+        condition: service_started
+      redis-queue:
+        condition: service_started
+
+  # ── Site creator (one-shot, creates the ERPNext site) ──────────
+  create-site:
+    <<: *erpnext-common
+    restart: "no"
+    entrypoint:
+      - bash
+      - -c
+    command:
+      - |
+        set -e
+        wait-for-it -t 120 db:3306
+        wait-for-it -t 120 redis-cache:6379
+        wait-for-it -t 120 redis-queue:6379
+        start=$$(date +%s)
+        until [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty") ]] && [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty") ]] && [[ -n $$(grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty") ]]; do
+          echo "Waiting for configurator..."
+          sleep 5
+          if (( $$(date +%s)-start > 120 )); then
+            echo "Could not find configurator! Exiting..."
+            exit 1
+          fi
+        done
+        echo "Configurator found, checking site..."
+        if [[ ! -f sites/$${SITE_NAME}/site_config.json ]]; then
+          echo "Creating site $${SITE_NAME}..."
+          bench new-site --no-mariadb-socket --mariadb-root-password="$${DB_ROOT_PASSWORD}" --install-app erpnext --admin-password="$${ADMIN_PASSWORD}" "$${SITE_NAME}"
+        fi
+        echo "Checking for stale installed-apps entries (apps listed in site but missing from bench)..."
+        for app in $$(bench --site "$${SITE_NAME}" list-apps 2>/dev/null | awk '{print $$1}' | grep -v '^$$'); do
+          if [[ ! -d "apps/$$app" ]]; then
+            echo "  App '$$app' is listed as installed but missing from bench/apps/. Removing from installed-apps..."
+            bench --site "$${SITE_NAME}" remove-from-installed-apps "$$app" || echo "    remove-from-installed-apps $$app failed, continuing"
+          fi
+        done
+        echo "Running migrate (post-cleanup)..."
+        bench --site "$${SITE_NAME}" migrate || echo "Migrate failed but continuing"
+        echo "Checking setup wizard status..."
+        SETUP=$$(bench --site "$${SITE_NAME}" execute frappe.db.get_single_value --kwargs "{\"doctype\":\"System Settings\",\"field\":\"setup_complete\"}" 2>&1 | tail -1 | tr -d '[:space:]' || echo "")
+        echo "Setup complete flag: [$$SETUP]"
+        if [[ "$$SETUP" != "1" ]]; then
+          echo "Running direct setup (bypassing buggy setup wizard) for $${SITE_NAME}..."
+          COMPANY_ARGS='[{"country":"United States","currency":"USD","timezone":"America/New_York","company_name":"OrenGen","company_abbr":"OG","company_tagline":"","bank_account":"","chart_of_accounts":"Standard","fy_start_date":"2026-01-01","fy_end_date":"2026-12-31","language":"English","domains":["Services"]}]'
+          echo "Step 1: Installing fixtures (country=United States)..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.install_fixtures.install --args '["United States"]' 2>&1 || echo "install_fixtures warning"
+          echo "Step 2: Creating Company + Fiscal Year..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.company_setup.create_fiscal_year_and_company --args "$$COMPANY_ARGS" 2>&1 || echo "company creation warning"
+          echo "Step 3: Setting default ERPNext settings..."
+          bench --site "$${SITE_NAME}" execute erpnext.setup.setup_wizard.operations.defaults_setup.set_default_settings --args "$$COMPANY_ARGS" 2>&1 || echo "defaults_setup warning (may not exist in this version)"
+          echo "Step 4: Marking System Settings / Global Defaults..."
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "setup_complete", 1]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "country", "United States"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "currency", "USD"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "time_zone", "America/New_York"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["System Settings", "language", "en"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "default_company", "OrenGen"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "default_currency", "USD"]' 2>&1 || true
+          bench --site "$${SITE_NAME}" execute frappe.db.set_single_value --args '["Global Defaults", "country", "United States"]' 2>&1 || true
+          echo "Direct setup step done"
+        else
+          echo "Setup wizard already complete"
+        fi
+        echo "Finalizing: proper System Settings save + populate tabDefaultValue (drives bootinfo)..."
+        echo 'aW1wb3J0IGZyYXBwZQoKIyBGb3JjZS1zYXZlIFN5c3RlbSBTZXR0aW5ncyB2aWEgZG9jIHRvIHRyaWdnZXIgb25fdXBkYXRlIOKGkiBkZWZhdWx0cyBwcm9wYWdhdGlvbgpzcyA9IGZyYXBwZS5nZXRfZG9jKCJTeXN0ZW0gU2V0dGluZ3MiKQpzcy5zZXR1cF9jb21wbGV0ZSA9IDEKc3MuY291bnRyeSA9ICJVbml0ZWQgU3RhdGVzIgpzcy5jdXJyZW5jeSA9ICJVU0QiCnNzLnRpbWVfem9uZSA9ICJBbWVyaWNhL05ld19Zb3JrIgpzcy5sYW5ndWFnZSA9ICJlbiIKc3MuZmxhZ3MuaWdub3JlX21hbmRhdG9yeSA9IFRydWUKc3MuZmxhZ3MuaWdub3JlX3ZhbGlkYXRlID0gVHJ1ZQpzcy5zYXZlKGlnbm9yZV9wZXJtaXNzaW9ucz1UcnVlKQoKZ2QgPSBmcmFwcGUuZ2V0X2RvYygiR2xvYmFsIERlZmF1bHRzIikKZ2QuZGVmYXVsdF9jb21wYW55ID0gIk9yZW5HZW4iCmdkLmRlZmF1bHRfY3VycmVuY3kgPSAiVVNEIgpnZC5jb3VudHJ5ID0gIlVuaXRlZCBTdGF0ZXMiCmdkLmZsYWdzLmlnbm9yZV9tYW5kYXRvcnkgPSBUcnVlCmdkLmZsYWdzLmlnbm9yZV92YWxpZGF0ZSA9IFRydWUKZ2Quc2F2ZShpZ25vcmVfcGVybWlzc2lvbnM9VHJ1ZSkKCiMgQWxzbyBwb3B1bGF0ZSB0YWJEZWZhdWx0VmFsdWUgZGlyZWN0bHkgKGJvb3RpbmZvLnN5c2RlZmF1bHRzIHNvdXJjZSkKZnJhcHBlLmRiLnNldF9kZWZhdWx0KCJzZXR1cF9jb21wbGV0ZSIsICIxIikKZnJhcHBlLmRiLnNldF9kZWZhdWx0KCJjb3VudHJ5IiwgIlVuaXRlZCBTdGF0ZXMiKQpmcmFwcGUuZGIuc2V0X2RlZmF1bHQoImN1cnJlbmN5IiwgIlVTRCIpCmZyYXBwZS5kYi5zZXRfZGVmYXVsdCgiY29tcGFueSIsICJPcmVuR2VuIikKZnJhcHBlLmRiLnNldF9kZWZhdWx0KCJkZWZhdWx0X2NvbXBhbnkiLCAiT3JlbkdlbiIpCmZyYXBwZS5kYi5zZXRfZGVmYXVsdCgiZGVmYXVsdF9jdXJyZW5jeSIsICJVU0QiKQpmcmFwcGUuZGIuc2V0X2RlZmF1bHQoInRpbWVfem9uZSIsICJBbWVyaWNhL05ld19Zb3JrIikKZnJhcHBlLmRiLnNldF9kZWZhdWx0KCJsYW5ndWFnZSIsICJlbiIpCgojIEFkbWluIHVzZXIgcHJvZmlsZQp0cnk6CiAgICBhZG1pbiA9IGZyYXBwZS5nZXRfZG9jKCJVc2VyIiwgIkFkbWluaXN0cmF0b3IiKQogICAgYWRtaW4uZW1haWwgPSAiYWRtaW5Ab3Jlbmdlbi5pbyIKICAgIGFkbWluLmZpcnN0X25hbWUgPSAiQWRtaW5pc3RyYXRvciIKICAgIGFkbWluLmxhbmd1YWdlID0gImVuIgogICAgYWRtaW4udGltZV96b25lID0gIkFtZXJpY2EvTmV3X1lvcmsiCiAgICBhZG1pbi5zYXZlKGlnbm9yZV9wZXJtaXNzaW9ucz1UcnVlKQpleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICBwcmludChmImFkbWluIHVzZXIgd2FybmluZzoge2V9IikKCmZyYXBwZS5jbGVhcl9jYWNoZSgpCmZyYXBwZS5kYi5jb21taXQoKQpwcmludCgiRmluYWxpemUgc2V0dXAgY29tcGxldGUuIikK' | base64 -d > /tmp/finalize.py
+        bench --site "$${SITE_NAME}" console < /tmp/finalize.py 2>&1 || echo "finalize warning"
+        bench --site "$${SITE_NAME}" clear-cache || true
+        echo "Site initialization complete"
+    environment:
+      SITE_NAME: ${SITE_NAME:-app.orengen.io}
+      DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    depends_on:
+      configurator:
+        condition: service_completed_successfully
+
+  # ── MariaDB ────────────────────────────────────────────────────
+  db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    healthcheck:
+      test: mysqladmin ping -h localhost --password=${DB_ROOT_PASSWORD}
+      interval: 5s
+      retries: 15
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+
+  # ── Redis (cache) ──────────────────────────────────────────────
+  redis-cache:
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-cache-data:/data
+
+  # ── Redis (queue + socketio) ───────────────────────────────────
+  redis-queue:
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-queue-data:/data
+
+volumes:
+  db-data:
+  redis-cache-data:
+  redis-queue-data:
+  sites:
