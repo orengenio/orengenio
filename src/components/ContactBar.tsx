@@ -1,5 +1,7 @@
 "use client";
 
+import type { CSSProperties } from "react";
+
 /**
  * ContactBar — small floating "Call us / Text us" pair.
  *
@@ -15,7 +17,7 @@ export function ContactBar() {
   const tel = phone.replace(/[^\d+]/g, "");
   const smsBody = encodeURIComponent("Tell me more about OrenGen");
 
-  const containerStyle: React.CSSProperties = {
+  const containerStyle: CSSProperties = {
     position: "fixed",
     top: 14,
     right: 14,
@@ -25,7 +27,7 @@ export function ContactBar() {
     pointerEvents: "auto",
   };
 
-  const baseBtn: React.CSSProperties = {
+  const baseBtn: CSSProperties = {
     display: "inline-flex",
     alignItems: "center",
     gap: 6,
@@ -42,14 +44,14 @@ export function ContactBar() {
     transition: "transform 120ms ease, background 120ms ease",
   };
 
-  const callBtn: React.CSSProperties = {
+  const callBtn: CSSProperties = {
     ...baseBtn,
     background: "#CC5500",
     color: "#fff",
     boxShadow: "0 4px 14px rgba(204,85,0,0.35)",
   };
 
-  const smsBtn: React.CSSProperties = {
+  const smsBtn: CSSProperties = {
     ...baseBtn,
     background: "rgba(11,29,58,0.55)",
     color: "#fff",

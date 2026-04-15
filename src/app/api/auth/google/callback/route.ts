@@ -1,11 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
+import { timingSafeEqual } from "crypto";
+import { STATE_COOKIE } from "../route";
 
 /**
  * GET /api/auth/google/callback
  *
- * Google OAuth callback. Exchanges code for tokens, gets user profile,
- * syncs to ERPNext via n8n webhook, and redirects to app.orengen.io.
+ * Google OAuth callback. Verifies the CSRF `state` value against the
+ * HttpOnly cookie set by /api/auth/google, exchanges the code for tokens,
+ * fetches the user profile, syncs to ERPNext via n8n webhook, and
+ * redirects to app.orengen.io.
  */
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
+function safeEqual(a: string, b: string): boolean {
+  const aBuf = Buffer.from(a);
+  const bBuf = Buffer.from(b);
+  if (aBuf.length !== bBuf.length) return false;
+  return timingSafeEqual(aBuf, bBuf);
+}
+
 export async function GET(req: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://orengen.io";
   const appUrl = process.env.APP_URL || "https://app.orengen.io";
@@ -14,6 +28,8 @@ export async function GET(req: NextRequest) {
   try {
     const code = req.nextUrl.searchParams.get("code");
     const error = req.nextUrl.searchParams.get("error");
+    const stateParam = req.nextUrl.searchParams.get("state") ?? "";
+    const stateCookie = req.cookies.get(STATE_COOKIE)?.value ?? "";
 
     if (error) {
       return NextResponse.redirect(`${baseUrl}/login?error=${encodeURIComponent(error)}`);
@@ -21,6 +37,14 @@ export async function GET(req: NextRequest) {
 
     if (!code) {
       return NextResponse.redirect(`${baseUrl}/login?error=missing_code`);
+    }
+
+    // CSRF protection: state from Google must match the cookie we set.
+    if (!stateParam || !stateCookie || !safeEqual(stateParam, stateCookie)) {
+      console.warn("[Google OAuth] State mismatch — possible CSRF.");
+      const res = NextResponse.redirect(`${baseUrl}/login?error=invalid_state`);
+      res.cookies.delete(STATE_COOKIE);
+      return res;
     }
 
     // 1. Exchange code for tokens
@@ -91,7 +115,9 @@ export async function GET(req: NextRequest) {
       if (syncRes.ok) {
         const result = (await syncRes.json()) as { redirect?: string };
         if (result.redirect) {
-          return NextResponse.redirect(result.redirect);
+          const res = NextResponse.redirect(result.redirect);
+          res.cookies.delete(STATE_COOKIE);
+          return res;
         }
       } else {
         console.error("[Google OAuth] n8n sync failed:", await syncRes.text());
@@ -102,7 +128,9 @@ export async function GET(req: NextRequest) {
     }
 
     // 4. Redirect to app dashboard
-    return NextResponse.redirect(appUrl);
+    const res = NextResponse.redirect(appUrl);
+    res.cookies.delete(STATE_COOKIE);
+    return res;
   } catch (err) {
     console.error("[Google OAuth] Unexpected error:", err);
     return NextResponse.redirect(`${baseUrl}/login?error=unexpected`);

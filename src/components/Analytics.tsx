@@ -55,9 +55,9 @@ export function Analytics() {
         <>
           <Script id="linkedin-insight-init" strategy="afterInteractive">
             {`
-              _linkedin_partner_id = "${linkedInPartnerId}";
+              window._linkedin_partner_id = "${linkedInPartnerId}";
               window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-              window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+              window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
               (function(l) {
                 if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
                 window.lintrk.q=[]}

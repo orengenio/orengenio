@@ -64,6 +64,16 @@ function validateBody(raw: unknown): { ok: true; data: CheckoutBody } | { ok: fa
     }
     items.push(item);
   }
+  // Stripe Checkout cannot mix one-time and recurring line items in a single
+  // session. Reject mixed carts here rather than silently coercing the
+  // one-time items into a monthly subscription.
+  const recurringCount = items.filter((i) => i.recurring).length;
+  if (recurringCount > 0 && recurringCount !== items.length) {
+    return {
+      ok: false,
+      error: "Cart cannot mix one-time and recurring items in a single checkout.",
+    };
+  }
   const data: CheckoutBody = { items };
   if (typeof b.customer_email === "string") data.customer_email = b.customer_email.trim().slice(0, 250);
   if (typeof b.success_url === "string") data.success_url = b.success_url;
@@ -81,9 +91,11 @@ function validateBody(raw: unknown): { ok: true; data: CheckoutBody } | { ok: fa
 function buildStripeForm(data: CheckoutBody, defaults: { success_url: string; cancel_url: string }): URLSearchParams {
   const form = new URLSearchParams();
 
-  // Mode: subscription if any item is recurring; otherwise payment.
-  const hasRecurring = data.items.some((i) => i.recurring);
-  form.set("mode", hasRecurring ? "subscription" : "payment");
+  // Mode: subscription only if every item is recurring; otherwise payment.
+  // Mixed carts are rejected upstream in validateBody so we never silently
+  // turn a one-time line into a monthly subscription.
+  const allRecurring = data.items.every((i) => i.recurring);
+  form.set("mode", allRecurring ? "subscription" : "payment");
 
   form.set("success_url", data.success_url || defaults.success_url);
   form.set("cancel_url", data.cancel_url || defaults.cancel_url);
@@ -97,10 +109,6 @@ function buildStripeForm(data: CheckoutBody, defaults: { success_url: string; ca
     form.set(`${p}[quantity]`, String(item.qty));
     if (item.recurring) {
       form.set(`${p}[price_data][recurring][interval]`, item.recurring);
-    } else if (hasRecurring) {
-      // Subscription mode requires every line item to have recurring data.
-      // Default non-recurring items in a subscription cart to monthly.
-      form.set(`${p}[price_data][recurring][interval]`, "month");
     }
   });
 
@@ -148,10 +156,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: parsed.error }, { status: 400 });
   }
 
+  // Trust the server-configured base URL first; only fall back to the
+  // request `origin` header when no env is set, and only if it is on an
+  // approved host. The header is client-controlled so taking it verbatim
+  // would let a third party seed Stripe redirects on their own domain.
+  const ALLOWED_ORIGINS = new Set<string>([
+    "https://orengen.io",
+    "https://www.orengen.io",
+    "https://app.orengen.io",
+  ]);
+  const configuredBase = process.env.NEXT_PUBLIC_BASE_URL?.trim();
+  const reqOrigin = req.headers.get("origin") ?? "";
   const origin =
-    req.headers.get("origin") ||
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    "https://orengen.io";
+    configuredBase ||
+    (ALLOWED_ORIGINS.has(reqOrigin) ? reqOrigin : "https://orengen.io");
   const defaults = {
     success_url: `${origin}/orenkanbuilder?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/orenkanbuilder?checkout=cancelled`,

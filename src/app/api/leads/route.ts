@@ -150,7 +150,8 @@ export async function POST(req: NextRequest) {
   const captured_at = new Date().toISOString();
 
   const fullPayload = { lead_id, captured_at, ...lead };
-  console.log(`[leads] captured ${lead_id} from ${lead.source} (${lead.email})`);
+  // Do not include the email (PII) in plaintext logs.
+  console.log(`[leads] captured ${lead_id} from ${lead.source}`);
 
   // Fire all integrations in parallel — never block on any single failure.
   await Promise.allSettled([

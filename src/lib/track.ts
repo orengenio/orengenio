@@ -123,10 +123,15 @@ export function trackLead(payload: LeadPayload): void {
     }
   }
 
+  // LinkedIn Insight expects a numeric conversion_id from Campaign Manager,
+  // NOT a per-lead UUID. Only fire when an explicit env-configured numeric
+  // conversion id is present; otherwise the call is meaningless to LinkedIn.
   const lintrk = safeLintrk();
-  if (lintrk) {
+  const rawConvId = process.env.NEXT_PUBLIC_LINKEDIN_LEAD_CONVERSION_ID;
+  const conversionId = rawConvId ? Number(rawConvId) : NaN;
+  if (lintrk && Number.isFinite(conversionId)) {
     try {
-      lintrk("track", { conversion_id: lead_id });
+      lintrk("track", { conversion_id: conversionId });
     } catch {
       // ignore
     }
