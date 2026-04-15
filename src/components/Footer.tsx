@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { SignalSignup } from './SignalSignup';
 
 interface TrustLink {
   href: string;
@@ -103,6 +104,16 @@ export const Footer: React.FC = () => {
         </div>
       </section>
 
+      {/* ─── ORENSIGNAL NEWSLETTER SIGNUP ─── */}
+      <section
+        className="py-10 border-b border-white/10"
+        style={{ background: 'linear-gradient(165deg, #0B1D3A 0%, #0D2240 100%)' }}
+      >
+        <div className="max-w-[640px] mx-auto px-6">
+          <SignalSignup />
+        </div>
+      </section>
+
       <div className="max-w-[1280px] mx-auto px-6">
 
         {/* ─── BRAND SECTION — Logo + Fire Tagline + Socials ─── */}
@@ -169,6 +180,20 @@ export const Footer: React.FC = () => {
               )}
             </div>
           ))}
+        </div>
+
+        {/* ─── SMS / A2P COMPLIANCE DISCLOSURE — visible on every page ─── */}
+        <div
+          className="py-4 border-t border-black/5 text-[11px] leading-relaxed text-black/65 text-center md:text-left"
+          style={{ fontFamily: "'Roboto', sans-serif" }}
+          aria-label="SMS and mobile communications disclosure"
+        >
+          <p className="mb-1">
+            <strong>SMS &amp; Mobile Communications:</strong> By submitting a phone number to OrenGen Worldwide LLC, you agree to receive recurring automated SMS/MMS messages from us at the number provided. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to cancel or <strong>HELP</strong> for help. Consent is not a condition of purchase.
+          </p>
+          <p className="mb-0">
+            <strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. See our <Link href="/privacy-policy" className="text-[#CC5500] hover:underline">Privacy Policy</Link>, <Link href="/terms" className="text-[#CC5500] hover:underline">Terms of Service §13A</Link>, and <Link href="/ai-communications-opt-in" className="text-[#CC5500] hover:underline">AI Communications Opt-In</Link> for full details.
+          </p>
         </div>
 
         {/* ─── BOTTOM BAR — All black, same font ─── */}

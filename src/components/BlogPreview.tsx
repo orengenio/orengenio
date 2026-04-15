@@ -36,7 +36,7 @@ export function BlogPreview() {
             Latest Insights
           </div>
           <h2 className="blog-preview-title">
-            Strategy &amp; Intelligence from <span className="accent">the OrenGen Team</span>
+            Strategy &amp; Intelligence from<br /><span className="accent">the OrenGen Team</span>
           </h2>
           <p className="blog-preview-sub">
             AI automation, CRM strategy, and operational frameworks — built for executives who move fast.

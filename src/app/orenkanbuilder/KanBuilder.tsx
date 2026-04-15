@@ -1048,7 +1048,7 @@ export function KanBuilder() {
           ))}
           <button
             onClick={() =>
-              window.open("https://calendly.com/orengenio/30min", "_blank")
+              window.open("https://book.orengen.io", "_blank")
             }
             style={{
               padding: "10px 24px",

@@ -143,7 +143,7 @@ export function AgentsShowcase() {
           </Link>
 
           <Link href="#demo" className="ogAg-cta-ghost">
-            Hear a Demo →
+            Try the AI Agent →
           </Link>
         </motion.div>
       </div>

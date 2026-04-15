@@ -382,6 +382,30 @@ const html = `
       <p>Enterprise clients with dedicated service agreements may have specific uptime guarantees and support response times outlined in their contracts. Standard service availability targets 99.5% uptime for hosted services, excluding scheduled maintenance. For SLA details specific to your service tier, please refer to your service agreement or contact our team.</p>
     </section>
 
+    <!-- 13A. SMS / MOBILE COMMUNICATIONS -->
+    <section class="terms-section">
+      <h2>13A. SMS and Mobile Communications</h2>
+      <p>If you provide a mobile telephone number to OrenGen or opt in to any OrenGen SMS program, the following terms apply in addition to (and not in lieu of) the rest of these Terms and our <a href="/ai-communications-opt-in">AI Communications Opt-In</a> disclosures.</p>
+
+      <h3>13A.1 Consent</h3>
+      <p>By providing your mobile number and opting in (via checkbox, reply keyword, verbal confirmation on a recorded call, or web form where consent is expressly requested), you consent to receive <strong>recurring automated SMS and MMS messages</strong> from OrenGen Worldwide LLC, including transactional notifications (e.g., booking confirmations, account alerts, service updates) and, where expressly opted in, marketing or promotional messages. Consent to receive SMS is <strong>not a condition of purchase</strong> of any OrenGen product or service.</p>
+
+      <h3>13A.2 Message Frequency, Rates, and Carriers</h3>
+      <p>Message frequency varies by the program and by your activity. <strong>Message and data rates may apply</strong> as determined by your mobile carrier; OrenGen is not responsible for carrier charges. Carriers are not liable for delayed or undelivered messages. OrenGen supported carriers include but are not limited to AT&amp;T, Verizon, T-Mobile, Sprint, US Cellular, and their MVNOs; availability varies.</p>
+
+      <h3>13A.3 Opt-Out and Help</h3>
+      <p>You may cancel SMS messages at any time by replying <strong>STOP</strong>, <strong>UNSUBSCRIBE</strong>, <strong>CANCEL</strong>, <strong>END</strong>, or <strong>QUIT</strong> to any message. After we receive your opt-out, we will send one confirmation message and no further SMS will be sent unless you re-enroll. For help at any time, reply <strong>HELP</strong> or email <a href="mailto:support@orengen.io">support@orengen.io</a>.</p>
+
+      <h3>13A.4 Mobile Information Not Shared for Marketing</h3>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Text messaging originator opt-in data and consent are not shared with any third parties. Mobile data is used only to deliver the OrenGen services and messages you have authorized. See <a href="/privacy-policy">Privacy Policy §5.6</a> for full details.</p>
+
+      <h3>13A.5 Changes to the SMS Program</h3>
+      <p>We may modify or discontinue any SMS program at any time, with or without notice. Material changes that affect your consent or rights will be communicated via SMS or email prior to taking effect where legally required.</p>
+
+      <h3>13A.6 Governing Regulations</h3>
+      <p>OrenGen SMS programs are operated in compliance with the Telephone Consumer Protection Act (TCPA, 47 U.S.C. §227), CTIA Messaging Principles and Best Practices, and applicable carrier A2P 10DLC registration requirements.</p>
+    </section>
+
     <!-- 14. COMPLIANCE WITH LAWS -->
     <section class="terms-section">
       <h2>14. Legal Compliance and Export Controls</h2>
@@ -855,6 +879,30 @@ export default function Page() {
     <section class="terms-section">
       <h2>13. Service Level Agreement</h2>
       <p>Enterprise clients with dedicated service agreements may have specific uptime guarantees and support response times outlined in their contracts. Standard service availability targets 99.5% uptime for hosted services, excluding scheduled maintenance. For SLA details specific to your service tier, please refer to your service agreement or contact our team.</p>
+    </section>
+
+    <!-- 13A. SMS / MOBILE COMMUNICATIONS -->
+    <section class="terms-section">
+      <h2>13A. SMS and Mobile Communications</h2>
+      <p>If you provide a mobile telephone number to OrenGen or opt in to any OrenGen SMS program, the following terms apply in addition to (and not in lieu of) the rest of these Terms and our <a href="/ai-communications-opt-in">AI Communications Opt-In</a> disclosures.</p>
+
+      <h3>13A.1 Consent</h3>
+      <p>By providing your mobile number and opting in (via checkbox, reply keyword, verbal confirmation on a recorded call, or web form where consent is expressly requested), you consent to receive <strong>recurring automated SMS and MMS messages</strong> from OrenGen Worldwide LLC, including transactional notifications (e.g., booking confirmations, account alerts, service updates) and, where expressly opted in, marketing or promotional messages. Consent to receive SMS is <strong>not a condition of purchase</strong> of any OrenGen product or service.</p>
+
+      <h3>13A.2 Message Frequency, Rates, and Carriers</h3>
+      <p>Message frequency varies by the program and by your activity. <strong>Message and data rates may apply</strong> as determined by your mobile carrier; OrenGen is not responsible for carrier charges. Carriers are not liable for delayed or undelivered messages. OrenGen supported carriers include but are not limited to AT&amp;T, Verizon, T-Mobile, Sprint, US Cellular, and their MVNOs; availability varies.</p>
+
+      <h3>13A.3 Opt-Out and Help</h3>
+      <p>You may cancel SMS messages at any time by replying <strong>STOP</strong>, <strong>UNSUBSCRIBE</strong>, <strong>CANCEL</strong>, <strong>END</strong>, or <strong>QUIT</strong> to any message. After we receive your opt-out, we will send one confirmation message and no further SMS will be sent unless you re-enroll. For help at any time, reply <strong>HELP</strong> or email <a href="mailto:support@orengen.io">support@orengen.io</a>.</p>
+
+      <h3>13A.4 Mobile Information Not Shared for Marketing</h3>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Text messaging originator opt-in data and consent are not shared with any third parties. Mobile data is used only to deliver the OrenGen services and messages you have authorized. See <a href="/privacy-policy">Privacy Policy §5.6</a> for full details.</p>
+
+      <h3>13A.5 Changes to the SMS Program</h3>
+      <p>We may modify or discontinue any SMS program at any time, with or without notice. Material changes that affect your consent or rights will be communicated via SMS or email prior to taking effect where legally required.</p>
+
+      <h3>13A.6 Governing Regulations</h3>
+      <p>OrenGen SMS programs are operated in compliance with the Telephone Consumer Protection Act (TCPA, 47 U.S.C. §227), CTIA Messaging Principles and Best Practices, and applicable carrier A2P 10DLC registration requirements.</p>
     </section>
 
     <!-- 14. COMPLIANCE WITH LAWS -->

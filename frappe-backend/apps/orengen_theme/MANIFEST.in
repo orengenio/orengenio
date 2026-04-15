@@ -1,0 +1,17 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include orengen_theme *.css
+recursive-include orengen_theme *.csv
+recursive-include orengen_theme *.html
+recursive-include orengen_theme *.ico
+recursive-include orengen_theme *.js
+recursive-include orengen_theme *.json
+recursive-include orengen_theme *.md
+recursive-include orengen_theme *.png
+recursive-include orengen_theme *.py
+recursive-include orengen_theme *.svg
+recursive-include orengen_theme *.txt

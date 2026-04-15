@@ -64,7 +64,7 @@ export function Pricing() {
             <li>We build it. We manage it.</li>
             <li>Email support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta outline">Get Started</Link>
+          <Link href="https://buy.stripe.com/3cIaEXekw11dc0rd8lfQI3s" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Get Started</Link>
         </div>
 
         {/* TIER 2 - FEATURED */}
@@ -88,7 +88,7 @@ export function Pricing() {
             <li>Multi-channel deployment, 24/7</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta primary">Start Growing</Link>
+          <Link href="https://buy.stripe.com/7sYcN52BObFRc0r8S5fQI3t" target="_blank" rel="noopener noreferrer" className="tier-cta primary">Start Growing</Link>
         </div>
 
         {/* TIER 3 */}
@@ -112,7 +112,7 @@ export function Pricing() {
             <li>Advanced analytics + lead scoring</li>
             <li>Priority support</li>
           </ul>
-          <Link href="/orenagents" className="tier-cta outline">Start Dominating</Link>
+          <Link href="https://buy.stripe.com/dRm5kDb8k25h9Sjd8lfQI3u" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Start Dominating</Link>
         </div>
 
         {/* TIER 4 - ENTERPRISE */}
@@ -135,7 +135,7 @@ export function Pricing() {
             <li>White-glove onboarding</li>
             <li>SLA &amp; custom integrations</li>
           </ul>
-          <Link href="https://calendly.com/orengenio/30min" className="tier-cta">Book a Strategy Call</Link>
+          <Link href="https://book.orengen.io" className="tier-cta">Book a Strategy Call</Link>
         </div>
       </div>
 
@@ -248,8 +248,8 @@ export function Pricing() {
       {/* BOTTOM CTA */}
       <div className="bottom-cta">
         <div className="bottom-cta-text">Ready to Deploy Your AI Workforce?</div>
-        <p className="bottom-cta-sub">Start with a free strategy call. See exactly how Buy-Lingual™ fits your business.</p>
-        <Link href="https://calendly.com/orengenio/30min">Hear a Free Demo →</Link>
+        <p className="bottom-cta-sub">Talk to our live AI agent now — or book a strategy call to see Buy-Lingual™ in action.</p>
+        <Link href="#demo">Talk to AI Agent →</Link>
       </div>
 
     </section>
