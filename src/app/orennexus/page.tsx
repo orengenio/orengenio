@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 
 export const metadata: Metadata = {
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
+    <>
+    <LeadModalTrigger
+      defaultSource="orennexus"
+      title="Centralize Your CRM with OrenNexus"
+      subtitle="Tell us about your team and we'll be in touch within the hour."
+    />
     <div className="pt-24 pb-12 nexus-page" dangerouslySetInnerHTML={{ __html: `
 
 <style>
@@ -850,11 +857,11 @@ export default function Page() {
       </p>
 
       <div class="hero-actions">
-        <a href="https://calendly.com/orengenio/30min" class="cta-button" target="_blank" rel="noopener" aria-label="Book a strategy meeting with OrenGen">
+        <a href="#contact" data-lead-source="orennexus" class="cta-button" aria-label="Talk to a strategist about OrenNexus">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-          <span>Book A Strategy Call</span>
+          <span>Talk to a Strategist</span>
         </a>
       </div>
     </div>
@@ -1136,5 +1143,6 @@ export default function Page() {
 })();
 </script>
 ` }} />
+    </>
   );
 }

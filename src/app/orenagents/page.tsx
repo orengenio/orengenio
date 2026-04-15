@@ -155,6 +155,11 @@ export default function OrenAgentsPage() {
 
   return (
     <main style={{ fontFamily: "'Roboto', sans-serif", background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
+      <LeadModalTrigger
+        defaultSource="orenagents"
+        title="Deploy Your AI Voice Agents"
+        subtitle="Tell us about your business and we'll be in touch within the hour."
+      />
       <style>{`
         @keyframes agentFloat1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
         @keyframes agentFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
@@ -226,19 +231,19 @@ export default function OrenAgentsPage() {
             </p>
 
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <a
-                href="https://calendly.com/orengenio/30min"
-                target="_blank" rel="noopener noreferrer"
+              <button
+                type="button"
+                data-lead-source="orenagents"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
                   fontWeight: 700, fontSize: 16, padding: "16px 36px", borderRadius: 9999,
-                  textDecoration: "none",
+                  border: "none", cursor: "pointer", fontFamily: "inherit",
                   boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
                 }}
               >
                 ✦ Deploy My AI Agents
-              </a>
+              </button>
               <a
                 href="#pricing"
                 style={{
@@ -713,19 +718,19 @@ export default function OrenAgentsPage() {
             <p style={{ color: "rgba(210,225,245,0.5)", fontSize: 18, maxWidth: 560, margin: "0 auto 44px", lineHeight: 1.65, fontWeight: 300 }}>
               Book a 30-minute strategy call. We&apos;ll show you exactly how OrenAgents fits your business — and what your ROI looks like before you spend a dollar.
             </p>
-            <a
-              href="https://calendly.com/orengenio/30min"
-              target="_blank" rel="noopener noreferrer"
+            <button
+              type="button"
+              data-lead-source="orenagents"
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff",
                 fontWeight: 700, fontSize: 16, padding: "16px 40px", borderRadius: 9999,
-                textDecoration: "none",
+                border: "none", cursor: "pointer", fontFamily: "inherit",
                 boxShadow: "0 0 0 4px rgba(204,85,0,0.2), 0 8px 32px rgba(204,85,0,0.45)",
               }}
             >
               ✦ Deploy My AI Agents
-            </a>
+            </button>
             <div style={{ marginTop: 28, display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", color: "rgba(210,225,245,0.3)", fontSize: 13 }}>
               <span>✓ Fast deployment</span>
               <span>✓ Buy-Lingual™ included</span>

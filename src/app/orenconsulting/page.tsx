@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 export const metadata: Metadata = {
   title: "OrenConsulting — Fractional C-Suite + Custom AI Engineering | OrenGen",
@@ -8,6 +9,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
+    <>
+    <LeadModalTrigger
+      defaultSource="orenconsulting"
+      title="Engage Your Fractional C-Suite"
+      subtitle="Tell us about your business and we'll be in touch within the hour."
+    />
     <div className="pt-24 pb-12 consult-page" dangerouslySetInnerHTML={{ __html: `
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
@@ -383,5 +390,6 @@ export default function Page() {
   <div class="oc-stat"><span class="oc-stat-val">Month-to-month</span><span class="oc-stat-label">No long-term contracts</span></div>
 </section>
 ` }} />
+    </>
   );
 }
