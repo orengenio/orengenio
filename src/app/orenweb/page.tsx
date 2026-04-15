@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 
 export const metadata: Metadata = {
@@ -1569,7 +1570,7 @@ const html = `
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://calendly.com/orengenio/30min" class="button" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenweb" class="button" aria-label="Talk to a strategist about OrenWeb">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -1582,7 +1583,7 @@ const html = `
               d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z">
             </path>
           </svg>
-          <span class="text_button">Book A Meeting</span>
+          <span class="text_button">Talk to a Strategist</span>
         </a>
       </div>
 
@@ -1937,6 +1938,12 @@ const html = `
 
 export default function Page() {
   return (
+    <>
+    <LeadModalTrigger
+      defaultSource="orenweb"
+      title="Launch Your Next Website"
+      subtitle="Tell us about the project and we'll be in touch within the hour."
+    />
     <div className="pt-24 pb-12 web-page" dangerouslySetInnerHTML={{ __html: `
 <style>
  
@@ -3500,7 +3507,7 @@ export default function Page() {
         We build digital experiences that users love and businesses profit from.
       </p>
       <div class="actions">
-        <a href="https://calendly.com/orengenio/30min" class="button" target="_blank" rel="noopener">
+        <a href="#contact" data-lead-source="orenweb" class="button" aria-label="Talk to a strategist about OrenWeb">
           <div class="dots_border"></div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="sparkle">
             <path class="path" stroke-linejoin="round" stroke-linecap="round" stroke="black" fill="black"
@@ -3513,7 +3520,7 @@ export default function Page() {
               d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z">
             </path>
           </svg>
-          <span class="text_button">Book A Meeting</span>
+          <span class="text_button">Talk to a Strategist</span>
         </a>
       </div>
 
@@ -3865,5 +3872,6 @@ export default function Page() {
     </div>
   </section>
 ` }} />
+    </>
   );
 }
