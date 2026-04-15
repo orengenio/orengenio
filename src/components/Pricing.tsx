@@ -54,7 +54,7 @@ export function Pricing() {
           </div>
           <div className="tier-setup">One-time setup: $597</div>
           <div className="tier-divider"></div>
-          <div className="tier-includes">What's included</div>
+          <div className="tier-includes">What&apos;s included</div>
           <ul className="tier-features">
             <li>1 AI Chat Employee — 24/7 lead capture</li>
             <li>Website chat widget</li>
