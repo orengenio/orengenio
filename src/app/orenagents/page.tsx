@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { LeadModalTrigger } from "@/components/LeadModal"
 
 export const metadata: Metadata = {
   title: "OrenAgents — Buy-Lingual™ AI Voice Employees | OrenGen Worldwide",

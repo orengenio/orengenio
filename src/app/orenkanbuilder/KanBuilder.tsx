@@ -487,6 +487,8 @@ export function KanBuilder() {
   const [expandedFeats, setExpandedFeats] = useState<Record<string, boolean>>({})
   const [chartAnimated, setChartAnimated] = useState(false)
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "" })
+  const [payLoading, setPayLoading] = useState(false)
+  const [payError, setPayError] = useState<string | null>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setChartAnimated(true), 400)
@@ -585,6 +587,67 @@ export function KanBuilder() {
       /* silently continue */
     }
     setSubmitted(true)
+  }
+
+  /* Stripe Checkout — "Pay Now" path. Posts the cart to /api/checkout
+     and redirects the browser to the hosted Stripe Checkout URL. */
+  const handlePayNow = async () => {
+    if (engineModules.length === 0 || payLoading) return
+    setPayError(null)
+    setPayLoading(true)
+    try {
+      const items = engineModules.flatMap((mod) => {
+        const tier = cardTiers[mod.id]
+        const bill = cardBills[mod.id]
+        const t = mod.tiers[tier]
+        const monthly = bill === "annual" ? annualPrice(t.mo) : t.mo
+        const recurring: "month" | "year" = bill === "annual" ? "year" : "month"
+        const subscriptionUnit =
+          bill === "annual" ? Math.round(monthly * 12 * 100) : Math.round(monthly * 100)
+        const lines: { name: string; price_cents: number; qty: number; recurring?: "month" | "year" }[] = [
+          {
+            name: `${mod.name} \u2014 ${TIER_LABEL[tier]} (${bill === "annual" ? "Annual" : "Monthly"})`,
+            price_cents: subscriptionUnit,
+            qty: 1,
+            recurring,
+          },
+        ]
+        if (t.setup > 0) {
+          lines.push({
+            name: `${mod.name} \u2014 ${TIER_LABEL[tier]} setup (one-time)`,
+            price_cents: Math.round(t.setup * 100),
+            qty: 1,
+          })
+        }
+        return lines
+      })
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items,
+          customer_email: formData.email || undefined,
+          metadata: {
+            source: "orenkanbuilder",
+            company: formData.company,
+            name: formData.name,
+            phone: formData.phone,
+          },
+        }),
+      })
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; url?: string; error?: string }
+        | null
+      if (!res.ok || !data?.url) {
+        setPayError(data?.error || "Could not start checkout. Please try again.")
+        setPayLoading(false)
+        return
+      }
+      window.location.href = data.url
+    } catch {
+      setPayError("Network error. Please try again.")
+      setPayLoading(false)
+    }
   }
 
   /* card renderer */

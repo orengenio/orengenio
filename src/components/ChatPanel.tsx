@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Vapi from "@vapi-ai/web";
+import { trackChatStart, trackVoiceStart } from "@/lib/track";
 
 type Message = {
   role: "user" | "assistant";
@@ -71,6 +72,7 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 300);
+      trackChatStart("chat_panel");
     }
   }, [isOpen]);
 
@@ -89,6 +91,7 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
       const assistantId = process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID;
       if (!assistantId) return;
       setVoiceStatus("connecting");
+      trackVoiceStart("chat_panel");
       vapi.start(assistantId);
     } else {
       vapi.stop();

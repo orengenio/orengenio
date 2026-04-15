@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { trackChatStart } from "@/lib/track";
 
 interface FloatingOrbProps {
   onClick: () => void;
@@ -9,17 +10,24 @@ interface FloatingOrbProps {
 }
 
 export function FloatingOrb({ onClick, isActive }: FloatingOrbProps) {
+  const handleActivate = () => {
+    if (!isActive) {
+      trackChatStart("floating_orb");
+    }
+    onClick();
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      onClick();
+      handleActivate();
     }
   };
 
   return (
     <div
       className="fixed bottom-8 right-8 z-[100] flex flex-col items-center"
-      onClick={onClick}
+      onClick={handleActivate}
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
