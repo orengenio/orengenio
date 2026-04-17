@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -6,6 +7,14 @@ const N8N_WEBHOOK =
   process.env.N8N_SIGNAL_WEBHOOK || "https://automate.orengen.io/webhook/newsletter-signup";
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (!rateLimit(ip, { maxRequests: 5, windowMs: 60_000 })) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": "60" } },
+    );
+  }
+
   let body: Record<string, unknown> = {};
   try {
     body = await req.json();

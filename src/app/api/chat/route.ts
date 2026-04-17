@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 
 const SYSTEM_PROMPT = `You are the OrenGen AI assistant — a knowledgeable, professional, and friendly representative of OrenGen Worldwide (orengen.io). You help prospects and clients understand OrenGen's AI-powered products and services.
 
@@ -115,6 +116,14 @@ function validateMessages(body: unknown): ChatMessage[] {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (!rateLimit(ip, { maxRequests: 10, windowMs: 60_000 })) {
+    return new Response(
+      JSON.stringify({ error: "Too many requests. Please try again shortly." }),
+      { status: 429, headers: { "Content-Type": "application/json", "Retry-After": "60" } },
+    );
+  }
+
   try {
     const body: unknown = await req.json();
     let messages: ChatMessage[];
