@@ -643,7 +643,7 @@ export function KanBuilder() {
         setPayLoading(false)
         return
       }
-      window.location.href = data.url
+      window.location.assign(data.url)
     } catch {
       setPayError("Network error. Please try again.")
       setPayLoading(false)
