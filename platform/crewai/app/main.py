@@ -1,6 +1,7 @@
 """FastAPI entry point for the OrenGen CrewAI lead-qualifier service."""
 from __future__ import annotations
 
+import hmac
 import logging
 import os
 from typing import Any
@@ -54,7 +55,7 @@ def _check_token(provided: str | None) -> None:
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="INTERNAL_API_TOKEN not configured on server.",
         )
-    if not provided or provided != expected:
+    if not provided or not hmac.compare_digest(provided, expected):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token.")
 
 

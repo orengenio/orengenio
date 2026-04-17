@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { timingSafeEqual } from "crypto";
 import { sendSMS } from "@/lib/twilio";
 
 export const dynamic = "force-dynamic";
@@ -22,8 +23,10 @@ export async function POST(req: NextRequest): Promise<Response> {
     );
   }
 
-  const presented = req.headers.get("x-orengen-token");
-  if (!presented || presented !== internalToken) {
+  const presented = req.headers.get("x-orengen-token") ?? "";
+  const a = Buffer.from(presented);
+  const b = Buffer.from(internalToken);
+  if (a.length !== b.length || !timingSafeEqual(a, b)) {
     return jsonResponse({ ok: false, error: "Unauthorized" }, 401);
   }
 
