@@ -42,19 +42,6 @@ const solutionColumns = [
     colClass: "addon",
     items: [{ name: "OrenConsulting", desc: "Fractional C-suite + custom AI engineering.", href: "/orenconsulting" }],
   },
-  {
-    title: "Infrastructure",
-    badge: "Add-On",
-    badgeClass: "addon",
-    colClass: "addon",
-    items: [
-      { name: "OrenMail", desc: "Bulk email + campaign automation on your domain.", href: "/orenmail" },
-      { name: "OrenBase", desc: "Backend-as-a-service: auth, DB, storage, functions.", href: "/orenbase" },
-      { name: "OrenForms", desc: "Smart forms, surveys, NPS with AI scoring.", href: "/orenforms" },
-      { name: "OrenFlow", desc: "Visual LLM orchestration and RAG builder.", href: "/orenflow" },
-      { name: "OrenObserve", desc: "LLM observability, cost, and evals.", href: "/orenobserve" },
-    ],
-  },
 ];
 
 export function Navbar() {
