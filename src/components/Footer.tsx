@@ -66,13 +66,14 @@ const footerColumns: FooterColumn[] = [
   { title: 'Company', links: [{ name: 'About', href: '/about' }, { name: 'Blog', href: '/blog' }, { name: 'Case Studies', href: '/case-studies' }, { name: 'Integrations', href: '/orennexus' }, { name: 'Support', href: '/faqs' }, { name: 'FAQs', href: '/faqs' }, { name: 'Pricing', href: '/#pricing' }] },
   { title: 'Partnerships', links: [{ name: 'Join Our Affiliate Program', href: '/affiliate-program' }, { name: 'Join Our Sales Partner Program', href: '/sales-partner-program' }, { name: 'Legal Disclaimers', href: '/legal-disclaimers' }] },
   { title: 'Productivity', links: affiliateLinks },
-  { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }, { name: 'Security Overview', href: '/security-overview' }] }
+  { title: 'Legal', links: [{ name: 'Acceptable Use', href: '/acceptable-use' }, { name: 'Privacy Policy', href: '/privacy-policy' }, { name: 'Cookie Policy', href: '/cookie-policy' }, { name: 'Copyright Notice', href: '/copyright-notice' }, { name: 'Refund Policy', href: '/refund-policy' }, { name: 'Security Overview', href: '/security-overview' }, { name: 'SMS & AI Call Opt-In', href: '/ai-sms-opt-in' }] }
 ];
 
 const bottomLinks = [
   { path: '/privacy-policy', label: 'Privacy Policy' },
   { path: '/terms', label: 'Terms' },
   { path: '/cookie-policy', label: 'Cookie Policy' },
+  { path: '/ai-sms-opt-in', label: 'SMS & AI Call Opt-In' },
   { path: '/ai-communications-opt-in', label: 'AI Communications Opt In' },
   { path: '/sitemap.xml', label: 'Sitemap' },
 ];
