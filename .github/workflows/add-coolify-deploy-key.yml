@@ -1,0 +1,30 @@
+name: Add Coolify Deploy Key
+
+on:
+  push:
+    branches:
+      - claude/add-coolify-deploy-key
+  workflow_dispatch:
+
+permissions:
+  administration: write
+  contents: read
+
+jobs:
+  add-key:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add deploy key
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/keys \
+            -f title='coolify-orengenio-deploy' \
+            -f key='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAU1qCo0HWE/Dfq99PZl+sUJSpSPgPcdDei2kSpM07aB coolify-orengenio-deploy' \
+            -F read_only=true || echo "Key addition failed or already exists"
+          echo "Listing current deploy keys:"
+          gh api /repos/${{ github.repository }}/keys
