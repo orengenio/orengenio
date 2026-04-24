@@ -5,19 +5,19 @@ export const metadata: Metadata = {
   title: "SMS & AI Call Opt-In — OrenGen Worldwide",
   description:
     "Sign up to receive marketing text messages and AI-powered phone calls from OrenGen Worldwide. Express written consent required. Reply STOP to opt out.",
-  alternates: { canonical: "https://orengen.io/sms-consent" },
+  alternates: { canonical: "https://orengen.io/ai-sms-opt-in" },
   openGraph: {
     title: "SMS & AI Call Opt-In — OrenGen Worldwide",
     description:
       "Express written consent form to receive marketing SMS and AI-powered phone calls from OrenGen Worldwide.",
-    url: "https://orengen.io/sms-consent",
+    url: "https://orengen.io/ai-sms-opt-in",
     siteName: "OrenGen Worldwide",
     type: "website",
   },
   robots: { index: true, follow: true },
 };
 
-export default function SmsConsentPage() {
+export default function AiSmsOptInPage() {
   return (
     <main className="sms-consent-page">
       <style

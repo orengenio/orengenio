@@ -2,7 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/sms-consent",
+        destination: "/ai-sms-opt-in",
+        permanent: true,
+      },
+    ];
   },
 };
 
