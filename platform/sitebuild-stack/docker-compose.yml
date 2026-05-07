@@ -25,7 +25,7 @@ services:
       NODE_ENV: production
       DATABASE_URI: postgres://${POSTGRES_USER:-sitebuild}:${POSTGRES_PASSWORD}@postgres:5432/orengen_sitebuild
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-https://admin.orengen.io}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-https://sitebuild-admin.orengen.io}
       PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://sitebuild.orengen.io}
       PORT: 3000
     volumes:
@@ -33,12 +33,12 @@ services:
     labels:
       - coolify.managed=true
       - traefik.enable=true
-      - traefik.http.routers.orenbuild-admin.rule=Host(`admin.orengen.io`)
-      - traefik.http.routers.orenbuild-admin.entrypoints=https
-      - traefik.http.routers.orenbuild-admin.tls=true
-      - traefik.http.routers.orenbuild-admin.tls.certresolver=letsencrypt
-      - traefik.http.routers.orenbuild-admin.service=orenbuild-admin-svc
-      - traefik.http.services.orenbuild-admin-svc.loadbalancer.server.port=3000
+      - traefik.http.routers.orenbuild-cms.rule=Host(`sitebuild-admin.orengen.io`)
+      - traefik.http.routers.orenbuild-cms.entrypoints=https
+      - traefik.http.routers.orenbuild-cms.tls=true
+      - traefik.http.routers.orenbuild-cms.tls.certresolver=letsencrypt
+      - traefik.http.routers.orenbuild-cms.service=orenbuild-cms-svc
+      - traefik.http.services.orenbuild-cms-svc.loadbalancer.server.port=3000
 
   sitebuild:
     build:
