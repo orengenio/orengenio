@@ -24,6 +24,7 @@ export default async function AppLayout({
   const activeTenant = Array.isArray(rawTenants)
     ? (rawTenants[0] as { id: string; slug: string; name: string } | undefined)
     : (rawTenants as { id: string; slug: string; name: string } | undefined);
+  const myRole = (memberships?.[0]?.role ?? "member") as "owner" | "admin" | "member";
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-8">
@@ -33,6 +34,10 @@ export default async function AppLayout({
           <NavLink href="/dashboard">Dashboard</NavLink>
           <NavLink href="/companies">Companies</NavLink>
           <NavLink href="/contacts">Contacts</NavLink>
+          <NavLink href="/deals">Deals</NavLink>
+          {myRole === "owner" || myRole === "admin" ? (
+            <NavLink href="/pipelines">Pipelines</NavLink>
+          ) : null}
           <NavLink href="/settings">Settings</NavLink>
           <span className="ml-3 hidden text-xs text-[color:var(--color-fg-muted)] md:inline">
             {user.email}
