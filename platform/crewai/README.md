@@ -32,14 +32,21 @@ always returns a usable response.
 
 ## Deploy to Coolify
 
+Canonical public FQDN: **`https://crewai.orengen.io`**. Point a DNS record at
+your Coolify proxy (same target as `automate.orengen.io` etc.) and set the
+Coolify resource's domain to that hostname.
+
 1. In Coolify, create a new resource of type **Docker Compose**.
 2. Point it at this directory's `docker-compose.yml` (or paste the file
    contents).
-3. Coolify will populate `SERVICE_FQDN_CREWAI_8000` automatically. Set the
+3. Set the Coolify domain on the `crewai` service to `https://crewai.orengen.io`.
+   Coolify will populate `SERVICE_FQDN_CREWAI_8000` automatically. Set the
    remaining env vars in the Coolify UI.
 4. Deploy. The container exposes port `8000` internally; Coolify proxies the
    FQDN onto it.
-5. Set the resulting URL as `CREWAI_URL` in the Next.js app's environment.
+5. Confirm `CREWAI_URL=https://crewai.orengen.io` is set in the master Next.js
+   app's environment (matches `.env.example`). Also set the same value on the
+   CRM app once it deploys — both consume the qualifier service.
 
 ## Local testing
 
