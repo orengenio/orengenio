@@ -31,6 +31,8 @@ export default async function AppLayout({
         <BrandMark tenantName={activeTenant?.name} />
         <nav className="flex items-center gap-1 text-sm">
           <NavLink href="/dashboard">Dashboard</NavLink>
+          <NavLink href="/companies">Companies</NavLink>
+          <NavLink href="/contacts">Contacts</NavLink>
           <NavLink href="/settings">Settings</NavLink>
           <span className="ml-3 hidden text-xs text-[color:var(--color-fg-muted)] md:inline">
             {user.email}
