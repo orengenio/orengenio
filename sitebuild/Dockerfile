@@ -19,7 +19,5 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
 EXPOSE 4321
-HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD wget -qO- http://127.0.0.1:4321/ > /dev/null || exit 1
 
 CMD ["node", "dist/server/entry.mjs"]
