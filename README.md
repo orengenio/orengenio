@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OrenGen Worldwide — monorepo
 
-## Getting Started
+Everything OrenGen runs on lives here, behind a small handful of domains.
 
-First, run the development server:
+| URL                                  | What                                            | Folder                  |
+| ------------------------------------ | ----------------------------------------------- | ----------------------- |
+| `https://orengen.io`                 | Master marketing site + dual-door landing       | `src/`                  |
+| `https://app.orengen.io`             | **OrenGen Backend** (multi-tenant client app)   | `crm/`                  |
+| `https://admin.orengen.io`           | ERPNext (Frappe v15) full suite                 | `frappe-backend/`, `platform/erpnext/` |
+| `https://sitebuild.orengen.io`       | Astro mockup-tool frontend                      | `sitebuild/`            |
+| `https://sitebuild-admin.orengen.io` | Payload CMS for sitebuild                       | `payload-cms/`, `platform/sitebuild-stack/` |
+| `https://crewai.orengen.io`          | CrewAI lead qualifier (FastAPI) — *not yet deployed* | `platform/crewai/` |
 
+**Start here**: [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) → the system map.
+
+---
+
+## Documentation index
+
+| Doc                                                       | When to read                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- |
+| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)          | Onboarding, system overview, who-talks-to-who             |
+| [`docs/OPERATIONS.md`](./docs/OPERATIONS.md)              | Day-2 ops: deploys, rotations, rollbacks                  |
+| [`docs/CRM_ENTITIES.md`](./docs/CRM_ENTITIES.md)          | Working with CRM data: tenants, leads, deals, contacts    |
+| [`docs/A2P_10DLC_CHECKLIST.md`](./docs/A2P_10DLC_CHECKLIST.md) | Submitting Twilio brand + campaign so SMS delivers     |
+| [`docs/SUPABASE_SMTP_SETUP.md`](./docs/SUPABASE_SMTP_SETUP.md) | Wiring MailWizz into Supabase so magic links send      |
+| [`docs/VAPI_VOICE_AGENT.md`](./docs/VAPI_VOICE_AGENT.md)  | Provisioning the Vapi inbound voice agent                 |
+| [`docs/ERPNEXT_THEME_DEPLOY.md`](./docs/ERPNEXT_THEME_DEPLOY.md) | Shipping the OrenGen Frappe theme to admin.orengen.io |
+| [`docs/twilio-setup.md`](./docs/twilio-setup.md)          | Twilio account + number purchase basics                   |
+| [`crm/README.md`](./crm/README.md)                        | OrenGen Backend feature reference                         |
+| [`crm/docs/PHASE_2_LANES.md`](./crm/docs/PHASE_2_LANES.md) | The parallel-build contract used to ship CRM Phase 2     |
+| [`platform/README.md`](./platform/README.md)              | Canonical host map + per-stack pointers                   |
+
+---
+
+## Quick reference
+
+**Master site (orengen.io)**:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
+npm install
+npm run dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**OrenGen Backend (app.orengen.io)**:
+```bash
+cd crm
+cp .env.example .env.local
+npm install
+npm run dev          # http://localhost:3000 with the CRM
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Sitebuild (sitebuild.orengen.io)**:
+```bash
+cd sitebuild
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## What's live as of latest deploy
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ `orengen.io` — dual-door landing (Enterprise / SaaS), `/platform` for the original homepage
+- ✅ `app.orengen.io` — OrenGen Backend, all 6 Phase 2 lanes integrated, branded **OrenGen Backend**
+- ✅ `sitebuild.orengen.io` — Astro mockup tool (port routing fixed in PR #27)
+- ✅ `admin.orengen.io` — ERPNext v15 (stock theme; custom `orengen_theme` deploy is documented in `docs/ERPNEXT_THEME_DEPLOY.md` but not yet shipped)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What's blocked on user input
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ⏳ Supabase auth email delivery — wire MailWizz SMTP creds (see `docs/SUPABASE_SMTP_SETUP.md`)
+- ⏳ Twilio outbound SMS — set `TWILIO_MESSAGING_SERVICE_SID` and `TWILIO_PHONE_NUMBER` in Coolify env on `orengen-master-frontend`
+- ⏳ A2P 10DLC submission — manual Twilio Console workflow (see `docs/A2P_10DLC_CHECKLIST.md`)
+- ⏳ Vapi voice agent — provision Vapi assistant + Twilio link (see `docs/VAPI_VOICE_AGENT.md`)
+- ⏳ CrewAI deployment to `crewai.orengen.io` — Dockerfile exists at `platform/crewai/`; deploy as new Coolify resource
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Repository
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Primary**: [github.com/orengenio/orengenio](https://github.com/orengenio/orengenio) (public)
+- **License**: proprietary (OrenGen Worldwide LLC)
+- **Issues**: GitHub Issues on the repo above
