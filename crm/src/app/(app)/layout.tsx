@@ -41,6 +41,7 @@ export default async function AppLayout({
             <NavLink href="/pipelines">Pipelines</NavLink>
           ) : null}
           <NavLink href="/settings">Settings</NavLink>
+          <NavLink href="/tasks">Tasks</NavLink>
           <span className="ml-3 hidden text-xs text-[color:var(--color-fg-muted)] md:inline">
             {user.email}
           </span>
