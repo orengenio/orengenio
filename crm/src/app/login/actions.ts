@@ -6,6 +6,11 @@ import { env } from "@/lib/env";
 
 export async function signInWithMagicLink(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const requestedNext = String(formData.get("next") ?? "").trim();
+  const next =
+    requestedNext && requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+      ? requestedNext
+      : "";
   if (!email) {
     redirect("/login?error=missing-email");
   }
@@ -13,21 +18,26 @@ export async function signInWithMagicLink(formData: FormData) {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: `${env.appUrl}/auth/callback`,
+      emailRedirectTo: `${env.appUrl}/auth/callback${next ? `?next=${encodeURIComponent(next)}` : ""}`,
     },
   });
   if (error) {
     redirect(`/login?error=${encodeURIComponent(error.message)}`);
   }
-  redirect(`/login?sent=${encodeURIComponent(email)}`);
+  redirect(`/login?sent=${encodeURIComponent(email)}${next ? `&next=${encodeURIComponent(next)}` : ""}`);
 }
 
-export async function signInWithGoogle() {
+export async function signInWithGoogle(formData: FormData) {
+  const requestedNext = String(formData.get("next") ?? "").trim();
+  const next =
+    requestedNext && requestedNext.startsWith("/") && !requestedNext.startsWith("//")
+      ? requestedNext
+      : "";
   const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: `${env.appUrl}/auth/callback`,
+      redirectTo: `${env.appUrl}/auth/callback${next ? `?next=${encodeURIComponent(next)}` : ""}`,
     },
   });
   if (error || !data?.url) {

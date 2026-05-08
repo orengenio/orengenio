@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { signInWithGoogle, signInWithMagicLink } from "./actions";
 
-type SearchParams = Promise<{ sent?: string; error?: string }>;
+type SearchParams = Promise<{ sent?: string; error?: string; next?: string }>;
 
 export default async function LoginPage({
   searchParams,
@@ -19,7 +19,7 @@ export default async function LoginPage({
   } = await supabase.auth.getUser();
   if (user) redirect("/dashboard");
 
-  const { sent, error } = await searchParams;
+  const { sent, error, next } = await searchParams;
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-16">
@@ -47,6 +47,7 @@ export default async function LoginPage({
         ) : null}
 
         <form action={signInWithMagicLink} className="mt-6 space-y-3">
+          {next ? <input type="hidden" name="next" value={next} /> : null}
           <label htmlFor="email" className="text-sm font-medium">
             Email
           </label>
@@ -70,6 +71,7 @@ export default async function LoginPage({
         </div>
 
         <form action={signInWithGoogle}>
+          {next ? <input type="hidden" name="next" value={next} /> : null}
           <Button type="submit" variant="secondary" className="w-full">
             Continue with Google
           </Button>
