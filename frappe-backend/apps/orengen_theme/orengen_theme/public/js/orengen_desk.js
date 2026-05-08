@@ -3,7 +3,7 @@
 
 (function () {
   var BRAND = (window.frappe && frappe.boot && frappe.boot.orengen) || {
-    logo_url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png",
+    logo_url: "/assets/orengen_theme/images/oren_logo.png",
     brand_name: "OrenGen",
   };
 

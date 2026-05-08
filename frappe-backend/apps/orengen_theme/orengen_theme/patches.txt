@@ -1,1 +1,2 @@
-# Patches run after each app migrate. Empty for now.
+# Patches run after each app migrate.
+orengen_theme.patches.v1_set_brand

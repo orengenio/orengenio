@@ -3,8 +3,8 @@ Boot-session hook: inject OrenGen brand values into frappe.boot so the JS
 code in orengen_desk.js can access them client-side.
 """
 
-LOGO = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"
-FAVICON = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png"
+LOGO = "/assets/orengen_theme/images/oren_logo.png"
+FAVICON = "/assets/orengen_theme/images/oren_favicon.png"
 
 
 def boot_session(bootinfo):
