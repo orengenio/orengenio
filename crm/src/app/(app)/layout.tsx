@@ -34,7 +34,9 @@ export default async function AppLayout({
           <NavLink href="/dashboard">Dashboard</NavLink>
           <NavLink href="/companies">Companies</NavLink>
           <NavLink href="/contacts">Contacts</NavLink>
+          <NavLink href="/leads">Leads</NavLink>
           <NavLink href="/deals">Deals</NavLink>
+          <NavLink href="/tasks">Tasks</NavLink>
           {myRole === "owner" || myRole === "admin" ? (
             <NavLink href="/pipelines">Pipelines</NavLink>
           ) : null}

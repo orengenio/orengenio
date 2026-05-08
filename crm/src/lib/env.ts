@@ -18,4 +18,5 @@ export const env = {
 export const serverEnv = {
   supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY ?? "",
   internalApiToken: process.env.INTERNAL_API_TOKEN ?? "",
+  crewaiUrl: process.env.CREWAI_URL ?? "",
 };
