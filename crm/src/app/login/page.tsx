@@ -26,7 +26,7 @@ export default async function LoginPage({
       <Card>
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-            OrenGen CRM
+            OrenGen Backend
           </p>
           <h1 className="mt-2 text-2xl font-semibold">Sign in</h1>
           <p className="mt-1 text-sm text-[color:var(--color-fg-dim)]">

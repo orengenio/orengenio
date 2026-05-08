@@ -9,9 +9,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: { default: "OrenGen CRM", template: "%s · OrenGen CRM" },
+  title: { default: "OrenGen Backend", template: "%s · OrenGen Backend" },
   description:
-    "Multi-tenant CRM for OrenGen Worldwide clients. Voice, chat, SMS, and pipeline in one place.",
+    "Secure backend for OrenGen Worldwide and its clients. Voice, SMS, pipeline, and AI agents in one workspace.",
   robots: { index: false, follow: false },
 };
 

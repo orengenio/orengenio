@@ -15,7 +15,7 @@ export default async function Home() {
       <header className="mb-16 flex items-center justify-between">
         <span className="text-sm font-semibold tracking-[0.2em] uppercase">
           <span className="text-[color:var(--color-fg)]">OrenGen</span>{" "}
-          <span className="text-[color:var(--color-accent)]">CRM</span>
+          <span className="text-[color:var(--color-accent)]">Backend</span>
         </span>
         <Link
           href="/login"
@@ -28,14 +28,14 @@ export default async function Home() {
       <section className="grid gap-12 md:grid-cols-2 md:items-center">
         <div>
           <h1 className="font-semibold leading-[1.05] tracking-tight text-balance text-5xl md:text-6xl">
-            The CRM your{" "}
+            The workspace your{" "}
             <span className="text-[color:var(--color-accent)]">AI agents</span>{" "}
             actually live in.
           </h1>
           <p className="mt-6 max-w-md text-lg text-[color:var(--color-fg-dim)]">
-            One workspace per client. Voice, SMS, and lead pipelines unified —
-            with autonomous OrenGen agents reading and writing alongside your
-            team.
+            One workspace per client. Voice, SMS, leads, deals, and pipelines —
+            unified with autonomous OrenGen agents reading and writing alongside
+            your team.
           </p>
           <div className="mt-10 flex gap-3">
             <Link
@@ -56,18 +56,19 @@ export default async function Home() {
         <Card className="space-y-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-              Phase 1
+              What&apos;s inside
             </p>
             <h2 className="mt-2 text-2xl font-semibold">
-              Multi-tenant foundation
+              One backend per client
             </h2>
           </div>
           <ul className="space-y-3 text-sm text-[color:var(--color-fg-dim)]">
             <li>· Magic-link + Google sign-in via Supabase Auth</li>
-            <li>· One workspace per client with strict RLS isolation</li>
+            <li>· Strict per-tenant data isolation (Postgres RLS)</li>
             <li>· Subdomain routing — <code>acme.app.orengen.io</code></li>
             <li>· Token-based invites with role-based access</li>
-            <li>· Realtime updates ready for Phase 2</li>
+            <li>· Contacts, companies, leads, deals, tasks, and activities</li>
+            <li>· Twilio SMS + Vapi voice + CrewAI lead qualifier wired in</li>
           </ul>
         </Card>
       </section>
