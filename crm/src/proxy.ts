@@ -1,11 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { tenantSlugFromHost } from "@/lib/tenant";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export async function proxy(request: NextRequest) {
-  let response = NextResponse.next({ request });
+  const requestHeaders = new Headers(request.headers);
+  const host = requestHeaders.get("host");
+  const tenantSlug = tenantSlugFromHost(host);
+  if (tenantSlug) {
+    requestHeaders.set("x-orengen-tenant-slug", tenantSlug);
+  }
+
+  let response = NextResponse.next({ request: { headers: requestHeaders } });
 
   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
     return response;
@@ -20,7 +28,7 @@ export async function proxy(request: NextRequest) {
         for (const { name, value } of cookiesToSet) {
           request.cookies.set(name, value);
         }
-        response = NextResponse.next({ request });
+        response = NextResponse.next({ request: { headers: requestHeaders } });
         for (const { name, value, options } of cookiesToSet) {
           response.cookies.set(name, value, options);
         }

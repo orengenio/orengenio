@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { BrandMark } from "@/components/brand-mark";
+import { TenantBranding } from "@/components/tenant-branding";
+import { getActiveTenant } from "@/lib/tenant";
 import { signOut } from "../login/actions";
 
 export default async function AppLayout({
@@ -15,20 +17,14 @@ export default async function AppLayout({
   } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  const { data: memberships } = await supabase
-    .from("tenant_members")
-    .select("tenant_id, role, tenants(id, slug, name)")
-    .eq("user_id", user.id);
-
-  const rawTenants = memberships?.[0]?.tenants as unknown;
-  const activeTenant = Array.isArray(rawTenants)
-    ? (rawTenants[0] as { id: string; slug: string; name: string } | undefined)
-    : (rawTenants as { id: string; slug: string; name: string } | undefined);
+  const ctx = await getActiveTenant();
+  if (!ctx) redirect("/onboarding");
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-8">
+      <TenantBranding />
       <header className="flex items-center justify-between border-b border-[color:var(--color-border)] pb-6">
-        <BrandMark tenantName={activeTenant?.name} />
+        <BrandMark tenantName={ctx.tenant.name} />
         <nav className="flex items-center gap-1 text-sm">
           <NavLink href="/dashboard">Dashboard</NavLink>
           <NavLink href="/settings">Settings</NavLink>
