@@ -35,6 +35,7 @@
     "payload-cms",
     "sitebuild",
     "platform",
-    "frappe-backend"
+    "frappe-backend",
+    "crm"
   ]
 }
