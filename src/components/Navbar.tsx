@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { OFFICIAL_LOGO_WHITE_URL } from "@/lib/brandAssets";
 const solutionColumns = [
   {
     title: "Autonomous Workforce",
@@ -89,7 +90,7 @@ export function Navbar() {
         <nav className="oren-nav">
           <Link className="oren-logo" href="/">
             <img
-              src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"
+              src={OFFICIAL_LOGO_WHITE_URL}
               alt="OrenGen Worldwide"
             />
           </Link>

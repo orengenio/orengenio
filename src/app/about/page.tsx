@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 export const metadata: Metadata = {
   title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
   description:
@@ -11,14 +12,14 @@ export const metadata: Metadata = {
     title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "OrenGen Worldwide LLC is a certified minority-owned AI automation company based in Texas. SAM.gov registered. Serving businesses nationwide.",
-    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "About OrenGen Worldwide" }],
+    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "About OrenGen Worldwide" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "Founded in 2025 in Mansfield, TX. OrenGen Worldwide builds enterprise-grade AI automation infrastructure for organizations ready to eliminate manual operations.",
-    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
+    images: [OFFICIAL_LOGO_BLUE_URL],
   },
 };
 

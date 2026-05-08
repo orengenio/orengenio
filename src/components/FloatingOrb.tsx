@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { trackChatStart } from "@/lib/track";
 
+import { OFFICIAL_FAVICON_URL } from "@/lib/brandAssets";
 interface FloatingOrbProps {
   onClick: () => void;
   isActive: boolean;
@@ -99,7 +100,7 @@ export function FloatingOrb({ onClick, isActive }: FloatingOrbProps) {
           ) : (
             // Logo when panel is closed
             <img
-              src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png"
+              src={OFFICIAL_FAVICON_URL}
               alt="OrenGen"
               className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-lg"
               style={{ filter: "brightness(10)" }}

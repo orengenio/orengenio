@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { posts } from "@/data/blog-posts"
 
+import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 export const metadata: Metadata = {
   title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
   description:
@@ -12,13 +13,13 @@ export const metadata: Metadata = {
     url: "https://orengen.io/blog",
     title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
     description: "Executive-level analysis on fractional C-suite leadership, AI automation, government contracting, email deliverability, and CRM strategy.",
-    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "OrenGen Insights" }],
+    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "OrenGen Insights" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
     description: "Executive-level analysis on fractional C-suite leadership, AI automation, government contracting, and email deliverability.",
-    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
+    images: [OFFICIAL_LOGO_BLUE_URL],
     creator: "@orengenio",
   },
 }

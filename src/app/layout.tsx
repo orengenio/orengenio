@@ -8,6 +8,7 @@ import { Analytics } from "@/components/Analytics";
 import { ContactBar } from "@/components/ContactBar";
 import { ChromeGate } from "@/components/ChromeGate";
 import { Geist, Geist_Mono, Playfair_Display, Roboto } from "next/font/google";
+import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     title: "OrenGen | The Evolution of Intelligence",
     description: "Deploy autonomous AI agents that handle voice, chat, SMS, and email in any language, 24/7. Unified CRM, automation, and a dedicated team.",
     images: [{
-      url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png",
+      url: OFFICIAL_LOGO_BLUE_URL,
       width: 1200,
       height: 630,
       alt: "OrenGen Worldwide — AI-Powered Business Automation",
@@ -57,10 +58,12 @@ export const metadata: Metadata = {
     title: "OrenGen | The Evolution of Intelligence",
     description: "Deploy autonomous AI agents in any language, 24/7. Unified CRM + automation.",
     creator: "@orengenio",
-    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
+    images: [OFFICIAL_LOGO_BLUE_URL],
   },
   icons: {
-    icon: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png",
+    icon: OFFICIAL_FAVICON_URL,
+    apple: OFFICIAL_FAVICON_URL,
+    shortcut: OFFICIAL_FAVICON_URL,
   },
   robots: {
     index: true,
@@ -86,7 +89,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "OrenGen Worldwide",
               url: "https://orengen.io",
-              logo: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png",
+              logo: OFFICIAL_LOGO_BLUE_URL,
               description: "Deploy autonomous AI agents that handle voice, chat, SMS, and email in any language, 24/7.",
               sameAs: [
                 "https://www.linkedin.com/company/orengenio",

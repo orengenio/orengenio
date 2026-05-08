@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { SignalSignup } from './SignalSignup';
 
+import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 interface TrustLink {
   href: string;
   icon: string;
@@ -120,7 +121,7 @@ export const Footer: React.FC = () => {
         {/* ─── BRAND SECTION — Logo + Fire Tagline + Socials ─── */}
         <div className="flex flex-col items-center pt-8 pb-6">
           <Link href="/">
-            <img src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/U95jP6KTuXOCdXDuQM1UmUfgzMcecV7mpVpQgMxI.png" alt="OrenGen Worldwide" width="380" />
+            <img src={OFFICIAL_LOGO_BLUE_URL} alt="OrenGen Worldwide" width="380" />
           </Link>
 
           {/* Mission Impossible fire border tagline */}

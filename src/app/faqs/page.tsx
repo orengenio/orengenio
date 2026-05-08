@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FaqAccordion from "./faq-accordion";
 
+import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -83,14 +84,14 @@ export const metadata: Metadata = {
     title: "FAQs | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "Frequently asked questions about OrenGen AI solutions, pricing, deployment, and capabilities. Get answers about AI automation for your business.",
-    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "OrenGen Worldwide FAQs" }],
+    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "OrenGen Worldwide FAQs" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "FAQs | OrenGen Worldwide — AI-Driven Innovations",
     description:
       "Frequently asked questions about OrenGen AI automation solutions. Implementation timelines, compliance, cancellation, and white-label options.",
-    images: ["https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"],
+    images: [OFFICIAL_LOGO_BLUE_URL],
   },
   other: {
     "script:ld+json": JSON.stringify(faqSchema),

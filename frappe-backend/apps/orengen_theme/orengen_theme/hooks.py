@@ -16,7 +16,8 @@ OREN_FAVICON_URL = "/assets/orengen_theme/images/oren_favicon.png"
 # Absolute URL used in contexts that render outside the browser (notably the
 # default mail footer). Emails cannot resolve site-relative paths, so we keep
 # pointing those at the public CDN copy of the same image.
-OREN_LOGO_ABS_URL = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png"
+# White-lettering variant — the email footer below renders on a dark navy bg.
+OREN_LOGO_ABS_URL = "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GDFiuJWunF3ONupIrOtSqWBlqpIx79Cxvvut9s7p.png"
 
 # Navbar / desk logo (appears top-left in ERPNext)
 app_logo_url = OREN_LOGO_URL

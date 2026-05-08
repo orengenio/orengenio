@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 
+import { OFFICIAL_FAVICON_URL } from "@/lib/brandAssets";
 const partners = [
   { name: "OpenAI", logo: "https://svgl.app/library/openai.svg", brand: "openai" },
   { name: "Anthropic", logo: "https://cdn.simpleicons.org/claude/CC5500", brand: "anthropic" },
@@ -154,7 +155,7 @@ export function Hero() {
             className={`ai-orb group relative`}
           >
             <img 
-              src="https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/GLBjK33zIX9uoJqAHz4c8kGhtn0mXn1bNtVzpUNU.png" 
+              src={OFFICIAL_FAVICON_URL} 
               alt="OrenGen" 
               className="ai-orb-logo" 
             />

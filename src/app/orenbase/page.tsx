@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 export const metadata: Metadata = {
   title: "OrenBase — Backend-as-a-Service for AI Applications | OrenGen Worldwide",
   description:
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://orengen.io/orenbase",
     title: "OrenBase — BaaS for AI Applications | OrenGen",
     description: "Secure auth, database, and storage for your AI agents and apps. No DevOps.",
-    images: [{ url: "https://cdn.content360.io/ea2381f4-12e0-4efd-b95b-6012c981eae0/uploads/04-2026/JkgbWmauRB7suRUl6bVem2msNPATeMS2h4iWgdcR.png", width: 1200, height: 630, alt: "OrenBase" }],
+    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "OrenBase" }],
   },
 }
 
