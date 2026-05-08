@@ -4,8 +4,12 @@ RUN apk add --no-cache libc6-compat
 
 FROM base AS deps
 COPY package.json package-lock.json* ./
-RUN if [ -f package-lock.json ]; then npm ci --ignore-scripts --no-audit --fund=false; \
-    else npm install --no-audit --fund=false; fi
+# Force devDependencies to install even when Coolify passes NODE_ENV=production
+# as a build ARG. Tailwind v4 + @tailwindcss/postcss + typescript are needed
+# at build time (next build invokes postcss on globals.css).
+ENV NODE_ENV=development
+RUN if [ -f package-lock.json ]; then npm ci --include=dev --ignore-scripts --no-audit --fund=false; \
+    else npm install --include=dev --no-audit --fund=false; fi
 
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
