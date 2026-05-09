@@ -7,6 +7,9 @@ import { OrbChatWrapper } from "@/components/OrbChatWrapper";
 import { Analytics } from "@/components/Analytics";
 import { ContactBar } from "@/components/ContactBar";
 import { ChromeGate } from "@/components/ChromeGate";
+import { ConsentBanner } from "@/components/ConsentBanner";
+import { OrenSignalSticky } from "@/components/OrenSignalSticky";
+import { TechBar } from "@/components/TechBar";
 import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 import { siteFontVariablesClassName } from "@/lib/siteFonts";
 
@@ -57,6 +60,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={siteFontVariablesClassName}>
       <body className="antialiased selection:bg-burnt-orange/30 selection:text-burnt-orange">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-2 focus:bg-burnt-orange focus:text-white focus:rounded"
+        >
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -72,7 +81,7 @@ export default function RootLayout({
                 "https://x.com/orengenio",
                 "https://www.instagram.com/orengenio",
                 "https://www.facebook.com/orengenio",
-                "https://github.com/orengenio",
+                "https://github.com/orengenio/orengenio",
                 "https://www.youtube.com/@orengenio",
                 "https://tiktok.com/@orengenio"
               ],
@@ -89,11 +98,19 @@ export default function RootLayout({
             <Navbar />
             <ContactBar />
           </ChromeGate>
-          {children}
+          <div id="main">{children}</div>
+          {/*
+            TechBar mounts on every route via ChromeGate hideOn="footer-only".
+            On '/', the page renders its own <TechBar /> just above the legal
+            footer (see src/app/page.tsx) and ChromeGate suppresses this one.
+          */}
           <ChromeGate>
+            <TechBar />
             <Footer />
             <OrbChatWrapper />
           </ChromeGate>
+          <OrenSignalSticky />
+          <ConsentBanner />
         </ThemeProvider>
         <Analytics />
       </body>

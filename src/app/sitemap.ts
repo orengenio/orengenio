@@ -8,9 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '', '/about', '/orenagents', '/orennexus', '/orenweb', '/orensocial', '/orenautomations', '/orenconsulting', '/orenkanbuilder',
     '/orenmail', '/orenbase', '/orenforms', '/orenflow', '/orenobserve',
     '/blog', '/case-studies', '/faqs',
+    '/affiliate-program', '/sales-partner-program',
     '/terms', '/privacy-policy', '/cookie-policy', '/acceptable-use', '/refund-policy',
     '/copyright-notice', '/security-overview', '/trademark-policy', '/legal-disclaimers',
-    '/ai-communications-opt-in',
+    '/ai-communications-opt-in', '/ai-sms-opt-in',
   ]
 
   const staticEntries = staticRoutes.map((route) => ({

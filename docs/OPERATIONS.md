@@ -142,7 +142,62 @@ just means: in Coolify → app → Source → set Git URL to `https://github.com
 
 ---
 
-## 8. Emergency rollback
+## 8. Submission checklist — A2P / Vapi / Formbricks / Stripe
+
+Frontend code is wired and gated by env vars. To **lock and submit**, complete
+each row below in Coolify (or the relevant console) and paste the resulting ID
+into `.env.example` of the affected service.
+
+### A2P 10DLC (Twilio)
+
+Detailed steps live in `docs/A2P_10DLC_CHECKLIST.md`. Submission gate:
+
+1. Twilio Console → Trust Hub → **Business Profile** approved
+2. Trust Hub → **A2P Brand** registered → copy Brand SID into `TWILIO_BRAND_SID`
+3. Messaging → **Campaign Use Case** approved → copy Campaign SID into `TWILIO_CAMPAIGN_SID`
+4. Messaging Service points at the campaign → `TWILIO_MESSAGING_SERVICE_SID`
+5. Confirm `https://orengen.io/ai-sms-opt-in` and `https://orengen.io/ai-communications-opt-in` are linked from the consent flow (already in sitemap).
+6. Run a 1-message test with `curl -X POST /api/sms/send` using `INTERNAL_API_TOKEN`.
+
+### Vapi (voice orb)
+
+Frontend reads `NEXT_PUBLIC_VAPI_PUBLIC_KEY` and `NEXT_PUBLIC_VAPI_ASSISTANT_ID`. To go live:
+
+1. Vapi dashboard → Public Key → paste into `NEXT_PUBLIC_VAPI_PUBLIC_KEY`
+2. Vapi dashboard → Assistants → create production assistant → paste ID into `NEXT_PUBLIC_VAPI_ASSISTANT_ID`
+3. Buy/port number → attach to assistant → confirm `Permissions-Policy: microphone=(self)` is reaching the orb (already set in `next.config.ts`).
+4. Cold-call test from incognito: Hero orb → Activate → speak → verify response latency < 1s.
+
+See `docs/VAPI_VOICE_AGENT.md` for detailed flow.
+
+### Formbricks (lead-capture / surveys)
+
+Embed-ready: when `NEXT_PUBLIC_FORMBRICKS_ENV_ID` is set, mount the SDK in a future client component. Today the env stub is in place; to enable:
+
+1. Create a Formbricks workspace at https://app.formbricks.com (or self-host).
+2. Environment → copy `Environment ID` → paste into `NEXT_PUBLIC_FORMBRICKS_ENV_ID`.
+3. API key → paste into `FORMBRICKS_API_KEY` (server-only).
+4. Add a `<FormbricksClient />` mount inside `src/app/layout.tsx` once the IDs are populated. Phase-2 work.
+
+### Stripe (checkout / pricing)
+
+`/api/checkout` and `/api/checkout/webhook` already exist. Submission gate:
+
+1. Stripe Dashboard → Developers → API keys → live `sk_live_...` → `STRIPE_SECRET_KEY`
+2. Same page → `pk_live_...` → `STRIPE_PUBLISHABLE_KEY`
+3. Dashboard → Webhooks → add endpoint `https://orengen.io/api/checkout/webhook`, listen for `checkout.session.completed` → copy signing secret → `STRIPE_WEBHOOK_SECRET`
+4. Catalog → Products → create the OrenKanBuilder line items → use price IDs in the builder JSON.
+5. End-to-end test: `https://orengen.io/orenkanbuilder` → add items → Pay Now → confirm n8n received `N8N_PURCHASE_WEBHOOK`.
+
+### CrewAI / Anthropic / n8n
+
+1. CrewAI service deployed at `CREWAI_URL` (default `https://crewai.orengen.io`).
+2. Anthropic key in CrewAI service: `ANTHROPIC_API_KEY` (server-only).
+3. n8n workflows for `lead-capture`, `lead-qualified`, `purchase-completed`, `sms-inbound`, `voice-status` published at `automate.orengen.io`.
+
+---
+
+## 9. Emergency rollback
 
 If a deploy breaks production:
 
