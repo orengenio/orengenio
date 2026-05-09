@@ -1,17 +1,40 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Script from "next/script";
+
+import { getConsent, type ConsentValue } from "./ConsentBanner";
 
 /**
  * Renders nothing visible. Injects GA4, Meta Pixel, and LinkedIn Insight
  * tracking scripts whenever the corresponding NEXT_PUBLIC_* env var is
- * defined at build time. Each block independently no-ops if its ID is
- * missing, so the site builds and runs fine without any analytics IDs.
+ * defined at build time AND the visitor has granted consent. Each block
+ * independently no-ops if its ID is missing, so the site builds and runs
+ * fine without any analytics IDs.
+ *
+ * Consent flows:
+ *   - Visitor with no decision: nothing fires until they click Accept.
+ *   - Visitor with "granted":   all configured trackers load.
+ *   - Visitor with "denied":    nothing loads. Reload re-applies the choice.
  */
 export function Analytics() {
+  const [consent, setConsent] = useState<ConsentValue | null>(null);
+
+  useEffect(() => {
+    setConsent(getConsent());
+    const onChange = (e: Event) => {
+      const detail = (e as CustomEvent<ConsentValue>).detail;
+      if (detail === "granted" || detail === "denied") setConsent(detail);
+    };
+    window.addEventListener("og:consent-change", onChange);
+    return () => window.removeEventListener("og:consent-change", onChange);
+  }, []);
+
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const linkedInPartnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
+
+  if (consent !== "granted") return null;
 
   return (
     <>
@@ -28,6 +51,7 @@ export function Analytics() {
               function gtag(){dataLayer.push(arguments);}
               window.gtag = gtag;
               gtag('js', new Date());
+              gtag('consent', 'default', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
               gtag('config', '${ga4Id}', { send_page_view: true });
             `}
           </Script>

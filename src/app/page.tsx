@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { TechBar } from "@/components/TechBar";
 
 export const metadata: Metadata = {
   title: "OrenGen Worldwide — Choose Your Infrastructure",
@@ -111,6 +112,8 @@ export default function Home() {
           </section>
         </div>
       </main>
+
+      <TechBar />
 
       <footer className={styles.footerLegal}>
         <div className={styles.wrap}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const partners = [
   { name: "OpenAI", logo: "https://svgl.app/library/openai.svg", brand: "openai" },
@@ -21,13 +21,15 @@ const partners = [
 ];
 
 export function TechBar() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="og-partners" aria-label="Technology Partners">
       <div className="og-partners-label">Powered by World-Class Technology</div>
       <div className="og-partners-wrapper">
-        <motion.div 
-          animate={{ x: [0, "-50%"] }}
-          transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
+        <motion.div
+          animate={prefersReducedMotion ? undefined : { x: [0, "-50%"] }}
+          transition={prefersReducedMotion ? undefined : { duration: 55, repeat: Infinity, ease: "linear" }}
           className="og-partners-track"
         >
           {[...partners, ...partners].map((partner, i) => (

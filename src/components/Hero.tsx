@@ -1,33 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { Check } from "lucide-react";
 
 // Use the LOCAL favicon (public/favicon.png) here, not a CDN URL — the orb is
 // hero content and must not break if the CDN is unreachable.
 const ORB_GLYPH_SRC = "/favicon.png";
-const partners = [
-  { name: "OpenAI", logo: "https://svgl.app/library/openai.svg", brand: "openai" },
-  { name: "Anthropic", logo: "https://cdn.simpleicons.org/claude/CC5500", brand: "anthropic" },
-  { name: "ElevenLabs", logo: "https://cdn.simpleicons.org/elevenlabs/white", brand: "elevenlabs" },
-  { name: "Google Cloud", logo: "https://cdn.simpleicons.org/googlecloud/4285F4", brand: "googlecloud" },
-  { name: "NVIDIA", logo: "https://cdn.simpleicons.org/nvidia/76B900", brand: "nvidia" },
-  { name: "GitHub", logo: "https://cdn.simpleicons.org/github/white", brand: "github" },
-  { name: "Docker", logo: "https://cdn.simpleicons.org/docker/2496ED", brand: "docker" },
-  { name: "Figma", logo: "https://cdn.simpleicons.org/figma/F24E1E", brand: "figma" },
-  { name: "Webflow", logo: "https://cdn.simpleicons.org/webflow/4353FF", brand: "webflow" },
-  { name: "Supabase", logo: "https://cdn.simpleicons.org/supabase/3FCF8E", brand: "supabase" },
-  { name: "n8n", logo: "https://cdn.simpleicons.org/n8n/EA4B71", brand: "n8n" },
-  { name: "Cloudflare", logo: "https://cdn.simpleicons.org/cloudflare/F38020", brand: "cloudflare" },
-  { name: "Twilio", logo: "https://svgl.app/library/twilio.svg", brand: "twilio" },
-  { name: "WordPress", logo: "https://cdn.simpleicons.org/wordpress/21759B", brand: "wordpress" },
-  { name: "Clawbot", logo: "https://cdn.simpleicons.org/claude/CC5500", brand: "clawbot" },
-];
 
 export function Hero() {
   const [isOrbActive, setIsOrbActive] = useState(false);
   const [orbHint, setOrbHint] = useState("Click to activate");
+  const prefersReducedMotion = useReducedMotion();
 
   const toggleOrb = () => {
     setIsOrbActive(!isOrbActive);
@@ -41,22 +25,22 @@ export function Hero() {
         <div className="og-hero-grain" />
         
         {/* Ambient Orbs */}
-        <motion.div 
-          animate={{ x: [-50, 0, -50], scale: [1, 1.08, 1] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          className="og-hero-amb og-hero-amb-1" 
+        <motion.div
+          animate={prefersReducedMotion ? undefined : { x: [-50, 0, -50], scale: [1, 1.08, 1] }}
+          transition={prefersReducedMotion ? undefined : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="og-hero-amb og-hero-amb-1"
           style={{ width: 900, height: 900, top: '-25%', right: '-12%', background: 'radial-gradient(circle,rgba(30,77,140,0.45) 0%,transparent 70%)' }}
         />
-        <motion.div 
-          animate={{ x: [35, 0, 35], scale: [1, 1.06, 1] }}
-          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-          className="og-hero-amb og-hero-amb-2" 
+        <motion.div
+          animate={prefersReducedMotion ? undefined : { x: [35, 0, 35], scale: [1, 1.06, 1] }}
+          transition={prefersReducedMotion ? undefined : { duration: 13, repeat: Infinity, ease: "easeInOut" }}
+          className="og-hero-amb og-hero-amb-2"
           style={{ width: 650, height: 650, bottom: '-18%', left: '-10%', background: 'radial-gradient(circle,rgba(21,53,102,0.5) 0%,transparent 70%)' }}
         />
-        <motion.div 
-          animate={{ scale: [1, 1.25, 1], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="og-hero-amb og-hero-amb-3" 
+        <motion.div
+          animate={prefersReducedMotion ? undefined : { scale: [1, 1.25, 1], opacity: [0.5, 1, 0.5] }}
+          transition={prefersReducedMotion ? undefined : { duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="og-hero-amb og-hero-amb-3"
           style={{ width: 400, height: 400, top: '35%', left: '50%', transform: 'translateX(-50%)', background: 'radial-gradient(circle,rgba(204,85,0,0.1) 0%,transparent 70%)' }}
         />
         
@@ -72,8 +56,8 @@ export function Hero() {
           ].map((chip) => (
             <motion.div
               key={chip.id}
-              animate={{ translateY: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: chip.delay }}
+              animate={prefersReducedMotion ? undefined : { translateY: [0, -8, 0] }}
+              transition={prefersReducedMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut", delay: chip.delay }}
               className={`og-chip ${chip.pos} absolute pointer-events-auto`}
             >
               <div className="og-chip-icon" style={{ background: chip.bg, color: chip.color }}>{chip.icon}</div>
@@ -135,13 +119,13 @@ export function Hero() {
 
         {/* AI ENGINE ORB */}
         <div className="ai-engine-container">
-          <motion.div 
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.div
+            whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
+            whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
             onClick={toggleOrb}
-            animate={{ 
+            animate={prefersReducedMotion ? undefined : {
               scale: isOrbActive ? [0.97, 1.08, 0.97] : [0.95, 1.05, 0.95],
-              boxShadow: isOrbActive 
+              boxShadow: isOrbActive
                 ? [
                     "0 0 50px 15px rgba(204,85,0,0.6)",
                     "0 0 90px 35px rgba(204,85,0,0.9)",
@@ -153,8 +137,18 @@ export function Hero() {
                     "0 0 35px 5px rgba(204,85,0,0.4)"
                   ]
             }}
-            transition={{ duration: isOrbActive ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
+            transition={prefersReducedMotion ? undefined : { duration: isOrbActive ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
             className={`ai-orb group relative`}
+            role="button"
+            tabIndex={0}
+            aria-pressed={isOrbActive}
+            aria-label={isOrbActive ? "Deactivate AI engine demo" : "Activate AI engine demo"}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleOrb();
+              }
+            }}
           >
             <img 
               src={ORB_GLYPH_SRC} 
@@ -166,14 +160,14 @@ export function Hero() {
             </span>
             
             {/* Animated Rings */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: isOrbActive ? 4 : 8, repeat: Infinity, ease: "linear" }}
+            <motion.div
+              animate={prefersReducedMotion ? undefined : { rotate: 360 }}
+              transition={prefersReducedMotion ? undefined : { duration: isOrbActive ? 4 : 8, repeat: Infinity, ease: "linear" }}
               className="absolute -inset-4 rounded-full border border-burnt-orange/30 pointer-events-none"
             />
-            <motion.div 
-              animate={{ rotate: -360 }}
-              transition={{ duration: isOrbActive ? 6 : 12, repeat: Infinity, ease: "linear" }}
+            <motion.div
+              animate={prefersReducedMotion ? undefined : { rotate: -360 }}
+              transition={prefersReducedMotion ? undefined : { duration: isOrbActive ? 6 : 12, repeat: Infinity, ease: "linear" }}
               className="absolute -inset-8 rounded-full border-2 border-dashed border-terracotta/40 pointer-events-none"
             />
           </motion.div>
@@ -181,28 +175,7 @@ export function Hero() {
 
         <div className="og-hero-fade" />
       </section>
-
-      {/* TECH PARTNERS BAR - RESTORED */}
-      <section className="og-partners" aria-label="Technology Partners">
-        <div className="og-partners-label">Powered by World-Class Technology</div>
-        <div className="og-partners-wrapper">
-          <motion.div 
-            animate={{ x: [0, "-50%"] }}
-            transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
-            className="og-partners-track"
-          >
-            {/* Duplicated for seamless loop */}
-            {[...partners, ...partners].map((partner, i) => (
-              <div key={i} className="og-partner-set">
-                <div className="og-partner-item" data-brand={partner.brand}>
-                  <img src={partner.logo} alt={partner.name} width="20" height="20" loading="lazy" />
-                  <span>{partner.name}</span>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      {/* TechBar is mounted globally in src/app/layout.tsx — see PartnersGate */}
     </>
   );
 }

@@ -182,8 +182,43 @@ export default async function BlogPostPage({
 
   const accentColor = categoryColors[post.category] ?? "#CC5500";
 
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: [OFFICIAL_LOGO_BLUE_URL],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Person", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: "OrenGen Worldwide",
+      logo: { "@type": "ImageObject", url: OFFICIAL_LOGO_BLUE_URL },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://orengen.io/blog/${post.slug}` },
+    articleSection: post.category,
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://orengen.io" },
+      { "@type": "ListItem", position: 2, name: "Insights", item: "https://orengen.io/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://orengen.io/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <div className="bg-[#050505] text-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       {/* ── HERO ── */}
       <section className="relative overflow-hidden pt-32 pb-16 px-6">
         <div
