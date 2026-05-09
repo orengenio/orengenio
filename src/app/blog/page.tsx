@@ -3,6 +3,7 @@ import Link from "next/link"
 import { posts } from "@/data/blog-posts"
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "OrenGen Insights | AI Automation, Fractional Leadership & Business Strategy",
   description:
@@ -77,7 +78,7 @@ export default function BlogPage() {
   const featuredAccent = "var(--oren-orange)"
 
   return (
-    <main style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", background: "#fff" }}>
+    <main style={{ fontFamily: FONT_BODY, background: "#fff" }}>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
 
       {/* ── HERO ── */}
@@ -114,7 +115,7 @@ export default function BlogPage() {
           </div>
 
           <h1 style={{
-            fontFamily: "var(--font-league-spartan), sans-serif",
+            fontFamily: FONT_DISPLAY,
             fontSize: "clamp(42px,7vw,80px)", fontWeight: 800,
             letterSpacing: "-0.025em", lineHeight: 0.92,
             color: "#fff", marginBottom: 24,
@@ -193,7 +194,7 @@ export default function BlogPage() {
                   {featured.category}
                 </span>
                 <h2 style={{
-                  fontFamily: "var(--font-league-spartan), sans-serif",
+                  fontFamily: FONT_DISPLAY,
                   fontSize: "clamp(24px,3.5vw,40px)", fontWeight: 800,
                   letterSpacing: "-0.02em", color: "#0f0a05",
                   lineHeight: 1.15, marginBottom: 18, maxWidth: 720,
@@ -261,7 +262,7 @@ export default function BlogPage() {
                 </div>
                 <div>
                   <h2 style={{
-                    fontFamily: "var(--font-league-spartan), sans-serif",
+                    fontFamily: FONT_DISPLAY,
                     fontSize: "clamp(22px,3vw,32px)", fontWeight: 800,
                     letterSpacing: "-0.02em", color: "#0f0a05",
                     lineHeight: 1.1,
@@ -315,7 +316,7 @@ export default function BlogPage() {
 
                     {/* Title */}
                     <h3 style={{
-                      fontFamily: "var(--font-league-spartan), sans-serif",
+                      fontFamily: FONT_DISPLAY,
                       fontSize: 19, fontWeight: 700, color: "#0f0a05",
                       lineHeight: 1.25, marginBottom: 10, flex: 0,
                     }}>
@@ -388,7 +389,7 @@ export default function BlogPage() {
             Stay Sharp
           </span>
           <h2 style={{
-            fontFamily: "var(--font-league-spartan), sans-serif",
+            fontFamily: FONT_DISPLAY,
             fontSize: "clamp(28px,4.5vw,48px)", fontWeight: 800,
             letterSpacing: "-0.02em", color: "#fff",
             marginBottom: 16, lineHeight: 1.1,

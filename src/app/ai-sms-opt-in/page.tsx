@@ -28,7 +28,7 @@ export default function AiSmsOptInPage() {
             background: linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%);
             padding: 100px 20px 60px;
             color: #F0F4FA;
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
           }
           .sms-consent-container {
             max-width: 720px;
@@ -46,7 +46,7 @@ export default function AiSmsOptInPage() {
             border-bottom: 3px solid #CC5500;
           }
           .sms-consent-header h1 {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
             font-size: clamp(28px, 4vw, 40px);
             font-weight: 900;
             color: #081628;

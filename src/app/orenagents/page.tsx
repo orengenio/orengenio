@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { LeadModalTrigger } from "@/components/LeadModal"
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "OrenAgents — Buy-Lingual™ AI Voice Employees | OrenGen Worldwide",
   description:
@@ -155,7 +156,7 @@ export default function OrenAgentsPage() {
   ]
 
   return (
-    <main style={{ fontFamily: "'Roboto', sans-serif", background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
+    <main style={{ fontFamily: FONT_BODY, background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
       <LeadModalTrigger
         defaultSource="orenagents"
         title="Deploy Your AI Voice Agents"
@@ -215,7 +216,7 @@ export default function OrenAgentsPage() {
             </div>
 
             <h1 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(40px,7vw,84px)", fontWeight: 900,
               letterSpacing: "-0.03em", lineHeight: 1.02,
               color: "#F0F4FA", marginBottom: 28,
@@ -317,7 +318,7 @@ export default function OrenAgentsPage() {
               Capabilities
             </span>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(34px,5vw,56px)", fontWeight: 900,
               color: "#F0F4FA", letterSpacing: "-0.03em", marginBottom: 16,
             }}>
@@ -347,7 +348,7 @@ export default function OrenAgentsPage() {
               }}>
                 <div style={{ fontSize: 36, marginBottom: 16 }}>{cap.icon}</div>
                 <h3 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: FONT_DISPLAY,
                   fontSize: 20, fontWeight: 700, color: "#F0F4FA", marginBottom: 10,
                 }}>
                   {cap.title}
@@ -381,7 +382,7 @@ export default function OrenAgentsPage() {
             {/* Left: trademark big text */}
             <div>
               <div style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: "clamp(48px,7vw,110px)", fontWeight: 900,
                 letterSpacing: "-0.03em", lineHeight: 0.88,
                 color: "#CC5500",
@@ -391,7 +392,7 @@ export default function OrenAgentsPage() {
                 BUY-
               </div>
               <div style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: "clamp(48px,7vw,110px)", fontWeight: 900,
                 letterSpacing: "-0.03em", lineHeight: 0.88,
                 color: "#F0F4FA",
@@ -414,7 +415,7 @@ export default function OrenAgentsPage() {
             {/* Right: content */}
             <div>
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: "clamp(24px,3.5vw,44px)", fontWeight: 900,
                 color: "#F0F4FA", letterSpacing: "-0.02em", lineHeight: 1.2,
                 marginBottom: 20,
@@ -472,7 +473,7 @@ export default function OrenAgentsPage() {
               AI Employees Pricing
             </span>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(30px,4vw,52px)", fontWeight: 900,
               color: "#F0F4FA", letterSpacing: "-0.03em", marginBottom: 12,
             }}>
@@ -512,7 +513,7 @@ export default function OrenAgentsPage() {
                 <div style={{ marginBottom: 24 }}>
                   <div style={{ color: "rgba(210,225,245,0.35)", fontSize: 11, textDecoration: "line-through", marginBottom: 4 }}>Was {tier.was}</div>
                   <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
-                    <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 44, fontWeight: 800, color: tier.highlight ? "#CC5500" : "#F0F4FA", lineHeight: 1 }}>
+                    <span style={{ fontFamily: FONT_DISPLAY, fontSize: 44, fontWeight: 800, color: tier.highlight ? "#CC5500" : "#F0F4FA", lineHeight: 1 }}>
                       ${tier.price.toLocaleString()}
                     </span>
                     <span style={{ color: "rgba(210,225,245,0.35)", fontSize: 14, paddingBottom: 7 }}>/mo</span>
@@ -562,7 +563,7 @@ export default function OrenAgentsPage() {
               AI Voice Pricing
             </span>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(30px,4vw,52px)", fontWeight: 900,
               color: "#F0F4FA", letterSpacing: "-0.03em", marginBottom: 12,
             }}>
@@ -602,7 +603,7 @@ export default function OrenAgentsPage() {
                 <div style={{ marginBottom: 24 }}>
                   <div style={{ color: "rgba(210,225,245,0.35)", fontSize: 11, textDecoration: "line-through", marginBottom: 4 }}>Was {tier.was}</div>
                   <div style={{ display: "flex", alignItems: "flex-end", gap: 4 }}>
-                    <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 44, fontWeight: 800, color: tier.highlight ? "#CC5500" : "#F0F4FA", lineHeight: 1 }}>
+                    <span style={{ fontFamily: FONT_DISPLAY, fontSize: 44, fontWeight: 800, color: tier.highlight ? "#CC5500" : "#F0F4FA", lineHeight: 1 }}>
                       ${tier.price.toLocaleString()}
                     </span>
                     <span style={{ color: "rgba(210,225,245,0.35)", fontSize: 14, paddingBottom: 7 }}>/mo</span>
@@ -656,7 +657,7 @@ export default function OrenAgentsPage() {
               FAQ
             </span>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(32px,5vw,52px)", fontWeight: 900,
               color: "#F0F4FA", letterSpacing: "-0.03em",
             }}>
@@ -710,7 +711,7 @@ export default function OrenAgentsPage() {
           }} />
           <div style={{ position: "relative", zIndex: 1 }}>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(36px,6vw,64px)", fontWeight: 900,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 18, lineHeight: 1.06,
             }}>

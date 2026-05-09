@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 
 const html = `
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
-
     .legal-page * { margin: 0; padding: 0; box-sizing: border-box; }
 
     .page-header {
@@ -37,7 +35,7 @@ const html = `
       pointer-events: none;
     }
     .page-header h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
       line-height: 1.1;
@@ -49,7 +47,7 @@ const html = `
     }
     .page-header h1 .orange { color: #CC5500; }
     .page-header p {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: clamp(14px, 2vw, 17px);
       color: rgba(210, 225, 245, 0.6);
       margin: 0 0 8px 0;
@@ -76,7 +74,7 @@ const html = `
 
     .trademark-section { margin-bottom: 40px; }
     .trademark-section h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: 24px;
       font-weight: 800;
       color: #0B1D3A;
@@ -86,7 +84,7 @@ const html = `
       border-left: 4px solid #CC5500;
     }
     .trademark-section h3 {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 18px;
       font-weight: 700;
       color: #0F2847;
@@ -94,7 +92,7 @@ const html = `
       margin-top: 24px;
     }
     .trademark-section p {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 15px;
       line-height: 1.8;
       color: #374151;
@@ -105,7 +103,7 @@ const html = `
       margin-bottom: 16px;
     }
     .trademark-section li {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 15px;
       line-height: 1.8;
       color: #374151;
@@ -155,7 +153,7 @@ const html = `
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: 'Playfair Display', serif; }
+    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; }
     .contact-info p { margin-bottom: 8px; }
 
     a { color: #CC5500; text-decoration: none; }
@@ -171,7 +169,7 @@ const html = `
 .trademark-list-box h3 {
   margin-top: 0;
   color: #0B1D3A;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-size: 20px;
   margin-bottom: 16px;
 }
@@ -572,8 +570,6 @@ export default function Page() {
   return (
     <div className="pt-24 pb-12 legal-page" dangerouslySetInnerHTML={{ __html: `
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
-
     .legal-page * { margin: 0; padding: 0; box-sizing: border-box; }
 
     .page-header {
@@ -601,7 +597,7 @@ export default function Page() {
       pointer-events: none;
     }
     .page-header h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
       line-height: 1.1;
@@ -613,7 +609,7 @@ export default function Page() {
     }
     .page-header h1 .orange { color: #CC5500; }
     .page-header p {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: clamp(14px, 2vw, 17px);
       color: rgba(210, 225, 245, 0.6);
       margin: 0 0 8px 0;
@@ -640,7 +636,7 @@ export default function Page() {
 
     .trademark-section { margin-bottom: 40px; }
     .trademark-section h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: 24px;
       font-weight: 800;
       color: #0B1D3A;
@@ -650,7 +646,7 @@ export default function Page() {
       border-left: 4px solid #CC5500;
     }
     .trademark-section h3 {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 18px;
       font-weight: 700;
       color: #0F2847;
@@ -658,7 +654,7 @@ export default function Page() {
       margin-top: 24px;
     }
     .trademark-section p {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 15px;
       line-height: 1.8;
       color: #374151;
@@ -669,7 +665,7 @@ export default function Page() {
       margin-bottom: 16px;
     }
     .trademark-section li {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 15px;
       line-height: 1.8;
       color: #374151;
@@ -719,7 +715,7 @@ export default function Page() {
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: 'Playfair Display', serif; }
+    .contact-info h3 { margin-top: 0; color: #0B1D3A; font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; }
     .contact-info p { margin-bottom: 8px; }
 
     a { color: #CC5500; text-decoration: none; }
@@ -735,7 +731,7 @@ export default function Page() {
 .trademark-list-box h3 {
   margin-top: 0;
   color: #0B1D3A;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-size: 20px;
   margin-bottom: 16px;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "OrenForms — Surveys, Feedback, and Smart Forms | OrenGen Worldwide",
   description:
@@ -33,7 +34,7 @@ const faqs = [
 
 export default function OrenFormsPage() {
   return (
-    <main style={{ fontFamily: "'Roboto', sans-serif", background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
+    <main style={{ fontFamily: FONT_BODY, background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)", color: "#F0F4FA" }}>
       <style>{`@keyframes ofDot { 0%,100%{opacity:1} 50%{opacity:0.4} }`}</style>
 
       <section style={{ padding: "clamp(100px,14vw,160px) 24px clamp(60px,10vw,100px)", position: "relative", overflow: "hidden" }}>
@@ -48,7 +49,7 @@ export default function OrenFormsPage() {
             </span>
           </div>
 
-          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(40px,7vw,84px)", fontWeight: 900, letterSpacing: "-0.03em", lineHeight: 1.02, color: "#F0F4FA", marginBottom: 28 }}>
+          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(40px,7vw,84px)", fontWeight: 900, letterSpacing: "-0.03em", lineHeight: 1.02, color: "#F0F4FA", marginBottom: 28 }}>
             Feedback That <span style={{ color: "#CC5500" }}>Goes Somewhere.</span>
           </h1>
 
@@ -71,13 +72,13 @@ export default function OrenFormsPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
             <span style={{ display: "inline-block", background: "rgba(204,85,0,0.08)", border: "1px solid rgba(204,85,0,0.18)", color: "#CC5500", fontSize: 11, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", borderRadius: 9999, padding: "6px 16px", marginBottom: 20 }}>Capabilities</span>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(34px,5vw,56px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.03em", marginBottom: 16 }}>Smart Forms, Smarter Routing</h2>
+            <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(34px,5vw,56px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.03em", marginBottom: 16 }}>Smart Forms, Smarter Routing</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 18 }}>
             {capabilities.map(cap => (
               <div key={cap.title} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderTop: "3px solid #CC5500", borderRadius: 20, padding: "30px 26px", backdropFilter: "blur(12px)" }}>
                 <div style={{ fontSize: 36, marginBottom: 16 }}>{cap.icon}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#F0F4FA", marginBottom: 10 }}>{cap.title}</h3>
+                <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 20, fontWeight: 700, color: "#F0F4FA", marginBottom: 10 }}>{cap.title}</h3>
                 <p style={{ color: "rgba(210,225,245,0.5)", fontSize: 14, lineHeight: 1.65 }}>{cap.desc}</p>
               </div>
             ))}
@@ -87,7 +88,7 @@ export default function OrenFormsPage() {
 
       <section style={{ padding: "100px 24px", background: "#0B1D3A" }}>
         <div style={{ maxWidth: 840, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px,4.5vw,48px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.02em", marginBottom: 40, textAlign: "center" }}>Questions</h2>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(30px,4.5vw,48px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.02em", marginBottom: 40, textAlign: "center" }}>Questions</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {faqs.map((f, i) => (
               <details key={i} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(204,85,0,0.15)", borderRadius: 14, padding: "18px 22px" }}>
@@ -101,7 +102,7 @@ export default function OrenFormsPage() {
 
       <section style={{ padding: "100px 24px", background: "linear-gradient(165deg, #0B1D3A 0%, #0D2240 100%)", textAlign: "center" }}>
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(30px,4.5vw,52px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.02em", marginBottom: 20 }}>Turn feedback into <span style={{ color: "#CC5500" }}>pipeline</span>.</h2>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: "clamp(30px,4.5vw,52px)", fontWeight: 900, color: "#F0F4FA", letterSpacing: "-0.02em", marginBottom: 20 }}>Turn feedback into <span style={{ color: "#CC5500" }}>pipeline</span>.</h2>
           <p style={{ color: "rgba(210,225,245,0.55)", fontSize: 17, marginBottom: 36 }}>Launch OrenForms or let us design your survey program.</p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="https://formbricks.orengen.io" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg, #CC5500, #E8762B)", color: "#fff", fontWeight: 700, fontSize: 16, padding: "16px 36px", borderRadius: 9999, textDecoration: "none" }}>Open OrenForms</a>

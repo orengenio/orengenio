@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { OFFICIAL_LOGO_WHITE_URL } from "@/lib/brandAssets";
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "Login — OrenGen Worldwide",
   description: "Sign in to your OrenGen account to access your AI workforce, CRM, and website builder.",
@@ -57,7 +58,7 @@ function LoginContent({
 
         <h1
           style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: FONT_DISPLAY,
             fontSize: 28,
             fontWeight: 800,
             color: "#F0F4FA",
@@ -68,7 +69,7 @@ function LoginContent({
         </h1>
         <p
           style={{
-            fontFamily: "'Roboto', sans-serif",
+            fontFamily: FONT_BODY,
             fontSize: 15,
             color: "rgba(210,225,245,0.55)",
             marginBottom: 36,
@@ -88,7 +89,7 @@ function LoginContent({
               marginBottom: 24,
               color: "#f87171",
               fontSize: 13,
-              fontFamily: "'Roboto', sans-serif",
+              fontFamily: FONT_BODY,
             }}
           >
             Sign in failed. Please try again.
@@ -113,7 +114,7 @@ function LoginContent({
             fontSize: 15,
             fontWeight: 600,
             color: "#1a1a1a",
-            fontFamily: "'Roboto', sans-serif",
+            fontFamily: FONT_BODY,
             transition: "transform 0.2s, box-shadow 0.2s",
             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
           }}
@@ -153,7 +154,7 @@ function LoginContent({
             style={{
               fontSize: 12,
               color: "rgba(210,225,245,0.35)",
-              fontFamily: "'Roboto', sans-serif",
+              fontFamily: FONT_BODY,
               textTransform: "uppercase",
               letterSpacing: "0.1em",
             }}
@@ -178,7 +179,7 @@ function LoginContent({
             fontSize: 15,
             fontWeight: 600,
             color: "#CC5500",
-            fontFamily: "'Roboto', sans-serif",
+            fontFamily: FONT_BODY,
             transition: "background 0.2s, border-color 0.2s",
           }}
         >
@@ -191,7 +192,7 @@ function LoginContent({
             marginTop: 32,
             fontSize: 12,
             color: "rgba(210,225,245,0.35)",
-            fontFamily: "'Roboto', sans-serif",
+            fontFamily: FONT_BODY,
             lineHeight: 1.6,
           }}
         >

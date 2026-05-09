@@ -6,6 +6,7 @@ import { posts, type BlogPost } from "@/data/blog-posts";
 
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_DISPLAY } from "@/lib/typography";
 const categoryColors: Record<string, string> = {
   "Fractional Leadership": "#CC5500",
   "AI Automation": "#3b6caa",
@@ -115,7 +116,7 @@ function renderContent(content: string): React.ReactNode[] {
         <h2
           key={i}
           className="text-2xl sm:text-3xl font-extrabold text-white mt-12 mb-4 leading-tight"
-          style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+          style={{ fontFamily: FONT_DISPLAY }}
         >
           {line.slice(3)}
         </h2>
@@ -210,7 +211,7 @@ export default async function BlogPostPage({
           </div>
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+            style={{ fontFamily: FONT_DISPLAY }}
           >
             {post.title}
           </h1>
@@ -277,7 +278,7 @@ export default async function BlogPostPage({
         <div className="relative z-10 mx-auto max-w-2xl text-center">
           <h2
             className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+            style={{ fontFamily: FONT_DISPLAY }}
           >
             Ready to Automate Your Operations?
           </h2>
@@ -300,7 +301,7 @@ export default async function BlogPostPage({
         <div className="mx-auto max-w-6xl">
           <h3
             className="text-2xl font-extrabold text-white mb-8"
-            style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+            style={{ fontFamily: FONT_DISPLAY }}
           >
             More from OrenGen Insights
           </h3>
@@ -330,7 +331,7 @@ export default async function BlogPostPage({
                       <p className="text-white/35 text-xs mb-2">{related.readTime} read</p>
                       <h4
                         className="text-sm font-bold text-white group-hover:text-[#CC5500] transition-colors duration-200 leading-snug flex-1 mb-3"
-                        style={{ fontFamily: "var(--font-league-spartan), sans-serif" }}
+                        style={{ fontFamily: FONT_DISPLAY }}
                       >
                         {related.title}
                       </h4>

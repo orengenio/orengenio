@@ -25,11 +25,10 @@ export default function Page() {
     />
     <div className="pt-24 pb-12 auto-page" dangerouslySetInnerHTML={{ __html: `
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Roboto:wght@300;400;500;600;700&display=swap');
     :root{--primary:#CC5500;--primary-light:#E8762B;--primary-dark:#B34A00;--accent:#CC5500;--accent-dark:#B34A00;--bg-dark:#0B1D3A;--bg-card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--text:#F0F4FA;--text-secondary:rgba(210,225,245,0.6);--text-muted:rgba(210,225,245,0.4);--terracotta:#E2725B}
     .auto-page *{margin:0;padding:0;box-sizing:border-box}
-    .auto-page{background:var(--bg-dark);color:var(--text);font-family:'Roboto','Inter',sans-serif;overflow-x:hidden}
-    .auto-page h1,.auto-page h2,.auto-page h3,.auto-page h4,.auto-page h5,.auto-page h6{font-family:'Playfair Display',serif}
+    .auto-page{background:var(--bg-dark);color:var(--text);font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif;overflow-x:hidden}
+    .auto-page h1,.auto-page h2,.auto-page h3,.auto-page h4,.auto-page h5,.auto-page h6{font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif}
 
     /* ===== HERO ===== */
     .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;overflow:hidden;background:linear-gradient(165deg,#081628 0%,#0B1D3A 30%,#0F2847 60%,#0D2240 100%)}
@@ -38,11 +37,11 @@ export default function Page() {
     .hero-inner{display:flex;align-items:center;justify-content:center;gap:60px;max-width:1200px;margin:0 auto;position:relative;z-index:2;flex-wrap:wrap}
     .hero-content{flex:1 1 480px;min-width:320px}
     .hero-visual{flex:0 0 auto;width:480px;height:160px;position:relative;display:flex;align-items:center;justify-content:center}
-    .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.25)!important;border-radius:100px;color:#CC5500!important;font-family:'Roboto',sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.25)!important;border-radius:100px;color:#CC5500!important;font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:12px!important;font-weight:700!important;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px}
     .hero-badge svg{width:14px;height:14px;stroke:#CC5500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .auto-page h1{font-size:clamp(42px,7vw,84px)!important;line-height:1.02!important;margin-bottom:24px!important;letter-spacing:-0.03em;font-weight:900!important;color:#F0F4FA!important}
     .auto-page h1 span{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
-    .hero-text{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.65;color:rgba(210,225,245,0.55)!important;max-width:600px;margin:0 0 36px;font-weight:300}
+    .hero-text{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:18px!important;line-height:1.65;color:rgba(210,225,245,0.55)!important;max-width:600px;margin:0 0 36px;font-weight:300}
     .actions{display:flex;gap:18px;flex-wrap:wrap}
 
     /* Sparkle Button */
@@ -59,14 +58,14 @@ export default function Page() {
     .button:is(:hover,:focus) .sparkle .path{animation:pathAnim 1.5s linear .5s infinite}
     .button .sparkle .path:nth-child(1){--scale_path_1:1.2}.button .sparkle .path:nth-child(2){--scale_path_2:1.2}.button .sparkle .path:nth-child(3){--scale_path_3:1.2}
     @keyframes pathAnim{0%,34%,71%,100%{transform:scale(1)}17%{transform:scale(var(--scale_path_1,1))}49%{transform:scale(var(--scale_path_2,1))}83%{transform:scale(var(--scale_path_3,1))}}
-    .button .text_button{position:relative;z-index:10;background-image:linear-gradient(90deg,hsla(0 0% 100%/1) 0%,hsla(0 0% 100%/var(--active,0)) 120%);background-clip:text;-webkit-background-clip:text;font-size:1rem;color:transparent;font-weight:600;font-family:'Playfair Display',serif!important}
+    .button .text_button{position:relative;z-index:10;background-image:linear-gradient(90deg,hsla(0 0% 100%/1) 0%,hsla(0 0% 100%/var(--active,0)) 120%);background-clip:text;-webkit-background-clip:text;font-size:1rem;color:transparent;font-weight:600;font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif!important}
 
     /* ===== WORKFLOW DIAGRAM ===== */
     .wf-diagram{display:flex;align-items:center;gap:0;width:100%}
     .wf-node{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
     .wf-node-circle{width:72px;height:72px;border-radius:18px;background:rgba(255,255,255,0.04);border:1.5px solid rgba(204,85,0,0.3);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;font-size:28px;transition:all .3s}
     .wf-node-circle:hover{border-color:rgba(204,85,0,0.6);background:rgba(204,85,0,0.08);transform:scale(1.08)}
-    .wf-node-label{font-family:'Roboto',sans-serif!important;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+    .wf-node-label{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
     .wf-connector{flex:1;height:2px;background:rgba(204,85,0,0.15);position:relative;min-width:20px;max-width:80px}
     .wf-connector::after{content:'';position:absolute;top:-3px;width:8px;height:8px;background:#CC5500;border-radius:50%;animation:flowDot 2.5s ease-in-out infinite;box-shadow:0 0 12px rgba(204,85,0,0.5)}
     .wf-connector:nth-of-type(2)::after{animation-delay:0s}
@@ -80,16 +79,16 @@ export default function Page() {
     .marquee-banner::before{left:0;background:linear-gradient(90deg,#081628 0%,transparent 100%)}
     .marquee-banner::after{right:0;background:linear-gradient(270deg,#081628 0%,transparent 100%)}
     .marquee-track{display:flex;width:max-content;animation:marqueeScroll 30s linear infinite}
-    .marquee-track span{font-family:'Roboto',sans-serif!important;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CC5500;white-space:nowrap;padding:0 60px}
+    .marquee-track span{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CC5500;white-space:nowrap;padding:0 60px}
     @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     /* ===== SECTIONS ===== */
     .content-section{max-width:1200px;margin:0 auto;padding:100px 40px}
     .section-header{text-align:center;margin-bottom:60px}
-    .section-badge{display:inline-block;padding:8px 20px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.2)!important;border-radius:100px;font-family:'Roboto',sans-serif!important;font-size:12px!important;font-weight:700!important;color:#CC5500!important;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+    .section-badge{display:inline-block;padding:8px 20px;background:rgba(204,85,0,0.08)!important;border:1px solid rgba(204,85,0,0.2)!important;border-radius:100px;font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:12px!important;font-weight:700!important;color:#CC5500!important;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
     .section-title{font-size:clamp(36px,5vw,56px)!important;line-height:1.08!important;margin-bottom:20px!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important}
     .highlight{color:#CC5500!important;-webkit-text-fill-color:#CC5500!important}
-    .section-description{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important;max-width:700px;margin:0 auto;font-weight:300}
+    .section-description{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important;max-width:700px;margin:0 auto;font-weight:300}
 
     /* ===== AUTOMATION CARDS (3x2) ===== */
     .auto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -99,15 +98,15 @@ export default function Page() {
     .auto-card:hover .card-accent{opacity:1}
     .auto-card-emoji{font-size:36px;margin-bottom:16px;display:block}
     .auto-card h3{font-size:20px!important;font-weight:800!important;margin-bottom:12px!important;color:#F0F4FA!important}
-    .auto-card p{font-family:'Roboto',sans-serif!important;font-size:15px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important}
+    .auto-card p{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:15px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important}
 
     /* ===== HOW IT WORKS FLOW ===== */
     .how-flow{max-width:900px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:center}
     .how-node{text-align:center;flex:0 0 auto}
     .how-icon{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;background:rgba(255,255,255,0.04);border:2px solid rgba(204,85,0,0.3);backdrop-filter:blur(12px);font-size:36px;transition:all .3s}
     .how-icon:hover{border-color:rgba(204,85,0,0.6);background:rgba(204,85,0,0.08);transform:scale(1.08)}
-    .how-label{font-family:'Playfair Display',serif!important;font-size:18px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
-    .how-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:var(--text-muted);max-width:160px;margin:0 auto;line-height:1.5}
+    .how-label{font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif!important;font-size:18px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
+    .how-desc{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:13px;color:var(--text-muted);max-width:160px;margin:0 auto;line-height:1.5}
     .how-connector{flex:1;height:2px;background:rgba(204,85,0,0.15);position:relative;min-width:30px;max-width:100px}
     .how-connector::after{content:'';position:absolute;top:-3px;width:8px;height:8px;background:#CC5500;border-radius:50%;animation:flowDot 2.5s ease-in-out infinite;box-shadow:0 0 12px rgba(204,85,0,0.5)}
     .how-connector:nth-of-type(2)::after{animation-delay:0s}
@@ -115,31 +114,31 @@ export default function Page() {
 
     /* ===== INTEGRATIONS GRID ===== */
     .integrations-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:40px}
-    .int-pill{padding:10px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;font-family:'Roboto',sans-serif!important;font-size:14px;font-weight:500;color:rgba(210,225,245,0.7);backdrop-filter:blur(8px);transition:all .3s;white-space:nowrap}
+    .int-pill{padding:10px 22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:14px;font-weight:500;color:rgba(210,225,245,0.7);backdrop-filter:blur(8px);transition:all .3s;white-space:nowrap}
     .int-pill:hover{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.06);color:#F0F4FA;transform:translateY(-2px)}
 
     /* ===== PRICING NOTE ===== */
     .pricing-note{text-align:center;padding:60px 40px;max-width:800px;margin:0 auto}
-    .pricing-note p{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.6)!important;font-weight:300}
+    .pricing-note p{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.6)!important;font-weight:300}
     .pricing-note strong{color:#CC5500!important;font-weight:700}
 
     /* ===== PRICING GRID ===== */
     .auto-pricing{max-width:1100px;margin:0 auto;padding:80px 40px 40px}
     .auto-pricing-title{text-align:center;font-size:clamp(32px,5vw,48px)!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important;margin-bottom:12px}
     .auto-pricing-title span{color:#CC5500}
-    .auto-pricing-sub{text-align:center;font-family:'Roboto',sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
+    .auto-pricing-sub{text-align:center;font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:17px;color:rgba(210,225,245,0.5);margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto}
     .auto-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .auto-tier{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 28px;position:relative;transition:all .3s;display:flex;flex-direction:column}
     .auto-tier:hover{border-color:rgba(204,85,0,0.3);transform:translateY(-4px)}
     .auto-tier.featured{border-color:rgba(204,85,0,0.4);background:rgba(204,85,0,0.04)}
     .auto-tier.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#CC5500,#E2725B);color:white;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap}
     .auto-tier-name{font-size:20px!important;font-weight:800!important;color:#F0F4FA!important;margin-bottom:6px}
-    .auto-tier-desc{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
-    .auto-tier-price{font-family:'Playfair Display',serif!important;font-size:36px;font-weight:900;color:#CC5500;margin-bottom:4px}
-    .auto-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:'Roboto',sans-serif;font-weight:400}
-    .auto-tier-note{font-family:'Roboto',sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
+    .auto-tier-desc{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:13px;color:rgba(210,225,245,0.45);margin-bottom:20px;line-height:1.5}
+    .auto-tier-price{font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif!important;font-size:36px;font-weight:900;color:#CC5500;margin-bottom:4px}
+    .auto-tier-price span{font-size:15px;color:rgba(210,225,245,0.4);font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif;font-weight:400}
+    .auto-tier-note{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:12px;color:rgba(210,225,245,0.35);margin-bottom:20px}
     .auto-tier ul{list-style:none;padding:0;margin:0 0 24px;flex:1}
-    .auto-tier li{font-family:'Roboto',sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
+    .auto-tier li{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:13px;color:rgba(210,225,245,0.6);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);line-height:1.5}
     .auto-tier li::before{content:'✓ ';color:#CC5500;font-weight:700}
     .auto-tier-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;border:1px solid rgba(204,85,0,0.3);color:#CC5500;background:transparent}
     .auto-tier-btn:hover{background:rgba(204,85,0,0.08);border-color:#CC5500}
@@ -151,7 +150,7 @@ export default function Page() {
     .cta-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:60px 40px;backdrop-filter:blur(16px);position:relative;overflow:hidden}
     .cta-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(90deg,#CC5500,#E2725B,#CC5500);border-radius:24px 24px 0 0}
     .cta-title{font-size:clamp(36px,5vw,56px)!important;line-height:1.08;margin-bottom:20px!important;font-weight:900!important;letter-spacing:-0.03em;color:#F0F4FA!important}
-    .cta-description{font-family:'Roboto',sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;font-weight:300}
+    .cta-description{font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif!important;font-size:18px!important;line-height:1.7;color:rgba(210,225,245,0.55)!important;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;font-weight:300}
 
     /* ===== RESPONSIVE ===== */
     @media(max-width:768px){

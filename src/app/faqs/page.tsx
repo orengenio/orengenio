@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import FaqAccordion from "./faq-accordion";
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_DISPLAY } from "@/lib/typography";
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -145,7 +146,7 @@ export default function FaqsPage() {
           </div>
           <h1
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(42px,8vw,82px)", lineHeight: 1.02,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28,
             }}
@@ -177,7 +178,7 @@ export default function FaqsPage() {
         <div style={{ position: "relative", zIndex: 2, maxWidth: 640, margin: "0 auto" }}>
           <h2
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
             }}

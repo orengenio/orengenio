@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { FONT_BODY } from "@/lib/typography";
+
 const faqs = [
   {
     q: "How is OrenGen different from hiring a development agency?",
@@ -70,7 +72,7 @@ export default function FaqAccordion() {
             >
               <span
                 style={{
-                  fontFamily: "'Roboto', sans-serif", fontSize: 16, fontWeight: 600,
+                  fontFamily: FONT_BODY, fontSize: 16, fontWeight: 600,
                   color: "#F0F4FA", paddingRight: 8, lineHeight: 1.4,
                 }}
               >
@@ -103,7 +105,7 @@ export default function FaqAccordion() {
                 transition: "max-height 0.3s ease, opacity 0.3s ease",
               }}
             >
-              <p style={{ fontFamily: "'Roboto', sans-serif", color: "rgba(210,225,245,0.55)", fontSize: 14.5, lineHeight: 1.75, padding: "0 28px 24px", fontWeight: 300 }}>
+              <p style={{ fontFamily: FONT_BODY, color: "rgba(210,225,245,0.55)", fontSize: 14.5, lineHeight: 1.75, padding: "0 28px 24px", fontWeight: 300 }}>
                 {faq.a}
               </p>
             </div>

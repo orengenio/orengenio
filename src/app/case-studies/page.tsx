@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "Case Studies | OrenGen Worldwide — AI-Driven Innovations",
   description:
@@ -108,7 +109,7 @@ export default function CaseStudiesPage() {
           </div>
           <h1
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(42px,8vw,82px)", lineHeight: 1.02,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28,
             }}
@@ -155,7 +156,7 @@ export default function CaseStudiesPage() {
                   {cs.icon}
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: 18, color: "#F0F4FA", lineHeight: 1.2 }}>
+                  <p style={{ fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: 18, color: "#F0F4FA", lineHeight: 1.2 }}>
                     {cs.company}
                   </p>
                   <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: "rgba(210,225,245,0.4)", marginTop: 2 }}>
@@ -165,13 +166,13 @@ export default function CaseStudiesPage() {
               </div>
               <p
                 style={{
-                  fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                  fontFamily: FONT_DISPLAY, fontWeight: 900,
                   fontSize: 36, color: "#CC5500", lineHeight: 1, marginBottom: 16,
                 }}
               >
                 {cs.stat}
               </p>
-              <p style={{ fontFamily: "'Roboto', sans-serif", color: "rgba(210,225,245,0.5)", fontSize: 14, lineHeight: 1.7, fontWeight: 300, marginBottom: 24 }}>
+              <p style={{ fontFamily: FONT_BODY, color: "rgba(210,225,245,0.5)", fontSize: 14, lineHeight: 1.7, fontWeight: 300, marginBottom: 24 }}>
                 {cs.description}
               </p>
               <a
@@ -204,7 +205,7 @@ export default function CaseStudiesPage() {
         <div style={{ position: "relative", zIndex: 2, maxWidth: 640, margin: "0 auto" }}>
           <h2
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
             }}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_DISPLAY } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "About OrenGen Worldwide | OrenGen Worldwide — AI-Driven Innovations",
   description:
@@ -107,7 +108,7 @@ export default function AboutPage() {
           </div>
           <h1
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(42px,8vw,82px)", lineHeight: 1.02,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 28,
             }}
@@ -138,7 +139,7 @@ export default function AboutPage() {
                 transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
               }}
             >
-              <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 42, color: "#CC5500", lineHeight: 1, marginBottom: 8 }}>
+              <p style={{ fontFamily: FONT_DISPLAY, fontWeight: 900, fontSize: 42, color: "#CC5500", lineHeight: 1, marginBottom: 8 }}>
                 {stat}
               </p>
               <p style={{ fontSize: 13, color: "rgba(210,225,245,0.5)", fontWeight: 400 }}>{label}</p>
@@ -176,7 +177,7 @@ export default function AboutPage() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontFamily: FONT_DISPLAY, fontWeight: 900,
                 fontSize: "clamp(28px,4vw,44px)", lineHeight: 1.08,
                 letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 24,
               }}
@@ -220,7 +221,7 @@ export default function AboutPage() {
               </svg>
             </div>
             <p style={{ color: "#CC5500", fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, marginBottom: 12 }}>Our Mission</p>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
+            <h3 style={{ fontFamily: FONT_DISPLAY, fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
               Empower Every Business With AI
             </h3>
             <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, fontSize: 15, fontWeight: 300 }}>
@@ -249,7 +250,7 @@ export default function AboutPage() {
               </svg>
             </div>
             <p style={{ color: "#5b8fd4", fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" as const, marginBottom: 12 }}>Our Vision</p>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
+            <h3 style={{ fontFamily: FONT_DISPLAY, fontWeight: 900, fontSize: 26, color: "#F0F4FA", marginBottom: 16, lineHeight: 1.15 }}>
               The World&apos;s Most Trusted AI Provider
             </h3>
             <p style={{ color: "rgba(210,225,245,0.55)", lineHeight: 1.75, fontSize: 15, fontWeight: 300 }}>
@@ -283,7 +284,7 @@ export default function AboutPage() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontFamily: FONT_DISPLAY, fontWeight: 900,
                 fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
                 letterSpacing: "-0.03em", color: "#F0F4FA",
               }}
@@ -312,7 +313,7 @@ export default function AboutPage() {
                 >
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: 17, color: "#F0F4FA", marginBottom: 10, lineHeight: 1.3 }}>
+                <h3 style={{ fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: 17, color: "#F0F4FA", marginBottom: 10, lineHeight: 1.3 }}>
                   {d.title}
                 </h3>
                 <p style={{ color: "rgba(210,225,245,0.45)", fontSize: 13.5, lineHeight: 1.65, fontWeight: 300 }}>{d.desc}</p>
@@ -338,7 +339,7 @@ export default function AboutPage() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif", fontWeight: 900,
+                fontFamily: FONT_DISPLAY, fontWeight: 900,
                 fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
                 letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
               }}
@@ -360,7 +361,7 @@ export default function AboutPage() {
                   transition: "transform 0.3s, border-color 0.3s, box-shadow 0.3s",
                 }}
               >
-                <p style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: "#F0F4FA", marginBottom: 4 }}>
+                <p style={{ fontFamily: FONT_DISPLAY, fontWeight: 700, fontSize: 14, color: "#F0F4FA", marginBottom: 4 }}>
                   {c.label}
                 </p>
                 <p style={{ color: "rgba(210,225,245,0.4)", fontSize: 12 }}>{c.detail}</p>
@@ -382,7 +383,7 @@ export default function AboutPage() {
         <div style={{ position: "relative", zIndex: 2, maxWidth: 640, margin: "0 auto" }}>
           <h2
             style={{
-              fontFamily: "'Playfair Display', serif", fontWeight: 900,
+              fontFamily: FONT_DISPLAY, fontWeight: 900,
               fontSize: "clamp(32px,5vw,52px)", lineHeight: 1.08,
               letterSpacing: "-0.03em", color: "#F0F4FA", marginBottom: 16,
             }}

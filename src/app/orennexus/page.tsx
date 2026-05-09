@@ -28,7 +28,6 @@ export default function Page() {
     <div className="pt-24 pb-12 nexus-page" dangerouslySetInnerHTML={{ __html: `
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
 
     .nexus-page *, .nexus-page *::before, .nexus-page *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -48,8 +47,8 @@ export default function Page() {
       --accent: #CC5500;
       --accent-light: #E8762B;
       --accent-soft: #E2725B;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Roboto', system-ui, sans-serif;
+      --font-display: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
+      --font-body: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       --radius-lg: 20px;
       --radius-md: 15px;
       --radius-sm: 10px;

@@ -1,21 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import styles from "./page.module.css";
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  display: "swap",
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "OrenGen Worldwide — Choose Your Infrastructure",
@@ -32,9 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div
-      className={`${spaceGrotesk.variable} ${plusJakarta.variable} ${styles.root}`}
-    >
+    <div className={styles.root}>
       <nav className={styles.topbar}>
         <div className={styles.wrap}>
           <div className={styles.navInner}>

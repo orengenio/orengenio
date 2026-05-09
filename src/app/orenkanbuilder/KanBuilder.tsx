@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback, type DragEvent, type FormEvent } from "react"
 
+import { FONT_BODY, FONT_DISPLAY } from "@/lib/typography"
+
 /* ──────────────────────────── types ──────────────────────────── */
 
 interface Tier {
@@ -683,7 +685,7 @@ export function KanBuilder() {
           <div style={{ flex: 1 }}>
             <div
               style={{
-                fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: 16,
                 fontWeight: 800,
                 color: "#F0F4FA",
@@ -907,7 +909,7 @@ export function KanBuilder() {
       style={{
         minHeight: "100vh",
         background: "linear-gradient(165deg, #081628 0%, #0B1D3A 30%, #0F2847 60%, #0D2240 100%)",
-        fontFamily: "var(--font-roboto), 'Roboto', sans-serif",
+        fontFamily: FONT_BODY,
         color: "#F0F4FA",
         paddingBottom: 100,
       }}
@@ -967,7 +969,7 @@ export function KanBuilder() {
           </div>
           <h1
             style={{
-              fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+              fontFamily: FONT_DISPLAY,
               fontSize: "clamp(36px, 6vw, 64px)",
               fontWeight: 900,
               lineHeight: 1.05,
@@ -1090,7 +1092,7 @@ export function KanBuilder() {
           >
             <h2
               style={{
-                fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: 22,
                 fontWeight: 800,
                 color: "#F0F4FA",
@@ -1139,7 +1141,7 @@ export function KanBuilder() {
           >
             <h2
               style={{
-                fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                fontFamily: FONT_DISPLAY,
                 fontSize: 22,
                 fontWeight: 800,
                 color: "#CC5500",
@@ -1182,7 +1184,7 @@ export function KanBuilder() {
       <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 60px" }}>
         <h2
           style={{
-            fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+            fontFamily: FONT_DISPLAY,
             fontSize: 28,
             fontWeight: 800,
             color: "#F0F4FA",
@@ -1270,7 +1272,7 @@ export function KanBuilder() {
       <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 60px" }}>
         <h2
           style={{
-            fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+            fontFamily: FONT_DISPLAY,
             fontSize: 28,
             fontWeight: 800,
             color: "#F0F4FA",
@@ -1466,7 +1468,7 @@ export function KanBuilder() {
                 <div style={{ fontSize: 64, marginBottom: 20 }}>{"\u2705"}</div>
                 <h3
                   style={{
-                    fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                    fontFamily: FONT_DISPLAY,
                     fontSize: 28,
                     fontWeight: 800,
                     color: "#F0F4FA",
@@ -1492,7 +1494,7 @@ export function KanBuilder() {
               <>
                 <h3
                   style={{
-                    fontFamily: "var(--font-playfair), 'Playfair Display', serif",
+                    fontFamily: FONT_DISPLAY,
                     fontSize: 24,
                     fontWeight: 800,
                     color: "#F0F4FA",

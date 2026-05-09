@@ -42,7 +42,6 @@ const html = `
 --space-grotesk: 'Space Grotesk';
 --abel: 'Abel';
 --open-sans: 'Open Sans';
---roboto: 'Roboto';
 --montserrat: 'Montserrat';
 --poppins: 'Poppins';
 --headlinefont: 'Inter';
@@ -82,9 +81,6 @@ const html = `
       --og-gold: #D4A843;
       --og-cream: #FFF3E6;
     }
-  
-
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -110,7 +106,7 @@ const html = `
         }
 
         body {
-            font-family: 'Roboto', 'Playfair Display', sans-serif;
+            font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
@@ -156,7 +152,7 @@ const html = `
         }
 
         .social-page h2 {
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
             margin-bottom: 20px;
@@ -278,7 +274,7 @@ const html = `
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
         }
 
         .feature-card p {
@@ -433,7 +429,7 @@ const html = `
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
         }
 
         .stat-label {
@@ -738,7 +734,7 @@ const html = `
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -748,7 +744,7 @@ const html = `
   }
 
   .og-section-header h2 {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -762,7 +758,7 @@ const html = `
   }
 
   .og-section-subtitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
@@ -805,7 +801,7 @@ const html = `
   }
 
   .mkt-footer-trust-label {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -876,7 +872,7 @@ const html = `
   }
 
   .mkt-trust-name {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -1107,7 +1103,7 @@ const html = `
   }
 
   .mkt-footer-tagline {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -1151,7 +1147,7 @@ const html = `
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -1163,7 +1159,7 @@ const html = `
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Roboto', sans-serif; font-size: 13px;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -1176,7 +1172,7 @@ const html = `
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -1186,7 +1182,7 @@ const html = `
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -1200,11 +1196,11 @@ const html = `
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -1242,7 +1238,7 @@ const html = `
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -1273,7 +1269,7 @@ const html = `
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -1397,7 +1393,7 @@ const html = `
       border: 2px solid rgba(204, 85, 0, 0.35);
       border-radius: 100px;
       color: #CC5500;
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 2px;
@@ -1405,7 +1401,7 @@ const html = `
       margin-bottom: 32px;
     }
     .social-hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: clamp(48px, 8vw, 80px);
       line-height: 1.1;
       margin-bottom: 24px;
@@ -1420,7 +1416,7 @@ const html = `
       background-clip: text;
     }
     .social-hero .hero-text {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 18px;
       line-height: 1.6;
       color: rgba(255, 255, 255, 0.7);
@@ -1492,11 +1488,11 @@ const html = `
       flex-shrink: 0;
     }
     .social-card-name {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 13px; font-weight: 600; color: #F0F4FA;
     }
     .social-card-handle {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 11px; color: rgba(255,255,255,0.4);
     }
     .social-card-image {
@@ -1506,12 +1502,12 @@ const html = `
       margin-bottom: 12px;
     }
     .social-card-text {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 13px; color: rgba(255,255,255,0.7);
       line-height: 1.5; margin-bottom: 10px;
     }
     .social-card-stats {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 12px; color: rgba(255,255,255,0.4);
       display: flex; align-items: center; gap: 6px;
     }
@@ -1824,7 +1820,7 @@ const html = `
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $97/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $470/yr (Save 17%)</div>
@@ -1847,7 +1843,7 @@ const html = `
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $197/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $970/yr (Save 17%)</div>
@@ -1870,7 +1866,7 @@ const html = `
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $397/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $1,970/yr (Save 17%)</div>
@@ -1955,7 +1951,6 @@ export default function Page() {
 --space-grotesk: 'Space Grotesk';
 --abel: 'Abel';
 --open-sans: 'Open Sans';
---roboto: 'Roboto';
 --montserrat: 'Montserrat';
 --poppins: 'Poppins';
 --headlinefont: 'Inter';
@@ -1995,9 +1990,6 @@ export default function Page() {
       --og-gold: #D4A843;
       --og-cream: #FFF3E6;
     }
-  
-
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap');
         .social-page * {
             margin: 0;
             padding: 0;
@@ -2023,7 +2015,7 @@ export default function Page() {
         }
 
         .social-page {
-            font-family: 'Roboto', 'Playfair Display', sans-serif;
+            font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
@@ -2067,7 +2059,7 @@ export default function Page() {
         }
 
         .social-page h2 {
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.2;
             margin-bottom: 20px;
@@ -2189,7 +2181,7 @@ export default function Page() {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
         }
 
         .feature-card p {
@@ -2344,7 +2336,7 @@ export default function Page() {
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
-            font-family: 'Playfair Display', sans-serif;
+            font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
         }
 
         .stat-label {
@@ -2649,7 +2641,7 @@ export default function Page() {
     background: rgba(204, 85, 0, 0.1);
     border: 1px solid rgba(204, 85, 0, 0.3);
     border-radius: 100px;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: #ff8c42;
@@ -2659,7 +2651,7 @@ export default function Page() {
   }
 
   .og-section-header h2 {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 800;
     line-height: 1.1;
@@ -2673,7 +2665,7 @@ export default function Page() {
   }
 
   .og-section-subtitle {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
     font-size: clamp(16px, 2vw, 18px);
     color: var(--oren-sub);
     max-width: 600px;
@@ -2716,7 +2708,7 @@ export default function Page() {
   }
 
   .mkt-footer-trust-label {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -2787,7 +2779,7 @@ export default function Page() {
   }
 
   .mkt-trust-name {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -3018,7 +3010,7 @@ export default function Page() {
   }
 
   .mkt-footer-tagline {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -3062,7 +3054,7 @@ export default function Page() {
      FOOTER COLUMNS
      ======================================== */
   .mkt-footer-col-title {
-    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; position: relative; padding-bottom: 10px;
   }
@@ -3074,7 +3066,7 @@ export default function Page() {
   .mkt-footer-links { list-style: none; padding: 0; margin: 0; }
   .mkt-footer-links li { margin-bottom: 10px; }
   .mkt-footer-links a {
-    font-family: 'Roboto', sans-serif; font-size: 13px;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 13px;
     color: rgba(255, 255, 255, 0.75); text-decoration: none;
     transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 6px;
   }
@@ -3087,7 +3079,7 @@ export default function Page() {
      ======================================== */
   .mkt-footer-resources { padding: 40px 0; border-bottom: 1px solid var(--border); }
   .mkt-footer-resources-title {
-    font-family: 'Playfair Display', sans-serif; font-size: 12px; font-weight: 700;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase; color: var(--foreground);
     margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
   }
@@ -3097,7 +3089,7 @@ export default function Page() {
   }
   .mkt-footer-resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 24px; }
   .mkt-footer-resources-grid a {
-    font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.75);
     text-decoration: none; padding: 6px 0; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease;
   }
   .mkt-footer-resources-grid a:hover { color: var(--orange); }
@@ -3111,11 +3103,11 @@ export default function Page() {
     padding: 28px 0; display: flex; align-items: center;
     justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .mkt-footer-copy { font-family: 'Roboto', sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+  .mkt-footer-copy { font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
   .mkt-footer-copy a { color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-copy a:hover { color: var(--orange); }
   .mkt-footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .mkt-footer-bottom-links a { font-family: 'Roboto', sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
+  .mkt-footer-bottom-links a { font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif; font-size: 11px; color: rgba(255, 255, 255, 0.6); text-decoration: none; transition: color 0.25s ease; }
   .mkt-footer-bottom-links a:hover { color: var(--orange); }
   .mkt-footer-payment { display: flex; align-items: center; }
   .mkt-footer-payment-img { height: 28px; width: auto; filter: brightness(0.85); transition: filter 0.3s ease; object-fit: contain; }
@@ -3153,7 +3145,7 @@ export default function Page() {
     flex-wrap: wrap;
     transform: translateY(100%);
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    font-family: 'Roboto', 'Inter', system-ui, sans-serif;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
   }
 
   .og-cookie-banner.visible {
@@ -3184,7 +3176,7 @@ export default function Page() {
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
@@ -3308,7 +3300,7 @@ export default function Page() {
       border: 2px solid rgba(204, 85, 0, 0.35);
       border-radius: 100px;
       color: #CC5500;
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 2px;
@@ -3316,7 +3308,7 @@ export default function Page() {
       margin-bottom: 32px;
     }
     .social-hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
       font-size: clamp(48px, 8vw, 80px);
       line-height: 1.1;
       margin-bottom: 24px;
@@ -3331,7 +3323,7 @@ export default function Page() {
       background-clip: text;
     }
     .social-hero .hero-text {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 18px;
       line-height: 1.6;
       color: rgba(255, 255, 255, 0.7);
@@ -3403,11 +3395,11 @@ export default function Page() {
       flex-shrink: 0;
     }
     .social-card-name {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 13px; font-weight: 600; color: #F0F4FA;
     }
     .social-card-handle {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 11px; color: rgba(255,255,255,0.4);
     }
     .social-card-image {
@@ -3417,12 +3409,12 @@ export default function Page() {
       margin-bottom: 12px;
     }
     .social-card-text {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 13px; color: rgba(255,255,255,0.7);
       line-height: 1.5; margin-bottom: 10px;
     }
     .social-card-stats {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
       font-size: 12px; color: rgba(255,255,255,0.4);
       display: flex; align-items: center; gap: 6px;
     }
@@ -3735,7 +3727,7 @@ export default function Page() {
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $97/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$47</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $470/yr (Save 17%)</div>
@@ -3758,7 +3750,7 @@ export default function Page() {
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $197/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$97</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $970/yr (Save 17%)</div>
@@ -3781,7 +3773,7 @@ export default function Page() {
                 <div style="margin-bottom:20px;">
                     <div style="color:rgba(255,255,255,0.35);font-size:11px;text-decoration:line-through;margin-bottom:4px;">Was $397/mo</div>
                     <div style="display:flex;align-items:flex-end;gap:4px;">
-                        <span style="font-family:'Playfair Display',sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
+                        <span style="font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-size:44px;font-weight:800;color:#CC5500;line-height:1;">$197</span>
                         <span style="color:rgba(255,255,255,0.35);font-size:14px;padding-bottom:7px;">/mo</span>
                     </div>
                     <div style="color:rgba(255,255,255,0.3);font-size:12px;margin-top:4px;">Or $1,970/yr (Save 17%)</div>

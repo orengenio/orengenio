@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { FONT_BODY } from "@/lib/typography";
+
 export function SignalSignup() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
@@ -42,7 +44,7 @@ export function SignalSignup() {
   }
 
   return (
-    <div style={{ fontFamily: "'Roboto', sans-serif" }}>
+    <div style={{ fontFamily: FONT_BODY }}>
       <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#CC5500", marginBottom: 8 }}>
         Tune In to <span style={{ color: "#fff" }}>OrenSignal</span>
       </div>

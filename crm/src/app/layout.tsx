@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
-
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { siteFontVariablesClassName } from "@/lib/siteFonts";
 
 export const metadata: Metadata = {
   title: { default: "OrenGen Backend", template: "%s · OrenGen Backend" },
@@ -33,7 +27,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={siteFontVariablesClassName}>
       <body>{children}</body>
     </html>
   );

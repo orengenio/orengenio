@@ -47,7 +47,18 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui,
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-space-grotesk), "Space Grotesk", system-ui,
+      sans-serif;
   }
 }
 
@@ -659,7 +670,7 @@
 }
 
 .og-hero-h1{
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-weight:900;
   font-size:clamp(42px,8vw,92px);
   line-height:1.02;
@@ -846,7 +857,7 @@
 }
 
 .ogS3-title{
-  font-family:'Playfair Display',serif;font-weight:900;
+  font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;font-weight:900;
   font-size:clamp(32px,5vw,56px);line-height:1.06;
   letter-spacing:-.03em;color:#0F2847;margin-bottom:18px;
 }
@@ -1024,7 +1035,7 @@
   flex-shrink:0;
 }
 .ogS3-stat-val{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;
   font-weight:900;
   font-size:clamp(24px, 3.5vw, 34px);
   color:#CC5500;
@@ -1109,7 +1120,7 @@
 }
 
 .ogAg-title{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;
   font-weight:900;
   font-size:clamp(34px,6vw,64px);
   line-height:1.06;
@@ -1192,7 +1203,7 @@
 
 /* ── Card Content ── */
 .ogAg-card-name{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;
   font-weight:900;
   font-size:26px;
   color:#F0F4FA;
@@ -1251,7 +1262,7 @@
 }
 
 .ogAg-stat-val{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-space-grotesk),"Space Grotesk",system-ui,sans-serif;
   font-weight:900;
   font-size:22px;
   color:#CC5500;
@@ -1330,7 +1341,7 @@
 .pricing-section{max-width:1280px;margin:0 auto;padding:80px 24px}
 
 .section-tag{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--oren-orange);text-align:center;margin-bottom:12px}
-.section-title{font-family:'Playfair Display', serif;font-weight:900;font-size:clamp(32px,5vw,48px);text-align:center;line-height:1.15;margin-bottom:16px}
+.section-title{font-family:var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;font-weight:900;font-size:clamp(32px,5vw,48px);text-align:center;line-height:1.15;margin-bottom:16px}
 .section-title span{color:var(--oren-orange)}
 .section-sub{font-size:16px;color:#5B6675;text-align:center;max-width:620px;margin:0 auto 56px;line-height:1.6}
 
@@ -1355,7 +1366,7 @@
 .tier-card.custom-tier .tier-cta:hover{background:var(--oren-white);box-shadow:0 8px 24px rgba(0,0,0,0.3);transform:translateY(-2px)}
 
 .tier-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--oren-orange),var(--oren-orange-glow));color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 20px;border-radius:20px;white-space:nowrap}
-.tier-name{font-family:'Playfair Display', serif;font-weight:900;font-size:22px;margin-bottom:4px;color:#F0F4FA;}
+.tier-name{font-family:var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;font-weight:900;font-size:22px;margin-bottom:4px;color:#F0F4FA;}
 .tier-desc{font-size:13px;color:var(--oren-sub);margin-bottom:20px;line-height:1.5;min-height:40px}
 .tier-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;flex-wrap:wrap}
 .tier-was{font-size:15px;color:rgba(210,225,245,0.45);text-decoration:line-through}
@@ -1367,7 +1378,7 @@
 .tier-features{list-style:none;margin-bottom:24px;flex:1;padding:0;}
 .tier-features li{font-size:12.5px;color:var(--oren-sub);padding:5px 0;padding-left:20px;position:relative;line-height:1.5}
 .tier-features li::before{content:'✓';position:absolute;left:0;color:#22C55E;font-weight:700;font-size:12px}
-.tier-cta{display:block;width:100%;padding:13px;border:none;border-radius:10px;font-family:'Roboto', sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.3s;text-decoration:none;margin-top:auto}
+.tier-cta{display:block;width:100%;padding:13px;border:none;border-radius:10px;font-family:var(--font-plus-jakarta),"Plus Jakarta Sans",system-ui,sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.3s;text-decoration:none;margin-top:auto}
 .tier-cta.primary{background:linear-gradient(135deg,var(--oren-orange),var(--oren-orange-glow));color:#fff;box-shadow:0 4px 20px rgba(204,85,0,0.3)}
 .tier-cta.primary:hover{box-shadow:0 8px 30px rgba(204,85,0,0.5);transform:translateY(-2px)}
 .tier-cta.outline{background:transparent;color:var(--oren-white);border:1px solid var(--oren-line-subtle)}
@@ -1382,7 +1393,7 @@
 
 /* Usage Rates */
 .usage-section{margin-bottom:72px}
-.usage-title{font-family:'Playfair Display', serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
+.usage-title{font-family:var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
 .usage-sub{font-size:14px;color:#5B6675;text-align:center;margin-bottom:32px}
 .usage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .usage-card{background:var(--oren-close);border:1px solid var(--oren-line-subtle);border-radius:12px;padding:24px 16px;text-align:center;transition:border-color 0.3s,box-shadow 0.3s}
@@ -1394,7 +1405,7 @@
 
 /* Competitive Chart */
 .comp-section{margin-bottom:56px}
-.comp-title{font-family:'Playfair Display', serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
+.comp-title{font-family:var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;font-weight:900;font-size:24px;text-align:center;margin-bottom:8px}
 .comp-sub{font-size:14px;color:#5B6675;text-align:center;margin-bottom:36px}
 .comp-chart{max-width:800px;margin:0 auto}
 .comp-row{display:flex;align-items:center;margin-bottom:10px;gap:12px}
@@ -1409,7 +1420,7 @@
 
 /* Bottom CTA */
 .bottom-cta{text-align:center;padding:48px 24px;background:var(--oren-close);border-radius:16px;border:1px solid var(--oren-line-subtle)}
-.bottom-cta-text{font-family:'Playfair Display', serif;font-weight:900;font-size:clamp(20px,3vw,28px);margin-bottom:8px;color:#F0F4FA;}
+.bottom-cta-text{font-family:var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);margin-bottom:8px;color:#F0F4FA;}
 .bottom-cta-sub{font-size:14px;color:var(--oren-sub);margin-bottom:24px}
 .bottom-cta a{display:inline-block;padding:14px 40px;background:linear-gradient(135deg,var(--oren-orange),var(--oren-orange-glow));color:#fff;font-weight:700;font-size:15px;border-radius:10px;text-decoration:none;box-shadow:0 4px 20px rgba(204,85,0,0.3);transition:all 0.3s}
 .bottom-cta a:hover{box-shadow:0 8px 30px rgba(204,85,0,0.5);transform:translateY(-2px)}
@@ -1438,8 +1449,8 @@
   --og-text: #F0F4FA;
   --og-text-secondary: rgba(210, 225, 245, 0.6);
   --og-text-muted: rgba(210, 225, 245, 0.35);
-  --og-font-display: 'Playfair Display', serif;
-  --og-font-body: 'Roboto', sans-serif;
+  --og-font-display: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
+  --og-font-body: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 .og-trust-bar {
@@ -1658,7 +1669,7 @@
 }
 
 .agent-showcase-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-weight: 900;
   font-size: clamp(32px, 5vw, 52px);
   line-height: 1.08;
@@ -1895,7 +1906,7 @@
 }
 
 .testimonials-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-weight: 900;
   font-size: clamp(32px, 5vw, 52px);
   line-height: 1.08;
@@ -2103,7 +2114,7 @@
 }
 
 .blog-preview-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-weight: 900;
   font-size: clamp(32px, 5vw, 48px);
   line-height: 1.08;
@@ -2166,7 +2177,7 @@
 }
 
 .blog-preview-card-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-size: 18px;
   font-weight: 800;
   color: #F0F4FA;
@@ -2689,7 +2700,7 @@
     0 0 0 1px rgba(255, 255, 255, 0.04),
     0 0 60px rgba(204, 85, 0, 0.15);
   padding: 36px clamp(20px, 4vw, 40px);
-  font-family: 'Roboto', system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
   color: #F0F4FA;
   animation: leadSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -2739,7 +2750,7 @@
 }
 
 .lead-modal-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(24px, 3.4vw, 32px);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -2884,7 +2895,7 @@
 }
 
 .lead-form-success-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   font-size: 28px;
   font-weight: 800;
   color: #F0F4FA;
@@ -2901,7 +2912,7 @@
 .lead-form-success-id {
   font-size: 12px;
   color: rgba(210, 225, 245, 0.4);
-  font-family: 'Roboto Mono', ui-monospace, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   margin: 0;
 }
 

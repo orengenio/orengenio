@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SignalSignup } from './SignalSignup';
 
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
+import { FONT_BODY } from "@/lib/typography";
 interface TrustLink {
   href: string;
   icon: string;
@@ -81,7 +82,7 @@ const bottomLinks = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="og-footer bg-white" style={{ fontFamily: "'Roboto', sans-serif" }} aria-label="OrenGen Worldwide Footer">
+    <footer className="og-footer bg-white" style={{ fontFamily: FONT_BODY }} aria-label="OrenGen Worldwide Footer">
 
       {/* ─── TRUST BAR — Brand 4-stop gradient background ─── */}
       <section
@@ -137,7 +138,7 @@ export const Footer: React.FC = () => {
               }
             `}</style>
             <div className="og-fire-ring">
-              <div className="text-[12px] font-bold tracking-[3px] uppercase whitespace-nowrap" style={{ fontFamily: "'Roboto', sans-serif" }}>
+              <div className="text-[12px] font-bold tracking-[3px] uppercase whitespace-nowrap" style={{ fontFamily: FONT_BODY }}>
                 <span style={{ color: '#CC5500' }}>ONLINE EVERYWHERE</span>
                 <span className="mx-2" style={{ color: 'rgba(0,0,0,0.25)' }}>|</span>
                 <span style={{ color: '#000' }}>ORENGENIO</span>
@@ -155,11 +156,11 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* ─── LINK COLUMNS — Uniform 12px Roboto, tight spacing ─── */}
+        {/* ─── LINK COLUMNS — Uniform 12px body type, tight spacing ─── */}
         <div className="py-6 grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-6 border-t border-black/5">
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-[12px] font-bold uppercase tracking-[2px] mb-3 inline-block pb-0.5 border-b-2 border-[#CC5500]" style={{ fontFamily: "'Roboto', sans-serif", color: '#000' }}>{col.title}</h4>
+              <h4 className="text-[12px] font-bold uppercase tracking-[2px] mb-3 inline-block pb-0.5 border-b-2 border-[#CC5500]" style={{ fontFamily: FONT_BODY, color: '#000' }}>{col.title}</h4>
               <ul className="flex flex-col gap-1.5">
                 {col.links.map((link) => {
                   const isExternal = 'external' in link && link.external;
@@ -167,9 +168,9 @@ export const Footer: React.FC = () => {
                   return (
                     <li key={link.name}>
                       {isExternal ? (
-                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={cls} style={{ fontFamily: "'Roboto', sans-serif" }}>{link.name} <span className="text-[9px] text-black/25">&#8599;</span></a>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" className={cls} style={{ fontFamily: FONT_BODY }}>{link.name} <span className="text-[9px] text-black/25">&#8599;</span></a>
                       ) : (
-                        <Link href={link.href} className={cls} style={{ fontFamily: "'Roboto', sans-serif" }}>{link.name}</Link>
+                        <Link href={link.href} className={cls} style={{ fontFamily: FONT_BODY }}>{link.name}</Link>
                       )}
                     </li>
                   );
@@ -187,7 +188,7 @@ export const Footer: React.FC = () => {
         {/* ─── SMS / A2P COMPLIANCE DISCLOSURE — visible on every page ─── */}
         <div
           className="py-4 border-t border-black/5 text-[11px] leading-relaxed text-black/65 text-center md:text-left"
-          style={{ fontFamily: "'Roboto', sans-serif" }}
+          style={{ fontFamily: FONT_BODY }}
           aria-label="SMS and mobile communications disclosure"
         >
           <p className="mb-1">
@@ -200,14 +201,14 @@ export const Footer: React.FC = () => {
 
         {/* ─── BOTTOM BAR — All black, same font ─── */}
         <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-black/5">
-          <div className="text-[12px] font-normal text-black/80 shrink-0 text-center md:text-left" style={{ fontFamily: "'Roboto', sans-serif" }}>
+          <div className="text-[12px] font-normal text-black/80 shrink-0 text-center md:text-left" style={{ fontFamily: FONT_BODY }}>
             &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="https://orengen.io" className="hover:text-[#CC5500] transition-colors">OrenGen Worldwide LLC</a>. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
             {bottomLinks.map(({ path, label }) => (
-              <Link key={path} href={path} className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }}>{label}</Link>
+              <Link key={path} href={path} className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: FONT_BODY }}>{label}</Link>
             ))}
-            <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: "'Roboto', sans-serif" }} target="_blank" rel="noopener noreferrer">Site Status</a>
+            <a href="https://orengen-status-page.instatus.com" className="text-[12px] font-normal text-black/80 hover:text-[#CC5500] transition-colors" style={{ fontFamily: FONT_BODY }} target="_blank" rel="noopener noreferrer">Site Status</a>
           </div>
         </div>
 

@@ -7,30 +7,8 @@ import { OrbChatWrapper } from "@/components/OrbChatWrapper";
 import { Analytics } from "@/components/Analytics";
 import { ContactBar } from "@/components/ContactBar";
 import { ChromeGate } from "@/components/ChromeGate";
-import { Geist, Geist_Mono, Playfair_Display, Roboto } from "next/font/google";
 import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
+import { siteFontVariablesClassName } from "@/lib/siteFonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://orengen.io'),
@@ -77,10 +55,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${roboto.variable} antialiased selection:bg-burnt-orange/30 selection:text-burnt-orange`}
-      >
+    <html lang="en" suppressHydrationWarning className={siteFontVariablesClassName}>
+      <body className="antialiased selection:bg-burnt-orange/30 selection:text-burnt-orange">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
