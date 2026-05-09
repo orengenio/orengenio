@@ -4,9 +4,9 @@ import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets"
 import { siteFontVariablesClassName } from "@/lib/siteFonts";
 
 export const metadata: Metadata = {
-  title: { default: "OrenGen Backend", template: "%s · OrenGen Backend" },
+  title: { default: "OrenGen Workspace", template: "%s · OrenGen Workspace" },
   description:
-    "Secure backend for OrenGen Worldwide and its clients. Voice, SMS, pipeline, and AI agents in one workspace.",
+    "OrenGen Workspace — voice, SMS, pipeline, and AI agents in one place for every client.",
   robots: { index: false, follow: false },
   icons: {
     icon: OFFICIAL_FAVICON_URL,
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "OrenGen Backend",
-    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "OrenGen Backend" }],
+    siteName: "OrenGen Workspace",
+    images: [{ url: OFFICIAL_LOGO_BLUE_URL, width: 1200, height: 630, alt: "OrenGen Workspace" }],
   },
   twitter: {
     card: "summary_large_image",
