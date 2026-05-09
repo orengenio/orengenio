@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Check } from "lucide-react";
 
-import { OFFICIAL_FAVICON_URL } from "@/lib/brandAssets";
+// Use the LOCAL favicon (public/favicon.png) here, not a CDN URL — the orb is
+// hero content and must not break if the CDN is unreachable.
+const ORB_GLYPH_SRC = "/favicon.png";
 const partners = [
   { name: "OpenAI", logo: "https://svgl.app/library/openai.svg", brand: "openai" },
   { name: "Anthropic", logo: "https://cdn.simpleicons.org/claude/CC5500", brand: "anthropic" },
@@ -155,7 +157,7 @@ export function Hero() {
             className={`ai-orb group relative`}
           >
             <img 
-              src={OFFICIAL_FAVICON_URL} 
+              src={ORB_GLYPH_SRC} 
               alt="OrenGen" 
               className="ai-orb-logo" 
             />

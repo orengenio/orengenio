@@ -4,7 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { trackChatStart } from "@/lib/track";
 
-import { OFFICIAL_FAVICON_URL } from "@/lib/brandAssets";
+// Local asset (public/favicon.png) — must be reliable; CDN-only would break
+// the floating orb if Content360 has an outage.
+const ORB_GLYPH_SRC = "/favicon.png";
+
 interface FloatingOrbProps {
   onClick: () => void;
   isActive: boolean;
@@ -100,10 +103,9 @@ export function FloatingOrb({ onClick, isActive }: FloatingOrbProps) {
           ) : (
             // Logo when panel is closed
             <img
-              src={OFFICIAL_FAVICON_URL}
+              src={ORB_GLYPH_SRC}
               alt="OrenGen"
               className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-lg"
-              style={{ filter: "brightness(10)" }}
             />
           )}
 

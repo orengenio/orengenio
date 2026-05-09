@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/lib/rate-limit";
 
 type LeadPayload = {
   name: string;
@@ -134,6 +135,19 @@ async function sendTwilioSms(lead: LeadPayload): Promise<void> {
 }
 
 export async function POST(req: NextRequest) {
+  // Public endpoint — abuse vector for n8n / ERPNext / Twilio cost. Cap at
+  // 5 lead submissions per IP per minute. Real contact funnels never hit this.
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
+  if (!rateLimit(`leads:${ip}`, { maxRequests: 5, windowMs: 60_000 })) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please slow down." },
+      { status: 429, headers: { "Retry-After": "60" } },
+    );
+  }
+
   let body: unknown;
   try {
     body = await req.json();
