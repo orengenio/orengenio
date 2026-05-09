@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { posts, type BlogPost } from "@/data/blog-posts";
 
 
+import { AuthorBio } from "@/components/AuthorBio";
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 import { FONT_DISPLAY } from "@/lib/typography";
 const categoryColors: Record<string, string> = {
@@ -275,6 +276,8 @@ export default async function BlogPostPage({
           </p>
 
           <div>{renderContent(post.content)}</div>
+
+          <AuthorBio author={post.author} />
 
           {/* Social share */}
           <div className="mt-16 pt-8 border-t border-white/10">

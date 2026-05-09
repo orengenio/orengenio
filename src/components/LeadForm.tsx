@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from "react";
 
+import { events } from "@/lib/analytics-events";
+
 type LeadFormProps = {
   source: string;
   onSuccess?: (leadId: string) => void;
@@ -13,17 +15,50 @@ type SubmitState =
   | { kind: "success"; leadId: string }
   | { kind: "error"; message: string };
 
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  phone?: string;
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[+]?[\d\s().-]{7,}$/;
+
+function validate(values: { name: string; email: string; phone: string }): FieldErrors {
+  const errs: FieldErrors = {};
+  if (!values.name.trim()) errs.name = "Name is required.";
+  if (!values.email.trim()) errs.email = "Email is required.";
+  else if (!EMAIL_RE.test(values.email.trim()))
+    errs.email = "Enter a valid email like you@company.com.";
+  if (!values.phone.trim()) errs.phone = "Phone is required.";
+  else if (!PHONE_RE.test(values.phone.trim()))
+    errs.phone = "Enter a valid phone number.";
+  return errs;
+}
+
 export function LeadForm({ source, onSuccess }: LeadFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [useCase, setUseCase] = useState("");
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [state, setState] = useState<SubmitState>({ kind: "idle" });
+
+  const fieldErrors = validate({ name, email, phone });
+  const showError = (field: keyof FieldErrors) =>
+    Boolean(touched[field] && fieldErrors[field]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (state.kind === "submitting") return;
+
+    setTouched({ name: true, email: true, phone: true });
+    if (Object.keys(fieldErrors).length > 0) {
+      setState({ kind: "error", message: "Please fix the highlighted fields." });
+      return;
+    }
+
     setState({ kind: "submitting" });
 
     try {
@@ -47,6 +82,7 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
       };
 
       if (!res.ok || !data.ok) {
+        events.leadFail(source, data.error || `http_${res.status}`);
         setState({
           kind: "error",
           message: data.error || "Something went wrong. Please try again.",
@@ -54,9 +90,11 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
         return;
       }
 
+      events.leadSubmit(source);
       setState({ kind: "success", leadId: data.lead_id || "" });
       onSuccess?.(data.lead_id || "");
     } catch {
+      events.leadFail(source, "network");
       setState({
         kind: "error",
         message: "Network error. Please check your connection and try again.",
@@ -95,9 +133,17 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
+          onBlur={() => setTouched((t) => ({ ...t, name: true }))}
           disabled={submitting}
           placeholder="Your full name"
+          aria-invalid={showError("name") || undefined}
+          aria-describedby={showError("name") ? "lead-name-err" : undefined}
         />
+        {showError("name") ? (
+          <span id="lead-name-err" className="lead-form-fielderr" role="alert">
+            {fieldErrors.name}
+          </span>
+        ) : null}
       </label>
 
       <label className="lead-form-label">
@@ -110,9 +156,17 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onBlur={() => setTouched((t) => ({ ...t, email: true }))}
           disabled={submitting}
           placeholder="you@company.com"
+          aria-invalid={showError("email") || undefined}
+          aria-describedby={showError("email") ? "lead-email-err" : undefined}
         />
+        {showError("email") ? (
+          <span id="lead-email-err" className="lead-form-fielderr" role="alert">
+            {fieldErrors.email}
+          </span>
+        ) : null}
       </label>
 
       <label className="lead-form-label">
@@ -125,9 +179,17 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
           required
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+          onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
           disabled={submitting}
           placeholder="+1 555 123 4567"
+          aria-invalid={showError("phone") || undefined}
+          aria-describedby={showError("phone") ? "lead-phone-err" : undefined}
         />
+        {showError("phone") ? (
+          <span id="lead-phone-err" className="lead-form-fielderr" role="alert">
+            {fieldErrors.phone}
+          </span>
+        ) : null}
       </label>
 
       <label className="lead-form-label">
@@ -176,5 +238,3 @@ export function LeadForm({ source, onSuccess }: LeadFormProps) {
     </form>
   );
 }
-
-export default LeadForm;

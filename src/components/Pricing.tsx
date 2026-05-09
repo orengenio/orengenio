@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+import { events } from "@/lib/analytics-events";
+
 const compData = [
   { label: 'OrenGen', low: 0.12, high: 0.14, ours: true },
   { label: 'Bland AI', low: 0.12, high: 0.14, ours: false },
@@ -64,7 +66,15 @@ export function Pricing() {
             <li>We build it. We manage it.</li>
             <li>Email support</li>
           </ul>
-          <Link href="https://buy.stripe.com/3cIaEXekw11dc0rd8lfQI3s" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Get Started</Link>
+          <Link
+            href="https://buy.stripe.com/3cIaEXekw11dc0rd8lfQI3s"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tier-cta outline"
+            onClick={() => events.checkoutStart(197)}
+          >
+            Get Started
+          </Link>
         </div>
 
         {/* TIER 2 - FEATURED */}
@@ -88,7 +98,15 @@ export function Pricing() {
             <li>Multi-channel deployment, 24/7</li>
             <li>Priority support</li>
           </ul>
-          <Link href="https://buy.stripe.com/7sYcN52BObFRc0r8S5fQI3t" target="_blank" rel="noopener noreferrer" className="tier-cta primary">Start Growing</Link>
+          <Link
+            href="https://buy.stripe.com/7sYcN52BObFRc0r8S5fQI3t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tier-cta primary"
+            onClick={() => events.checkoutStart(497)}
+          >
+            Start Growing
+          </Link>
         </div>
 
         {/* TIER 3 */}
@@ -112,7 +130,15 @@ export function Pricing() {
             <li>Advanced analytics + lead scoring</li>
             <li>Priority support</li>
           </ul>
-          <Link href="https://buy.stripe.com/dRm5kDb8k25h9Sjd8lfQI3u" target="_blank" rel="noopener noreferrer" className="tier-cta outline">Start Dominating</Link>
+          <Link
+            href="https://buy.stripe.com/dRm5kDb8k25h9Sjd8lfQI3u"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tier-cta outline"
+            onClick={() => events.checkoutStart(997)}
+          >
+            Start Dominating
+          </Link>
         </div>
 
         {/* TIER 4 - ENTERPRISE */}
@@ -135,7 +161,13 @@ export function Pricing() {
             <li>White-glove onboarding</li>
             <li>SLA &amp; custom integrations</li>
           </ul>
-          <Link href="https://book.orengen.io" className="tier-cta">Book a Strategy Call</Link>
+          <Link
+            href="https://book.orengen.io"
+            className="tier-cta"
+            onClick={() => events.ctaClick("book_strategy_call", "pricing_enterprise")}
+          >
+            Book a Strategy Call
+          </Link>
         </div>
       </div>
 
