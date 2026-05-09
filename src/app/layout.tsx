@@ -10,6 +10,7 @@ import { ChromeGate } from "@/components/ChromeGate";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { OrenSignalSticky } from "@/components/OrenSignalSticky";
 import { TechBar } from "@/components/TechBar";
+import { WebVitalsReporter } from "@/components/WebVitalsReporter";
 import { OFFICIAL_FAVICON_URL, OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 import { siteFontVariablesClassName } from "@/lib/siteFonts";
 
@@ -113,6 +114,7 @@ export default function RootLayout({
           <ConsentBanner />
         </ThemeProvider>
         <Analytics />
+        <WebVitalsReporter />
       </body>
     </html>
   );

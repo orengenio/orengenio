@@ -5,6 +5,7 @@ import { Comparison } from "@/components/Comparison";
 import { Testimonials } from "@/components/Testimonials";
 import { BlogPreview } from "@/components/BlogPreview";
 import { Pricing } from "@/components/Pricing";
+import { SocialProofBar } from "@/components/SocialProofBar";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { OFFICIAL_LOGO_BLUE_URL } from "@/lib/brandAssets";
 
@@ -55,6 +56,7 @@ export default function PlatformPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}
       />
       <Hero />
+      <SocialProofBar />
       <AgentShowcase />
       <Comparison />
       <Testimonials />

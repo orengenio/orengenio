@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Mail, X } from "lucide-react";
 
+import { events } from "@/lib/analytics-events";
+
 const STORAGE_KEY = "og-signal-dismiss";
 const DISMISS_HOURS = 24;
 const HIDE_ON: ReadonlySet<string> = new Set(["/", "/login"]);
@@ -96,6 +98,7 @@ export function OrenSignalSticky() {
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      events.signalSubscribe("sticky-cta");
       setStatus("ok");
       setEmail("");
       markDismissed();

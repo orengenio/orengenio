@@ -2872,6 +2872,17 @@
   padding: 10px 14px;
 }
 
+.lead-form-fielderr {
+  color: #ffb4b4;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.lead-form-input[aria-invalid="true"] {
+  border-color: rgba(233, 61, 61, 0.6);
+}
+
 .lead-form-success {
   text-align: center;
   padding: 24px 8px 8px;
