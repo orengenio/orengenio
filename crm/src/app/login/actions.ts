@@ -22,7 +22,10 @@ export async function signInWithMagicLink(formData: FormData) {
     },
   });
   if (error) {
-    redirect(`/login?error=${encodeURIComponent(error.message)}`);
+    // Log server-side; surface a generic code to the URL so we never echo
+    // raw Supabase / GoTrue messages back to the visitor.
+    console.warn("[crm/login] magic-link failed:", error.message);
+    redirect("/login?error=magic-link-failed");
   }
   redirect(`/login?sent=${encodeURIComponent(email)}${next ? `&next=${encodeURIComponent(next)}` : ""}`);
 }
@@ -41,7 +44,8 @@ export async function signInWithGoogle(formData: FormData) {
     },
   });
   if (error || !data?.url) {
-    redirect(`/login?error=${encodeURIComponent(error?.message ?? "oauth-failed")}`);
+    console.warn("[crm/login] google oauth failed:", error?.message ?? "no-url");
+    redirect("/login?error=oauth-failed");
   }
   redirect(data.url);
 }

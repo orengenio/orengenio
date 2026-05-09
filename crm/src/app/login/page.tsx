@@ -8,6 +8,19 @@ import { signInWithGoogle, signInWithMagicLink } from "./actions";
 
 type SearchParams = Promise<{ sent?: string; error?: string; next?: string }>;
 
+const ERROR_COPY: Record<string, string> = {
+  "missing-email": "Please enter your email.",
+  "missing-code": "Your sign-in link expired or was already used. Please try again.",
+  "magic-link-failed": "We couldn't send your sign-in link. Please try again or use Google.",
+  "oauth-failed": "Google sign-in didn't complete. Please try again.",
+  "session-failed": "We couldn't finish signing you in. Please try again.",
+};
+
+function friendlyError(code: string | undefined): string | null {
+  if (!code) return null;
+  return ERROR_COPY[code] ?? "Something went wrong. Please try again.";
+}
+
 export default async function LoginPage({
   searchParams,
 }: {
@@ -20,13 +33,14 @@ export default async function LoginPage({
   if (user) redirect("/dashboard");
 
   const { sent, error, next } = await searchParams;
+  const errorMessage = friendlyError(error);
 
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-16">
       <Card>
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--color-accent)]">
-            OrenGen Backend
+            OrenGen Workspace
           </p>
           <h1 className="mt-2 text-2xl font-semibold">Sign in</h1>
           <p className="mt-1 text-sm text-[color:var(--color-fg-dim)]">
@@ -40,9 +54,9 @@ export default async function LoginPage({
           </div>
         ) : null}
 
-        {error ? (
+        {errorMessage ? (
           <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-            {error}
+            {errorMessage}
           </div>
         ) : null}
 

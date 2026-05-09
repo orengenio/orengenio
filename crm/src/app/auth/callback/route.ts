@@ -14,9 +14,8 @@ export async function GET(request: NextRequest) {
   const { error } = await supabase.auth.exchangeCodeForSession(code);
 
   if (error) {
-    return NextResponse.redirect(
-      `${origin}/login?error=${encodeURIComponent(error.message)}`,
-    );
+    console.warn("[crm/auth-callback] exchange failed:", error.message);
+    return NextResponse.redirect(`${origin}/login?error=session-failed`);
   }
 
   return NextResponse.redirect(`${origin}${next}`);
